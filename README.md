@@ -14,6 +14,14 @@
 - 🤖 **Purple Team Engineer** developing automation tools for security operations
 - 🎓 **Continuous Learner** studying advanced ethical hacking methodologies
 
+## 🛡️ XSS Research & Findings
+
+**Specialized in Cross-Site Scripting (XSS) Vulnerability Research:**
+- 🔍 **Pop-up window stored XSS** - Advanced exploitation techniques
+- 🎯 **DOM-based XSS** - Client-side vulnerability analysis
+- 🔧 **Reflected XSS** - Server-side input validation bypass
+- 📊 **Blind XSS** - Out-of-band data exfiltration methods
+
 ## 🚀 Current Focus
 
 ```javascript
