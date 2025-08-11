@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jose Guzman - Cybersecurity Researcher</title>
+    
+    <!-- SEO and social meta tags -->
+    <meta name="description" content="Jose Guzman - Cybersecurity Researcher, Bug Bounty Hunter, XSS Specialist">
+    <meta name="keywords" content="cybersecurity, bug bounty, ethical hacking, XSS, vulnerability research">
+    <meta name="author" content="Jose Guzman (@joseguzman1337)">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://joseguzman1337.github.io/">
+    <meta property="og:title" content="Jose Guzman - Cybersecurity Researcher">
+    <meta property="og:description" content="Bug Bounty Hunter | Ethical Hacker | XSS Specialist">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Jose Guzman - Cybersecurity Researcher">
+    <meta property="twitter:description" content="Bug Bounty Hunter | Ethical Hacker | XSS Specialist">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0c0c0c 0%, #1a1a1a 100%);
+            color: #00ff00;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            border: 1px solid #00ff00;
+            border-radius: 15px;
+            background: rgba(0, 0, 0, 0.8);
+            box-shadow: 0 0 30px rgba(0, 255, 0, 0.2);
+        }
+        
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 15px #00ff00;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes glow {
+            from { text-shadow: 0 0 15px #00ff00, 0 0 25px #00ff00; }
+            to { text-shadow: 0 0 20px #00ff00, 0 0 35px #00ff00, 0 0 45px #00ff00; }
+        }
+        
+        .typing-animation {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #00ff00;
+        }
+        
+        .section {
+            margin-bottom: 3rem;
+            padding: 2rem;
+            border: 1px solid #333;
+            border-radius: 10px;
+            background: rgba(0, 0, 0, 0.6);
+        }
+        
+        .section h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: #00ff00;
+            text-shadow: 0 0 10px #00ff00;
+        }
+        
+        .xss-section {
+            border-color: #ff6600;
+            box-shadow: 0 0 20px rgba(255, 102, 0, 0.1);
+        }
+        
+        .xss-section h2 {
+            color: #ff6600;
+            text-shadow: 0 0 10px #ff6600;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .skill-category {
+            padding: 1.5rem;
+            border: 1px solid #444;
+            border-radius: 8px;
+            background: rgba(0, 0, 0, 0.4);
+        }
+        
+        .skill-category h3 {
+            color: #00ff00;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        .skill-tag {
+            background: rgba(0, 255, 0, 0.1);
+            border: 1px solid #00ff00;
+            color: #00ff00;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        
+        .project-card {
+            padding: 1.5rem;
+            border: 1px solid #444;
+            border-radius: 8px;
+            background: rgba(0, 0, 0, 0.4);
+            transition: all 0.3s ease;
+        }
+        
+        .project-card:hover {
+            border-color: #00ff00;
+            box-shadow: 0 0 15px rgba(0, 255, 0, 0.2);
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .social-link {
+            color: #00ff00;
+            text-decoration: none;
+            padding: 1rem 2rem;
+            border: 2px solid #00ff00;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        .social-link:hover {
+            background: #00ff00;
+            color: #000;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 4rem;
+            padding: 2rem;
+            border-top: 1px solid #333;
+            color: #888;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 { font-size: 2rem; }
+            .typing-animation { font-size: 1.2rem; }
+            .container { padding: 1rem; }
+            .social-links { flex-direction: column; align-items: center; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>🛡️ Jose Guzman</h1>
+            <div class="typing-animation">
+                Cybersecurity Researcher • Bug Bounty Hunter • XSS Specialist
+            </div>
+            <p style="font-size: 1.1rem; margin-top: 1rem;">
+                Specialized in offensive security, vulnerability research, and automated threat detection
+            </p>
+        </header>
+
+        <section class="section xss-section">
+            <h2>🛡️ XSS Research & Findings</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 2rem;">
+                🛡️ Pop-up window stored XSS via
+            </p>
+            <div style="text-align: center;">
+                <img src="https://github.githubassets.com/images/spinners/octocat-spinner-128.gif" 
+                     alt="GitHub Octocat Spinner" 
+                     style="max-width: 128px; border-radius: 10px;">
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>🚀 Current Focus</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Research Areas</h3>
+                    <div class="skills">
+                        <span class="skill-tag">XSS Vulnerabilities</span>
+                        <span class="skill-tag">Web App Security</span>
+                        <span class="skill-tag">OWASP Top 10</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Platforms</h3>
+                    <div class="skills">
+                        <span class="skill-tag">HackerOne</span>
+                        <span class="skill-tag">Bugcrowd</span>
+                        <span class="skill-tag">TryHackMe</span>
+                        <span class="skill-tag">HackTheBox</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Learning</h3>
+                    <div class="skills">
+                        <span class="skill-tag">Advanced Penetration Testing</span>
+                        <span class="skill-tag">Red Team Operations</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>🛠️ Technical Arsenal</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Security Tools</h3>
+                    <div class="skills">
+                        <span class="skill-tag">Burp Suite</span>
+                        <span class="skill-tag">OWASP ZAP</span>
+                        <span class="skill-tag">Metasploit</span>
+                        <span class="skill-tag">Wireshark</span>
+                        <span class="skill-tag">Nmap</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Programming & Scripting</h3>
+                    <div class="skills">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">Bash</span>
+                        <span class="skill-tag">PowerShell</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Operating Systems</h3>
+                    <div class="skills">
+                        <span class="skill-tag">Linux</span>
+                        <span class="skill-tag">Kali Linux</span>
+                        <span class="skill-tag">Windows</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>💡 Featured Projects</h2>
+            <div class="projects">
+                <div class="project-card">
+                    <h3>🔍 Web Vulnerability Scanner</h3>
+                    <p>Automated XSS detection tool</p>
+                    <p><strong>Tech:</strong> Python, Selenium</p>
+                </div>
+                <div class="project-card">
+                    <h3>🛡️ Security Automation Scripts</h3>
+                    <p>Purple team automation utilities</p>
+                    <p><strong>Tech:</strong> PowerShell, Python</p>
+                </div>
+                <div class="project-card">
+                    <h3>📊 Threat Intelligence Dashboard</h3>
+                    <p>Real-time security monitoring</p>
+                    <p><strong>Tech:</strong> JavaScript, APIs</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>🏆 Achievements & Certifications</h2>
+            <ul style="list-style: none; font-size: 1.1rem; line-height: 2;">
+                <li>🥇 <strong>HackerOne Profile:</strong> <a href="https://hackerone.com/akax/" style="color: #00ff00;">akax</a></li>
+                <li>🎖️ <strong>Bug Bounty Findings:</strong> XSS vulnerabilities, Authentication bypasses</li>
+                <li>📜 <strong>Security Certifications:</strong> [In Progress]</li>
+                <li>🏅 <strong>CTF Participation:</strong> Regular competitor in cybersecurity challenges</li>
+            </ul>
+        </section>
+
+        <section class="section">
+            <h2>🌐 Connect & Collaborate</h2>
+            <div class="social-links">
+                <a href="https://hackerone.com/akax/" class="social-link">
+                    🏆 HackerOne Profile
+                </a>
+                <a href="https://github.com/joseguzman1337" class="social-link">
+                    💻 GitHub Portfolio
+                </a>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <p><strong>"Security is not a product, but a process."</strong> - Bruce Schneier</p>
+            <p style="margin-top: 1rem;">© 2025 Jose Guzman (@joseguzman1337)</p>
+        </footer>
+    </div>
+</body>
+</html>
