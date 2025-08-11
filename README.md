@@ -16,11 +16,9 @@
 
 ## 🛡️ XSS Research & Findings
 
-**Specialized in Cross-Site Scripting (XSS) Vulnerability Research:**
-- 🔍 **Pop-up window stored XSS** - Advanced exploitation techniques
-- 🎯 **DOM-based XSS** - Client-side vulnerability analysis
-- 🔧 **Reflected XSS** - Server-side input validation bypass
-- 📊 **Blind XSS** - Out-of-band data exfiltration methods
+-  🛡️ Pop-up window stored XSS via
+
+[![joseguzman1337.github.io](https://github.githubassets.com/images/spinners/octocat-spinner-128.gif)](https://joseguzman1337.github.io)
 
 ## 🚀 Current Focus
 
