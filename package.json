@@ -1,0 +1,16 @@
+{
+  "name": "joseguzman1337-github-pages-test",
+  "version": "1.0.0",
+  "description": "Cypress testing for joseguzman1337.github.io",
+  "scripts": {
+    "cy:open": "cypress open",
+    "cy:run": "cypress run --headless --browser chrome",
+    "test:site": "cypress run --headless --browser chrome --spec \"cypress/e2e/site-load.cy.js\""
+  },
+  "devDependencies": {
+    "cypress": "^13.6.3"
+  },
+  "keywords": ["cypress", "testing", "github-pages"],
+  "author": "Jose Guzman (@joseguzman1337)",
+  "license": "MIT"
+}
