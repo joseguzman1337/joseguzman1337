@@ -18,7 +18,7 @@
 
 -  🛡️ Pop-up window stored XSS via
 
-[![https://joseguzman1337.github.io/joseguzman1337](https://github.githubassets.com/images/spinners/octocat-spinner-128.gif)](https://joseguzman1337.github.io)
+[![https://joseguzman1337.github.io/joseguzman1337](https://github.githubassets.com/images/spinners/octocat-spinner-128.gif)](https://joseguzman1337.github.io/joseguzman1337/)
 
 ## 🚀 Current Focus
 
