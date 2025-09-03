@@ -1,7 +1,7 @@
 # 👋 Hi, I'm Jose Guzman (@joseguzman1337) | **4k4xs4pH1r3** | ⠠⠵
 
 <div align="center">
-  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&color=00FF00&center=true&vCenter=true&width=600&lines=Cybersecurity+Architect+%26+Threat+Intelligence+Leader;Bug+Bounty+Hunter+%7C+HackerOne+Top+Ranked;Ethical+Hacker+%7C+XSS+Specialist;Purple+Team+Engineer+%7C+AI+Security" alt="Typing SVG" />
+  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&color=00FF00&center=true&vCenter=true&width=600&lines=+...Cybersecurity+Architect;Threat+Intelligence+Lead;Bug+Bounty+Hunter+%7C+HackerOne+Top+Ranked;Ethical+Hacker+%7C+XSS+Specialist;Purple+Team+%7C+AI+Security" alt="Typing SVG" />
 </div>
 
 ## 🛡️ Professional Summary
