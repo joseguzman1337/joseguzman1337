@@ -1,0 +1,52 @@
+### **Jose Guzman (4k4xs4pH1r3) | ⠠⠵**
+
+**Cyber Security & Threat Intelligence**[hackerone.com/akax](https://hackerone.com/akax) | [github.com/4k4xs4pH1r3](https://joseguzman1337.github.io/joseguzman1337/ |
+
+-----
+
+### **Summary**
+
+A seasoned Cybersecurity Architect and Threat Intelligence Leader with over 23 years of experience architecting resilient defenses and delivering actionable intelligence for global enterprises and financial institutions. My expertise lies in transforming complex cyber risks into strategic advantages by integrating an "attacker's mindset"—validated by top-tier HackerOne rankings—with robust security architecture and executive-level threat reporting. I specialize in monitoring the Dark Web, leading proactive threat hunting on critical infrastructure, and bridging the gap between deep technical risk and C-suite understanding.
+
+-----
+
+### **Core Competencies**
+
+  * **Threat Intelligence & Hunting:** Mastery in the full intelligence lifecycle, including Dark Web/OSINT analysis, TTP tracking, and proactive threat hunting using tools like IBM X-Force, Google Chronicle, FireEye Mandiant, and VirusTotal.
+  * **Security Architecture & Engineering:** Designing and implementing comprehensive security frameworks (NIST, ISO 27001), architecting secure cloud transformations (AWS, Azure), and engineering secure solutions with XDR, SIEM, EDR, and IDS technologies.
+  * **Offensive & Proactive Security:** Proven expertise in ethical hacking, bug bounty programs, and CTF competitions, leveraging offensive insights to validate and fortify enterprise defenses and SDLC processes.
+  * **Governance, Risk & Compliance (GRC):** Extensive experience creating and enforcing security policies, achieving certifications (PCI, SOC2 for FedRamp), and ensuring compliance across complex regulatory landscapes.
+  * **Identity & Access Management (IAM):** In-depth knowledge of Identity Governance, Role Design (Least Privilege), SSO/MFA, Privileged Access Management, and user lifecycle management with tools like Saviynt EIC.
+  * **DevSecOps & Cloud Security:** Spearheading the integration of security into CI/CD pipelines (AutoDevSecOps), managing cloud security posture, and securing containerized environments (Kubernetes, Docker).
+
+-----
+
+### **Recent Career Highlights**
+
+
+Channel Manager - USA Region
+SkyVirt® · FreelanceSkyVirt® · Freelance
+Sep 2012 - Present · 13 yrs 1 moSep 2012 to Present · 13 yrs 1 mo
+RemoteRemote
+• Build and manage cybersecurity training programs, forensics, and new technologies. 
+• Design and operate a threat intelligence framework to strengthen organizational security
+• Research threat intelligence risks and analyze security vulnerabilities• Build and manage cybersecurity training programs, forensics, and new technologies. • Design and operate a threat intelligence framework to strengthen organizational security • Research threat intelligence risks and analyze security vulnerabilities
+
+
+IBM
+Cybersecurity Threat Intelligence Specialist
+Sep 2023 - Feb 2024 · 6 mosSep 2023 to Feb 2024 · 6 mos
+Doha, Qatar · On-siteDoha, Qatar · On-site
+ helped me get this job
+LinkedIn helped me get this job
+- Utilizing AI security competencies, I proactively hunted threats targeting critical government infrastructure.
+- Integrated AI technologies into threat detection and response workflows, ensuring timely and effective defense against evolving cyber threats.
+- Conducted rigorous vulnerability testing on AI models to uphold security standards and adherence to ethical AI principles.
+- Conducted data cleaning and adversarial testing to ensure model vulnerability testing.
+- Utilized prompt engineering, AI model training, and LLMs for threat modeling and intelligence.
+- Applied ethical AI principles and RAG for malware analysis and removal.
+- Key player to ensure security compliance and malicious activity tracking.- Utilizing AI security competencies, I proactively hunted threats targeting critical government infrastructure. - Integrated AI technologies into threat detection and response workflows, ensuring timely and effective defense against evolving cyber threats. - Conducted rigorous vulnerability testing on AI models to uphold security standards and adherence to ethical AI principles. - Conducted data cleaning and adversarial testing to ensure model vulnerability testing. - Utilized prompt engineering, AI model training, and LLMs for threat modeling and intelligence. - Applied ethical AI principles and RAG for malware analysis and removal. - Key player to ensure security compliance and malicious activity tracking.
+Cyber Threat Intelligence (CTI) and Cyber Threat Hunting (CTH)
+-----
+
+  * **Ethical Hacking:** Top rankings on HackerOne for Colombia (Q4 2020, Q3 2021, Q4 2024, Q4 2025) and active competitor on HackTheBox.
