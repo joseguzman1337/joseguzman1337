@@ -72,7 +72,7 @@ const currentWork = {
 
 <div align="center">
 
-[![Website](https://img.shields.io/badge/-Portfolio-FF5722?style=for-the-badge&logo=google-chrome&logoColor=white)](https://joseguzman1337.github.io)
+[![Website](https://img.shields.io/badge/-Portfolio-FF5722?style=for-the-badge&logo=google-chrome&logoColor=white)](https://joseguzman1337.github.io/joseguzman1337/)
 [![HackerOne](https://img.shields.io/badge/-HackerOne-494649?style=for-the-badge&logo=hackerone&logoColor=white)](https://hackerone.com/akax/)
 
 </div>
