@@ -1,12 +1,12 @@
 # 👋 Hi, I'm Jose Guzman (@joseguzman1337) | **4k4xs4pH1r3** | ⠠⠵
 
 <div align="center">
-  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&color=00FF00&center=true&vCenter=true&width=600&lines=+...Cybersecurity+Architect;Threat+Intelligence+Lead;Bug+Bounty+Hunter+%7C+HackerOne+Top+Ranked;Ethical+Hacker+%7C+XSS+Specialist;Purple+Team+%7C+AI+Security" alt="Typing SVG" />
+  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&color=00FF00&center=true&vCenter=true&width=600&lines=+...Cybersecurity;Threat+Intelligence;Bug+Bounty+Hunter+%7C+HackerOne+Top+Ranked;Ethical+Hacker+%7C+XSS+Specialist;Purple+Team+%7C+AI+Security" alt="Typing SVG" />
 </div>
 
 ## 🛡️ Professional Summary
 
-**Seasoned Cybersecurity Architect and Threat Intelligence Leader** with over **23 years** of experience architecting resilient defenses and delivering actionable intelligence for global enterprises and financial institutions. My expertise lies in transforming complex cyber risks into strategic advantages by integrating an "attacker's mindset"—validated by top-tier HackerOne rankings—with robust security architecture and executive-level threat reporting.
+**Cybersecurity and Threat Intelligence** with over **23 years** of experience architecting resilient defenses and delivering actionable intelligence for global enterprises and financial institutions. My expertise lies in transforming complex cyber risks into strategic advantages by integrating an "attacker's mindset"—validated by top-tier HackerOne rankings—with robust security architecture and executive-level threat reporting.
 
 ### 🎯 Specializations
 - 🔍 **Threat Intelligence & Hunting** - Dark Web/OSINT analysis, TTP tracking, proactive threat hunting
