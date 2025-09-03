@@ -66,7 +66,6 @@ const currentWork = {
 
 - 🥇 **HackerOne Profile**: [akax](https://hackerone.com/akax/)
 - 🎖️ **Bug Bounty Findings**: XSS vulnerabilities, Authentication bypasses
-- 📜 **Security Certifications**: [In Progress]
 - 🏅 **CTF Participation**: Regular competitor in cybersecurity challenges
 
 ## 🌐 Connect & Collaborate
