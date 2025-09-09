@@ -22,7 +22,7 @@
 **Sep 2023 - Feb 2024 | Doha, Qatar**
 - ✅ Proactively hunted threats targeting **critical government infrastructure** using AI security competencies
 - 🤖 Integrated AI technologies into threat detection and response workflows for evolving cyber threats
-- 🔬 Conducted vulnerability testing on AI models ensuring security standards and ethical AI principles
+- 🔬 Conducted vulnerability testing on AI models, ensuring security standards and ethical AI principles
 - 📊 Applied prompt engineering, AI model training, and LLMs for threat modeling and intelligence
 - 🛡️ Utilized RAG for malware analysis and removal with ethical AI principles
 - 📈 Key player in security compliance and malicious activity tracking
