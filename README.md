@@ -72,48 +72,18 @@ const currentWork = {
 ## 🏆 Elite Achievements & Industry Recognition
 
 ###  **Bug Bounty Excellence** + **HackerOne Top Rankings**
-- 🏆 **HackerOne Profile**: [akax](https://hackerone.com/akax/) - **Top Ranked Colombia** (Multi-quarter champion)
+[![HackerOne](https://img.shields.io/badge/-HackerOne-494649?style=for-the-badge&logo=hackerone&logoColor=white)](https://hackerone.com/akax/)
+[![Website](https://img.shields.io/badge/-Portfolio-FF5722?style=for-the-badge&logo=google-chrome&logoColor=white)](https://joseguzman1337.github.io/joseguzman1337/)
 - 🎖️ **Critical Findings**: XSS vulnerabilities, Authentication bypasses, AI model exploits
 - 🔥 **Specializations**: Stored XSS, DOM-based XSS, Advanced payload techniques
 - 🥇 **Top ranked in Colombia** (Q4 2020, Q3 2021, Q4 2024, Q4 2025)
 - 🎯 **Active HackTheBox competitor** with advanced penetration testing skills
 - 🔍 **Pop-up window stored XSS** discoveries via advanced payload techniques
 
-### 📜 **Professional Certifications & Training**
-- 🎓 **IBM AI Security Specialist** - Advanced threat hunting with AI/ML
-- 🛡️ **NIST Cybersecurity Framework** - Architecture & implementation
-- 📋 **ISO 27001 Security Management** - Governance & compliance
-- 🏅 **CTF Competitions**: Regular top performer in cybersecurity challenges
 
-### 🌍 **Global Impact**
-- 🚀 **23+ Years** of enterprise cybersecurity leadership
-- 🏢 **Fortune 500** threat intelligence consulting
-- 🛡️ **Government Infrastructure** protection (Qatar, Colombia)
-- 💼 **C-Suite Advisory** on cyber risk strategy
 
-## 🌐 Connect & Collaborate
 
-<div align="center">
 
-[![Website](https://img.shields.io/badge/-Portfolio-FF5722?style=for-the-badge&logo=google-chrome&logoColor=white)](https://joseguzman1337.github.io/joseguzman1337/)
-[![HackerOne](https://img.shields.io/badge/-HackerOne-494649?style=for-the-badge&logo=hackerone&logoColor=white)](https://hackerone.com/akax/)
-
-</div>
-
-## 💡 Enterprise Security Projects & Solutions
-
-<div align="center">
-
-| Project | Description | Tech Stack | Impact |
-|---------|-------------|------------|--------|
-| 🔍 **AI-Powered XSS Scanner** | Advanced XSS detection with ML models | Python, TensorFlow, Selenium | 98% accuracy improvement |
-| 🛡️ **Threat Hunting Platform** | Real-time Dark Web monitoring system | Python, ElasticSearch, Kibana | 60% faster threat detection |
-| 📊 **Executive Risk Dashboard** | C-suite threat intelligence reporting | JavaScript, D3.js, APIs | Board-level risk visibility |
-| 🤖 **AI Security Framework** | Adversarial testing for AI models | Python, PyTorch, RAG | Enterprise AI protection |
-| 🏗️ **Zero Trust Architecture** | Identity governance implementation | Saviynt EIC, PowerShell | 40% reduction in attack surface |
-| ☁️ **Cloud Security Posture** | Multi-cloud security automation | Terraform, Python, AWS/Azure | 24/7 compliance monitoring |
-
-</div>
 
 ## 📈 Current Learning Path
 
