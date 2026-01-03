@@ -17,12 +17,6 @@
 - 🚀 **DevSecOps & Cloud Security** - CI/CD security integration, containerized environments (K8s, Docker)
 
 
-## 🛡️ XSS Research & Elite Bug Bounty Achievements
-
-### 🏆 **HackerOne Top Rankings**
-- 🥇 **Top ranked in Colombia** (Q4 2020, Q3 2021, Q4 2024, Q4 2025)
-- 🎯 **Active HackTheBox competitor** with advanced penetration testing skills
-- 🔍 **Pop-up window stored XSS** discoveries via advanced payload techniques
 
 [![Portfolio Website](https://github.githubassets.com/images/spinners/octocat-spinner-128.gif)](https://joseguzman1337.github.io/joseguzman1337/)
 
@@ -77,10 +71,13 @@ const currentWork = {
 
 ## 🏆 Elite Achievements & Industry Recognition
 
-### 🥇 **Bug Bounty Excellence**
+###  **Bug Bounty Excellence** + **HackerOne Top Rankings**
 - 🏆 **HackerOne Profile**: [akax](https://hackerone.com/akax/) - **Top Ranked Colombia** (Multi-quarter champion)
 - 🎖️ **Critical Findings**: XSS vulnerabilities, Authentication bypasses, AI model exploits
 - 🔥 **Specializations**: Stored XSS, DOM-based XSS, Advanced payload techniques
+- 🥇 **Top ranked in Colombia** (Q4 2020, Q3 2021, Q4 2024, Q4 2025)
+- 🎯 **Active HackTheBox competitor** with advanced penetration testing skills
+- 🔍 **Pop-up window stored XSS** discoveries via advanced payload techniques
 
 ### 📜 **Professional Certifications & Training**
 - 🎓 **IBM AI Security Specialist** - Advanced threat hunting with AI/ML
