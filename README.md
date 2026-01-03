@@ -16,22 +16,6 @@
 - 🔐 **Identity & Access Management (IAM)** - Zero Trust RBAC, SSO/MFA, Privileged Access Management
 - 🚀 **DevSecOps & Cloud Security** - CI/CD security integration, containerized environments (K8s, Docker)
 
-## 🏢 Recent Career Highlights
-
-### 🌟 **IBM - Cybersecurity Threat Intelligence Specialist** 
-**Sep 2023 - Feb 2024 | Doha, Qatar**
-- ✅ Proactively hunted threats targeting **critical government infrastructure** using AI security competencies
-- 🤖 Integrated AI technologies into threat detection and response workflows for evolving cyber threats
-- 🔬 Conducted vulnerability testing on AI models, ensuring security standards and ethical AI principles
-- 📊 Applied prompt engineering, AI model training, and LLMs for threat modeling and intelligence
-- 🛡️ Utilized RAG for malware analysis and removal with ethical AI principles
-- 📈 Key player in security compliance and malicious activity tracking
-
-### 🚀 **SkyVirt® - Channel Manager USA Region**
-**Sep 2012 - Present | Remote**
-- 🎓 Build and manage cybersecurity training programs, forensics, and emerging technologies
-- 🧠 Design and operate threat intelligence frameworks to strengthen organizational security  
-- 🔍 Research threat intelligence risks and analyze security vulnerabilities
 
 ## 🛡️ XSS Research & Elite Bug Bounty Achievements
 
@@ -89,12 +73,7 @@ const currentWork = {
 
 </div>
 
-## 📊 GitHub Activity
 
-<div align="center">
-  <img height="180em" src="https://github-readme-stats.vercel.app/api?username=joseguzman1337&show_icons=true&theme=dark&include_all_commits=true&count_private=true"/>
-  <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=joseguzman1337&layout=compact&langs_count=7&theme=dark"/>
-</div>
 
 ## 🏆 Elite Achievements & Industry Recognition
 
