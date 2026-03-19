@@ -15,10 +15,18 @@ Cybersecurity and threat intelligence leader with **23+ years** of experience ac
 - **Offensive Security**: bug bounty, ethical hacking, XSS research, validation of web and AI attack paths
 - **DevSecOps & IAM**: CI/CD security, Zero Trust access models, PAM, SSO and MFA
 
-<a href="https://joseguzman1337.github.io/joseguzman1337/" style="display: inline-flex; align-items: center; gap: 12px; text-decoration: none;">
-  <img src="https://github.githubassets.com/images/spinners/octocat-spinner-128.gif" alt="Portfolio Website" align="left" width="64" />
-  <span>Portfolio Website</span>
-</a>
+<table>
+  <tr>
+    <td width="72">
+      <a href="https://joseguzman1337.github.io/joseguzman1337/">
+        <img src="https://github.githubassets.com/images/spinners/octocat-spinner-128.gif" alt="Portfolio Website" width="64" />
+      </a>
+    </td>
+    <td>
+      <a href="https://joseguzman1337.github.io/joseguzman1337/">Portfolio Website</a>
+    </td>
+  </tr>
+</table>
 
 ## Current Work
 
