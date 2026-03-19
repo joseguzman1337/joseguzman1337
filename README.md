@@ -31,17 +31,18 @@ Cybersecurity and threat intelligence leader with **23+ years** of experience ac
       CI/CD security, Zero Trust access models, PAM, SSO and MFA
     </td>
   </tr>
-</table>
-
-<table>
   <tr>
-    <td width="72">
+    <td valign="top" width="50%">
+      <strong>Portfolio Website</strong><br />
       <a href="https://joseguzman1337.github.io/joseguzman1337/">
         <img src="./aa.png" alt="Portfolio Website" width="64" />
       </a>
+      <br />
+      <a href="https://joseguzman1337.github.io/joseguzman1337/">joseguzman1337.github.io/joseguzman1337</a>
     </td>
-    <td>
-      <a href="https://joseguzman1337.github.io/joseguzman1337/">Portfolio Website</a>
+    <td valign="top" width="50%">
+      <strong>Focus Snapshot</strong><br />
+      Enterprise defense, offensive testing, cloud security, AI security, and executive risk reporting
     </td>
   </tr>
 </table>
