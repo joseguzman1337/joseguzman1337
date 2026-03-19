@@ -65,9 +65,17 @@ declare namespace CypressCommandLine {
      */
     parallel: boolean
     /**
+     * Pass when no tests are found
+     */
+    passWithNoTests: boolean
+    /**
      * Override default port
      */
     port: number
+    /**
+     * Use POSIX exit codes for error handling
+     */
+    posixExitCodes: boolean
     /**
      * Run quietly, using only the configured reporter
      */

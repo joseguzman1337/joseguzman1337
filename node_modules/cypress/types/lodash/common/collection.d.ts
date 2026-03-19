@@ -980,7 +980,7 @@ declare module "../index" {
         /**
          * @see _.groupBy
          */
-        groupBy(iteratee?: ValueIteratee<string>): ObjectChain<Dictionary<string>>;
+        groupBy(iteratee?: ValueIteratee<string>): ObjectChain<Dictionary<string[]>>;
     }
     interface CollectionChain<T> {
         /**
@@ -1153,6 +1153,10 @@ declare module "../index" {
          * @param iteratee The function invoked per iteration.
          * @return Returns the new mapped array.
          */
+        map<T extends readonly [unknown, ...unknown[]], TResult>(collection: T, iteratee: TupleIterator<T, TResult>): { [K in keyof T]: TResult };
+        /**
+         * @see _.map
+         */
         map<T, TResult>(collection: T[] | null | undefined, iteratee: ArrayIterator<T, TResult>): TResult[];
         /**
          * @see _.map
@@ -1309,7 +1313,7 @@ declare module "../index" {
          * @param collection The collection to iterate over.
          * @param [iteratees=[_.identity]] The iteratees to sort by.
          * @param [orders] The sort orders of `iteratees`.
-         * @param- {Object} [guard] Enables use as an iteratee for functions like `_.reduce`.
+         * @param [guard] Enables use as an iteratee for functions like `_.reduce`.
          * @returns Returns the new sorted array.
          * @example
          *
@@ -1644,6 +1648,10 @@ declare module "../index" {
          *
          * @param collection The collection to sample.
          * @return Returns the random element.
+         */
+        sample<T>(collection: readonly [T, ...T[]]): T;
+        /**
+         * @see _.sample
          */
         sample<T>(collection: Dictionary<T> | NumericDictionary<T> | null | undefined): T | undefined;
         /**
