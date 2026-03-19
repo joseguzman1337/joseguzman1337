@@ -8,7 +8,7 @@
     "test:site": "cypress run --headless --browser chrome --spec \"cypress/e2e/site-load.cy.js\""
   },
   "devDependencies": {
-    "cypress": "^13.6.3"
+    "cypress": "^15.12.0"
   },
   "keywords": ["cypress", "testing", "github-pages"],
   "author": "Jose Guzman (@joseguzman1337)",
