@@ -19,7 +19,7 @@ Cybersecurity and threat intelligence leader with **23+ years** of experience ac
   <tr>
     <td width="72">
       <a href="https://joseguzman1337.github.io/joseguzman1337/">
-        <img src="https://github.githubassets.com/images/spinners/octocat-spinner-128.gif" alt="Portfolio Website" width="64" />
+        <img src="./aa.png" alt="Portfolio Website" width="64" />
       </a>
     </td>
     <td>
