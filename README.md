@@ -76,20 +76,31 @@ const currentWork = {
 ![Kubernetes](https://img.shields.io/badge/-Kubernetes-326CE5?style=flat-square&logo=kubernetes&logoColor=white)
 ![Docker](https://img.shields.io/badge/-Docker-0db7ed?style=flat-square&logo=docker&logoColor=white)
 
-## Recognition
+## Recognition & Collaboration
 
-[![HackerOne](https://img.shields.io/badge/-HackerOne-494649?style=for-the-badge&logo=hackerone&logoColor=white)](https://hackerone.com/akax/)
-[![Website](https://img.shields.io/badge/-Portfolio-FF5722?style=for-the-badge&logo=google-chrome&logoColor=white)](https://joseguzman1337.github.io/joseguzman1337/)
-
-- **Top ranked in Colombia** on HackerOne in Q4 2020, Q3 2021, Q4 2024, and Q4 2025
-- **Specializations**: stored XSS, DOM XSS, authentication abuse, and advanced payload techniques
-- **Active labs and practice** across HackTheBox, TryHackMe, and web application research
-
-## Collaboration
-
-- Bug bounty collaboration
-- Security tool development
-- Security education and awareness content
-- Research into emerging attack paths and defenses
+<table>
+  <tr>
+    <td valign="top" width="50%">
+      <strong>Recognition</strong><br /><br />
+      <a href="https://hackerone.com/akax/">
+        <img src="https://img.shields.io/badge/-HackerOne-494649?style=for-the-badge&logo=hackerone&logoColor=white" alt="HackerOne" />
+      </a>
+      <a href="https://joseguzman1337.github.io/joseguzman1337/">
+        <img src="https://img.shields.io/badge/-Portfolio-FF5722?style=for-the-badge&logo=google-chrome&logoColor=white" alt="Portfolio" />
+      </a>
+      <br /><br />
+      Top ranked in Colombia on HackerOne in Q4 2020, Q3 2021, Q4 2024, and Q4 2025<br />
+      Specializations: stored XSS, DOM XSS, authentication abuse, and advanced payload techniques<br />
+      Active labs and practice across HackTheBox, TryHackMe, and web application research
+    </td>
+    <td valign="top" width="50%">
+      <strong>Collaboration</strong><br /><br />
+      Bug bounty collaboration<br />
+      Security tool development<br />
+      Security education and awareness content<br />
+      Research into emerging attack paths and defenses
+    </td>
+  </tr>
+</table>
 
 > "Security is not a product, but a process." - Bruce Schneier
