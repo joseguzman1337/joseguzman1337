@@ -1,12 +1,21 @@
 # Hi, I'm ҉αkα x⠠⠵ 4k4xs4pH1r3
 
 <div align="center">
-  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&color=00FF00&center=true&vCenter=true&width=600&lines=...Cybersecurity;Threat+Intelligence;Bug+Bounty+Hunter;Ethical+Hacker;Purple+Team+%7C+AI+Security" alt="Typing SVG" />
+  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&color=00FF00&center=true&vCenter=true&width=700&lines=Cybersecurity;Threat+Intelligence;Bug+Bounty+Hunter;Ethical+Hacker;Purple+Team+%7C+AI+Security" alt="Typing SVG" />
+</div>
+
+<div align="center">
+  <a href="https://hackerone.com/akax/">
+    <img src="https://img.shields.io/badge/HackerOne-Top%20Ranked-494649?style=for-the-badge&logo=hackerone&logoColor=white" alt="HackerOne" />
+  </a>
+  <a href="https://joseguzman1337.github.io/joseguzman1337/">
+    <img src="https://img.shields.io/badge/Portfolio-Live-FF5722?style=for-the-badge&logo=google-chrome&logoColor=white" alt="Portfolio" />
+  </a>
 </div>
 
 ## Professional Summary
 
-Cybersecurity and threat intelligence leader with **23+ years** of experience across enterprise defense, cloud security, offensive testing, and executive risk reporting. Work centers on combining an attacker's mindset with practical security engineering to reduce real-world risk.
+Cybersecurity and threat intelligence leader with **23+ years** of experience across enterprise defense, offensive testing, cloud security, and executive risk reporting. Work is centered on applying an attacker's mindset to practical security engineering, threat visibility, and resilient architecture.
 
 ## Focus Areas
 
@@ -14,7 +23,7 @@ Cybersecurity and threat intelligence leader with **23+ years** of experience ac
   <tr>
     <td valign="top" width="50%">
       <strong>Threat Intelligence & Hunting</strong><br />
-      OSINT, dark web monitoring, TTP tracking, proactive hunting
+      OSINT, dark web monitoring, TTP tracking, and proactive hunting
     </td>
     <td valign="top" width="50%">
       <strong>Security Architecture</strong><br />
@@ -24,11 +33,11 @@ Cybersecurity and threat intelligence leader with **23+ years** of experience ac
   <tr>
     <td valign="top" width="50%">
       <strong>Offensive Security</strong><br />
-      bug bounty, ethical hacking, XSS research, validation of web and AI attack paths
+      Bug bounty, ethical hacking, XSS research, and validation of web and AI attack paths
     </td>
     <td valign="top" width="50%">
       <strong>DevSecOps & IAM</strong><br />
-      CI/CD security, Zero Trust access models, PAM, SSO and MFA
+      CI/CD security, Zero Trust access models, PAM, SSO, and MFA
     </td>
   </tr>
   <tr>
@@ -60,14 +69,24 @@ const currentWork = {
 
 ## Tools & Platforms
 
+<div align="center">
+
+**Threat Intelligence**
+
 ![IBM X-Force](https://img.shields.io/badge/-IBM%20X--Force-1261FE?style=flat-square&logo=ibm&logoColor=white)
 ![Google Chronicle](https://img.shields.io/badge/-Google%20Chronicle-4285F4?style=flat-square&logo=google&logoColor=white)
 ![VirusTotal](https://img.shields.io/badge/-VirusTotal-394EFF?style=flat-square&logo=virustotal&logoColor=white)
+
+**Security Testing**
+
 ![Burp Suite](https://img.shields.io/badge/-Burp%20Suite-FF6633?style=flat-square&logo=burpsuite&logoColor=white)
 ![OWASP ZAP](https://img.shields.io/badge/-OWASP%20ZAP-00549E?style=flat-square&logo=owasp&logoColor=white)
 ![Metasploit](https://img.shields.io/badge/-Metasploit-2E5C8A?style=flat-square&logo=metasploit&logoColor=white)
 ![Wireshark](https://img.shields.io/badge/-Wireshark-1679A7?style=flat-square&logo=wireshark&logoColor=white)
 ![Nmap](https://img.shields.io/badge/-Nmap-4682B4?style=flat-square&logo=nmap&logoColor=white)
+
+**Engineering & Cloud**
+
 ![Python](https://img.shields.io/badge/-Python-3776AB?style=flat-square&logo=python&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/-JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
 ![Bash](https://img.shields.io/badge/-Bash-4EAA25?style=flat-square&logo=gnu-bash&logoColor=white)
@@ -76,21 +95,16 @@ const currentWork = {
 ![Kubernetes](https://img.shields.io/badge/-Kubernetes-326CE5?style=flat-square&logo=kubernetes&logoColor=white)
 ![Docker](https://img.shields.io/badge/-Docker-0db7ed?style=flat-square&logo=docker&logoColor=white)
 
+</div>
+
 ## Recognition & Collaboration
 
 <table>
   <tr>
     <td valign="top" width="50%">
       <strong>Recognition</strong><br /><br />
-      <a href="https://hackerone.com/akax/">
-        <img src="https://img.shields.io/badge/-HackerOne-494649?style=for-the-badge&logo=hackerone&logoColor=white" alt="HackerOne" />
-      </a>
-      <a href="https://joseguzman1337.github.io/joseguzman1337/">
-        <img src="https://img.shields.io/badge/-Portfolio-FF5722?style=for-the-badge&logo=google-chrome&logoColor=white" alt="Portfolio" />
-      </a>
-      <br /><br />
       Top ranked in Colombia on HackerOne in Q4 2020, Q3 2021, Q4 2024, and Q4 2025<br />
-      Specializations: stored XSS, DOM XSS, authentication abuse, and advanced payload techniques<br />
+      Specializations in stored XSS, DOM XSS, authentication abuse, and advanced payload techniques<br />
       Active labs and practice across HackTheBox, TryHackMe, and web application research
     </td>
     <td valign="top" width="50%">
