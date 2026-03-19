@@ -102,17 +102,21 @@ const currentWork = {
 <table>
   <tr>
     <td valign="top" width="50%">
-      <strong>Recognition</strong><br /><br />
-      Top ranked in Colombia on HackerOne in Q4 2020, Q3 2021, Q4 2024, and Q4 2025<br />
-      Specializations in stored XSS, DOM XSS, authentication abuse, and advanced payload techniques<br />
-      Active labs and practice across HackTheBox, TryHackMe, and web application research
+      <strong>Recognition</strong>
+      <ul>
+        <li>Top ranked in Colombia on HackerOne in Q4 2020, Q3 2021, Q4 2024, and Q4 2025</li>
+        <li>Specializations in stored XSS, DOM XSS, authentication abuse, and advanced payload techniques</li>
+        <li>Active labs and practice across HackTheBox, TryHackMe, and web application research</li>
+      </ul>
     </td>
     <td valign="top" width="50%">
-      <strong>Collaboration</strong><br /><br />
-      Bug bounty collaboration<br />
-      Security tool development<br />
-      Security education and awareness content<br />
-      Research into emerging attack paths and defenses
+      <strong>Collaboration</strong>
+      <ul>
+        <li>Bug bounty collaboration</li>
+        <li>Security tool development</li>
+        <li>Security education and awareness content</li>
+        <li>Research into emerging attack paths and defenses</li>
+      </ul>
     </td>
   </tr>
 </table>
