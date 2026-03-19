@@ -10,10 +10,28 @@ Cybersecurity and threat intelligence leader with **23+ years** of experience ac
 
 ## Focus Areas
 
-- **Threat Intelligence & Hunting**: OSINT, dark web monitoring, TTP tracking, proactive hunting
-- **Security Architecture**: NIST, ISO 27001, cloud security across AWS and Azure
-- **Offensive Security**: bug bounty, ethical hacking, XSS research, validation of web and AI attack paths
-- **DevSecOps & IAM**: CI/CD security, Zero Trust access models, PAM, SSO and MFA
+<table>
+  <tr>
+    <td valign="top" width="50%">
+      <strong>Threat Intelligence & Hunting</strong><br />
+      OSINT, dark web monitoring, TTP tracking, proactive hunting
+    </td>
+    <td valign="top" width="50%">
+      <strong>Security Architecture</strong><br />
+      NIST, ISO 27001, cloud security across AWS and Azure
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" width="50%">
+      <strong>Offensive Security</strong><br />
+      bug bounty, ethical hacking, XSS research, validation of web and AI attack paths
+    </td>
+    <td valign="top" width="50%">
+      <strong>DevSecOps & IAM</strong><br />
+      CI/CD security, Zero Trust access models, PAM, SSO and MFA
+    </td>
+  </tr>
+</table>
 
 <table>
   <tr>
