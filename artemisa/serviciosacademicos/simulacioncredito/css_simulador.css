@@ -1,0 +1,170 @@
+@import url(http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic);
+
+body {
+	color: #3E4729;
+	font-family: 'PT Sans', sans-serif;
+	font-size: 1em;
+	line-height: 1.3em;
+}
+div.field-type-text {
+	background-color: #F7F9F3;
+	border-top: 2px solid #EEF1E1;
+	overflow: hidden;
+	padding: 5px;
+	width: 750px;
+}
+.field-label, .field-label-inline, .field-label-inline-first {
+	font-weight: bold;
+}
+#formulario {
+	background-color: #C3C5B1;
+	border: 0 none;
+	border-radius: 5px 5px 5px 5px;
+	margin-bottom: 0;
+	padding: 5px;
+}
+#numcuotas {
+	font-size: 0.8em;
+}
+.etiqueta_seccion {
+	display: block;
+	font-size: 0.8em;
+	margin-left: 5px;
+}
+.etiqueta_seccion2 {
+	display: block;
+	font-size: 1.0em;
+	margin-left: 5px;
+	text-align:center;
+}
+.etiqueta_mensaje {
+	display: block;
+	font-size: 0.8em;
+	margin-top: 50px;
+	margin-bottom: 50px;
+	text-align:center;
+}
+select {
+	background-color: #F5F7F2;
+	border: 1px solid #E8EEE3;
+	font-family: 'PT Sans', sans-serif;
+	font-style:italic;
+	width: 100%;
+}
+.cuotas select {
+	margin-left: 20px;
+	width: 150px;
+	background-color: #F5F7F2;
+	color: #3E4729;
+	font-family: 'PT Sans', sans-serif;
+	font-size: 1em;
+	line-height: 1.3em;
+	font-weight: bold;
+}
+.cuotas {
+	float: left;
+	width: 47.5%;
+}
+input#calcular {
+	background: url("./boton-de-busqueda.gif") repeat-x scroll 0 0 transparent;
+	border-color: #DDE2BC;
+	border-style: solid;
+	border-width: 1px;
+	font-family: 'PT Sans', sans-serif;
+	height: 25px;
+	line-height: 25px;
+	margin: 5px 110px 0 ;
+	padding: 0px 3px 1px;
+	text-align: center;
+	width: 40%;
+	font-weight: bold;
+	font-size: 1.0em;
+}
+input#accion {
+	background: url("./boton-de-busqueda.gif") repeat-x scroll 0 0 transparent;
+	border-color: #DDE2BC;
+	border-style: solid;
+	border-width: 1px;
+	font-family: 'PT Sans', sans-serif;
+	line-height: 25px;
+	padding: 3px 3px 1px;
+	text-align: center;
+	font-weight: bold;
+	font-size: 1.0em;
+}
+#valor_matricula {
+	display: block;
+	text-align: right;
+}
+p#formatos {
+	background: none repeat scroll 0 center transparent;
+	float: left;
+	margin-left: 10px;
+	width: 30%;
+	font-size: 0.7em;
+	font-weight: bold;
+}
+p#textolegal {
+	background: none repeat scroll 0 center transparent;
+	float: left;
+	margin-left: 20px;
+	width: 23%;
+}
+.boxVlr {
+	background-color: #F5F7F2;
+	color: #3E4729;
+	font-family: 'PT Sans', sans-serif;
+	font-size: 1em;
+	line-height: 1.3em;
+	font-weight: bold;
+	text-align:right;
+}
+#calculadora_de_credito {
+	float: left;
+	padding: 10px 0 10px 20px;
+	width: 60%;
+}
+#calculadora_de_credito div {
+	background-color: #B6B9A1;
+	margin: 0 0 5px;
+	padding: 5px;
+}
+.div_titulo {
+	background-color: #EFF2DC !important;
+	font-size: 1.7em;
+	text-align: center;
+}
+.div_subtitulo {
+	background-color: #EFF2DC !important;
+	font-size: 1.5em;
+}
+#calculadora_de_credito2 {
+	float: left;
+	padding: 10px 20px 10px 20px;
+	width: 78%;
+}
+#calculadora_de_credito2 div {
+	background-color: #B6B9A1;
+	margin: 0 0 5px;
+	padding: 5px;
+}
+table th {
+	background-color: #B6B9A1;
+	font-size: 1.0em;
+	margin: 0 0 5px;
+	padding: 5px;
+}
+table td {
+	background-color: #EFF2DC;
+	font-size: 0.8em;
+	padding: 10px;
+	font-weight:bold;
+}
+label.error {   
+	color: red;
+	float: none;
+	font-size: 10px;
+	padding-left: 0.5em; 
+	vertical-align: middle;
+	display: inline-block;
+}

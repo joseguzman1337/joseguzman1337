@@ -1,0 +1,68 @@
+name: "process-test-results"
+description: "Upload test results and annotate CI jobs"
+inputs:
+  artifact-name:
+    description: "Artifact name, must be unique across all jobs"
+    required: false
+    default: ${{ github.job }}
+  has-failed-tests:
+    description: "If any test in the calling job has failed"
+    required: true
+  upload-heap-dump:
+    description: "Should any heap dump files (hprof) be uploaded"
+    required: false
+    default: false
+
+runs:
+  using: composite
+  steps:
+  - name: Upload test results
+    uses: actions/upload-artifact@v7
+    if: format('{0}', inputs.has-failed-tests) == 'true'
+    with:
+      name: results ${{ inputs.artifact-name }}
+      if-no-files-found: 'ignore'
+      path: |
+        **/target/surefire-reports
+        **/target/checkstyle-*
+        testing/trino-product-tests/target/*
+        logs/*
+      retention-days: 5
+  - name: Upload test report
+    uses: actions/upload-artifact@v7
+    # Always upload the test report for the upload-test-results.yml workflow,
+    # but only the single XML file to keep the artifact small
+    with:
+      # Name prefix is checked in the `Upload test results` workflow
+      name: test report ${{ inputs.artifact-name }}
+      if-no-files-found: 'ignore'
+      path: |
+        **/surefire-reports/TEST-*.xml
+        testing/trino-product-tests/target/reports/**/testng-results.xml
+      retention-days: 5
+  - name: Upload heap dump
+    uses: actions/upload-artifact@v7
+    if: format('{0}', inputs.upload-heap-dump) == 'true'
+    with:
+      name: heap dump ${{ inputs.artifact-name }}
+      if-no-files-found: 'ignore'
+      path: |
+        **/*.hprof
+      retention-days: 14
+  - name: Process unit and integration test reports
+    uses: trinodb/github-actions/action-surefire-report@b63800bedfbc7ab1ff2e5fe7eaecf5ab82ce6a70
+    if: format('{0}', inputs.has-failed-tests) == 'true'
+    with:
+      # this workflow should never fail, as it is not a quality gateway
+      fail_if_no_tests: false
+      # don't create or update checks, only annotate current job
+      skip_publishing: true
+  - name: Process Product Test reports
+    uses: starburstdata/action-testng-report@f245422953fb97ec5075d07782a1b596124b7cc4
+    if: format('{0}', inputs.has-failed-tests) == 'true'
+    with:
+      # this workflow should never fail, as it is not a quality gateway
+      fail_if_empty: false
+      github_token: ${{ github.token }}
+      # don't create or update checks, only annotate current job
+      skip_publishing: true

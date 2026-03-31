@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_FBuscarJefe" value="name:IdRegJefe;datatype:int,name:CCJefDep;datatype:int,name:JefDepen;datatype:string" />
+</info>

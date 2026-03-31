@@ -1,0 +1,112 @@
+body {
+    font: 14px Arial, "Helvetica Neue", sans-serif;
+    margin: 20px 20px 400px;
+    padding: 0;
+    background: #fff;
+    color: #000;
+}
+div {
+    margin: 0 0 20px;    
+}
+a {
+    color: #0F67AE;
+}
+a:hover {
+    color: #000;
+}
+.sample { 
+    margin: 0 0 26px;
+}
+.sample p {
+    padding: 0 0 6px;
+}
+.sample1 {
+    background: #FFF;
+}
+.sample1 th {
+    background: #121C28;
+    color: #FFF;
+    padding: 2px 4px;
+    text-align: left;
+}
+.sample1 td {
+    background: #DDE5F0;
+    padding: 2px 4px;
+}
+.sample1 .even td {
+    background: #FFF;
+}
+.sample2 {
+    border-collapse: collapse;
+    width: 750px;
+}
+.sample2 caption {
+    text-align: left;
+    margin: 0;
+    padding: 2px 2px 8px;
+    font-weight: bold;
+}
+.sample2 th {
+    background: #0F67AE;
+    text-align: left;
+    padding: 2px 4px;
+    border: 1px solid #121C28;
+}
+.sample2 th a {
+    color: #FFF;
+}
+.sample2 th a:hover {
+    color: #DDE5F0;
+    background: none;
+    text-decoration: underline;
+}
+.sample2 td {
+    background: #DDE5F0;
+    padding: 2px 4px;
+    border: 1px solid #121C28;
+}
+.sample2 .even td {
+    background: #FFF;
+}
+.sample3 {
+    border-collapse: collapse;
+    width: 100%;
+}
+.sample3 th {
+    background: #121C28;
+    color: #FFF;
+    text-align: left;
+    padding: 2px 4px;
+    border: 1px solid #FFF;
+}
+.sample3 td {
+    background: #DDE5F0;
+    padding: 2px 4px;
+    border: 1px solid #FFF;
+}
+.sample3 .even td {
+    background: #FFF;
+}
+.sample4 {
+    border-collapse: collapse;
+    width: 100%;
+}
+.sample4 th {
+    background: #121C28;
+    color: #FFF;
+    text-align: left;
+    padding: 2px 4px;
+    border: 1px solid #FFF;
+}
+.sample4 td {
+    background: #DDE5F0;
+    padding: 2px 4px;
+    border: 1px solid #FFF;
+}
+.sample4 .even td {
+    background: #FFF;
+}
+.sample4 tfoot td {
+    background: #FFF;
+    padding: 10px 4px;
+}

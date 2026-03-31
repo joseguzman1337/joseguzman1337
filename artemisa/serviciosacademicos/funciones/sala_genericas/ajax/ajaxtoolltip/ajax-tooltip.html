@@ -1,0 +1,69 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+	<title>Ajax tooltip</title>
+	<style type="text/css">
+	img{
+		border:0px;
+	}	
+	</style>
+	<script type="text/javascript" src="js/ajax-dynamic-content.js"></script>
+	<script type="text/javascript" src="js/ajax.js"></script>
+	<script type="text/javascript" src="js/ajax-tooltip.js">
+	/************************************************************************************************************
+	(C) www.dhtmlgoodies.com, June 2006
+	
+	This is a script from www.dhtmlgoodies.com. You will find this and a lot of other scripts at our website.	
+	
+	Terms of use:
+	You are free to use this script as long as the copyright message is kept intact. However, you may not
+	redistribute, sell or repost it without our permission.
+	
+	Thank you!
+	
+	www.dhtmlgoodies.com
+	Alf Magne Kalleland
+	
+	************************************************************************************************************/	
+	</script>	
+	<link rel="stylesheet" href="css/ajax-tooltip.css" media="screen" type="text/css">
+	<link rel="stylesheet" href="css/ajax-tooltip-demo.css" media="screen" type="text/css">
+</head>
+<body>
+
+<div id="mainContainer">
+	<div id="header">
+		<a href="/index.html"><img src="/images/heading3.gif"></a>
+	</div>
+	<div id="menuColumn">
+		This is an Ajax tooltip script.	When you roll your mouse over the "info" links in the table, ajax will show tooltip content from external files.			
+	</div>
+	<div id="mainContent">
+		<table width="100%" class="productTable">
+			<thead>
+				<th>Product</th>
+				<th>Info</th>
+			</thead>
+			<tbody>
+				<tr class="oddRow">
+					<td>JS Calendar</td>
+					<td><a href="#" onmouseover="ajax_showTooltip(window.event,'demo-pages/js-calendar.html',this);return false" onmouseout="ajax_hideTooltip()">Info</a></td>	
+				</tr>
+				<tr class="evenRow">
+					<td>Dragable boxes</td>
+					<td><a href="#" onmouseover="ajax_showTooltip(window.event,'demo-pages/dragable-boxes.html',this);return false" onmouseout="ajax_hideTooltip()">Info</a></td>				
+				</tr>
+				<tr class="oddRow">
+					<td>Ajax tooltip</td>
+					<td><a href="#" onmouseover="ajax_showTooltip(window.event,'demo-pages/ajax-tooltip.html',this);return false" onmouseout="ajax_hideTooltip()">Info</a></td>				
+				</tr>
+			</tbody>
+		</table>
+		<div style="clear:both">	
+		</div>
+		<div id="debug"></div>
+		
+	</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,19 @@
+{
+  "name": "trino-docs",
+  "projectType": "library",
+  "root": "workspaces/trino-docs",
+  "targets": {
+    "lint": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "echo linting..."
+      }
+    },
+    "test": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "echo testing..."
+      }
+    }
+  }
+}

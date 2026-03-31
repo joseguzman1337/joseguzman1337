@@ -1,0 +1,6 @@
+<b>Log Item</b> 
+
+<span style='background:red'>El código centro de beneficio en la Fila No 1 NO existe en SALA verifique o comuníquese con Tecnología.</span>
+
+<span style='background:red'>Ya existen ítems asociados a la cuenta operacion principal y parcial correspondiente a la Fila No 2, si desea modificar el ítem asociado comuníquese con el área de tecnología.</span>
+

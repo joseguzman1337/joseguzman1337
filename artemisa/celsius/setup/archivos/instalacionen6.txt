@@ -1,0 +1,5 @@
+Instalation finished
+Unexpected error! Restart installation
+Adminsitator data configured successfully!
+Cesius has been installed successfully, you are now able to use it!
+Insert to Celsius site name to access to administator ambiance. Specify a password for this user and <b> use this information </b> for autenticate in Administator ambiance.ator account (user

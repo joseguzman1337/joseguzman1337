@@ -1,0 +1,13 @@
+Creating file parametros.inc
+There was an error while connecting to MySQL. Remember that MySQL must be well installed, and root username and password must me right
+Error message return by MySQL
+User inserted successfully!
+Database created successfully!
+Directories to execute Celsius
+Directories that contains Celsius files
+Directoties in which documents uploads will be stored
+Roor Directory
+Email
+Site title
+Continue
+

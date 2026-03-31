@@ -1,0 +1,44 @@
+<html>
+<meta http-equiv="Content-Type" content="text/html; encoding=UTF-8">
+<head>
+<script type="text/javascript">
+function quitarFrame()
+{
+	if (self.parent.frames.length != 0)
+	self.parent.location=document.location.href="menu.php";
+
+}
+function reCarga(url){
+	document.location.href=url;
+}
+function createRequestObject() {
+	var ro;
+	var browser = navigator.appName;
+	if(browser == 'Microsoft Internet Explorer') {
+		ro = new ActiveXObject("Microsoft.XMLHTTP");
+	} else {
+		ro = new XMLHttpRequest();
+	}
+	return ro;
+}
+var http = createRequestObject();
+function sndReq(action) {
+	http.open('get', 'tabladatos.php');
+	http.onreadystatechange = handleResponse;
+	http.send(null);
+}
+
+function handleResponse() {
+	if(http.readyState == 4) {
+		var response = http.responseText;
+		document.getElementById('foo').innerHTML = response;
+	}
+}
+setInterval('sndReq()', 10000);
+</script>
+</head>
+<body>
+<div id="foo">
+</div>
+</body>
+</html>

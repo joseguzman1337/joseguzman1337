@@ -1,0 +1,274 @@
+html {
+    background: #7bc241;
+}
+
+.form-group input, .form-group select {
+    display: inline-block;
+    padding: 4px 6px !important;
+    font-size: 13px;
+    vertical-align: top;
+    margin-bottom: 0.6rem;
+}
+
+.form-group select{
+    height: inherit !important;
+}
+
+label.form-check-label {
+    display: inline-block;
+    width: 90%;
+    font-size: 12px;
+    line-height: 14px;
+    margin-left: 1rem;
+    color: #4a4a4a;
+    font-weight: 400;
+}
+
+.form-group #btnenviar {
+    background: #fff;
+    padding: 0.5rem 1.7rem !important;
+    border: 1px solid #fff !important;
+    font-weight: bold;
+    font-size: 12px !important;
+    color: #7bc241;
+    transition: all .2s ease;
+}
+
+.form-group #btnenviar:hover {
+    background: #7bc241;
+    color: #fff;
+    border: 1px solid #ffffff !important;
+}
+
+div.chosen-container-single .chosen-single {
+    border: 0px;
+    height: 29px;
+    line-height: 30px;
+    background: #fff;
+    color: #999999;
+    box-shadow: none;
+}
+
+div.chosen-container-single .chosen-single div b {
+    background-position: 0px 5px;
+}
+
+label.form-check-label a {
+    color: #ffffff;
+}
+
+label.form-check-label a:hover {
+    color: #ffffff;
+}
+
+html {
+    background: #7bc241;
+}
+
+label.form-check-label {
+    display: inline-block;
+    width: 90%;
+    font-size: 12px;
+    line-height: 14px;
+    margin-left: 1rem;
+    color: #4a4a4a;
+    font-weight: 400;
+}
+
+.form-group #btnenviar {
+    background: #fff;
+    padding: 0.5rem 1.7rem !important;
+    border: 1px solid #fff !important;
+    font-weight: bold;
+    font-size: 12px !important;
+    color: #7bc241;
+    transition: all .2s ease;
+}
+
+.form-group #btnenviar:hover {
+    background: #7bc241;
+    color: #fff;
+    border: 1px solid #ffffff !important;
+}
+
+div.chosen-container-single .chosen-single {
+    border: 0px;
+    height: 29px;
+    line-height: 30px;
+    background: #fff;
+    color: #999999;
+    box-shadow: none;
+}
+
+div.chosen-container-single .chosen-single div b {
+    background-position: 0px 5px;
+}
+
+label.form-check-label a {
+    color: #ffffff;
+}
+
+label.form-check-label a:hover {
+    color: #ffffff;
+}
+
+.panel{
+	
+      background-color: #7bc241;
+    padding: 0 1.5rem;
+}
+
+.container{
+	background: rgb(123, 194, 65);
+}
+
+.chosen-container{
+	    margin-bottom: 0.6rem;
+}
+
+html {
+    background: #7bc241;
+}
+
+label.form-check-label {
+    display: inline-block;
+    width: 90%;
+    font-size: 12px;
+    line-height: 14px;
+    margin-left: 1rem;
+    color: #4a4a4a;
+    font-weight: 400;
+}
+
+.form-group #btnenviar {
+    background: #fff;
+    padding: 0.5rem 1.7rem !important;
+    border: 1px solid #fff !important;
+    font-weight: bold;
+    font-size: 12px !important;
+    color: #7bc241;
+    transition: all .2s ease;
+}
+
+.form-group #btnenviar:hover {
+    background: #7bc241;
+    color: #fff;
+    border: 1px solid #ffffff !important;
+}
+
+div.chosen-container-single .chosen-single {
+    border: 0px;
+    height: 29px;
+    line-height: 30px;
+    background: #fff;
+    color: #999999;
+    box-shadow: none;
+}
+
+div.chosen-container-single .chosen-single div b {
+    background-position: 0px 5px;
+}
+
+label.form-check-label a {
+    color: #ffffff;
+}
+
+label.form-check-label a:hover {
+    color: #ffffff;
+}
+
+
+
+html {
+    background: #7bc241;
+}
+
+label.form-check-label {
+    display: inline-block;
+    width: 80%;
+    font-size: 12px;
+    line-height: 14px;
+    margin-left: 1rem;
+    color: #4a4a4a;
+    font-weight: 400;    
+}
+
+.form-group #btnenviar {
+    background: #fff;
+    padding: 0.5rem 1.7rem !important;
+    border: 1px solid #fff !important;
+    font-weight: bold;
+    font-size: 12px !important;
+    color: #7bc241;
+    transition: all .2s ease;
+}
+
+.form-group #btnenviar:hover {
+    background: #7bc241;
+    color: #fff;
+    border: 1px solid #ffffff !important;
+}
+
+div.chosen-container-single .chosen-single {
+    border: 0px;
+    height: 29px;
+    line-height: 30px;
+    background: #fff;
+    color: #999999;
+    box-shadow: none;
+}
+
+div.chosen-container-single .chosen-single div b {
+    background-position: 0px 5px;
+}
+
+label.form-check-label a {
+    color: #ffffff;
+}
+
+label.form-check-label a:hover {
+    color: #ffffff;
+}
+
+.panel {
+    background-color: #7bc241;
+    padding: 0 1.5rem;
+    margin-bottom: 0;
+    border: 0;
+    box-shadow: none;
+}
+
+.panel-body {
+    padding-bottom: 0;
+}
+
+.container{
+	background: rgb(123, 194, 65);
+}
+
+.chosen-container{
+	    margin-bottom: 0.6rem;
+}
+
+.has-success .help-block, .has-success .control-label, .has-success .radio, .has-success .checkbox, .has-success .radio-inline, .has-success .checkbox-inline, .has-success.radio label, .has-success.checkbox label, .has-success.radio-inline label, .has-success.checkbox-inline label{
+    display: none;
+}
+
+.chosen-container .chosen-results {
+    padding: 1rem;
+}
+
+.seleccionado{
+    width: 100%;
+}
+
+.container{
+    max-width: 500px !important;
+}
+
+.help-block{
+    margin: 0 0 5px 0 !important;
+    color: #db100c !important;
+    display: block;
+}
+

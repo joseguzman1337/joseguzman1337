@@ -1,0 +1,5 @@
+Instalacion Finalizada
+Error inesperado! Reinicie la instalacion
+Datos de administrador configurados con exito!
+Celsius ha sido instalado con exito, usted ya puede utilizarlo!
+Entrar el Stio Celsius acceder a la administracion de ambiente.Especifique una contraseña para ese usuario e <b>utilize esa informacion</b> para autentificar en Administracion del ambiente.

@@ -1,0 +1,82 @@
+<b>Log Item</b> 
+
+<span style='background:green'>Se han creado correctamente los Conceptos correspondientes a la Fila No 1</span> 
+
+<span style='background:red'>El código centro de beneficio en la Fila No 2 NO existe en SALA verifique o comuníquese con Tecnología.</span>
+
+<span style='background:green'>Se han creado correctamente los Conceptos correspondientes a la Fila No 3</span> 
+
+<span style='background:green'>Se han creado correctamente los Conceptos correspondientes a la Fila No 4</span> 
+
+<span style='background:red'>El código centro de beneficio en la Fila No 5 NO existe en SALA verifique o comuníquese con Tecnología.</span>
+
+<span style='background:green'>Se han creado correctamente los Conceptos correspondientes a la Fila No 6</span> 
+
+<span style='background:red'>El código centro de beneficio en la Fila No 7 NO existe en SALA verifique o comuníquese con Tecnología.</span>
+
+<span style='background:green'>Se han creado correctamente los Conceptos correspondientes a la Fila No 8</span> 
+
+<span style='background:red'>El código centro de beneficio en la Fila No 9 NO existe en SALA verifique o comuníquese con Tecnología.</span>
+
+<span style='background:red'>El código centro de beneficio en la Fila No 10 NO existe en SALA verifique o comuníquese con Tecnología.</span>
+
+<span style='background:red'>El código centro de beneficio en la Fila No 11 NO existe en SALA verifique o comuníquese con Tecnología.</span>
+
+<span style='background:red'>El código centro de beneficio en la Fila No 12 NO existe en SALA verifique o comuníquese con Tecnología.</span>
+
+<span style='background:red'>El código centro de beneficio en la Fila No 13 NO existe en SALA verifique o comuníquese con Tecnología.</span>
+
+<span style='background:green'>Se han creado correctamente los Conceptos correspondientes a la Fila No 14</span> 
+
+<span style='background:green'>Se han creado correctamente los Conceptos correspondientes a la Fila No 15</span> 
+
+<span style='background:green'>Se han creado correctamente los Conceptos correspondientes a la Fila No 16</span> 
+
+<span style='background:red'>El código centro de beneficio en la Fila No 17 NO existe en SALA verifique o comuníquese con Tecnología.</span>
+
+<span style='background:green'>Se han creado correctamente los Conceptos correspondientes a la Fila No 18</span> 
+
+<span style='background:red'>El código centro de beneficio en la Fila No 19 NO existe en SALA verifique o comuníquese con Tecnología.</span>
+
+<span style='background:green'>Se han creado correctamente los Conceptos correspondientes a la Fila No 20</span> 
+
+<span style='background:red'>El código centro de beneficio en la Fila No 21 NO existe en SALA verifique o comuníquese con Tecnología.</span>
+
+<span style='background:red'>El código centro de beneficio en la Fila No 22 NO existe en SALA verifique o comuníquese con Tecnología.</span>
+
+<span style='background:green'>Se han creado correctamente los Conceptos correspondientes a la Fila No 23</span> 
+
+<span style='background:red'>El código centro de beneficio en la Fila No 24 NO existe en SALA verifique o comuníquese con Tecnología.</span>
+
+<span style='background:red'>El código centro de beneficio en la Fila No 25 NO existe en SALA verifique o comuníquese con Tecnología.</span>
+
+<span style='background:green'>Se han creado correctamente los Conceptos correspondientes a la Fila No 26</span> 
+
+<span style='background:green'>Se han creado correctamente los Conceptos correspondientes a la Fila No 27</span> 
+
+<span style='background:green'>Se han creado correctamente los Conceptos correspondientes a la Fila No 28</span> 
+
+<span style='background:green'>Se han creado correctamente los Conceptos correspondientes a la Fila No 29</span> 
+
+<span style='background:green'>Se han creado correctamente los Conceptos correspondientes a la Fila No 30</span> 
+
+<span style='background:green'>Se han creado correctamente los Conceptos correspondientes a la Fila No 31</span> 
+
+<span style='background:green'>Se han creado correctamente los Conceptos correspondientes a la Fila No 32</span> 
+
+<span style='background:green'>Se han creado correctamente los Conceptos correspondientes a la Fila No 33</span> 
+
+<span style='background:green'>Se han creado correctamente los Conceptos correspondientes a la Fila No 34</span> 
+
+<span style='background:green'>Se han creado correctamente los Conceptos correspondientes a la Fila No 35</span> 
+
+<span style='background:green'>Se han creado correctamente los Conceptos correspondientes a la Fila No 36</span> 
+
+<span style='background:green'>Se han creado correctamente los Conceptos correspondientes a la Fila No 37</span> 
+
+<span style='background:green'>Se han creado correctamente los Conceptos correspondientes a la Fila No 38</span> 
+
+<span style='background:green'>Se han creado correctamente los Conceptos correspondientes a la Fila No 39</span> 
+
+<span style='background:green'>Se han creado correctamente los Conceptos correspondientes a la Fila No 40</span> 
+

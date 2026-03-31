@@ -1,0 +1,87 @@
+#content
+{
+height: 50%;
+width: 50%;
+text-align:center
+}
+#message
+{
+font-weight: bold;
+text-align: center;
+margin-left: 10px;
+margin-bottom: 10px;
+margin-top: 10px
+}
+a
+{
+text-decoration: none;
+margin: 0px;
+color: #173f5f
+}
+input
+{
+border: #999 1px solid;
+font-family: helvetica, sans-serif;
+font-weight: normal;
+font-size: 10px
+}
+#scroll
+{
+position: absolute;
+margin: 0 auto;
+visibility: hidden;
+background-color: white;
+z-index: 1;
+width: 150px;
+height: 180px;
+border-top-style: solid;
+border-right-style: solid;
+border-left-style: solid;
+border-collapse: collapse;
+border-bottom-style: solid;
+border-color: #000000;
+border-width: 1px;
+overflow: auto;
+visibility: hidden;
+}
+#scroll div
+{
+margin: 0 auto;
+text-align:left
+}
+#suggest table
+{
+width: 130px;
+font-size: 11px;
+font-weight: normal;
+color: #676767;
+text-decoration: none;
+border: 0px;
+padding: 0px;
+text-align:left;
+margin: 0px
+}
+#suggest
+{
+position: absolute;
+margin: 0 auto;
+visibility: hidden;
+background-color: white;
+z-index: 2;
+width: 150px;
+height: 180px;
+border-top-style: solid;
+border-right-style: solid;
+border-left-style: solid;
+border-collapse: collapse;
+border-bottom-style: solid;
+border-color: #000000;
+border-width: 1px;
+overflow: auto;
+visibility: hidden;
+}
+.highlightrow
+{
+background-color: #999999;
+cursor: pointer
+}

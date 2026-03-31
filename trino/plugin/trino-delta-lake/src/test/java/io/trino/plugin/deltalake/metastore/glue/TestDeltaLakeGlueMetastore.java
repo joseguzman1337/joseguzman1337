@@ -1,0 +1,314 @@
+/*
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package io.trino.plugin.deltalake.metastore.glue;
+
+import com.google.common.collect.ImmutableList;
+import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.ImmutableMultimap;
+import com.google.common.io.Resources;
+import com.google.inject.Injector;
+import com.google.inject.Key;
+import io.airlift.bootstrap.Bootstrap;
+import io.airlift.bootstrap.LifeCycleManager;
+import io.airlift.json.JsonModule;
+import io.trino.filesystem.manager.FileSystemModule;
+import io.trino.metastore.Column;
+import io.trino.metastore.Database;
+import io.trino.metastore.HiveMetastore;
+import io.trino.metastore.HiveMetastoreFactory;
+import io.trino.metastore.PrincipalPrivileges;
+import io.trino.metastore.Table;
+import io.trino.plugin.base.ConnectorContextModule;
+import io.trino.plugin.base.session.SessionPropertiesProvider;
+import io.trino.plugin.deltalake.DeltaLakeMetadata;
+import io.trino.plugin.deltalake.DeltaLakeMetadataFactory;
+import io.trino.plugin.deltalake.DeltaLakeModule;
+import io.trino.plugin.deltalake.DeltaLakeSecurityModule;
+import io.trino.plugin.deltalake.metastore.DeltaLakeMetastoreModule;
+import io.trino.spi.TrinoException;
+import io.trino.spi.connector.ConnectorContext;
+import io.trino.spi.connector.RelationColumnsMetadata;
+import io.trino.spi.connector.SchemaTableName;
+import io.trino.spi.connector.SchemaTablePrefix;
+import io.trino.testing.TestingConnectorContext;
+import io.trino.testing.TestingConnectorSession;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInstance;
+import org.junit.jupiter.api.parallel.Execution;
+
+import java.io.File;
+import java.io.IOException;
+import java.net.URI;
+import java.nio.file.Files;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+import java.util.Set;
+import java.util.function.Consumer;
+
+import static com.google.common.base.Verify.verify;
+import static com.google.common.collect.ImmutableList.toImmutableList;
+import static com.google.common.collect.ImmutableSet.toImmutableSet;
+import static com.google.common.io.MoreFiles.deleteRecursively;
+import static com.google.common.io.RecursiveDeleteOption.ALLOW_INSECURE;
+import static io.airlift.testing.Closeables.closeAll;
+import static io.trino.metastore.HiveType.HIVE_STRING;
+import static io.trino.plugin.deltalake.DeltaLakeMetadata.DELTA_STORAGE_FORMAT;
+import static io.trino.plugin.deltalake.DeltaLakeTableProperties.LOCATION_PROPERTY;
+import static io.trino.plugin.deltalake.metastore.HiveMetastoreBackedDeltaLakeMetastore.TABLE_PROVIDER_PROPERTY;
+import static io.trino.plugin.deltalake.metastore.HiveMetastoreBackedDeltaLakeMetastore.TABLE_PROVIDER_VALUE;
+import static io.trino.plugin.hive.HiveStorageFormat.PARQUET;
+import static io.trino.plugin.hive.TableType.EXTERNAL_TABLE;
+import static io.trino.plugin.hive.TableType.VIRTUAL_VIEW;
+import static io.trino.spi.security.PrincipalType.ROLE;
+import static io.trino.testing.TestingConnectorSession.SESSION;
+import static io.trino.testing.TestingNames.randomNameSuffix;
+import static java.lang.String.format;
+import static java.nio.charset.StandardCharsets.UTF_8;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.junit.jupiter.api.TestInstance.Lifecycle.PER_CLASS;
+import static org.junit.jupiter.api.parallel.ExecutionMode.CONCURRENT;
+
+@TestInstance(PER_CLASS)
+@Execution(CONCURRENT)
+public class TestDeltaLakeGlueMetastore
+{
+    private File tempDir;
+    private LifeCycleManager lifeCycleManager;
+    private HiveMetastore metastoreClient;
+    private DeltaLakeMetadataFactory metadataFactory;
+    private String databaseName;
+    private TestingConnectorSession session;
+
+    @BeforeAll
+    public void setUp()
+            throws Exception
+    {
+        tempDir = Files.createTempDirectory(null).toFile();
+        String temporaryLocation = tempDir.toURI().toString();
+
+        Map<String, String> config = ImmutableMap.<String, String>builder()
+                .put("hive.metastore", "glue")
+                .put("delta.hide-non-delta-lake-tables", "true")
+                .put("fs.hadoop.enabled", "true")
+                .buildOrThrow();
+
+        ConnectorContext context = new TestingConnectorContext();
+        Bootstrap app = new Bootstrap(
+                // connector dependencies
+                new JsonModule(),
+                new ConnectorContextModule("test", context),
+                // connector modules
+                new DeltaLakeMetastoreModule(),
+                new DeltaLakeModule(),
+                new DeltaLakeSecurityModule(),
+                // test setup
+                new FileSystemModule("test", context, false));
+
+        Injector injector = app
+                .doNotInitializeLogging()
+                .setRequiredConfigurationProperties(config)
+                .initialize();
+
+        lifeCycleManager = injector.getInstance(LifeCycleManager.class);
+        metastoreClient = injector.getInstance(HiveMetastoreFactory.class).createMetastore(Optional.empty());
+        metadataFactory = injector.getInstance(DeltaLakeMetadataFactory.class);
+
+        session = TestingConnectorSession.builder()
+                .setPropertyMetadata(injector.getInstance(new Key<Set<SessionPropertiesProvider>>() {}).stream()
+                        .map(SessionPropertiesProvider::getSessionProperties)
+                        .flatMap(List::stream)
+                        .collect(toImmutableList()))
+                .build();
+
+        databaseName = "test_delta_glue" + randomNameSuffix();
+        metastoreClient.createDatabase(Database.builder()
+                .setDatabaseName(databaseName)
+                .setOwnerName(Optional.of("public"))
+                .setOwnerType(Optional.of(ROLE))
+                .setLocation(Optional.of(temporaryLocation))
+                .build());
+    }
+
+    @AfterAll
+    public void tearDown()
+            throws Exception
+    {
+        closeAll(
+                () -> metastoreClient.dropDatabase(databaseName, true),
+                () -> lifeCycleManager.stop(),
+                () -> {
+                    if (tempDir.exists()) {
+                        deleteRecursively(tempDir.toPath(), ALLOW_INSECURE);
+                    }
+                });
+
+        databaseName = null;
+        lifeCycleManager = null;
+        tempDir = null;
+    }
+
+    @Test
+    public void testHideNonDeltaLakeTable()
+            throws Exception
+    {
+        SchemaTableName deltaLakeTable = new SchemaTableName(databaseName, "delta_lake_table_" + randomNameSuffix());
+        SchemaTableName nonDeltaLakeTable1 = new SchemaTableName(databaseName, "hive_table_" + randomNameSuffix());
+        SchemaTableName nonDeltaLakeTable2 = new SchemaTableName(databaseName, "hive_table_" + randomNameSuffix());
+        SchemaTableName nonDeltaLakeView1 = new SchemaTableName(databaseName, "hive_view_" + randomNameSuffix());
+
+        String deltaLakeTableLocation = tableLocation(deltaLakeTable);
+        createTable(deltaLakeTable, deltaLakeTableLocation, tableBuilder -> {
+            tableBuilder.setParameter(TABLE_PROVIDER_PROPERTY, TABLE_PROVIDER_VALUE);
+            tableBuilder.setParameter(LOCATION_PROPERTY, deltaLakeTableLocation);
+            tableBuilder.getStorageBuilder()
+                    // this mimics what Databricks is doing when creating a Delta table in the Hive metastore
+                    .setStorageFormat(DELTA_STORAGE_FORMAT)
+                    .setSerdeParameters(ImmutableMap.of(DeltaLakeMetadata.PATH_PROPERTY, deltaLakeTableLocation))
+                    .setLocation(deltaLakeTableLocation);
+        });
+        createTransactionLog(deltaLakeTableLocation);
+
+        createTable(nonDeltaLakeTable1, tableLocation(nonDeltaLakeTable1), tableBuilder -> {});
+        createTable(nonDeltaLakeTable2, tableLocation(nonDeltaLakeTable2), tableBuilder -> tableBuilder.setParameter(TABLE_PROVIDER_PROPERTY, "foo"));
+        createView(nonDeltaLakeView1, tableLocation(nonDeltaLakeTable1), tableBuilder -> {});
+
+        DeltaLakeMetadata metadata = metadataFactory.create(SESSION.getIdentity());
+
+        // Verify the tables were created as non Delta Lake tables
+        assertThatThrownBy(() -> metadata.getTableHandle(session, nonDeltaLakeTable1, Optional.empty(), Optional.empty()))
+                .isInstanceOf(TrinoException.class)
+                .hasMessage(format("%s is not a Delta Lake table", nonDeltaLakeTable1));
+        assertThatThrownBy(() -> metadata.getTableHandle(session, nonDeltaLakeTable2, Optional.empty(), Optional.empty()))
+                .isInstanceOf(TrinoException.class)
+                .hasMessage(format("%s is not a Delta Lake table", nonDeltaLakeTable2));
+
+        // TODO (https://github.com/trinodb/trino/issues/5426)
+        //  these assertions should use information_schema instead of metadata directly,
+        //  as information_schema or MetadataManager may apply additional logic
+
+        // list all tables
+        assertThat(metadata.listTables(session, Optional.empty()))
+                .contains(deltaLakeTable)
+                .doesNotContain(nonDeltaLakeTable1)
+                .doesNotContain(nonDeltaLakeTable2);
+
+        // list all tables in a schema
+        assertThat(metadata.listTables(session, Optional.of(databaseName)))
+                .contains(deltaLakeTable)
+                .doesNotContain(nonDeltaLakeTable1)
+                .doesNotContain(nonDeltaLakeTable2);
+
+        // list all columns in a schema
+        assertThat(listTableColumns(metadata, new SchemaTablePrefix(databaseName)))
+                .contains(deltaLakeTable)
+                .doesNotContain(nonDeltaLakeTable1)
+                .doesNotContain(nonDeltaLakeTable2);
+
+        // list all columns in a table
+        assertThat(listTableColumns(metadata, new SchemaTablePrefix(databaseName, deltaLakeTable.getTableName())))
+                .contains(deltaLakeTable)
+                .doesNotContain(nonDeltaLakeTable1)
+                .doesNotContain(nonDeltaLakeTable2);
+        assertThat(listTableColumns(metadata, new SchemaTablePrefix(databaseName, nonDeltaLakeTable1.getTableName())))
+                .isEmpty();
+        assertThat(listTableColumns(metadata, new SchemaTablePrefix(databaseName, nonDeltaLakeTable2.getTableName())))
+                .isEmpty();
+        assertThat(listTableColumns(metadata, new SchemaTablePrefix(databaseName, nonDeltaLakeView1.getTableName())))
+                .isEmpty();
+
+        metadata.cleanupQuery(session);
+    }
+
+    private Set<SchemaTableName> listTableColumns(DeltaLakeMetadata metadata, SchemaTablePrefix tablePrefix)
+    {
+        Iterator<RelationColumnsMetadata> relationColumnsIterator = metadata.streamRelationColumns(
+                session,
+                tablePrefix.getSchema(),
+                schemaTableNames -> schemaTableNames.stream().filter(tablePrefix::matches).collect(toImmutableSet()));
+
+        List<RelationColumnsMetadata> relations = ImmutableList.copyOf(relationColumnsIterator);
+        Set<SchemaTableName> redirectedTables = relations.stream()
+                .filter(RelationColumnsMetadata::redirected)
+                .map(RelationColumnsMetadata::name)
+                .collect(toImmutableSet());
+
+        if (!redirectedTables.isEmpty()) {
+            throw new IllegalStateException("Unexpected redirects reported for tables: " + redirectedTables);
+        }
+
+        return relations.stream()
+                .map(RelationColumnsMetadata::name)
+                .collect(toImmutableSet());
+    }
+
+    /**
+     * Creates a valid transaction log
+     */
+    private void createTransactionLog(String deltaLakeTableLocation)
+            throws IOException
+    {
+        File deltaTableLogLocation = new File(new File(URI.create(deltaLakeTableLocation)), "_delta_log");
+        verify(deltaTableLogLocation.mkdirs(), "mkdirs() on '%s' failed", deltaTableLogLocation);
+        String entry = Resources.toString(Resources.getResource("deltalake/person/_delta_log/00000000000000000000.json"), UTF_8);
+        Files.writeString(new File(deltaTableLogLocation, "00000000000000000000.json").toPath(), entry);
+    }
+
+    private String tableLocation(SchemaTableName tableName)
+    {
+        return new File(tempDir, tableName.getTableName()).toURI().toString();
+    }
+
+    private void createTable(SchemaTableName tableName, String tableLocation, Consumer<Table.Builder> tableConfiguration)
+    {
+        Table.Builder table = Table.builder()
+                .setDatabaseName(tableName.getSchemaName())
+                .setTableName(tableName.getTableName())
+                .setOwner(Optional.of(session.getUser()))
+                .setTableType(EXTERNAL_TABLE.name())
+                .setDataColumns(List.of(new Column("a_column", HIVE_STRING, Optional.empty(), Map.of())));
+
+        table.getStorageBuilder()
+                .setStorageFormat(PARQUET.toStorageFormat())
+                .setLocation(tableLocation);
+
+        tableConfiguration.accept(table);
+
+        PrincipalPrivileges principalPrivileges = new PrincipalPrivileges(ImmutableMultimap.of(), ImmutableMultimap.of());
+        metastoreClient.createTable(table.build(), principalPrivileges);
+    }
+
+    private void createView(SchemaTableName viewName, String tableLocation, Consumer<Table.Builder> tableConfiguration)
+    {
+        Table.Builder table = Table.builder()
+                .setDatabaseName(viewName.getSchemaName())
+                .setTableName(viewName.getTableName())
+                .setOwner(Optional.of(session.getUser()))
+                .setTableType(VIRTUAL_VIEW.name())
+                .setDataColumns(List.of(new Column("a_column", HIVE_STRING, Optional.empty(), Map.of())));
+
+        table.getStorageBuilder()
+                .setStorageFormat(PARQUET.toStorageFormat())
+                .setLocation(tableLocation);
+
+        tableConfiguration.accept(table);
+
+        PrincipalPrivileges principalPrivileges = new PrincipalPrivileges(ImmutableMultimap.of(), ImmutableMultimap.of());
+        metastoreClient.createTable(table.build(), principalPrivileges);
+    }
+}

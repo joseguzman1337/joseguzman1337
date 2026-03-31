@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>{{title}}</title>
+		<link type="text/css" href="../../educacionContinuada/css/normalize.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../css/themes/smoothness/jquery-ui-1.8.4.custom.css" type="text/css" /> 
+		<link media="screen, projection" type="text/css" href="../../educacionContinuada/css/style.css" rel="stylesheet">
+        <script type='text/javascript' language="javascript" src="../../js/jquery.js"></script>
+        <script type="text/javascript" language="javascript" src="../../js/jquery-ui-1.8.21.custom.min.js"></script> 
+        <script type="text/javascript" language="javascript" src="../../educacionContinuada/js/functions.js"></script>
+        <script type="text/javascript" language="javascript" src="../js/funcionesGestionContraprestaciones.js "></script>         
+		<style>
+			form span.info{
+				margin-left:15px;position:relative;top:2px;
+				clear: right;
+				display: inline-block;
+				float: left;
+			}
+		</style>
+	</head>
+	<body class="body">
+        <div id="container">
+            <center><h1>{{title}}</h1></center>
+             <center><h3>{{nombreconvenio}}</h3></center>
+            <center><h3>{{nombrecontra}}</h3></center>
+        </div>
+        <div>
+            <form method="post" action="ActualizarContraprestacion.php" id="form_programa">
+             <fieldset>   
+                <legend>Información Programa Academico</legend>
+                
+                <div style="display: {{div}};">
+                <label class="fixed">Modalidad</label>
+                <select id="modalidad" name="modalidad">
+                    <option value=""></option>
+                    {{#modalidad}}
+                        <option value="{{codigomodalidadacademica}}">{{nombremodalidadacademica}}</option>
+                    {{/modalidad}}    
+                </select>
+                </div>
+                <br />           
+                <div id="Div_Facultad">
+                    <label class="fixed">Unidad Academica</label> 
+                    <select id="facultad" disabled="disabled">
+                      <option value='0' selected='selected'>Seleccione</option>
+                    </select>
+                </div>                 
+               	<br />
+                <label class="fixed">Programa Adscrito</label> 
+                <div id="Div_Programa" style="float: left;">   
+                    <div id="programa" disabled="disabled" style="float: left;">                    
+                    </div>
+                </div>                   
+			</fieldset>
+                <input type="hidden" name="IdContraprestacion" id="IdContraprestacion" value="{{IdContraprestacion}}" />
+                <input type="hidden" name="idconvenio" id="idconvenio" value="{{idconvenio}}" />
+            	<input type="submit" name="submit" id="submit" value="Guardar cambios" />
+                <input type="button" value="regresar" onclick="RegresarModificarcontraprestacion();" />
+            </form>
+        </div>
+        <script type="text/javascript">
+                $(':submit').click(function(event) {
+                    event.preventDefault();
+                    var valido= validateForm("#form_programa");
+                    if(valido){
+                        sendForm();
+                    }
+                });			
+
+                function sendForm(){                    
+                    $.ajax({
+                        dataType: 'json',
+                        type: 'POST',
+                        url: '../Controller/NuevoPrograma.php',
+                        data: $('#form_programa').serialize(),                
+                        success:function(data){
+                            if (data.success == true){
+								alert(data.message);
+                                window.location.href="../Controller/ModificarContraprestaciones.php";
+                            }
+                            else{ 
+                                alert(data.message); 
+                            }                            
+                        },
+                        error: function(data,error,errorThrown){alert(error + errorThrown);}
+                    });            
+                }
+		</script>
+    </body>
+</html>

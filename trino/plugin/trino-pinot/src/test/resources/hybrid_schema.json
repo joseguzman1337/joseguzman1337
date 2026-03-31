@@ -1,0 +1,24 @@
+{
+    "schemaName": "hybrid",
+    "dimensionFieldSpecs": [
+        {
+            "name": "stringCol",
+            "dataType": "STRING"
+        }
+    ],
+    "metricFieldSpecs": [
+        {
+            "name": "longCol",
+            "dataType": "LONG"
+        }
+    ],
+    "dateTimeFieldSpecs": [
+        {
+            "name": "updatedAt",
+            "dataType": "TIMESTAMP",
+            "defaultNullValue" : 0,
+            "format": "1:MILLISECONDS:EPOCH",
+            "granularity" : "1:MILLISECONDS"
+        }
+    ]
+}

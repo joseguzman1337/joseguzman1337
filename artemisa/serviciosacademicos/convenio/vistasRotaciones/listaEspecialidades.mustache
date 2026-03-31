@@ -1,0 +1,127 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>{{title}}</title>
+		<link type="text/css" href="../educacionContinuada/css/normalize.css" rel="stylesheet">
+        <link rel="stylesheet" href="../css/themes/smoothness/jquery-ui-1.8.4.custom.css" type="text/css" /> 
+		<link media="screen, projection" type="text/css" href="../educacionContinuada/css/style.css" rel="stylesheet">
+		<link media="screen, projection" type="text/css" href="../consulta/estadisticas/riesgos/data/media/css/demo_page.css" rel="stylesheet">
+		<link media="screen, projection" type="text/css" href="../consulta/estadisticas/riesgos/data/media/css/demo_table_jui.css" rel="stylesheet">
+		<link media="screen, projection" type="text/css" href="../consulta/estadisticas/riesgos/data/media/css/ColVis.css" rel="stylesheet">
+		<link media="screen, projection" type="text/css" href="../consulta/estadisticas/riesgos/data/media/css/TableTools.css" rel="stylesheet">
+        <script type='text/javascript' language="javascript" src="../js/jquery.js"></script>
+        <script type="text/javascript" language="javascript" src="../js/jquery.dataTables.js"></script>
+        <script type="text/javascript" language="javascript" src="../js/jquery-ui-1.8.21.custom.min.js"></script>   
+        <script type="text/javascript" language="javascript" src="../consulta/estadisticas/riesgos/data/media/js/jquery.dataTables.js"></script>
+        <script type="text/javascript" charset="utf-8" src="../consulta/estadisticas/riesgos/data/media/js/ColVis.js"></script>
+        <script type="text/javascript" charset="utf-8" src="../consulta/estadisticas/riesgos/data/media/js/ZeroClipboard.js"></script>
+        <script type="text/javascript" charset="utf-8" src="../consulta/estadisticas/riesgos/data/media/js/TableTools.js"></script>
+        <script type="text/javascript" charset="utf-8" src="../consulta/estadisticas/riesgos/data/media/js/jquery.modal.js"></script>
+		<style>		
+                table#example1 tr td,table#example1 tr th{
+					border:1px solid #000;
+					padding: 8px 5px;
+				}
+				table#example1 tr th{
+				  background-color: #dde;
+				}
+				table tr td a,table tr td button.soft{
+					display:inline-block;
+					margin-right:10px;
+				}
+		</style>
+		 <script type="text/javascript" language="javascript">
+        /****************************************************************/
+        	$(document).ready( function () {
+        			
+        			oTable1 = $('#example').dataTable({
+                                    "sDom": '<"H"Cfrltip>',
+                                    "bJQueryUI": true,
+                                    "bPaginate": true,
+                                    "sPaginationType": "full_numbers",
+                                    "oColVis": {
+                                          "buttonText": "Ver/Ocultar Columnas",
+                                           "aiExclude": [ 0 ]
+                                    }
+                                });
+                                var oTableTools1 = new TableTools( oTable1, {
+        					"buttons": [
+        						"copy",
+        						"csv",
+        						"xls",
+        						"pdf",
+        						{ "type": "print", "buttonText": "Imprimir" }
+        					]
+        		         });
+                         
+                         $('#demo').before( oTableTools1.dom.container );
+                                
+        		} );  
+        	/**************************************************************/
+        </script>	
+	</head>
+	 <body class="body"> 
+    <div id="pageContainer">
+	 <div id="container">
+        <center><h1>SERVICIOS O ESPECIALIDADES<br /> {{carrera}}</h1></center>
+		<div id="demo">
+			<form method="post" action="especialidad.php">
+			<input type="submit" name="NuevaEspecialidad" id="NuevaEspecialidad" value="Nueva Especialidad" />
+			</form>
+          <table cellpadding="0" cellspacing="0" border="1" class="display" id="example">
+		  <thead>
+                    <tr>
+                        <th>Especialidad</th>
+                        <th>Fecha de Registro</th>
+                        <th>Fecha Última Modificación</th>
+                        <th>Usuario</th>
+                        <th>Detalle</th>
+                   </tr>
+                </thead>
+            <tbody>  							
+				{{# especialidades }}
+						<tr class="{{# class_even }}{{conteo}}{{/ class_even }}">				
+							<td width="20%">{{Especialidad}}</td>
+							<td width="20%" align="center">{{fecha}}</td>
+							<td width="20%" align="center">{{fecha2}}</td>
+							<td width="20%" align="center">{{usuario}}</td>
+                            <td valign="top" align="center">
+								<a href="especialidad.php?id={{id}}" style="" title="Ver detalle" >
+									<img src="../mgi/images/file_search.png" alt="Ver detalle" width="20"/>
+								</a>
+								<button class="soft image eliminarEspecialidad" type="button" id="idespecialidad_{{id}}" title="Eliminar Especialidad" >
+								<img src="../mgi/images/delete.png" alt="Eliminar Especialidad" width="20"/>
+								</button>
+                            </td>
+						</tr>
+				{{/ especialidades }}
+			</tbody>
+			</table>
+		</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+	  $(".eliminarEspecialidad").on('click',function(){
+			if (confirm("¿Está seguro que desea eliminar esta especialidad?") == true) {
+				var idgrupo = $(this).attr('id');
+				idgrupo = idgrupo.replace("idespecialidad_",""); 
+				
+				$.ajax({
+						dataType: 'json',
+						type: 'POST',
+						url: 'processEspecialidad.php',
+						data: 'id='+idgrupo+'&action=inactivateEspecialidad',
+						success:function(data){ 
+							if (data.success == true){
+								location.reload();
+							}
+					},
+						error: function(data,error){}
+				}); 
+			}
+           
+        });
+	  </script>   
+	</body>
+</html>

@@ -1,0 +1,3119 @@
+idNotificacion del request: 76
+inicio del request: 15000
+dataNotifiApp: Array
+(
+    [0] => 76
+    [id] => 76
+    [1] => #ElBosqueEstáContigo Aprende técnicas de "mindfulness" para que disfrutes el aquí y el ahora ✨. Conéctate por el siguiente link: https://meet.google.com/dhj-nhwg-tqq?authuser=0
+Miércoles 18 de noviembre
+4 p.m.
+    [texto] => #ElBosqueEstáContigo Aprende técnicas de "mindfulness" para que disfrutes el aquí y el ahora ✨. Conéctate por el siguiente link: https://meet.google.com/dhj-nhwg-tqq?authuser=0
+Miércoles 18 de noviembre
+4 p.m.
+    [2] => 2020-11-18 00:00:00
+    [fecha] => 2020-11-18 00:00:00
+    [3] => 100
+    [codigoEstado] => 100
+    [4] => Procesando
+    [estado] => Procesando
+    [5] => 71660
+    [usuarioCreacion] => 71660
+    [6] => 
+    [usuarioModificacion] => 
+    [7] => 2020-11-17 15:57:08
+    [fechaCreacion] => 2020-11-17 15:57:08
+    [8] => 2020-11-18 00:00:00
+    [fechaModificacion] => 2020-11-18 00:00:00
+)
+
+id: 76
+cantidad: 15188
+limite:  LIMIT 15000, 500
+SQLIdUsuario:  SELECT t.idUsuario, t.plataforma, t.devicetoken FROM Token t WHERE  t.CodigoEstado="100" AND t.Plataforma IN ("android", "iOS") and (t.devicetoken <>"0" and t.devicetoken <>"")  UNION SELECT t.idUsuario, t.plataforma, t.devicetoken from Token t WHERE idUsuario=58843 and (t.devicetoken <>"0" and t.devicetoken <>"") GROUP BY devicetoken  LIMIT 15000, 500
+dataUsuario: Array
+(
+    [0] => Array
+        (
+            [0] => 72567
+            [idUsuario] => 72567
+            [1] => iOS
+            [plataforma] => iOS
+            [2] => eUFMeapU9ng:APA91bFPyITz77MJDBfBksQqWBzl1QFZ5K583Bs1potbx809zH7JQadJ-0e_DIgY2MwSz3U-5cNaz2WqoowzoQda7tawb6OBkaEu0GbS0vnBD4Xn_u_EbS0e4_LJrQmHT6FIFFeAECH5
+            [devicetoken] => eUFMeapU9ng:APA91bFPyITz77MJDBfBksQqWBzl1QFZ5K583Bs1potbx809zH7JQadJ-0e_DIgY2MwSz3U-5cNaz2WqoowzoQda7tawb6OBkaEu0GbS0vnBD4Xn_u_EbS0e4_LJrQmHT6FIFFeAECH5
+        )
+
+    [1] => Array
+        (
+            [0] => 61869
+            [idUsuario] => 61869
+            [1] => android
+            [plataforma] => android
+            [2] => coFUnuzX2pg:APA91bEtErDO7Nu5SIpU--wEO0Rj3jCN9B6eXB2uthnln3hQuwJ7HWhu__7W8qVHhPaQH2AITP5A3iAL4Yf7Vwfyd3P_IiXZEge1WVGHh_IyIY39H4ltny8Ic5eFiaB_qPwIq8qaLiT-
+            [devicetoken] => coFUnuzX2pg:APA91bEtErDO7Nu5SIpU--wEO0Rj3jCN9B6eXB2uthnln3hQuwJ7HWhu__7W8qVHhPaQH2AITP5A3iAL4Yf7Vwfyd3P_IiXZEge1WVGHh_IyIY39H4ltny8Ic5eFiaB_qPwIq8qaLiT-
+        )
+
+    [2] => Array
+        (
+            [0] => 38465
+            [idUsuario] => 38465
+            [1] => iOS
+            [plataforma] => iOS
+            [2] => ejCJ20NQbQc:APA91bHZlMyHtmicYCD_WZNriCvcMf_0O54AqZpllFXmvRrz_3sr0xpUasnnMLZQiXgmv9CoEh6OcDUzwkp_5t5a49vnIbpujKNHI8bo5wq1KKBwwNlDZTPaHaSAA7UyQJZZPtbniAZL
+            [devicetoken] => ejCJ20NQbQc:APA91bHZlMyHtmicYCD_WZNriCvcMf_0O54AqZpllFXmvRrz_3sr0xpUasnnMLZQiXgmv9CoEh6OcDUzwkp_5t5a49vnIbpujKNHI8bo5wq1KKBwwNlDZTPaHaSAA7UyQJZZPtbniAZL
+        )
+
+    [3] => Array
+        (
+            [0] => 53626
+            [idUsuario] => 53626
+            [1] => iOS
+            [plataforma] => iOS
+            [2] => c3BTZhYhZLg:APA91bGdg_vWi6BnUMwaoj10a64lmG41YGWl4CyW3jv04ON1FGijQWfTqeTMQt8M-qK36wnlVHNb5-WGZhir5AOQDxSNPO5c1FgCb84KrXqIGu08qbC5uCo54cfz2Y3NxzolyJW0D4W8
+            [devicetoken] => c3BTZhYhZLg:APA91bGdg_vWi6BnUMwaoj10a64lmG41YGWl4CyW3jv04ON1FGijQWfTqeTMQt8M-qK36wnlVHNb5-WGZhir5AOQDxSNPO5c1FgCb84KrXqIGu08qbC5uCo54cfz2Y3NxzolyJW0D4W8
+        )
+
+    [4] => Array
+        (
+            [0] => 56801
+            [idUsuario] => 56801
+            [1] => android
+            [plataforma] => android
+            [2] => eJOAXMa3jUc:APA91bF-Pvjh2VgnY5issywVHnSsaib2WBi8Nc_56YCqmY8gbudvIoVUJviM8chYHUjSdkel8Cxv76SItsY1dBhYhzFrsmZfU5pTZsi2_WBc3SAl0DWsJI4H2t79JhohvWWS4jxNBC3r
+            [devicetoken] => eJOAXMa3jUc:APA91bF-Pvjh2VgnY5issywVHnSsaib2WBi8Nc_56YCqmY8gbudvIoVUJviM8chYHUjSdkel8Cxv76SItsY1dBhYhzFrsmZfU5pTZsi2_WBc3SAl0DWsJI4H2t79JhohvWWS4jxNBC3r
+        )
+
+    [5] => Array
+        (
+            [0] => 37782
+            [idUsuario] => 37782
+            [1] => android
+            [plataforma] => android
+            [2] => dlACBWXIyI8:APA91bF5sCJJoMrAZYiHaFAWvgWUyHrl1Cfp2KUGa4h3hdIIJ1Roan42DNYK1VLhgWbAc6tj9aeYSwu0VnLYUE9LM1j0yQL9xXEB68yKtbwhuEvM1usVpG_lJ3ttkzQbDB0h-FybXP5G
+            [devicetoken] => dlACBWXIyI8:APA91bF5sCJJoMrAZYiHaFAWvgWUyHrl1Cfp2KUGa4h3hdIIJ1Roan42DNYK1VLhgWbAc6tj9aeYSwu0VnLYUE9LM1j0yQL9xXEB68yKtbwhuEvM1usVpG_lJ3ttkzQbDB0h-FybXP5G
+        )
+
+    [6] => Array
+        (
+            [0] => 68511
+            [idUsuario] => 68511
+            [1] => android
+            [plataforma] => android
+            [2] => fqhfpLlkqAs:APA91bGZQr--mb11efMsufRrP8r0C2Vnpfk6mcld_CMgt-i5SA27BfHkOYVGvQ-0pRLaXmfQDhE3ZafZTTxh_SntVKXy6zDXkpxQ__os4hudULYocqvra9NulhhrrrHUT_-zk9WwOS8S
+            [devicetoken] => fqhfpLlkqAs:APA91bGZQr--mb11efMsufRrP8r0C2Vnpfk6mcld_CMgt-i5SA27BfHkOYVGvQ-0pRLaXmfQDhE3ZafZTTxh_SntVKXy6zDXkpxQ__os4hudULYocqvra9NulhhrrrHUT_-zk9WwOS8S
+        )
+
+    [7] => Array
+        (
+            [0] => 65042
+            [idUsuario] => 65042
+            [1] => iOS
+            [plataforma] => iOS
+            [2] => fLYS-4p9P90:APA91bEjTrj7GsPxPXTHpRJwwO14rQVYYel4MrQC40-Mab-B32aQQgMjGD7-et87pPF7O31Ivpqf2QH98lrOPOA_7iAHLjwF8dqpFqmig3H35TLsk79hCmgiHrXGbxuhp7rMMqOEPmx3
+            [devicetoken] => fLYS-4p9P90:APA91bEjTrj7GsPxPXTHpRJwwO14rQVYYel4MrQC40-Mab-B32aQQgMjGD7-et87pPF7O31Ivpqf2QH98lrOPOA_7iAHLjwF8dqpFqmig3H35TLsk79hCmgiHrXGbxuhp7rMMqOEPmx3
+        )
+
+    [8] => Array
+        (
+            [0] => 75638
+            [idUsuario] => 75638
+            [1] => iOS
+            [plataforma] => iOS
+            [2] => fwQoUS-HGRI:APA91bGCi8-AHWGrkzTTF_mcNVvnhvWvIXf9P30-Hn-kaK0dBOu4ydCZu7u1bP0CBTGuSRp2yF4cVVpmirrFS_-LiOi6InK5qqdNL6R-qzSTwU0EJxfddjswL9L7dBJWWVYl15A3Xe39
+            [devicetoken] => fwQoUS-HGRI:APA91bGCi8-AHWGrkzTTF_mcNVvnhvWvIXf9P30-Hn-kaK0dBOu4ydCZu7u1bP0CBTGuSRp2yF4cVVpmirrFS_-LiOi6InK5qqdNL6R-qzSTwU0EJxfddjswL9L7dBJWWVYl15A3Xe39
+        )
+
+    [9] => Array
+        (
+            [0] => 45818
+            [idUsuario] => 45818
+            [1] => android
+            [plataforma] => android
+            [2] => fOKmFvx8a3A:APA91bH7ym_WUEIkx8mppMOkr4a7tNcAaFK-miT-Hp4jJS0CbzIsVCiyKOSdkmV5zSzBLjJ2P_Hod9vKLrqsT_yTTlMxmHEYS86BykJQCsbub85BxtTlFtRlrn9ML64B7h3s4RUT2Hle
+            [devicetoken] => fOKmFvx8a3A:APA91bH7ym_WUEIkx8mppMOkr4a7tNcAaFK-miT-Hp4jJS0CbzIsVCiyKOSdkmV5zSzBLjJ2P_Hod9vKLrqsT_yTTlMxmHEYS86BykJQCsbub85BxtTlFtRlrn9ML64B7h3s4RUT2Hle
+        )
+
+    [10] => Array
+        (
+            [0] => 61989
+            [idUsuario] => 61989
+            [1] => android
+            [plataforma] => android
+            [2] => f9FDj04m9lg:APA91bEbZC23lowdC3D2PUadvX_3k4F1EthldA0M6ZopI8rKYyTZUbmTrK79yoJA7ahAkcameDG6ZoxwhTJEuZQQMvEX7m3WhujrXpwojqt4kXt3LuHgZwdmwJd0ffIjceKCdtIGwY6v
+            [devicetoken] => f9FDj04m9lg:APA91bEbZC23lowdC3D2PUadvX_3k4F1EthldA0M6ZopI8rKYyTZUbmTrK79yoJA7ahAkcameDG6ZoxwhTJEuZQQMvEX7m3WhujrXpwojqt4kXt3LuHgZwdmwJd0ffIjceKCdtIGwY6v
+        )
+
+    [11] => Array
+        (
+            [0] => 76493
+            [idUsuario] => 76493
+            [1] => android
+            [plataforma] => android
+            [2] => d3xaRa1opS4:APA91bHvae6d0AGAyvaoESSSbHnqQYBnwaYWgBMjCCRS_NayJHecQv15xdiqcnZwD4pm11XOg9-QVIcdGjzzRgCbTk3JpCXdKZqS6ZAXDWIWKqymisn-WSLwbNsaWHYKjOZeZhjB5hty
+            [devicetoken] => d3xaRa1opS4:APA91bHvae6d0AGAyvaoESSSbHnqQYBnwaYWgBMjCCRS_NayJHecQv15xdiqcnZwD4pm11XOg9-QVIcdGjzzRgCbTk3JpCXdKZqS6ZAXDWIWKqymisn-WSLwbNsaWHYKjOZeZhjB5hty
+        )
+
+    [12] => Array
+        (
+            [0] => 68976
+            [idUsuario] => 68976
+            [1] => iOS
+            [plataforma] => iOS
+            [2] => dJRMDD8XCZE:APA91bFeEMMzlh9rlYxjXqsdB6UTBuW5f85eZpu2MJUXiNSIJfu9xf8-6s5HOu8hldh1fDdVb1zLhqHivsezVbF8bF_vPuhNHB0LDRaQJIp7Tu4Ugy19lPJI80zLa2uuPj80qoc5v2Mk
+            [devicetoken] => dJRMDD8XCZE:APA91bFeEMMzlh9rlYxjXqsdB6UTBuW5f85eZpu2MJUXiNSIJfu9xf8-6s5HOu8hldh1fDdVb1zLhqHivsezVbF8bF_vPuhNHB0LDRaQJIp7Tu4Ugy19lPJI80zLa2uuPj80qoc5v2Mk
+        )
+
+    [13] => Array
+        (
+            [0] => 64724
+            [idUsuario] => 64724
+            [1] => android
+            [plataforma] => android
+            [2] => f2FyltKilgU:APA91bH3ciCPPanRvKtuwbbhxGEJnC9h_JhYQ1fkjuKqHvPHwHWZrywg2JHbjqgyUucaEHrvGwW4GFFJUy5bNzqi51YMJGCV3Z90ssQFDlIi9O-2Scdy1ChrLwIqtVc_czJLSJ1c1ftZ
+            [devicetoken] => f2FyltKilgU:APA91bH3ciCPPanRvKtuwbbhxGEJnC9h_JhYQ1fkjuKqHvPHwHWZrywg2JHbjqgyUucaEHrvGwW4GFFJUy5bNzqi51YMJGCV3Z90ssQFDlIi9O-2Scdy1ChrLwIqtVc_czJLSJ1c1ftZ
+        )
+
+    [14] => Array
+        (
+            [0] => 65700
+            [idUsuario] => 65700
+            [1] => android
+            [plataforma] => android
+            [2] => d7SJENB8cO8:APA91bH1g90_LN2YLjvhVROQckLeIrxcr7Lhf8A1nZlhqpuYHv6CoH6lJaXgDJDxgZ93DU-A0AK3KivEUQ1FGiVruPkIwm4jDSMhJl3dmJvWyo7_kyTN_ZewHfDIvJFYgsQehOR13qQ5
+            [devicetoken] => d7SJENB8cO8:APA91bH1g90_LN2YLjvhVROQckLeIrxcr7Lhf8A1nZlhqpuYHv6CoH6lJaXgDJDxgZ93DU-A0AK3KivEUQ1FGiVruPkIwm4jDSMhJl3dmJvWyo7_kyTN_ZewHfDIvJFYgsQehOR13qQ5
+        )
+
+    [15] => Array
+        (
+            [0] => 80252
+            [idUsuario] => 80252
+            [1] => android
+            [plataforma] => android
+            [2] => fmpv3cH1K-4:APA91bHA4d8bQ1v1nXB8DPVzAsFsJ0nlNQC2sRZ_qxnKwPe0FNC-g5SUNClFBudr69vhmtOob1OllEQnk18k7jnan3Gq5BLv4PmxyZ_t2g7cszOjtL54jOe-ADymeIndP_eMR6MlLhlI
+            [devicetoken] => fmpv3cH1K-4:APA91bHA4d8bQ1v1nXB8DPVzAsFsJ0nlNQC2sRZ_qxnKwPe0FNC-g5SUNClFBudr69vhmtOob1OllEQnk18k7jnan3Gq5BLv4PmxyZ_t2g7cszOjtL54jOe-ADymeIndP_eMR6MlLhlI
+        )
+
+    [16] => Array
+        (
+            [0] => 84298
+            [idUsuario] => 84298
+            [1] => android
+            [plataforma] => android
+            [2] => cbSQI_SCQpY:APA91bGHSqBj9x4uXuwCYEYGIswftM9L5AqWPxFKke6pT0eJc-aZ87AQWGLPgBYvN7RjrjJTsO0FShqUkRR_BONg1XfJ62vtXDUedYS_Dak8F4yH7oU-zMdY6ylfdsFtUhu649R8l_cq
+            [devicetoken] => cbSQI_SCQpY:APA91bGHSqBj9x4uXuwCYEYGIswftM9L5AqWPxFKke6pT0eJc-aZ87AQWGLPgBYvN7RjrjJTsO0FShqUkRR_BONg1XfJ62vtXDUedYS_Dak8F4yH7oU-zMdY6ylfdsFtUhu649R8l_cq
+        )
+
+    [17] => Array
+        (
+            [0] => 38724
+            [idUsuario] => 38724
+            [1] => iOS
+            [plataforma] => iOS
+            [2] => f8PiKdq_1mE:APA91bFV2g9x12mass9IMoe7EtPi4VznlKq61L_ep4YHcG5DvsHNmDEI-G_8qQuyfDGUXLfD75A1n7mqZYT-tXQocoh1m0w6BjaTDarAvMHJzxYyFM7xTzIvJYX4EqSK1Oy2S88aQ2LD
+            [devicetoken] => f8PiKdq_1mE:APA91bFV2g9x12mass9IMoe7EtPi4VznlKq61L_ep4YHcG5DvsHNmDEI-G_8qQuyfDGUXLfD75A1n7mqZYT-tXQocoh1m0w6BjaTDarAvMHJzxYyFM7xTzIvJYX4EqSK1Oy2S88aQ2LD
+        )
+
+    [18] => Array
+        (
+            [0] => 78925
+            [idUsuario] => 78925
+            [1] => android
+            [plataforma] => android
+            [2] => do8wMYvZia4:APA91bFo_BAldSH6oMO9FfSmF4T-d9ILaDm01lpSyP7vrDsAUOLDgAbmVAGIbLRbmQCXYBHSQdDIIlQ1aPlX8vmmClPb8GhEZ3bh9tZvFq5tnYAaG9nkTIHBzchXcqDl1VmyrnLweV6b
+            [devicetoken] => do8wMYvZia4:APA91bFo_BAldSH6oMO9FfSmF4T-d9ILaDm01lpSyP7vrDsAUOLDgAbmVAGIbLRbmQCXYBHSQdDIIlQ1aPlX8vmmClPb8GhEZ3bh9tZvFq5tnYAaG9nkTIHBzchXcqDl1VmyrnLweV6b
+        )
+
+    [19] => Array
+        (
+            [0] => 50442
+            [idUsuario] => 50442
+            [1] => iOS
+            [plataforma] => iOS
+            [2] => cQGvG7QJ0eM:APA91bHJSu84gongRRdif2DfwVP85QVuy0Gs270VakvS2dPj9dYovMnYo1Xo2_3BOrCPGsEQQc7cx0qQZJUUTe4Pe-ZddOBl3WnaG6xktxSfIzj-ujNSd82BiKWS6ueKs9XcTl7f6vet
+            [devicetoken] => cQGvG7QJ0eM:APA91bHJSu84gongRRdif2DfwVP85QVuy0Gs270VakvS2dPj9dYovMnYo1Xo2_3BOrCPGsEQQc7cx0qQZJUUTe4Pe-ZddOBl3WnaG6xktxSfIzj-ujNSd82BiKWS6ueKs9XcTl7f6vet
+        )
+
+    [20] => Array
+        (
+            [0] => 52261
+            [idUsuario] => 52261
+            [1] => android
+            [plataforma] => android
+            [2] => eMs7UoD-Jhc:APA91bFfVAFqpeSdgPT6vLWbtkcwnz6V-PTcWDJCI_TxYQA1LGh7tvoRDY-weUadhXH4c3p_eAwTjky2IngH87-nHtvC5b7-QdjuV0Ynztkl6Rbq2SDmoBFFp_bsONj61J4YX8iLdxc0
+            [devicetoken] => eMs7UoD-Jhc:APA91bFfVAFqpeSdgPT6vLWbtkcwnz6V-PTcWDJCI_TxYQA1LGh7tvoRDY-weUadhXH4c3p_eAwTjky2IngH87-nHtvC5b7-QdjuV0Ynztkl6Rbq2SDmoBFFp_bsONj61J4YX8iLdxc0
+        )
+
+    [21] => Array
+        (
+            [0] => 75175
+            [idUsuario] => 75175
+            [1] => iOS
+            [plataforma] => iOS
+            [2] => f-uvgrVqU5A:APA91bH2Es4k6g_BvxZFQS-ClHmVmJrabgsR5SDd72e3cYJyXykYMPIzmOU0r_B-a-NLXjyjxh4BLRKW0IVMkmz_0a7EmuH_0Jhqb3FtepG2OVAAGXun9PwRj0dGIQqAk_Xri8IPqBrV
+            [devicetoken] => f-uvgrVqU5A:APA91bH2Es4k6g_BvxZFQS-ClHmVmJrabgsR5SDd72e3cYJyXykYMPIzmOU0r_B-a-NLXjyjxh4BLRKW0IVMkmz_0a7EmuH_0Jhqb3FtepG2OVAAGXun9PwRj0dGIQqAk_Xri8IPqBrV
+        )
+
+    [22] => Array
+        (
+            [0] => 45007
+            [idUsuario] => 45007
+            [1] => android
+            [plataforma] => android
+            [2] => edrz9Fa-0vg:APA91bEi_gWqNGyAQXuyqFlzXOtW5WBwUX57qrZYaA8QZ5bQcmf-Pgv7bjqx7OqECfIsO0hDKwJPQ1BZ-XRRSPRq_t_wylP2XSbDlhxJLBGOMpGDI9OA7TFtND1jY4_Nnqn1qMr0xouj
+            [devicetoken] => edrz9Fa-0vg:APA91bEi_gWqNGyAQXuyqFlzXOtW5WBwUX57qrZYaA8QZ5bQcmf-Pgv7bjqx7OqECfIsO0hDKwJPQ1BZ-XRRSPRq_t_wylP2XSbDlhxJLBGOMpGDI9OA7TFtND1jY4_Nnqn1qMr0xouj
+        )
+
+    [23] => Array
+        (
+            [0] => 49098
+            [idUsuario] => 49098
+            [1] => android
+            [plataforma] => android
+            [2] => dbWrEdi7H4Y:APA91bFhSPs8l8UqVICv9ZtNFDjIoO36imXArLJGUEXdLtbMbYGMvsDaPU-5JiO_5yLKjqwwRhWFog39cZ--6-X8ecGxVR0aMYLCZh8xznW3jEeQcHbcdpvSzyQsjxPCxweYkxR-ZDSg
+            [devicetoken] => dbWrEdi7H4Y:APA91bFhSPs8l8UqVICv9ZtNFDjIoO36imXArLJGUEXdLtbMbYGMvsDaPU-5JiO_5yLKjqwwRhWFog39cZ--6-X8ecGxVR0aMYLCZh8xznW3jEeQcHbcdpvSzyQsjxPCxweYkxR-ZDSg
+        )
+
+    [24] => Array
+        (
+            [0] => 80500
+            [idUsuario] => 80500
+            [1] => android
+            [plataforma] => android
+            [2] => fkQ9m8KlDak:APA91bGLziSz7SrSTGJkMDimDUP6LC-Ix4-gtxYdLAqk9cY8h1lWD2lOc5SuaP5XJiGNQ9g3ec0At20E52KSGv-LaDliRvu89BF4cJqycmjwRhM54j6-wk9M7soEVzOwwhPc2JjwlHh8
+            [devicetoken] => fkQ9m8KlDak:APA91bGLziSz7SrSTGJkMDimDUP6LC-Ix4-gtxYdLAqk9cY8h1lWD2lOc5SuaP5XJiGNQ9g3ec0At20E52KSGv-LaDliRvu89BF4cJqycmjwRhM54j6-wk9M7soEVzOwwhPc2JjwlHh8
+        )
+
+    [25] => Array
+        (
+            [0] => 45715
+            [idUsuario] => 45715
+            [1] => android
+            [plataforma] => android
+            [2] => e0lziNttulE:APA91bGV_e6jGSn94gP_9RxtJ6c1reZ9n4dF2VbjKmYyXCaCmgSNqns0SC6Jvh0E9FzW-1DpPHVX9FtOzK1N_jVb4WbtEmgfSg5JFbe097hGAgwqvxwgB4PGJrOghoJmFuBNq8A0VyOa
+            [devicetoken] => e0lziNttulE:APA91bGV_e6jGSn94gP_9RxtJ6c1reZ9n4dF2VbjKmYyXCaCmgSNqns0SC6Jvh0E9FzW-1DpPHVX9FtOzK1N_jVb4WbtEmgfSg5JFbe097hGAgwqvxwgB4PGJrOghoJmFuBNq8A0VyOa
+        )
+
+    [26] => Array
+        (
+            [0] => 83623
+            [idUsuario] => 83623
+            [1] => iOS
+            [plataforma] => iOS
+            [2] => cdeA0pe11Pg:APA91bHrliuCUtq6SnIJLFbFICashLT1t2eklCWQY89ormqd9FrTDDXuRgrxnNPJTx7Saa7tLf8eNOckFFJNOJPyTazhu03c_U9AcG2hRj1-nZG94rkEus-M6fu5cHeD5CRby4wTSVaC
+            [devicetoken] => cdeA0pe11Pg:APA91bHrliuCUtq6SnIJLFbFICashLT1t2eklCWQY89ormqd9FrTDDXuRgrxnNPJTx7Saa7tLf8eNOckFFJNOJPyTazhu03c_U9AcG2hRj1-nZG94rkEus-M6fu5cHeD5CRby4wTSVaC
+        )
+
+    [27] => Array
+        (
+            [0] => 72801
+            [idUsuario] => 72801
+            [1] => iOS
+            [plataforma] => iOS
+            [2] => ciMCL39jGC0:APA91bEk_c2MZuMx4US4h4UEo6eiAOyOkArX3CZSmVyP40MND-By3kWnk2nL9_eoPsEnZxseDVeCqvpZvZEV0j1KFA3WB1O1sg0axLPaq1vl5Hphub7cnJpQi6Ve5Mi5u8d0bQGv-pyr
+            [devicetoken] => ciMCL39jGC0:APA91bEk_c2MZuMx4US4h4UEo6eiAOyOkArX3CZSmVyP40MND-By3kWnk2nL9_eoPsEnZxseDVeCqvpZvZEV0j1KFA3WB1O1sg0axLPaq1vl5Hphub7cnJpQi6Ve5Mi5u8d0bQGv-pyr
+        )
+
+    [28] => Array
+        (
+            [0] => 62842
+            [idUsuario] => 62842
+            [1] => iOS
+            [plataforma] => iOS
+            [2] => dI7Ci96Mo-U:APA91bEkmaHSPdO_BhFg_ytF2Boh4BuIxfJkaWWt9cC5_Okz5n9ig1_BMp0TnzfZby14NNNQJG_-dDeX-Hlr8DWwoJe7SduDEjQy-Js0J4mu_nmMyP-1Ii9KrcWzZG6Y2LWXDBxrj6cj
+            [devicetoken] => dI7Ci96Mo-U:APA91bEkmaHSPdO_BhFg_ytF2Boh4BuIxfJkaWWt9cC5_Okz5n9ig1_BMp0TnzfZby14NNNQJG_-dDeX-Hlr8DWwoJe7SduDEjQy-Js0J4mu_nmMyP-1Ii9KrcWzZG6Y2LWXDBxrj6cj
+        )
+
+    [29] => Array
+        (
+            [0] => 79449
+            [idUsuario] => 79449
+            [1] => iOS
+            [plataforma] => iOS
+            [2] => eS3K7o7RQjg:APA91bGbq5XUhZNrbVW7ET-akmc6SNR06yJ03cPlhVjujBZOxnFkr_weMrRhwnR8NUKCFStSs71pkUoXuQPgB7JYA8mTvz0D-l1xwUC0cEFKuSgcuyc74pxa-A5tiWwANWtslASQlr8Z
+            [devicetoken] => eS3K7o7RQjg:APA91bGbq5XUhZNrbVW7ET-akmc6SNR06yJ03cPlhVjujBZOxnFkr_weMrRhwnR8NUKCFStSs71pkUoXuQPgB7JYA8mTvz0D-l1xwUC0cEFKuSgcuyc74pxa-A5tiWwANWtslASQlr8Z
+        )
+
+    [30] => Array
+        (
+            [0] => 80236
+            [idUsuario] => 80236
+            [1] => iOS
+            [plataforma] => iOS
+            [2] => eFv78dA4ULM:APA91bE4mGKhuzBl5PCAVCC_dupr2GcembrZ0oLek8DGYs44gbzCmQ50SXMYP_nPiOwTrQperIThYeOX8aKIw6Hn1POQn1w9g0nQtRsh1pZM5Us3M5X8ox28nsSnaWjQ7kBRWm7E_MNM
+            [devicetoken] => eFv78dA4ULM:APA91bE4mGKhuzBl5PCAVCC_dupr2GcembrZ0oLek8DGYs44gbzCmQ50SXMYP_nPiOwTrQperIThYeOX8aKIw6Hn1POQn1w9g0nQtRsh1pZM5Us3M5X8ox28nsSnaWjQ7kBRWm7E_MNM
+        )
+
+    [31] => Array
+        (
+            [0] => 68193
+            [idUsuario] => 68193
+            [1] => android
+            [plataforma] => android
+            [2] => d9X23JAdbkE:APA91bGIAYMmlqZnmDYW4S8SEYwky6426ySKAN2hWGNM3X7OZUiO9kLgBKow7zTAdbM_IHesCq9jLb-fGJdoX8uhHO0H9QPeQL_UEA0oTu-UEE80LIm-NMvbXMcYoCR0AFBLIUxWYVe2
+            [devicetoken] => d9X23JAdbkE:APA91bGIAYMmlqZnmDYW4S8SEYwky6426ySKAN2hWGNM3X7OZUiO9kLgBKow7zTAdbM_IHesCq9jLb-fGJdoX8uhHO0H9QPeQL_UEA0oTu-UEE80LIm-NMvbXMcYoCR0AFBLIUxWYVe2
+        )
+
+    [32] => Array
+        (
+            [0] => 82909
+            [idUsuario] => 82909
+            [1] => iOS
+            [plataforma] => iOS
+            [2] => fhDFawtSbAE:APA91bGn-EX5ufN39mDY1bWKRJSaQalUAsVI3UbX3rRN038Z1HuYb0CR5aMll2luqMskVdC93ot7LdXUunleT5jtxGK12Q0lA516LsLPKjjI4zAotufxmJm9R_OpW_BHZ1rXUp8Rcg07
+            [devicetoken] => fhDFawtSbAE:APA91bGn-EX5ufN39mDY1bWKRJSaQalUAsVI3UbX3rRN038Z1HuYb0CR5aMll2luqMskVdC93ot7LdXUunleT5jtxGK12Q0lA516LsLPKjjI4zAotufxmJm9R_OpW_BHZ1rXUp8Rcg07
+        )
+
+    [33] => Array
+        (
+            [0] => 80771
+            [idUsuario] => 80771
+            [1] => android
+            [plataforma] => android
+            [2] => fWEQldLAreY:APA91bHrOrZ6Rle77J7JJpfr5-5b-1XGkWiSiRsQdjEUgPKRx2_UAulkx8Lh3YpdaeFPVPsyOR5NjFxGBsz8LTUbrbk03uqHiiNjai4-svOAm4hZIX5ZPBe_TOGv6OA98DlSShNuzRk5
+            [devicetoken] => fWEQldLAreY:APA91bHrOrZ6Rle77J7JJpfr5-5b-1XGkWiSiRsQdjEUgPKRx2_UAulkx8Lh3YpdaeFPVPsyOR5NjFxGBsz8LTUbrbk03uqHiiNjai4-svOAm4hZIX5ZPBe_TOGv6OA98DlSShNuzRk5
+        )
+
+    [34] => Array
+        (
+            [0] => 67908
+            [idUsuario] => 67908
+            [1] => iOS
+            [plataforma] => iOS
+            [2] => ebknZJHkH8s:APA91bHgJc9OeUAebS-Fr4x2Vd6GKT39QwjiViFWlmmpDlcpnTQNCIJi4ZcduOgpD8Bu6RbuTi8-N5tIDNgUGk5Ib8ozN-UoBhZS748hCme2FvqOFsOoeSJwTq53ac7sXMx2uSWxiki-
+            [devicetoken] => ebknZJHkH8s:APA91bHgJc9OeUAebS-Fr4x2Vd6GKT39QwjiViFWlmmpDlcpnTQNCIJi4ZcduOgpD8Bu6RbuTi8-N5tIDNgUGk5Ib8ozN-UoBhZS748hCme2FvqOFsOoeSJwTq53ac7sXMx2uSWxiki-
+        )
+
+    [35] => Array
+        (
+            [0] => 65831
+            [idUsuario] => 65831
+            [1] => android
+            [plataforma] => android
+            [2] => e0XRT3Gf-RQ:APA91bFVqlj9G3Cvb0dEPS-4f7MWYuocwGoqjnX4MOSKyQAcFh2J3o-DqcZ5lvabb9jEtz-eLMJFS9N_yua8AG5RnNHcN9mbpSV3dFwpB83O1Q6JpDkn0giBMEqKONHkyg_mV0XWSrgt
+            [devicetoken] => e0XRT3Gf-RQ:APA91bFVqlj9G3Cvb0dEPS-4f7MWYuocwGoqjnX4MOSKyQAcFh2J3o-DqcZ5lvabb9jEtz-eLMJFS9N_yua8AG5RnNHcN9mbpSV3dFwpB83O1Q6JpDkn0giBMEqKONHkyg_mV0XWSrgt
+        )
+
+    [36] => Array
+        (
+            [0] => 82822
+            [idUsuario] => 82822
+            [1] => iOS
+            [plataforma] => iOS
+            [2] => fjfjh2W33IE:APA91bF1q4jpPZSNfAADfC2nQjfgU9Tfd0FDT8mW65AEdoJv1cWyK9VH0VMP7qA69tMwry0dlPP0_a3q_rxPzXbEZFBykxyTE4xwDAg_2BirgAlWZV11B9u_MLuknwg3aFz9UlD59N8a
+            [devicetoken] => fjfjh2W33IE:APA91bF1q4jpPZSNfAADfC2nQjfgU9Tfd0FDT8mW65AEdoJv1cWyK9VH0VMP7qA69tMwry0dlPP0_a3q_rxPzXbEZFBykxyTE4xwDAg_2BirgAlWZV11B9u_MLuknwg3aFz9UlD59N8a
+        )
+
+    [37] => Array
+        (
+            [0] => 53056
+            [idUsuario] => 53056
+            [1] => iOS
+            [plataforma] => iOS
+            [2] => e_b0iMKHyWI:APA91bFXikLYDHOnNWt6hU5AJmRmiGbyUNa4sKfDBjLMddx5t1VqCqDBIACQsQSX8h4ZKNFTKuEdakRS4eZVa-RrH6Xrc-gV20rNL_14OeOxvGGvM03CPFlDkW3fitL4u-Ar276Uoj2C
+            [devicetoken] => e_b0iMKHyWI:APA91bFXikLYDHOnNWt6hU5AJmRmiGbyUNa4sKfDBjLMddx5t1VqCqDBIACQsQSX8h4ZKNFTKuEdakRS4eZVa-RrH6Xrc-gV20rNL_14OeOxvGGvM03CPFlDkW3fitL4u-Ar276Uoj2C
+        )
+
+    [38] => Array
+        (
+            [0] => 57507
+            [idUsuario] => 57507
+            [1] => iOS
+            [plataforma] => iOS
+            [2] => caq_AQI0lKQ:APA91bEBpd2hMcxdpunH4lzghz6fHr0-JpySSjAYV9w2VDz2_frdgPWC-AljhM834rCXBCIdsT4veFsQ2mK8ifPMsLqkn-FqYejrLs-RQWPHEc98Vy6f-jLGI051-s3tK7K7G9bbIsbX
+            [devicetoken] => caq_AQI0lKQ:APA91bEBpd2hMcxdpunH4lzghz6fHr0-JpySSjAYV9w2VDz2_frdgPWC-AljhM834rCXBCIdsT4veFsQ2mK8ifPMsLqkn-FqYejrLs-RQWPHEc98Vy6f-jLGI051-s3tK7K7G9bbIsbX
+        )
+
+    [39] => Array
+        (
+            [0] => 72724
+            [idUsuario] => 72724
+            [1] => android
+            [plataforma] => android
+            [2] => fHRwaCE5rjo:APA91bGuBcYossfJxy344x-otJWXwecetz0Slx1qhbIB6wc2kN4updh9FzyKt31c96nR2ToJaCI7Qq2CGOO6r2869hvGpJgFpHABaluKNmlmbPe5J1LbFT_IHi1ECnhtK-cx1bddcTac
+            [devicetoken] => fHRwaCE5rjo:APA91bGuBcYossfJxy344x-otJWXwecetz0Slx1qhbIB6wc2kN4updh9FzyKt31c96nR2ToJaCI7Qq2CGOO6r2869hvGpJgFpHABaluKNmlmbPe5J1LbFT_IHi1ECnhtK-cx1bddcTac
+        )
+
+    [40] => Array
+        (
+            [0] => 61515
+            [idUsuario] => 61515
+            [1] => android
+            [plataforma] => android
+            [2] => cfbA7BS5dPI:APA91bGHUED8jas10c3KHIPxoRpTV4x3h9kSUjLrVAAB45sBz4QWoioYaLRfJYg97H286OnAtM2JOlflJC3jkPKDeSrTCnYoRUwIHnF7pxmhRSgusYSvh-FkNVDsJHIuodKmhW6iNzla
+            [devicetoken] => cfbA7BS5dPI:APA91bGHUED8jas10c3KHIPxoRpTV4x3h9kSUjLrVAAB45sBz4QWoioYaLRfJYg97H286OnAtM2JOlflJC3jkPKDeSrTCnYoRUwIHnF7pxmhRSgusYSvh-FkNVDsJHIuodKmhW6iNzla
+        )
+
+    [41] => Array
+        (
+            [0] => 65563
+            [idUsuario] => 65563
+            [1] => android
+            [plataforma] => android
+            [2] => eGbVu2pd82E:APA91bHizf8Bbr_mBtOlH8Y3_EX2Om-ZeVgN9qiyL9AtnSLhe2inYtf9QRWyk-DfPATSXWIQu5PK3y4wLSRAqCvW7-4QOieQJir8Tu_8BuEfAvot_kWEZGU3-G4B2Iq9pPSvWUABjGAK
+            [devicetoken] => eGbVu2pd82E:APA91bHizf8Bbr_mBtOlH8Y3_EX2Om-ZeVgN9qiyL9AtnSLhe2inYtf9QRWyk-DfPATSXWIQu5PK3y4wLSRAqCvW7-4QOieQJir8Tu_8BuEfAvot_kWEZGU3-G4B2Iq9pPSvWUABjGAK
+        )
+
+    [42] => Array
+        (
+            [0] => 52808
+            [idUsuario] => 52808
+            [1] => android
+            [plataforma] => android
+            [2] => du_GJGINMkM:APA91bETXpR0AkBzrt2E9PT1wTXDHyQOlMmasDvmwX0QKVlzioNqrr5PejuDoX0qIuHU3gptNCV4qOqq6rmLTh4d2vzRz3UsWAD4_K91kAmsQJW5xcL0GCkmvV-gpueIFbw-tfHOk0SV
+            [devicetoken] => du_GJGINMkM:APA91bETXpR0AkBzrt2E9PT1wTXDHyQOlMmasDvmwX0QKVlzioNqrr5PejuDoX0qIuHU3gptNCV4qOqq6rmLTh4d2vzRz3UsWAD4_K91kAmsQJW5xcL0GCkmvV-gpueIFbw-tfHOk0SV
+        )
+
+    [43] => Array
+        (
+            [0] => 52876
+            [idUsuario] => 52876
+            [1] => iOS
+            [plataforma] => iOS
+            [2] => dn0p96CONDo:APA91bGxID-X_k9HrvtCsnbFF4asodC9xuiTUef1nwndYqKd28Xq8KkAH1dNsmqy_rl8yDPkSq3RoQhphia4j-TttU54mC33UI-UYsz4mxsw12SvLp6L-pldybwmIBowFkrmy2ogKHeB
+            [devicetoken] => dn0p96CONDo:APA91bGxID-X_k9HrvtCsnbFF4asodC9xuiTUef1nwndYqKd28Xq8KkAH1dNsmqy_rl8yDPkSq3RoQhphia4j-TttU54mC33UI-UYsz4mxsw12SvLp6L-pldybwmIBowFkrmy2ogKHeB
+        )
+
+    [44] => Array
+        (
+            [0] => 64666
+            [idUsuario] => 64666
+            [1] => android
+            [plataforma] => android
+            [2] => f4gB3ezOkFs:APA91bGEk3KSJokS4RBnG5lV90HRB3wyONAdgKYVlpqLwLFMeYexPrKJDLpMALcsLDVLgO0wYHVGljmnFGbsXz8f1fE8H9_ngBTDaLxkZC2wbewoXtLb5oatZnhWFZg7qLu2fQaTPsFT
+            [devicetoken] => f4gB3ezOkFs:APA91bGEk3KSJokS4RBnG5lV90HRB3wyONAdgKYVlpqLwLFMeYexPrKJDLpMALcsLDVLgO0wYHVGljmnFGbsXz8f1fE8H9_ngBTDaLxkZC2wbewoXtLb5oatZnhWFZg7qLu2fQaTPsFT
+        )
+
+    [45] => Array
+        (
+            [0] => 75724
+            [idUsuario] => 75724
+            [1] => android
+            [plataforma] => android
+            [2] => cRUyZ0L0UfY:APA91bFsbfh6f63b7tfFMAwBKj6BAIY0ndewIO5JDsVsprDVBQczi-7i_fmStXrUcOCcXNKUWjtyDaqNWzhTTszNHcnRLqGjTrA4vJmT34uuG3IfGT4beJaQTgTIRWqTNdW_pjiMQO1L
+            [devicetoken] => cRUyZ0L0UfY:APA91bFsbfh6f63b7tfFMAwBKj6BAIY0ndewIO5JDsVsprDVBQczi-7i_fmStXrUcOCcXNKUWjtyDaqNWzhTTszNHcnRLqGjTrA4vJmT34uuG3IfGT4beJaQTgTIRWqTNdW_pjiMQO1L
+        )
+
+    [46] => Array
+        (
+            [0] => 65129
+            [idUsuario] => 65129
+            [1] => iOS
+            [plataforma] => iOS
+            [2] => eX_c0UayPek:APA91bEkF3vYJo9v1z4VpB30lc4Sxt-Wppnaz2w7fcsuLpCa_AIwobupDGtzfOjhZF6zuZK-mP2f9-Pm20sUHVuEhqMX6rpevJq4iIzSNFjdgjQkRqntvI7mtCdyGBjyQf1H8BixW7P_
+            [devicetoken] => eX_c0UayPek:APA91bEkF3vYJo9v1z4VpB30lc4Sxt-Wppnaz2w7fcsuLpCa_AIwobupDGtzfOjhZF6zuZK-mP2f9-Pm20sUHVuEhqMX6rpevJq4iIzSNFjdgjQkRqntvI7mtCdyGBjyQf1H8BixW7P_
+        )
+
+    [47] => Array
+        (
+            [0] => 52230
+            [idUsuario] => 52230
+            [1] => android
+            [plataforma] => android
+            [2] => cWUZMGtRZhI:APA91bEI_ajzgqVvY69l3mVdSdt-hW1kjhQy4GHv9vsRVQATcTqzcJY6RO8ErQAQ1_B9Kntqij2rZmtqjsVYtWZucyKsMnAx3KGLw5d2qa7KaDLEwBrMiBOIh1wspkxfzgFHX-ZajKKY
+            [devicetoken] => cWUZMGtRZhI:APA91bEI_ajzgqVvY69l3mVdSdt-hW1kjhQy4GHv9vsRVQATcTqzcJY6RO8ErQAQ1_B9Kntqij2rZmtqjsVYtWZucyKsMnAx3KGLw5d2qa7KaDLEwBrMiBOIh1wspkxfzgFHX-ZajKKY
+        )
+
+    [48] => Array
+        (
+            [0] => 80766
+            [idUsuario] => 80766
+            [1] => iOS
+            [plataforma] => iOS
+            [2] => dWfwK7JRhks:APA91bHx_-wLCsCIr-AmXupgB2VnnbgKE1VTu1a8Os-O1FKnxMzL0nRrQ6lfPyqOndV-n7HhY0qAqd70sU29ZXnM_o96kdblW2h_eGnM8nt_PhiMXd8h3IZJjgG2iwkiUK_iIlUNFIg-
+            [devicetoken] => dWfwK7JRhks:APA91bHx_-wLCsCIr-AmXupgB2VnnbgKE1VTu1a8Os-O1FKnxMzL0nRrQ6lfPyqOndV-n7HhY0qAqd70sU29ZXnM_o96kdblW2h_eGnM8nt_PhiMXd8h3IZJjgG2iwkiUK_iIlUNFIg-
+        )
+
+    [49] => Array
+        (
+            [0] => 52153
+            [idUsuario] => 52153
+            [1] => iOS
+            [plataforma] => iOS
+            [2] => dlHsAgMdSUI:APA91bEHuPzAzYfQms_XqPMU1LZsotoOgEjBRlhJtsBcUaK-YDHJRoTV-ehVgYCCArDDk8LtD0T6fXl3FZ3wzd504qN_LCePyi4mAh6-hTaIklTFeV8giZHFkTUXE0jHBYTPJGofc_Dh
+            [devicetoken] => dlHsAgMdSUI:APA91bEHuPzAzYfQms_XqPMU1LZsotoOgEjBRlhJtsBcUaK-YDHJRoTV-ehVgYCCArDDk8LtD0T6fXl3FZ3wzd504qN_LCePyi4mAh6-hTaIklTFeV8giZHFkTUXE0jHBYTPJGofc_Dh
+        )
+
+    [50] => Array
+        (
+            [0] => 68008
+            [idUsuario] => 68008
+            [1] => iOS
+            [plataforma] => iOS
+            [2] => c9tIehRYEik:APA91bEN63azG0MsaM29ynU8uBgPz_iFXspj9XfophVbqIyN0fgLatQQKdwPN-Pm7AgiMG2aSZw9MYPUZOYqQHqsyGCR6VDv3iv3qq9EUqC9Z8gm0Br4zBzG3fE1xxvAbRbbloPhWU6U
+            [devicetoken] => c9tIehRYEik:APA91bEN63azG0MsaM29ynU8uBgPz_iFXspj9XfophVbqIyN0fgLatQQKdwPN-Pm7AgiMG2aSZw9MYPUZOYqQHqsyGCR6VDv3iv3qq9EUqC9Z8gm0Br4zBzG3fE1xxvAbRbbloPhWU6U
+        )
+
+    [51] => Array
+        (
+            [0] => 62824
+            [idUsuario] => 62824
+            [1] => iOS
+            [plataforma] => iOS
+            [2] => ezLlcMYB7PI:APA91bHCTWkHTuQyJgOO9_Zqf3XFyZ5aNTyKeHE9xSGk5I_E2xNtBJEbALVfTLAGKcJdtbxs0s4z4Ohw7i0gLo7BEimlSXPEUIi17QJIHDEgtfGxJI-_a_NoFKbFFCCdF_bIqhkUfDET
+            [devicetoken] => ezLlcMYB7PI:APA91bHCTWkHTuQyJgOO9_Zqf3XFyZ5aNTyKeHE9xSGk5I_E2xNtBJEbALVfTLAGKcJdtbxs0s4z4Ohw7i0gLo7BEimlSXPEUIi17QJIHDEgtfGxJI-_a_NoFKbFFCCdF_bIqhkUfDET
+        )
+
+    [52] => Array
+        (
+            [0] => 61222
+            [idUsuario] => 61222
+            [1] => iOS
+            [plataforma] => iOS
+            [2] => dRgT3MEumfY:APA91bGMj4_O2LN8z103ExHI2PjoKXBArhBSAjhS2Mw3_pcYt6NaR_MavsrrJrsa3cK4IIRmveIwTknXL0j3ug5L6Ql2Q_L0jkaJWCZ8fM3ZGcRbkNcIJ44EMJBI5RNiPuiMx8tw98zx
+            [devicetoken] => dRgT3MEumfY:APA91bGMj4_O2LN8z103ExHI2PjoKXBArhBSAjhS2Mw3_pcYt6NaR_MavsrrJrsa3cK4IIRmveIwTknXL0j3ug5L6Ql2Q_L0jkaJWCZ8fM3ZGcRbkNcIJ44EMJBI5RNiPuiMx8tw98zx
+        )
+
+    [53] => Array
+        (
+            [0] => 79963
+            [idUsuario] => 79963
+            [1] => iOS
+            [plataforma] => iOS
+            [2] => cZe4ifRoS4g:APA91bE7kfKq5_kl4OIF9iI1zyMMffrS86g89yrJGZq50GKr-x6CFS--ew5Lj0Mb5Q_kc48h_QozJ0jGEbDHGXyFB8n-ZyY89gzVCHQF4NuHYTYEDWdjFjbv4hFOW2emE5_48kFOJWnV
+            [devicetoken] => cZe4ifRoS4g:APA91bE7kfKq5_kl4OIF9iI1zyMMffrS86g89yrJGZq50GKr-x6CFS--ew5Lj0Mb5Q_kc48h_QozJ0jGEbDHGXyFB8n-ZyY89gzVCHQF4NuHYTYEDWdjFjbv4hFOW2emE5_48kFOJWnV
+        )
+
+    [54] => Array
+        (
+            [0] => 60922
+            [idUsuario] => 60922
+            [1] => android
+            [plataforma] => android
+            [2] => fevVQRbX9-A:APA91bF6yAMlQvCZqwTpnIDdfIy5caHIu1f38pVImldli2gngEBKPrlWTbGKZcS9T4c6uZsVuGZujjA5dmMTIKbSdoV1pY_9KMGlZPfCInBkJjqKdwrJjJ_5Eg0y1BcmEs4Z8ql2HQaD
+            [devicetoken] => fevVQRbX9-A:APA91bF6yAMlQvCZqwTpnIDdfIy5caHIu1f38pVImldli2gngEBKPrlWTbGKZcS9T4c6uZsVuGZujjA5dmMTIKbSdoV1pY_9KMGlZPfCInBkJjqKdwrJjJ_5Eg0y1BcmEs4Z8ql2HQaD
+        )
+
+    [55] => Array
+        (
+            [0] => 75125
+            [idUsuario] => 75125
+            [1] => android
+            [plataforma] => android
+            [2] => d87Eiu5LyPE:APA91bE2N_9BoGMy1QB7vDHjszIlNzkloP2Dr8mquiWsamSuE5iTm4pJyKg1mf8u5M9SywdBmG7HVJcYMfU75_DxW4zleuL6YxDJoOn8mgDYOdWfwg-CFbmo8Fhi86EzoS3tGS42cFM1
+            [devicetoken] => d87Eiu5LyPE:APA91bE2N_9BoGMy1QB7vDHjszIlNzkloP2Dr8mquiWsamSuE5iTm4pJyKg1mf8u5M9SywdBmG7HVJcYMfU75_DxW4zleuL6YxDJoOn8mgDYOdWfwg-CFbmo8Fhi86EzoS3tGS42cFM1
+        )
+
+    [56] => Array
+        (
+            [0] => 64285
+            [idUsuario] => 64285
+            [1] => android
+            [plataforma] => android
+            [2] => ekIkJ9_wT-8:APA91bHKAbkHRCa31ACOsGYnYdjKr_UNhZ21to2AThfHpf6Zggxcycl6-XaqyMwhq3hjnkWWWp7Sp_UOt2eni9iGPuER6dR5gKM0p1HXZ4i0Sf6iS_6Kfmvvi1-7sS4p1dH7LW_n7Edy
+            [devicetoken] => ekIkJ9_wT-8:APA91bHKAbkHRCa31ACOsGYnYdjKr_UNhZ21to2AThfHpf6Zggxcycl6-XaqyMwhq3hjnkWWWp7Sp_UOt2eni9iGPuER6dR5gKM0p1HXZ4i0Sf6iS_6Kfmvvi1-7sS4p1dH7LW_n7Edy
+        )
+
+    [57] => Array
+        (
+            [0] => 86737
+            [idUsuario] => 86737
+            [1] => android
+            [plataforma] => android
+            [2] => dHQbp9zDn7E:APA91bHu6eknmUX6BXgpSUNsO-l69yUWp6ypwOeYdyPx9qgp3m2kyRy-oX1N4XfmpB-vuLW6xc_zEguBsKsCCRNCv0hjPQO6S2rnnea9lYj59uAkzZQCOnkRsnjxM1kVawopdRiLDCf8
+            [devicetoken] => dHQbp9zDn7E:APA91bHu6eknmUX6BXgpSUNsO-l69yUWp6ypwOeYdyPx9qgp3m2kyRy-oX1N4XfmpB-vuLW6xc_zEguBsKsCCRNCv0hjPQO6S2rnnea9lYj59uAkzZQCOnkRsnjxM1kVawopdRiLDCf8
+        )
+
+    [58] => Array
+        (
+            [0] => 52767
+            [idUsuario] => 52767
+            [1] => iOS
+            [plataforma] => iOS
+            [2] => cfUfSRnm1c8:APA91bHK80v_oe4ETYH57xlr6P5XZFJsLRTiwFBQhnQCSV4YbpBScA0QP2nTg_ntdpSv3bs5EOT8Bmw2qiiX7obcsIF-Za31briOb0Kd_cs8DcYlQfEJJYNbN_mvV7njnYjd3Rl7-48m
+            [devicetoken] => cfUfSRnm1c8:APA91bHK80v_oe4ETYH57xlr6P5XZFJsLRTiwFBQhnQCSV4YbpBScA0QP2nTg_ntdpSv3bs5EOT8Bmw2qiiX7obcsIF-Za31briOb0Kd_cs8DcYlQfEJJYNbN_mvV7njnYjd3Rl7-48m
+        )
+
+    [59] => Array
+        (
+            [0] => 62769
+            [idUsuario] => 62769
+            [1] => android
+            [plataforma] => android
+            [2] => dJBGW63iSwA:APA91bFhlGr9GI-qf-3G396k38HpxbE0TsGHqcSWeIo_jv1Ye5eGo21nizXVGNgXmKu-5Ejcs0wR2-M9WgppxnngVC9zytzVmZVai9DfjtVmKulF6x7lAIgEwOMhDtD4Zos5pwwBidQZ
+            [devicetoken] => dJBGW63iSwA:APA91bFhlGr9GI-qf-3G396k38HpxbE0TsGHqcSWeIo_jv1Ye5eGo21nizXVGNgXmKu-5Ejcs0wR2-M9WgppxnngVC9zytzVmZVai9DfjtVmKulF6x7lAIgEwOMhDtD4Zos5pwwBidQZ
+        )
+
+    [60] => Array
+        (
+            [0] => 52183
+            [idUsuario] => 52183
+            [1] => android
+            [plataforma] => android
+            [2] => cMSvjZ0MnKU:APA91bGIbEcG23IIwdPTe-onmvPy6bxUuoazDnPYtzsU9hSza3axmT6WGI90My10f2CnV5duE0Tq5FF8qEsoO1fXDtkJOkFkGsgpaIWNBhNp3O7Xh8Nz8w7SXbfvRQZZKp3OLZvz2MET
+            [devicetoken] => cMSvjZ0MnKU:APA91bGIbEcG23IIwdPTe-onmvPy6bxUuoazDnPYtzsU9hSza3axmT6WGI90My10f2CnV5duE0Tq5FF8qEsoO1fXDtkJOkFkGsgpaIWNBhNp3O7Xh8Nz8w7SXbfvRQZZKp3OLZvz2MET
+        )
+
+    [61] => Array
+        (
+            [0] => 45986
+            [idUsuario] => 45986
+            [1] => android
+            [plataforma] => android
+            [2] => cHyvtZyQ0Kg:APA91bEsmeI-650UW8dN4ZkIxSixxhZivtr1SM1Gm3jtJbRWSA9Z5ppPzC3jQesCA83UNhjIqJNQPMkNeoXxpZ0ywUxtdwby7hWGnAABzY9UX4BC9PscVjrlhN5SsDqqdV38qr2pPktY
+            [devicetoken] => cHyvtZyQ0Kg:APA91bEsmeI-650UW8dN4ZkIxSixxhZivtr1SM1Gm3jtJbRWSA9Z5ppPzC3jQesCA83UNhjIqJNQPMkNeoXxpZ0ywUxtdwby7hWGnAABzY9UX4BC9PscVjrlhN5SsDqqdV38qr2pPktY
+        )
+
+    [62] => Array
+        (
+            [0] => 75151
+            [idUsuario] => 75151
+            [1] => iOS
+            [plataforma] => iOS
+            [2] => cL0GhletAD8:APA91bHe0Fqu5nFaVZ3s6Y03bOvKuboNfb1c9vm7eb3gQYpuXFfintm-VwiXV8HhyVNHOZ2ARlXHcDbe-fYK_a7FhE5hgNWT5EApiLCQ7jzC2o4pReg1nwcql066toijprakqPRlk2Mj
+            [devicetoken] => cL0GhletAD8:APA91bHe0Fqu5nFaVZ3s6Y03bOvKuboNfb1c9vm7eb3gQYpuXFfintm-VwiXV8HhyVNHOZ2ARlXHcDbe-fYK_a7FhE5hgNWT5EApiLCQ7jzC2o4pReg1nwcql066toijprakqPRlk2Mj
+        )
+
+    [63] => Array
+        (
+            [0] => 86252
+            [idUsuario] => 86252
+            [1] => iOS
+            [plataforma] => iOS
+            [2] => fhkUnh-2c7o:APA91bEKZCN3EPo3FKljDhwMbgqbNSSxyx9j5yzfFPJqqZFtPfT0GxIJ6gd1wpSVEXB089pez8wy9ylAuiZFCJfAbzno6bYXL0Mb7whPLrBOFdxslBdHOHWBEkye_hAUW3OPx3eP6QQU
+            [devicetoken] => fhkUnh-2c7o:APA91bEKZCN3EPo3FKljDhwMbgqbNSSxyx9j5yzfFPJqqZFtPfT0GxIJ6gd1wpSVEXB089pez8wy9ylAuiZFCJfAbzno6bYXL0Mb7whPLrBOFdxslBdHOHWBEkye_hAUW3OPx3eP6QQU
+        )
+
+    [64] => Array
+        (
+            [0] => 45144
+            [idUsuario] => 45144
+            [1] => android
+            [plataforma] => android
+            [2] => fZG_knCwPeg:APA91bEHKUMaJ6mze3Alyx8YsmH7Hu-aC9wU4wP9_NSjv86XBZll07pkGo7-1N44cm8L8-PIY9UnwIuqejoobjB4KfSk_BZgWoEk4rK4a1DjaiDYED0v-ofPfSqUpLjcnbiBVdfmR6Oc
+            [devicetoken] => fZG_knCwPeg:APA91bEHKUMaJ6mze3Alyx8YsmH7Hu-aC9wU4wP9_NSjv86XBZll07pkGo7-1N44cm8L8-PIY9UnwIuqejoobjB4KfSk_BZgWoEk4rK4a1DjaiDYED0v-ofPfSqUpLjcnbiBVdfmR6Oc
+        )
+
+    [65] => Array
+        (
+            [0] => 86097
+            [idUsuario] => 86097
+            [1] => iOS
+            [plataforma] => iOS
+            [2] => d6SAIziAndI:APA91bFCRiuFIz_sy-OAxfy5Ad2c5W5XE0cfc1qft7T4HQDezIav19jrZPWrPBeD0Bg6mIRPWs0nGlTPye8ELsuqOlAPO-EZVMhE6dOdSOgwIb2MlssdadsQeZMgY8PScbOoesnVuJRf
+            [devicetoken] => d6SAIziAndI:APA91bFCRiuFIz_sy-OAxfy5Ad2c5W5XE0cfc1qft7T4HQDezIav19jrZPWrPBeD0Bg6mIRPWs0nGlTPye8ELsuqOlAPO-EZVMhE6dOdSOgwIb2MlssdadsQeZMgY8PScbOoesnVuJRf
+        )
+
+    [66] => Array
+        (
+            [0] => 82579
+            [idUsuario] => 82579
+            [1] => android
+            [plataforma] => android
+            [2] => d1i_FMLpHEU:APA91bEfdU3betZjOsYPjfqNcMTSt9Rt5Q-maD4za45-5ytvD_YP0g2ymTY1_n_sph9QN5XEUckjGpOPDzcQIe6kI2LaK6dZqHJ3y56D1A6SpNvNtPhh1KaQEmtjmDnm3V255gMi61tE
+            [devicetoken] => d1i_FMLpHEU:APA91bEfdU3betZjOsYPjfqNcMTSt9Rt5Q-maD4za45-5ytvD_YP0g2ymTY1_n_sph9QN5XEUckjGpOPDzcQIe6kI2LaK6dZqHJ3y56D1A6SpNvNtPhh1KaQEmtjmDnm3V255gMi61tE
+        )
+
+    [67] => Array
+        (
+            [0] => 61490
+            [idUsuario] => 61490
+            [1] => android
+            [plataforma] => android
+            [2] => dcSPoeHJhDU:APA91bHMDAGN96dOfS3krSN3GQfsztOFs759wWizpmjfsL-hZVhq__yap4CWi23xa4MO1FsSfoiG8BWQB6nD6gY7dr3pIrUfRiCKysedWrwRTpUJkg4_nZBMTu-MDagrLqXYwLevnYhj
+            [devicetoken] => dcSPoeHJhDU:APA91bHMDAGN96dOfS3krSN3GQfsztOFs759wWizpmjfsL-hZVhq__yap4CWi23xa4MO1FsSfoiG8BWQB6nD6gY7dr3pIrUfRiCKysedWrwRTpUJkg4_nZBMTu-MDagrLqXYwLevnYhj
+        )
+
+    [68] => Array
+        (
+            [0] => 75451
+            [idUsuario] => 75451
+            [1] => android
+            [plataforma] => android
+            [2] => eJr7RMg3x6Q:APA91bGVxjsq6v-1uOC-va9pFKZz1Fk53lrP5SRax_bzbEO19gPDRc4gs9PIXx3rwoecvcj9lluTJVsQ6to-F_wyEt1AhQqCRJ9DQxnmr6oQ75ofIIoEd4h1EWIxDyz6vxovYnrWmi15
+            [devicetoken] => eJr7RMg3x6Q:APA91bGVxjsq6v-1uOC-va9pFKZz1Fk53lrP5SRax_bzbEO19gPDRc4gs9PIXx3rwoecvcj9lluTJVsQ6to-F_wyEt1AhQqCRJ9DQxnmr6oQ75ofIIoEd4h1EWIxDyz6vxovYnrWmi15
+        )
+
+    [69] => Array
+        (
+            [0] => 75368
+            [idUsuario] => 75368
+            [1] => android
+            [plataforma] => android
+            [2] => dPFAx0Gq2aY:APA91bHt2Uvk2pVyt7WV2OR2x50tCN4p7hB8ZhWKm7z0WP_YJsK6mffYJCS2UOWgHGAbNvBl7RlbWuGEyEwLwzAmeNTn992Nej2LUF8Bh4_cAnXo5jrxjoketLzxWungHnz9FC-8EZ4K
+            [devicetoken] => dPFAx0Gq2aY:APA91bHt2Uvk2pVyt7WV2OR2x50tCN4p7hB8ZhWKm7z0WP_YJsK6mffYJCS2UOWgHGAbNvBl7RlbWuGEyEwLwzAmeNTn992Nej2LUF8Bh4_cAnXo5jrxjoketLzxWungHnz9FC-8EZ4K
+        )
+
+    [70] => Array
+        (
+            [0] => 69173
+            [idUsuario] => 69173
+            [1] => android
+            [plataforma] => android
+            [2] => c5Wf1XE-QBo:APA91bGYwU1M4WMtXPNYIhGRPw_FN-ThpkFE_hd2wNnjbHkcvRu70HU3xIOC4Gi-qzOvS54npjLPVxOJkObr470BaW_NubpAcBeOzOrYp9W45NdKWUGCu2UIkKxWxcF7LL2CDhHUMJla
+            [devicetoken] => c5Wf1XE-QBo:APA91bGYwU1M4WMtXPNYIhGRPw_FN-ThpkFE_hd2wNnjbHkcvRu70HU3xIOC4Gi-qzOvS54npjLPVxOJkObr470BaW_NubpAcBeOzOrYp9W45NdKWUGCu2UIkKxWxcF7LL2CDhHUMJla
+        )
+
+    [71] => Array
+        (
+            [0] => 71713
+            [idUsuario] => 71713
+            [1] => iOS
+            [plataforma] => iOS
+            [2] => cBjBua3txCo:APA91bFoqTCM2D-ObN_gI_vUQ2IM9Nvs-Tn_MmnZmByAL_OEcQDTGoxxWK69taiVOSDDrvTToov-JSS09ztkLFXldvJqIYejAM0duXm0EfMVsKJRxXVTIAQ-S6L76N7Kwno5cKnydufk
+            [devicetoken] => cBjBua3txCo:APA91bFoqTCM2D-ObN_gI_vUQ2IM9Nvs-Tn_MmnZmByAL_OEcQDTGoxxWK69taiVOSDDrvTToov-JSS09ztkLFXldvJqIYejAM0duXm0EfMVsKJRxXVTIAQ-S6L76N7Kwno5cKnydufk
+        )
+
+    [72] => Array
+        (
+            [0] => 60871
+            [idUsuario] => 60871
+            [1] => iOS
+            [plataforma] => iOS
+            [2] => fOS_hVs3LJM:APA91bGMdf8fjTLUwazw0NaiDBX984uKl2r13m_26zRd3RPtzLYYPRFBY5RiVMPMtv1iPYFTeqLRmriS7LDIHJal3sWGnQcIVWq5qpvLbaM0IDd9erYolCNF30UQEQOx7yJgOR_fUlTA
+            [devicetoken] => fOS_hVs3LJM:APA91bGMdf8fjTLUwazw0NaiDBX984uKl2r13m_26zRd3RPtzLYYPRFBY5RiVMPMtv1iPYFTeqLRmriS7LDIHJal3sWGnQcIVWq5qpvLbaM0IDd9erYolCNF30UQEQOx7yJgOR_fUlTA
+        )
+
+    [73] => Array
+        (
+            [0] => 61428
+            [idUsuario] => 61428
+            [1] => iOS
+            [plataforma] => iOS
+            [2] => c7hz476pTCI:APA91bHcDK7SQSaK6dOKtxkI-A0xBQJ1-KLUjGVLUgfPtEzedKorZE22xuAeGUr0P2-pJq2AoUsM5M9sPHq4QgP6WWt-eAuSi-UB8a73JqypZcj5Tyfk2WQzS226sQFFkQM1djF5JZ3G
+            [devicetoken] => c7hz476pTCI:APA91bHcDK7SQSaK6dOKtxkI-A0xBQJ1-KLUjGVLUgfPtEzedKorZE22xuAeGUr0P2-pJq2AoUsM5M9sPHq4QgP6WWt-eAuSi-UB8a73JqypZcj5Tyfk2WQzS226sQFFkQM1djF5JZ3G
+        )
+
+    [74] => Array
+        (
+            [0] => 75977
+            [idUsuario] => 75977
+            [1] => iOS
+            [plataforma] => iOS
+            [2] => dXIFUnNxLG8:APA91bFt3aChzf0ibZ-e7NxREtETkAXA70uml3Qz6iA_z68cVgKDBArkGQVxnlbJEBDI2a5vJrSF86Be9Sv-H2ycDxUMLx0CroObCfV_7RBUe3VvDHq64EQbgweonPU_boPdLb7qFmlM
+            [devicetoken] => dXIFUnNxLG8:APA91bFt3aChzf0ibZ-e7NxREtETkAXA70uml3Qz6iA_z68cVgKDBArkGQVxnlbJEBDI2a5vJrSF86Be9Sv-H2ycDxUMLx0CroObCfV_7RBUe3VvDHq64EQbgweonPU_boPdLb7qFmlM
+        )
+
+    [75] => Array
+        (
+            [0] => 52757
+            [idUsuario] => 52757
+            [1] => android
+            [plataforma] => android
+            [2] => fb_AlZz5QVg:APA91bFVwGYNdCSSwMLSAjq9BUnAQ0sjF_AaNVja5crixUB7ZEbph3BGfIimugfNOtPEZZ-OY_4bVnfYUTVxC1agq2NnDSj4TseHOG0tp21A2J7nh9_9cRmHsvJoWipZHm2GAFsn_dNW
+            [devicetoken] => fb_AlZz5QVg:APA91bFVwGYNdCSSwMLSAjq9BUnAQ0sjF_AaNVja5crixUB7ZEbph3BGfIimugfNOtPEZZ-OY_4bVnfYUTVxC1agq2NnDSj4TseHOG0tp21A2J7nh9_9cRmHsvJoWipZHm2GAFsn_dNW
+        )
+
+    [76] => Array
+        (
+            [0] => 80270
+            [idUsuario] => 80270
+            [1] => iOS
+            [plataforma] => iOS
+            [2] => eWQeONzKzfU:APA91bGzki0NTu-qloP-7a0W-FTaNjyU7USb_uO14mH2AVrTBr4AXJRadkPqoN6ZWFPOWRUgj-ow94X-L9BT2gcqsHZUKxvOdgJGX6x2UOSZPC5KYEw1BL8X1BuPFJ_qL8hcjgBezjFW
+            [devicetoken] => eWQeONzKzfU:APA91bGzki0NTu-qloP-7a0W-FTaNjyU7USb_uO14mH2AVrTBr4AXJRadkPqoN6ZWFPOWRUgj-ow94X-L9BT2gcqsHZUKxvOdgJGX6x2UOSZPC5KYEw1BL8X1BuPFJ_qL8hcjgBezjFW
+        )
+
+    [77] => Array
+        (
+            [0] => 57283
+            [idUsuario] => 57283
+            [1] => iOS
+            [plataforma] => iOS
+            [2] => eJKKepqsX80:APA91bGC-mckR56G27PhChzWxw6KyM6s6YEn1DwMt1LlsQSWST3F7etyQeKe1q2sZ_M0u9JjQptFZUJt0yHNHta3MCLrXijEYjmJrzkOMG5fp4I6MCrEeTVgtkJbTX_24GlQGwSztO2J
+            [devicetoken] => eJKKepqsX80:APA91bGC-mckR56G27PhChzWxw6KyM6s6YEn1DwMt1LlsQSWST3F7etyQeKe1q2sZ_M0u9JjQptFZUJt0yHNHta3MCLrXijEYjmJrzkOMG5fp4I6MCrEeTVgtkJbTX_24GlQGwSztO2J
+        )
+
+    [78] => Array
+        (
+            [0] => 57354
+            [idUsuario] => 57354
+            [1] => android
+            [plataforma] => android
+            [2] => eCZjKq1pZaY:APA91bEUH0zqcdGaTFoALENvsJyIDJCs6rG8cZzjao8qzCtOTbQVy0DSt27UXWuTipSgVSd0egJLD-1td7AanWOhEotWOVhISEBxI8Blm_guwgIVxM6I8IN69EWHKxATqOlqoPbo79K9
+            [devicetoken] => eCZjKq1pZaY:APA91bEUH0zqcdGaTFoALENvsJyIDJCs6rG8cZzjao8qzCtOTbQVy0DSt27UXWuTipSgVSd0egJLD-1td7AanWOhEotWOVhISEBxI8Blm_guwgIVxM6I8IN69EWHKxATqOlqoPbo79K9
+        )
+
+    [79] => Array
+        (
+            [0] => 83221
+            [idUsuario] => 83221
+            [1] => android
+            [plataforma] => android
+            [2] => eigLU1gw4JI:APA91bFsiv22g4NJrmy1lQfEfiMJExgi4vOzh_jhEevy9kX4wa2vWSX3divG1eul7-l77JTgQQ5w4C1RzQg0LDcxSdvksqqkzxGAQ01Ll5Ax06SZ0IeXYkpOaKXSuBRyoN0q1jldC6p2
+            [devicetoken] => eigLU1gw4JI:APA91bFsiv22g4NJrmy1lQfEfiMJExgi4vOzh_jhEevy9kX4wa2vWSX3divG1eul7-l77JTgQQ5w4C1RzQg0LDcxSdvksqqkzxGAQ01Ll5Ax06SZ0IeXYkpOaKXSuBRyoN0q1jldC6p2
+        )
+
+    [80] => Array
+        (
+            [0] => 37497
+            [idUsuario] => 37497
+            [1] => iOS
+            [plataforma] => iOS
+            [2] => d6tPypRqejU:APA91bGc7F762nfc9sDW-xy2fnPv_B01eNZHtOsPa3yu6rdwn-7P8QhVWOH_M0XQkbmPFkGHmYU2y0gASq88lYSU6kQfJEMqG8rW5ZLR9_1Qp_i6gtaIUu1Chxy_ajDnitLbTVybEAhp
+            [devicetoken] => d6tPypRqejU:APA91bGc7F762nfc9sDW-xy2fnPv_B01eNZHtOsPa3yu6rdwn-7P8QhVWOH_M0XQkbmPFkGHmYU2y0gASq88lYSU6kQfJEMqG8rW5ZLR9_1Qp_i6gtaIUu1Chxy_ajDnitLbTVybEAhp
+        )
+
+    [81] => Array
+        (
+            [0] => 60825
+            [idUsuario] => 60825
+            [1] => iOS
+            [plataforma] => iOS
+            [2] => cdMrjf6lkBw:APA91bEv2Y78JCOfEH0vJd8l7SQFWqb4Zo2di9-JNXYBpV-vjNe-0rnDJJjIrAk2J-LFDLdnsJvow7Gs94ojHJjsMRRCstM9sMkR9iSgBSqUsGB6rFztrHyvubOhsA9bSk8_bgA7vu4Y
+            [devicetoken] => cdMrjf6lkBw:APA91bEv2Y78JCOfEH0vJd8l7SQFWqb4Zo2di9-JNXYBpV-vjNe-0rnDJJjIrAk2J-LFDLdnsJvow7Gs94ojHJjsMRRCstM9sMkR9iSgBSqUsGB6rFztrHyvubOhsA9bSk8_bgA7vu4Y
+        )
+
+    [82] => Array
+        (
+            [0] => 52408
+            [idUsuario] => 52408
+            [1] => iOS
+            [plataforma] => iOS
+            [2] => dm2_2-Kkq-c:APA91bHu3OuaCGEZValjT0XiBBkK_ma0lU6KZbimKmwJkdGS5wOG6Uni45sqevro4JgV9lGYENJrBhNPd51M_hEXciyLUOUDiSkD3YOx6lQoXGNjeGd4SQKBq18j5bNNrgSXNQdzV8Pw
+            [devicetoken] => dm2_2-Kkq-c:APA91bHu3OuaCGEZValjT0XiBBkK_ma0lU6KZbimKmwJkdGS5wOG6Uni45sqevro4JgV9lGYENJrBhNPd51M_hEXciyLUOUDiSkD3YOx6lQoXGNjeGd4SQKBq18j5bNNrgSXNQdzV8Pw
+        )
+
+    [83] => Array
+        (
+            [0] => 57561
+            [idUsuario] => 57561
+            [1] => iOS
+            [plataforma] => iOS
+            [2] => cQFe5kGLXSA:APA91bFidIaeJKnqjSnv2QlmLQzu5oHy9St8iFMUYW16kuc0FO6uIW7OO1HeXEdwsXit1IXyy4pLsSTGHBU26E687uXAI5fqf6pGsMcxqBcHW-4fksiAvZhPedd7T8ADd4rKFRx-48di
+            [devicetoken] => cQFe5kGLXSA:APA91bFidIaeJKnqjSnv2QlmLQzu5oHy9St8iFMUYW16kuc0FO6uIW7OO1HeXEdwsXit1IXyy4pLsSTGHBU26E687uXAI5fqf6pGsMcxqBcHW-4fksiAvZhPedd7T8ADd4rKFRx-48di
+        )
+
+    [84] => Array
+        (
+            [0] => 52908
+            [idUsuario] => 52908
+            [1] => iOS
+            [plataforma] => iOS
+            [2] => eRN-qjehaGY:APA91bHbESN86NVAmjYBtCkFe-5FxtGMOk1oKLhZVws0ejR0oobosiALB37IF07sywZQcCYa4VLhe-qLOwAOpSeewANRsCd2a8WZnKKNX8Z_3eHT1d4nxf-gwSmKWWzvE5qmOGiw99E2
+            [devicetoken] => eRN-qjehaGY:APA91bHbESN86NVAmjYBtCkFe-5FxtGMOk1oKLhZVws0ejR0oobosiALB37IF07sywZQcCYa4VLhe-qLOwAOpSeewANRsCd2a8WZnKKNX8Z_3eHT1d4nxf-gwSmKWWzvE5qmOGiw99E2
+        )
+
+    [85] => Array
+        (
+            [0] => 80471
+            [idUsuario] => 80471
+            [1] => iOS
+            [plataforma] => iOS
+            [2] => eS1HS-mQHSI:APA91bFogsLkhkLAPLpKfxVCo2KDnz2WiVNnicB0-apiLwWtFzEA3sDfinHKAMd6H4B37tBqsutnBl5WzFLLnN4QJe12vh8ZLwN_LpbXVZeR6x9NOv4aAz9HvSPnYr7UTZtTeVUUuOnA
+            [devicetoken] => eS1HS-mQHSI:APA91bFogsLkhkLAPLpKfxVCo2KDnz2WiVNnicB0-apiLwWtFzEA3sDfinHKAMd6H4B37tBqsutnBl5WzFLLnN4QJe12vh8ZLwN_LpbXVZeR6x9NOv4aAz9HvSPnYr7UTZtTeVUUuOnA
+        )
+
+    [86] => Array
+        (
+            [0] => 79628
+            [idUsuario] => 79628
+            [1] => android
+            [plataforma] => android
+            [2] => fO8QSyEnY3Y:APA91bFzfz0hUB42scDfhjqTAOKMgYKMl41b0zgKWzh0XOcOB9dHb6Ijj-agtHbON3mr4YlBRFWPBUlCPCWTNEH1enVYg-6CXbQsNAmrYFnT45AKn74wDDCtxIA38-IFLODzvshs4Q_t
+            [devicetoken] => fO8QSyEnY3Y:APA91bFzfz0hUB42scDfhjqTAOKMgYKMl41b0zgKWzh0XOcOB9dHb6Ijj-agtHbON3mr4YlBRFWPBUlCPCWTNEH1enVYg-6CXbQsNAmrYFnT45AKn74wDDCtxIA38-IFLODzvshs4Q_t
+        )
+
+    [87] => Array
+        (
+            [0] => 80024
+            [idUsuario] => 80024
+            [1] => android
+            [plataforma] => android
+            [2] => dKBIfiQWMg8:APA91bFLTAucTewqb9z1yfMmll0S6zvuRT_ya5LiNbLY_OAt2wy2OlpAWVACbc9LyYOOUzl1c001RIboJQUr-Wj67xKQrTenADd8xtWNqwJX5VwfjVvchtwLQSziTAi_Pc-6o40xoSFu
+            [devicetoken] => dKBIfiQWMg8:APA91bFLTAucTewqb9z1yfMmll0S6zvuRT_ya5LiNbLY_OAt2wy2OlpAWVACbc9LyYOOUzl1c001RIboJQUr-Wj67xKQrTenADd8xtWNqwJX5VwfjVvchtwLQSziTAi_Pc-6o40xoSFu
+        )
+
+    [88] => Array
+        (
+            [0] => 73564
+            [idUsuario] => 73564
+            [1] => android
+            [plataforma] => android
+            [2] => cVVVQoE731w:APA91bGTWh24wL206PHboZ4uhzHf5wCyozQRgiiPw1z9l-xzX_-ailW89mkYAai7DGuktYh_SRkWoSUuMeJL6z3TzW5TpHdDzykDohZW7SfTWP3P4qHsq6OtACgLlYAZG_10GySAuZ1C
+            [devicetoken] => cVVVQoE731w:APA91bGTWh24wL206PHboZ4uhzHf5wCyozQRgiiPw1z9l-xzX_-ailW89mkYAai7DGuktYh_SRkWoSUuMeJL6z3TzW5TpHdDzykDohZW7SfTWP3P4qHsq6OtACgLlYAZG_10GySAuZ1C
+        )
+
+    [89] => Array
+        (
+            [0] => 61803
+            [idUsuario] => 61803
+            [1] => android
+            [plataforma] => android
+            [2] => fmawuScNJ5k:APA91bETtlHYQTG6gJHqz2xIfNOWOxt2jQ4VdduPOzeu4NQd8rG3oe_HbFt5ncr9jnZysq0wiix_82TmIwfuJy5MDMa22tU5gHIJxRomyg0wE6i1ftE4GzetSM7SjuPGrDt9x-rO5kDh
+            [devicetoken] => fmawuScNJ5k:APA91bETtlHYQTG6gJHqz2xIfNOWOxt2jQ4VdduPOzeu4NQd8rG3oe_HbFt5ncr9jnZysq0wiix_82TmIwfuJy5MDMa22tU5gHIJxRomyg0wE6i1ftE4GzetSM7SjuPGrDt9x-rO5kDh
+        )
+
+    [90] => Array
+        (
+            [0] => 56465
+            [idUsuario] => 56465
+            [1] => iOS
+            [plataforma] => iOS
+            [2] => eM6-dYL95IA:APA91bGeVwmU-ByP60G7Bw0dflsFaj40gfJt56OcriosHW6ytLjQ0laHG4X3rf5W75-vKw4cEGBxJ25q3dO6IjULBFTqK3Gum4tSPYFeO31Qf4CMReREODuE84a8m91s_JMnkd5lUfn6
+            [devicetoken] => eM6-dYL95IA:APA91bGeVwmU-ByP60G7Bw0dflsFaj40gfJt56OcriosHW6ytLjQ0laHG4X3rf5W75-vKw4cEGBxJ25q3dO6IjULBFTqK3Gum4tSPYFeO31Qf4CMReREODuE84a8m91s_JMnkd5lUfn6
+        )
+
+    [91] => Array
+        (
+            [0] => 42452
+            [idUsuario] => 42452
+            [1] => android
+            [plataforma] => android
+            [2] => cE9r28X9wM8:APA91bF67VTUftD6RMMbcm8tgu6dbI_OSEztW9BJZG9sj7EKwo6oNafISvO6EchxJQ6Q4AJn4zaoEFu3nwvl7MLqrh7K1SEiCkwArQMG201sIwJ2RpalE07cv_2Wf-YCHxTaCcAvOveTq3lKnjmzWqv43bd294kbrg
+            [devicetoken] => cE9r28X9wM8:APA91bF67VTUftD6RMMbcm8tgu6dbI_OSEztW9BJZG9sj7EKwo6oNafISvO6EchxJQ6Q4AJn4zaoEFu3nwvl7MLqrh7K1SEiCkwArQMG201sIwJ2RpalE07cv_2Wf-YCHxTaCcAvOveTq3lKnjmzWqv43bd294kbrg
+        )
+
+    [92] => Array
+        (
+            [0] => 51982
+            [idUsuario] => 51982
+            [1] => iOS
+            [plataforma] => iOS
+            [2] => cXoRxsreRFA:APA91bFr_W6CT3awkiSrYfBLmES74zYIomvr5EmvBQFEGZ6bTm1BJOkR_o7QgF1tY1PzoidENTf1UYP-NZMKr6bJWGdSoTLUKiJPJGlxQqbbEmdGAu0rKdPChIG2TX3StBECRMA4KFR4
+            [devicetoken] => cXoRxsreRFA:APA91bFr_W6CT3awkiSrYfBLmES74zYIomvr5EmvBQFEGZ6bTm1BJOkR_o7QgF1tY1PzoidENTf1UYP-NZMKr6bJWGdSoTLUKiJPJGlxQqbbEmdGAu0rKdPChIG2TX3StBECRMA4KFR4
+        )
+
+    [93] => Array
+        (
+            [0] => 43228
+            [idUsuario] => 43228
+            [1] => iOS
+            [plataforma] => iOS
+            [2] => cYH9j6N8zX4:APA91bE4NQaSxAXLkyMKYpD2dqqFtDjkfINPXsFzzk3gyzLmx7dE0fcWF4X4BxxMvqXGKMt2_HF6AYRZw2b-2eRXnSrjUOX3y2QWgMT_eaqmv4rVTIkn-uzSD6mPukJ9Es6Y3leJFBDO
+            [devicetoken] => cYH9j6N8zX4:APA91bE4NQaSxAXLkyMKYpD2dqqFtDjkfINPXsFzzk3gyzLmx7dE0fcWF4X4BxxMvqXGKMt2_HF6AYRZw2b-2eRXnSrjUOX3y2QWgMT_eaqmv4rVTIkn-uzSD6mPukJ9Es6Y3leJFBDO
+        )
+
+    [94] => Array
+        (
+            [0] => 72466
+            [idUsuario] => 72466
+            [1] => android
+            [plataforma] => android
+            [2] => fETn03qF9Sg:APA91bE0TPL6vPDXR4SpjlmuNEx9mHG1w_K269CJGKFM2wKCLLIfI5sVmg7Lnzlt8RBy5IuD2HbILVC6tI7Ojf4IV2D-Cp9CezBO8pNoC-GK4hxaaTLOTsDf-kbt569i9NgR19XVEozD
+            [devicetoken] => fETn03qF9Sg:APA91bE0TPL6vPDXR4SpjlmuNEx9mHG1w_K269CJGKFM2wKCLLIfI5sVmg7Lnzlt8RBy5IuD2HbILVC6tI7Ojf4IV2D-Cp9CezBO8pNoC-GK4hxaaTLOTsDf-kbt569i9NgR19XVEozD
+        )
+
+    [95] => Array
+        (
+            [0] => 75173
+            [idUsuario] => 75173
+            [1] => android
+            [plataforma] => android
+            [2] => cjQSaiCoQBc:APA91bGJgyCGhYQjXvv4UKbcRWsiuLugYpaCmqWTvq2HPTD6hZdYpZQop9YydWcP13R6BN7iBfO_wSkBqCSr9hndHMVaQ7NnR40KYB-5mCiMoLAsIlGhxwCCkym7Bz0tSGtEh174dOPD
+            [devicetoken] => cjQSaiCoQBc:APA91bGJgyCGhYQjXvv4UKbcRWsiuLugYpaCmqWTvq2HPTD6hZdYpZQop9YydWcP13R6BN7iBfO_wSkBqCSr9hndHMVaQ7NnR40KYB-5mCiMoLAsIlGhxwCCkym7Bz0tSGtEh174dOPD
+        )
+
+    [96] => Array
+        (
+            [0] => 44601
+            [idUsuario] => 44601
+            [1] => iOS
+            [plataforma] => iOS
+            [2] => dCStLUZI4ss:APA91bEGv-a3O9JJiUVJYU0Xr_6JlaVwKcVOqJ8UuQqb00KX8MkmCRgGdydwBC1M7QShB2HmgJ0NdWQynWiVCTNe3QojNbBf2moU9KeQo7pkwbAogXCwAYmrGf_-NHeCtaGo1z9aSVU8
+            [devicetoken] => dCStLUZI4ss:APA91bEGv-a3O9JJiUVJYU0Xr_6JlaVwKcVOqJ8UuQqb00KX8MkmCRgGdydwBC1M7QShB2HmgJ0NdWQynWiVCTNe3QojNbBf2moU9KeQo7pkwbAogXCwAYmrGf_-NHeCtaGo1z9aSVU8
+        )
+
+    [97] => Array
+        (
+            [0] => 57092
+            [idUsuario] => 57092
+            [1] => android
+            [plataforma] => android
+            [2] => fsQY17DTSCU:APA91bEHXy3-UJJ07gTUu1B5w4ATPdTAJJx_uke_ZWAYwmbcpOQv5Ve38MfSEzl4MI0Xo6fiExXeAaaBCOEQhuTBcP1PBmoMxUOLSVYZqOMRm2c79lm3WUspbGoNJMuYwUi1SBabI9FA
+            [devicetoken] => fsQY17DTSCU:APA91bEHXy3-UJJ07gTUu1B5w4ATPdTAJJx_uke_ZWAYwmbcpOQv5Ve38MfSEzl4MI0Xo6fiExXeAaaBCOEQhuTBcP1PBmoMxUOLSVYZqOMRm2c79lm3WUspbGoNJMuYwUi1SBabI9FA
+        )
+
+    [98] => Array
+        (
+            [0] => 52254
+            [idUsuario] => 52254
+            [1] => iOS
+            [plataforma] => iOS
+            [2] => cbwJggaa3Fc:APA91bHGObLoBzTIYCv8EsTaA76JN93X6uRvXR86KderfsyG3xzLLRlQ_OlO6C8LClX_O7luaF5xpi84h2DIA_yOogy0KneLfAVFThNXNKaxJxAn31cnyROkFYlnTFupCMTwczkyp8u-
+            [devicetoken] => cbwJggaa3Fc:APA91bHGObLoBzTIYCv8EsTaA76JN93X6uRvXR86KderfsyG3xzLLRlQ_OlO6C8LClX_O7luaF5xpi84h2DIA_yOogy0KneLfAVFThNXNKaxJxAn31cnyROkFYlnTFupCMTwczkyp8u-
+        )
+
+    [99] => Array
+        (
+            [0] => 66305
+            [idUsuario] => 66305
+            [1] => android
+            [plataforma] => android
+            [2] => dKK5fmVDihU:APA91bH8Ck3kjbqOvHxUYtJDhUyVFjLi5Ldinc0hYXbNSZoOlaeDIQyrmu7G8nv_sv9iG76hYWIkpfvoI0mFnlatRZWddXb-Tj8Lo4qHbi8Bx2FDmRCTukf54NMF9kQRRT7sif7_9uLI
+            [devicetoken] => dKK5fmVDihU:APA91bH8Ck3kjbqOvHxUYtJDhUyVFjLi5Ldinc0hYXbNSZoOlaeDIQyrmu7G8nv_sv9iG76hYWIkpfvoI0mFnlatRZWddXb-Tj8Lo4qHbi8Bx2FDmRCTukf54NMF9kQRRT7sif7_9uLI
+        )
+
+    [100] => Array
+        (
+            [0] => 57732
+            [idUsuario] => 57732
+            [1] => android
+            [plataforma] => android
+            [2] => fsQY17DTSCU:APA91bEHXy3-UJJ07gTUu1B5w4ATPdTAJJx_uke_ZWAYwmbcpOQv5Ve38MfSEzl4MI0Xo6fiExXeAaaBCOEQhuTBcP1PBmoMxUOLSVYZqOMRm2c79lm3WUspbGoNJMuYwUi1SBabI9FA
+            [devicetoken] => fsQY17DTSCU:APA91bEHXy3-UJJ07gTUu1B5w4ATPdTAJJx_uke_ZWAYwmbcpOQv5Ve38MfSEzl4MI0Xo6fiExXeAaaBCOEQhuTBcP1PBmoMxUOLSVYZqOMRm2c79lm3WUspbGoNJMuYwUi1SBabI9FA
+        )
+
+    [101] => Array
+        (
+            [0] => 77583
+            [idUsuario] => 77583
+            [1] => iOS
+            [plataforma] => iOS
+            [2] => cAM5eDuUF1Q:APA91bGB-XEIiufvOqQj4QVZ3CfvOeihDy3RIRwgFxRtzRiaiPUgvPSiA2hm6RIbAhmuM3xHkq6h2tQYsZBEA-54QMbhejzo9BxBeY6MZaXZrQF9Yt5RBhBFo3kouu-SjoGyO-XEleWM
+            [devicetoken] => cAM5eDuUF1Q:APA91bGB-XEIiufvOqQj4QVZ3CfvOeihDy3RIRwgFxRtzRiaiPUgvPSiA2hm6RIbAhmuM3xHkq6h2tQYsZBEA-54QMbhejzo9BxBeY6MZaXZrQF9Yt5RBhBFo3kouu-SjoGyO-XEleWM
+        )
+
+    [102] => Array
+        (
+            [0] => 71726
+            [idUsuario] => 71726
+            [1] => iOS
+            [plataforma] => iOS
+            [2] => f4fIm2YsqwU:APA91bGKMx9_5ZzpnNCfh_a_qBjay1H5UX6Yg5uQ-s6jojo9f3LTPV7KzkeAsgiTS3GNl-en2q-0_2unek9R9l_N8ab7Pg3JrvKc_figaI6qOySHGxUEggvYoeU--nG3fejOYTsGmc-o
+            [devicetoken] => f4fIm2YsqwU:APA91bGKMx9_5ZzpnNCfh_a_qBjay1H5UX6Yg5uQ-s6jojo9f3LTPV7KzkeAsgiTS3GNl-en2q-0_2unek9R9l_N8ab7Pg3JrvKc_figaI6qOySHGxUEggvYoeU--nG3fejOYTsGmc-o
+        )
+
+    [103] => Array
+        (
+            [0] => 86903
+            [idUsuario] => 86903
+            [1] => android
+            [plataforma] => android
+            [2] => eNgjcTX9FIk:APA91bEl-2WIX8WElAUSaOE1k34wIRgViTOX2uc3v9BISaD1Cwl4j_qpFJ2Z0L3UAc5IQCBsRyIUBVl3PC_Cr_75-5TL9aNPcoSXK6GkISCWajFFVhzUPkoHLSj7FwW2h4i4fkonKOXF
+            [devicetoken] => eNgjcTX9FIk:APA91bEl-2WIX8WElAUSaOE1k34wIRgViTOX2uc3v9BISaD1Cwl4j_qpFJ2Z0L3UAc5IQCBsRyIUBVl3PC_Cr_75-5TL9aNPcoSXK6GkISCWajFFVhzUPkoHLSj7FwW2h4i4fkonKOXF
+        )
+
+    [104] => Array
+        (
+            [0] => 76352
+            [idUsuario] => 76352
+            [1] => iOS
+            [plataforma] => iOS
+            [2] => d0PIcHBX5x4:APA91bEYe0GA7PPmHr920QwbK6q642IJDtWGHCDXSNYFEFAP-r7S1G1VbxUyVwPtncu6-1O8LcvqrsUTgDLFk4rsY5faKULnBXDNyuKvuKksV23XzyTY_Kni9dmiGKPlV9VELexqy3Zt
+            [devicetoken] => d0PIcHBX5x4:APA91bEYe0GA7PPmHr920QwbK6q642IJDtWGHCDXSNYFEFAP-r7S1G1VbxUyVwPtncu6-1O8LcvqrsUTgDLFk4rsY5faKULnBXDNyuKvuKksV23XzyTY_Kni9dmiGKPlV9VELexqy3Zt
+        )
+
+    [105] => Array
+        (
+            [0] => 72213
+            [idUsuario] => 72213
+            [1] => iOS
+            [plataforma] => iOS
+            [2] => eB6-5YS2yzM:APA91bFr-vXdaaSNrEl7BwEEcSv9b1cAFymwzD8D3WGuehwKPcjdxWiKxh4WqjMWP5CMa2KYJjNjIB8g9LwqW-sjodJn_rpxPG9eHJ1c9uhnq5a3z_roRMgAgmv0ETv_zjPLeF7DI4W9
+            [devicetoken] => eB6-5YS2yzM:APA91bFr-vXdaaSNrEl7BwEEcSv9b1cAFymwzD8D3WGuehwKPcjdxWiKxh4WqjMWP5CMa2KYJjNjIB8g9LwqW-sjodJn_rpxPG9eHJ1c9uhnq5a3z_roRMgAgmv0ETv_zjPLeF7DI4W9
+        )
+
+    [106] => Array
+        (
+            [0] => 81880
+            [idUsuario] => 81880
+            [1] => iOS
+            [plataforma] => iOS
+            [2] => fSdTOLDYNX0:APA91bHoPhgoxrUXLeAQtDsqxjUu-Wk3jJe9-44ehQ25D-ZSiyBekFEc6ieXyjRAOaWM1LOu4k6PA683rr7zDj_XBG3tfMYTO8yqXLASZitREaFqCPNBxIp9QSPeEtKFDITiy9pwYBFw
+            [devicetoken] => fSdTOLDYNX0:APA91bHoPhgoxrUXLeAQtDsqxjUu-Wk3jJe9-44ehQ25D-ZSiyBekFEc6ieXyjRAOaWM1LOu4k6PA683rr7zDj_XBG3tfMYTO8yqXLASZitREaFqCPNBxIp9QSPeEtKFDITiy9pwYBFw
+        )
+
+    [107] => Array
+        (
+            [0] => 65998
+            [idUsuario] => 65998
+            [1] => iOS
+            [plataforma] => iOS
+            [2] => frZAuLwwrKQ:APA91bEReJjUU-JEllfRNYIAFsl9gtW3DrifPX6ziuhkfxF7BPfqBediyNlVnLfCqjaXf11pExmrepfZeMCVTLeoCr_2V_VnwiK3aeBffeOW6Hu0W8-7mid9zRpuqAr07aUyjKNhaF0z
+            [devicetoken] => frZAuLwwrKQ:APA91bEReJjUU-JEllfRNYIAFsl9gtW3DrifPX6ziuhkfxF7BPfqBediyNlVnLfCqjaXf11pExmrepfZeMCVTLeoCr_2V_VnwiK3aeBffeOW6Hu0W8-7mid9zRpuqAr07aUyjKNhaF0z
+        )
+
+    [108] => Array
+        (
+            [0] => 75847
+            [idUsuario] => 75847
+            [1] => android
+            [plataforma] => android
+            [2] => fmURs7faaEI:APA91bF0gmk-XBJhTNByYSzEy4XveWv5e3G67GB3nE4W5eS7d5OYYta_yaqLdHKoRQE-GcM1zrAEuqINqf3iiJSEFt4H3Bhj3KMtrmYjx7HMEkkJre788e4N-_pa0XgYQUUOO6SL3znM
+            [devicetoken] => fmURs7faaEI:APA91bF0gmk-XBJhTNByYSzEy4XveWv5e3G67GB3nE4W5eS7d5OYYta_yaqLdHKoRQE-GcM1zrAEuqINqf3iiJSEFt4H3Bhj3KMtrmYjx7HMEkkJre788e4N-_pa0XgYQUUOO6SL3znM
+        )
+
+    [109] => Array
+        (
+            [0] => 48247
+            [idUsuario] => 48247
+            [1] => android
+            [plataforma] => android
+            [2] => ee_oLp-t_kI:APA91bEMaOZ7niGHI1vG6TTqK4HvTP5t8bWBl_aGpE10ayV0Nk9BQBdmLidjbHX18V7QlT3su8PJfMHrHWB1T0H3LqneLf2wWWPcb1R6c_URH-v3HUHysO7311C8osV0GrOdNlBq1628
+            [devicetoken] => ee_oLp-t_kI:APA91bEMaOZ7niGHI1vG6TTqK4HvTP5t8bWBl_aGpE10ayV0Nk9BQBdmLidjbHX18V7QlT3su8PJfMHrHWB1T0H3LqneLf2wWWPcb1R6c_URH-v3HUHysO7311C8osV0GrOdNlBq1628
+        )
+
+    [110] => Array
+        (
+            [0] => 75369
+            [idUsuario] => 75369
+            [1] => iOS
+            [plataforma] => iOS
+            [2] => fL3wtLJOPE0:APA91bF2m8YOxpNhdqMGmNCHULLL7HMISbK-gZ4eNLEyDVgfI-iVYWaQ4cI-xfR5hbZ8XQBtxJRVspMD8pcoNnMshsBuLelCewsMMdoFpZIID6DQDrZ8NGAlsgYzKKOVo4kM55KrJLtu
+            [devicetoken] => fL3wtLJOPE0:APA91bF2m8YOxpNhdqMGmNCHULLL7HMISbK-gZ4eNLEyDVgfI-iVYWaQ4cI-xfR5hbZ8XQBtxJRVspMD8pcoNnMshsBuLelCewsMMdoFpZIID6DQDrZ8NGAlsgYzKKOVo4kM55KrJLtu
+        )
+
+    [111] => Array
+        (
+            [0] => 83629
+            [idUsuario] => 83629
+            [1] => android
+            [plataforma] => android
+            [2] => eSO018yStrk:APA91bEnk_sxOl-ZIy8WCv6Py1gZ9626huSriR4_MQjUnGnA81GDvPqItrJLOSizwBlrxVR2rhrh3sogghyzfreO327_H-5EaEwT_1oA1Hdc0OB9M6NxnVj2nrwsHyC22jiSyMYrHCAA
+            [devicetoken] => eSO018yStrk:APA91bEnk_sxOl-ZIy8WCv6Py1gZ9626huSriR4_MQjUnGnA81GDvPqItrJLOSizwBlrxVR2rhrh3sogghyzfreO327_H-5EaEwT_1oA1Hdc0OB9M6NxnVj2nrwsHyC22jiSyMYrHCAA
+        )
+
+    [112] => Array
+        (
+            [0] => 87500
+            [idUsuario] => 87500
+            [1] => iOS
+            [plataforma] => iOS
+            [2] => d7M_1P9e_Vc:APA91bG0T21xThtUDjjwf93XksiifoCsrjwvvRuHdV0UKnyCeROfDj-dJlOx4a2ruomDca4OmU9E40G79CoZYi2RMsIIqyAARgcOy7oGra7q6w9x1jwYCiMWrdEXGq6UzEY0t-FnCAwh
+            [devicetoken] => d7M_1P9e_Vc:APA91bG0T21xThtUDjjwf93XksiifoCsrjwvvRuHdV0UKnyCeROfDj-dJlOx4a2ruomDca4OmU9E40G79CoZYi2RMsIIqyAARgcOy7oGra7q6w9x1jwYCiMWrdEXGq6UzEY0t-FnCAwh
+        )
+
+    [113] => Array
+        (
+            [0] => 68643
+            [idUsuario] => 68643
+            [1] => android
+            [plataforma] => android
+            [2] => dWPeX6vPA-g:APA91bEkLvAEV7TFDI8MK8Yx-D3g4ZfU4Cyr_9YTq6-6JTo_iGyqSuUg8cs6QtrfFJLGXEfjp24f2nVfM_009R8yZZtkZehFREdRBhCxR1oDIDabKmkFxM-T4nx94KyG4bRlNS_13JJa
+            [devicetoken] => dWPeX6vPA-g:APA91bEkLvAEV7TFDI8MK8Yx-D3g4ZfU4Cyr_9YTq6-6JTo_iGyqSuUg8cs6QtrfFJLGXEfjp24f2nVfM_009R8yZZtkZehFREdRBhCxR1oDIDabKmkFxM-T4nx94KyG4bRlNS_13JJa
+        )
+
+    [114] => Array
+        (
+            [0] => 47826
+            [idUsuario] => 47826
+            [1] => android
+            [plataforma] => android
+            [2] => eXZEInYPk9g:APA91bH1EzTjs_wsiEb2FsTm8dTrPZPUwN--4oloMchcdFUNHjq2eke-twetyUGA6BY93pEC1-WQIIH2KdveTSaGvTolPhYkNGkQYeEDv4w5ZQkDQqU-cbeB8rkovwZn2ExeU1-E5YBf
+            [devicetoken] => eXZEInYPk9g:APA91bH1EzTjs_wsiEb2FsTm8dTrPZPUwN--4oloMchcdFUNHjq2eke-twetyUGA6BY93pEC1-WQIIH2KdveTSaGvTolPhYkNGkQYeEDv4w5ZQkDQqU-cbeB8rkovwZn2ExeU1-E5YBf
+        )
+
+    [115] => Array
+        (
+            [0] => 63170
+            [idUsuario] => 63170
+            [1] => android
+            [plataforma] => android
+            [2] => fwR4KWNbzTY:APA91bHvYxlnT3vYJaQUC4k9OA0qdGV8zuO0q1pNTnOHO7X_vUoWrlVzM7g_wmMyXJXL_3xd5WnjOPIcnrr1hPU4nDX6XLlJCnhLLQORxt5Pc9liMbkfBYCjN3gdL1_N3cCzZmOUQ4D_
+            [devicetoken] => fwR4KWNbzTY:APA91bHvYxlnT3vYJaQUC4k9OA0qdGV8zuO0q1pNTnOHO7X_vUoWrlVzM7g_wmMyXJXL_3xd5WnjOPIcnrr1hPU4nDX6XLlJCnhLLQORxt5Pc9liMbkfBYCjN3gdL1_N3cCzZmOUQ4D_
+        )
+
+    [116] => Array
+        (
+            [0] => 56535
+            [idUsuario] => 56535
+            [1] => android
+            [plataforma] => android
+            [2] => fPocCkgvwV4:APA91bHRM0d9BCIkU4l-IEdcrLF7Egm5lhJJ72Dr0slvZFjpPuL9aSUCsfPrvVxBzFxtOQGpcpM03nh4eUIlLGqrASCVvmkBQBvHcwQ0BjScOqbgv0qNT7z2FU3SJzto5Fq-UfkyeAk_
+            [devicetoken] => fPocCkgvwV4:APA91bHRM0d9BCIkU4l-IEdcrLF7Egm5lhJJ72Dr0slvZFjpPuL9aSUCsfPrvVxBzFxtOQGpcpM03nh4eUIlLGqrASCVvmkBQBvHcwQ0BjScOqbgv0qNT7z2FU3SJzto5Fq-UfkyeAk_
+        )
+
+    [117] => Array
+        (
+            [0] => 27331
+            [idUsuario] => 27331
+            [1] => android
+            [plataforma] => android
+            [2] => dRkw_tX-mFA:APA91bGYZlMThcGuRl7aokDOeGyHBEcpFJoO0y4jbjfNllDbJZBFHK9_pCHHe_xfOKDVXOBZ12Tysxqa8-YK_MXHumlZAkGBCoJFn4MHkAhusp5w1CWhv4jjyXodLJzzQSXC_072bq_c
+            [devicetoken] => dRkw_tX-mFA:APA91bGYZlMThcGuRl7aokDOeGyHBEcpFJoO0y4jbjfNllDbJZBFHK9_pCHHe_xfOKDVXOBZ12Tysxqa8-YK_MXHumlZAkGBCoJFn4MHkAhusp5w1CWhv4jjyXodLJzzQSXC_072bq_c
+        )
+
+    [118] => Array
+        (
+            [0] => 76228
+            [idUsuario] => 76228
+            [1] => iOS
+            [plataforma] => iOS
+            [2] => e8gfhZxZDGY:APA91bF2MQXQgsV4V8oHlaqLoXb_V51kPBG1w4ytcKEP0AcMItHu9MnHcmvjKBsTzb71tEKIeXbwLVA-yLNaVtWRkID4sjuma1K2hUG10HzoI-KTXS8Ni4fM1OMLM6ZnUfmNTz6jVkfg
+            [devicetoken] => e8gfhZxZDGY:APA91bF2MQXQgsV4V8oHlaqLoXb_V51kPBG1w4ytcKEP0AcMItHu9MnHcmvjKBsTzb71tEKIeXbwLVA-yLNaVtWRkID4sjuma1K2hUG10HzoI-KTXS8Ni4fM1OMLM6ZnUfmNTz6jVkfg
+        )
+
+    [119] => Array
+        (
+            [0] => 53059
+            [idUsuario] => 53059
+            [1] => iOS
+            [plataforma] => iOS
+            [2] => c-yxFbyIiYU:APA91bGuhCv834lAOSdM2IT0QNE57R3XSJZzKbOEv-41Caae815kyoMTsqtG8xsmCk2zE2fFCw3lqKPIgwZ_vga-WKBDWvwEIS20t8ezLcrMXQDzN9-HUU0e2zfbGnYcKLqhh95m0vwK
+            [devicetoken] => c-yxFbyIiYU:APA91bGuhCv834lAOSdM2IT0QNE57R3XSJZzKbOEv-41Caae815kyoMTsqtG8xsmCk2zE2fFCw3lqKPIgwZ_vga-WKBDWvwEIS20t8ezLcrMXQDzN9-HUU0e2zfbGnYcKLqhh95m0vwK
+        )
+
+    [120] => Array
+        (
+            [0] => 71486
+            [idUsuario] => 71486
+            [1] => iOS
+            [plataforma] => iOS
+            [2] => cTuLfleIfFI:APA91bHNhfx8rdRcjD4Wc6A07iRKkVE4DW1LgIeAOj7NUjVF2TjaOMuGZA8rVQFgQ7sAJANo28usOoPj_iKC-wTCmlQQWo5a0OeRzehfN2HUr9bKcljo2VLfE4Qdt_QWjOYEb47IwnDb
+            [devicetoken] => cTuLfleIfFI:APA91bHNhfx8rdRcjD4Wc6A07iRKkVE4DW1LgIeAOj7NUjVF2TjaOMuGZA8rVQFgQ7sAJANo28usOoPj_iKC-wTCmlQQWo5a0OeRzehfN2HUr9bKcljo2VLfE4Qdt_QWjOYEb47IwnDb
+        )
+
+    [121] => Array
+        (
+            [0] => 68778
+            [idUsuario] => 68778
+            [1] => iOS
+            [plataforma] => iOS
+            [2] => fryQZ6X4ge0:APA91bGH_6r9rDyNp0kcQBE03u9ZbdbWoT6yrx5QYoDkxYxA3Q2Ch4EeKfW9cLcYPKE5WfJW03JLEqCF-vtz1vcjPJLKJnAGzlvjUgTOWfId_mpcOE6fRjKocRKBvxWkVjjrRm4Uw2NZ
+            [devicetoken] => fryQZ6X4ge0:APA91bGH_6r9rDyNp0kcQBE03u9ZbdbWoT6yrx5QYoDkxYxA3Q2Ch4EeKfW9cLcYPKE5WfJW03JLEqCF-vtz1vcjPJLKJnAGzlvjUgTOWfId_mpcOE6fRjKocRKBvxWkVjjrRm4Uw2NZ
+        )
+
+    [122] => Array
+        (
+            [0] => 64145
+            [idUsuario] => 64145
+            [1] => iOS
+            [plataforma] => iOS
+            [2] => dnXMGkRYzTY:APA91bGU0UUnnVytELTu_rDqB9iqow1kTN7qJ3myE20h9rv2idanl4__qs9fAmcNFWC1w7R4r5PJqteFnoBRGz1mwvEbhuZPM28MQG-53CfO0c7ez_LPSddY3x4NvjAEus3lJgD4ulN5
+            [devicetoken] => dnXMGkRYzTY:APA91bGU0UUnnVytELTu_rDqB9iqow1kTN7qJ3myE20h9rv2idanl4__qs9fAmcNFWC1w7R4r5PJqteFnoBRGz1mwvEbhuZPM28MQG-53CfO0c7ez_LPSddY3x4NvjAEus3lJgD4ulN5
+        )
+
+    [123] => Array
+        (
+            [0] => 68640
+            [idUsuario] => 68640
+            [1] => android
+            [plataforma] => android
+            [2] => f53D8wwTLqI:APA91bFLGHw6yWYKKeJNcVK121pEmN1zB4T5i5kB31kroNDGnirjE01j5Ab2aFJcUDjWhO4U-fQAAFmD7vIY9fLE58jx57Ji-OBwu2kjPSLpjpiVA3AMlxN7UFo7zqMYBcEydtgcfVyX
+            [devicetoken] => f53D8wwTLqI:APA91bFLGHw6yWYKKeJNcVK121pEmN1zB4T5i5kB31kroNDGnirjE01j5Ab2aFJcUDjWhO4U-fQAAFmD7vIY9fLE58jx57Ji-OBwu2kjPSLpjpiVA3AMlxN7UFo7zqMYBcEydtgcfVyX
+        )
+
+    [124] => Array
+        (
+            [0] => 45221
+            [idUsuario] => 45221
+            [1] => iOS
+            [plataforma] => iOS
+            [2] => dD-uBO_EEyo:APA91bG9ShvBKrWeeGAwlEk7LUeY0gAfgecgYlhx1d1dhcE9kBJfDITjDPL5zNjaT2PQgjj1sA8zt5doLTSJNX_6mXTbJMooBShinQYNBPGVojHg7CWAiNWolYl_naeENWgMOWhumgUM
+            [devicetoken] => dD-uBO_EEyo:APA91bG9ShvBKrWeeGAwlEk7LUeY0gAfgecgYlhx1d1dhcE9kBJfDITjDPL5zNjaT2PQgjj1sA8zt5doLTSJNX_6mXTbJMooBShinQYNBPGVojHg7CWAiNWolYl_naeENWgMOWhumgUM
+        )
+
+    [125] => Array
+        (
+            [0] => 64703
+            [idUsuario] => 64703
+            [1] => android
+            [plataforma] => android
+            [2] => eljHJyMu-q4:APA91bEMTyEGfPKAq_7BGaPbtAEjJ1a6yxXmT5ZBe0HNsa4mGSLRj01ft3-HpHO0Ig9qSonv5NvrhN9W_5WGgI2C_Se59adiKHGJPD2U4cUL6DpGtvzPTIUJWBLzWzvp7YhRDRROHf1rusdr4jy1fO7Lo_iZHUSDVg
+            [devicetoken] => eljHJyMu-q4:APA91bEMTyEGfPKAq_7BGaPbtAEjJ1a6yxXmT5ZBe0HNsa4mGSLRj01ft3-HpHO0Ig9qSonv5NvrhN9W_5WGgI2C_Se59adiKHGJPD2U4cUL6DpGtvzPTIUJWBLzWzvp7YhRDRROHf1rusdr4jy1fO7Lo_iZHUSDVg
+        )
+
+    [126] => Array
+        (
+            [0] => 53584
+            [idUsuario] => 53584
+            [1] => android
+            [plataforma] => android
+            [2] => f_jjxJr2158:APA91bGj2P2o6Ed4x3-DUlSdmbasuivuyHAC5unRBaVm8TJgz6r0A3LDgGDgKfc48mIE6oAKAC_uwXEA7eWoimosD6-FK4IMQCL_Buj1NJDXCqzW1m6eN0ncJdpJEYbY1OfMCq520G86
+            [devicetoken] => f_jjxJr2158:APA91bGj2P2o6Ed4x3-DUlSdmbasuivuyHAC5unRBaVm8TJgz6r0A3LDgGDgKfc48mIE6oAKAC_uwXEA7eWoimosD6-FK4IMQCL_Buj1NJDXCqzW1m6eN0ncJdpJEYbY1OfMCq520G86
+        )
+
+    [127] => Array
+        (
+            [0] => 78340
+            [idUsuario] => 78340
+            [1] => iOS
+            [plataforma] => iOS
+            [2] => f_mWC510gr8:APA91bHRZOgdHlf3c4uaD8kmKJkZ7WWQF_yaUjszVv6t15AzVs6e3mfyJ1d16W-VBsJ2pVFuVpCuOL7ItdywtbCMvYCBP0DMxNlRljXmwKpBCvcmvjIgl-Qj_WPl8UT7hjLtkwRFN8zd
+            [devicetoken] => f_mWC510gr8:APA91bHRZOgdHlf3c4uaD8kmKJkZ7WWQF_yaUjszVv6t15AzVs6e3mfyJ1d16W-VBsJ2pVFuVpCuOL7ItdywtbCMvYCBP0DMxNlRljXmwKpBCvcmvjIgl-Qj_WPl8UT7hjLtkwRFN8zd
+        )
+
+    [128] => Array
+        (
+            [0] => 53046
+            [idUsuario] => 53046
+            [1] => android
+            [plataforma] => android
+            [2] => f5YmKU1xz1c:APA91bF_GNlH_Hjf8SU6eCkSBOL628McJyzPM7OjGnGL27ITILwXKDSyoSgVgKlNC8m2oWmpJmUVGiOj1SSTqSyeQ-0befUngzxtwZPuAjvwLgjP_qDmqXHdS3jfkSfJDnyqO5x_Ej7k
+            [devicetoken] => f5YmKU1xz1c:APA91bF_GNlH_Hjf8SU6eCkSBOL628McJyzPM7OjGnGL27ITILwXKDSyoSgVgKlNC8m2oWmpJmUVGiOj1SSTqSyeQ-0befUngzxtwZPuAjvwLgjP_qDmqXHdS3jfkSfJDnyqO5x_Ej7k
+        )
+
+    [129] => Array
+        (
+            [0] => 46027
+            [idUsuario] => 46027
+            [1] => iOS
+            [plataforma] => iOS
+            [2] => dahJKuZGHAI:APA91bEe9Qpx_KDL0VT1slLjwspToCFWG-TiQ99TdOqQ31XchLXMjXtZQl31rP113VV9w9nZ8Pfe9jOxyLfhYLkHrJnbIuLe6m7sKIYalvjJsXzQLiaCPMp_LQAIRFyBijpVc-bLuj3N
+            [devicetoken] => dahJKuZGHAI:APA91bEe9Qpx_KDL0VT1slLjwspToCFWG-TiQ99TdOqQ31XchLXMjXtZQl31rP113VV9w9nZ8Pfe9jOxyLfhYLkHrJnbIuLe6m7sKIYalvjJsXzQLiaCPMp_LQAIRFyBijpVc-bLuj3N
+        )
+
+    [130] => Array
+        (
+            [0] => 68492
+            [idUsuario] => 68492
+            [1] => android
+            [plataforma] => android
+            [2] => famwMj2XAfs:APA91bHl5_bVlJ4SBN7lfNjcZbPM0xeOg9PEG3tMaHY11h6HYeogvBSWUUmOJ5sP0Id7ng1MyJiFJvx-RfS5uMjHj8_5h4Z7DJM32t7-vovkbkFFSDfE64BDudP0v-pXG9vzqcUUNmIM
+            [devicetoken] => famwMj2XAfs:APA91bHl5_bVlJ4SBN7lfNjcZbPM0xeOg9PEG3tMaHY11h6HYeogvBSWUUmOJ5sP0Id7ng1MyJiFJvx-RfS5uMjHj8_5h4Z7DJM32t7-vovkbkFFSDfE64BDudP0v-pXG9vzqcUUNmIM
+        )
+
+    [131] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => c2Q3b_nbu5Q:APA91bGPWXQ_H9o9ZSA0iokajCkPrlgdwweAUGfSL1d2I4Ej0eIYoCo2PMBCkh6GIHPJFo8fDJ4rL08FXeaGksYdz-ajgv_vmUfDqbDjhmApGwPHm3MH4mOzhIvEu5aHpRpPsTMWqeEp
+            [devicetoken] => c2Q3b_nbu5Q:APA91bGPWXQ_H9o9ZSA0iokajCkPrlgdwweAUGfSL1d2I4Ej0eIYoCo2PMBCkh6GIHPJFo8fDJ4rL08FXeaGksYdz-ajgv_vmUfDqbDjhmApGwPHm3MH4mOzhIvEu5aHpRpPsTMWqeEp
+        )
+
+    [132] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => c2ZTSyMwF6k:APA91bFtNQd7NNIojqn0de9GPxo6hbz6UktBzzJEFW4FA95gw6T6fsSCijCcIOuTqQ6-Hs_Mt_6blSzKnfaU0LIO5uJxlUn_6S39roxQNPZVrRcuNqTcSQ1xo40V6IQHzRM1_BBEKrjx2HrMBRLRmwBVwEEiBuoppw
+            [devicetoken] => c2ZTSyMwF6k:APA91bFtNQd7NNIojqn0de9GPxo6hbz6UktBzzJEFW4FA95gw6T6fsSCijCcIOuTqQ6-Hs_Mt_6blSzKnfaU0LIO5uJxlUn_6S39roxQNPZVrRcuNqTcSQ1xo40V6IQHzRM1_BBEKrjx2HrMBRLRmwBVwEEiBuoppw
+        )
+
+    [133] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => c4Z3kbz3YJU:APA91bFXPZiDfIf9VVV8oQz27_tQHN76u0nyvrv8WyxylIKqszBvAfcBhW9iVQwbvqqjL8pG7a5AGqUOauR3uybhvtIQYy1Opez_NUDUkIUexXuzKHlb1BY_RF7MGv0XpBczkp_JIw0d
+            [devicetoken] => c4Z3kbz3YJU:APA91bFXPZiDfIf9VVV8oQz27_tQHN76u0nyvrv8WyxylIKqszBvAfcBhW9iVQwbvqqjL8pG7a5AGqUOauR3uybhvtIQYy1Opez_NUDUkIUexXuzKHlb1BY_RF7MGv0XpBczkp_JIw0d
+        )
+
+    [134] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => iOS
+            [plataforma] => iOS
+            [2] => c5AzVc0n64E:APA91bEsW_f3Ns4ISr2VDPeyo1oh8DuFQgyrXlaifinB7OuOQPQIXAIiJFELZygQktWU5MHg0TOIQhax5DlgMENpgEI_xpmf1Vaty4RXQhT-g900cwc6_CJazhgNQrlG_FKKhxwBjNHm
+            [devicetoken] => c5AzVc0n64E:APA91bEsW_f3Ns4ISr2VDPeyo1oh8DuFQgyrXlaifinB7OuOQPQIXAIiJFELZygQktWU5MHg0TOIQhax5DlgMENpgEI_xpmf1Vaty4RXQhT-g900cwc6_CJazhgNQrlG_FKKhxwBjNHm
+        )
+
+    [135] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => c5V42BiQLn8:APA91bFpHCzNMitXh8uhj1HsF4G3YF9T8dv53I-mYZ8D2_w6_Mv-RfjNNkNyv207MEgK85of-0Txy584TxQFMiyAHgfUPJsIiSuzCyYr7au9GeTrR7SUp_LriujjUAZDN3IYxQU-2T2b
+            [devicetoken] => c5V42BiQLn8:APA91bFpHCzNMitXh8uhj1HsF4G3YF9T8dv53I-mYZ8D2_w6_Mv-RfjNNkNyv207MEgK85of-0Txy584TxQFMiyAHgfUPJsIiSuzCyYr7au9GeTrR7SUp_LriujjUAZDN3IYxQU-2T2b
+        )
+
+    [136] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => iOS
+            [plataforma] => iOS
+            [2] => c7hDg7ya3ZE:APA91bF6mFyGzF7vn7GfEIw3HPQ8KZFLEDWdGgaGj06z11w8vO7Bcwr0n_cZVKXUwEO7lCfJ2jTPNCUDhSozn0tulzbDZ_m7-mx0K0L2KTMMYDWGxdfJKQsI63DH-fUzJiwSDuRSfrP3
+            [devicetoken] => c7hDg7ya3ZE:APA91bF6mFyGzF7vn7GfEIw3HPQ8KZFLEDWdGgaGj06z11w8vO7Bcwr0n_cZVKXUwEO7lCfJ2jTPNCUDhSozn0tulzbDZ_m7-mx0K0L2KTMMYDWGxdfJKQsI63DH-fUzJiwSDuRSfrP3
+        )
+
+    [137] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => cADypGW2sjg:APA91bFP2zotPbOC-QyvL6CYWXBPyeeTGXQtmRzviNzqGVuyfuv9o9rDroaUuD9QRMXWdAd8ABP1xfU4OqWv_nQa1AIyElwn_awd0e8FIcD1W50f1GoLmMPoRXyLMpDTYuw7BQ_APBvS
+            [devicetoken] => cADypGW2sjg:APA91bFP2zotPbOC-QyvL6CYWXBPyeeTGXQtmRzviNzqGVuyfuv9o9rDroaUuD9QRMXWdAd8ABP1xfU4OqWv_nQa1AIyElwn_awd0e8FIcD1W50f1GoLmMPoRXyLMpDTYuw7BQ_APBvS
+        )
+
+    [138] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => cANCADwVHP0:APA91bFtk-c3wgg-9eZ6OwC54qNSC72yFYqoflMAQzHVy4uSSWpY6yfvHmZ-VGV1aQoWyvCVypXYpseKm-jIa26LQZuHe6PSHiBrKG7vGSpwqE53ls8FLvaclNRN5Oymzo-ahFp3wzyY
+            [devicetoken] => cANCADwVHP0:APA91bFtk-c3wgg-9eZ6OwC54qNSC72yFYqoflMAQzHVy4uSSWpY6yfvHmZ-VGV1aQoWyvCVypXYpseKm-jIa26LQZuHe6PSHiBrKG7vGSpwqE53ls8FLvaclNRN5Oymzo-ahFp3wzyY
+        )
+
+    [139] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => cbsStFaSyko:APA91bHP0jM03-mTZ6aPQqazlId_eoql1nWk8z2h9bo27M5HA8kNXdGpaxlAYkSny5R3ExmdE9qyI2dRicBUUR5jWnO7Env6TZWvtJiFKi2vra-6lgIc5qjhzAuB0FeHU6iVUVvYOfKOwXyBBcnWFRLCxj3x0BA9KQ
+            [devicetoken] => cbsStFaSyko:APA91bHP0jM03-mTZ6aPQqazlId_eoql1nWk8z2h9bo27M5HA8kNXdGpaxlAYkSny5R3ExmdE9qyI2dRicBUUR5jWnO7Env6TZWvtJiFKi2vra-6lgIc5qjhzAuB0FeHU6iVUVvYOfKOwXyBBcnWFRLCxj3x0BA9KQ
+        )
+
+    [140] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => cC4AJQi0GuA:APA91bHy09Xm2rriVceIvqNDYrdYfUbeNKydfxMobS289rfYjcj9qWbC48ulDL-eHOGPvYYTXLRe0_ZR7b44MCBn9tQzYPM5sYTns4wpB-b-OSufpnv0jdbe4vwbBgJ1z08k4U5rPPVR
+            [devicetoken] => cC4AJQi0GuA:APA91bHy09Xm2rriVceIvqNDYrdYfUbeNKydfxMobS289rfYjcj9qWbC48ulDL-eHOGPvYYTXLRe0_ZR7b44MCBn9tQzYPM5sYTns4wpB-b-OSufpnv0jdbe4vwbBgJ1z08k4U5rPPVR
+        )
+
+    [141] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => cdEuYmJVLk0:APA91bHoXEu8iqmx1Tk8tTLqY2Csl-bu4x5IOip9ARsyCDMeZljThoJH6hQ4NA3BD7P0adGfG_nJvJ1R1o4v3MxGtO1jCbjnAf2O7ZWvFLnvWqfkL0neJC0GYWboNhfYFMTve1V2cl0B_WA1bOG6XDQkhtYK7z23ug
+            [devicetoken] => cdEuYmJVLk0:APA91bHoXEu8iqmx1Tk8tTLqY2Csl-bu4x5IOip9ARsyCDMeZljThoJH6hQ4NA3BD7P0adGfG_nJvJ1R1o4v3MxGtO1jCbjnAf2O7ZWvFLnvWqfkL0neJC0GYWboNhfYFMTve1V2cl0B_WA1bOG6XDQkhtYK7z23ug
+        )
+
+    [142] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => cGDn_aHb53o:APA91bFwLQ8_E3XvvApCG3WhJk7R6IwWmr51IXC1X5WfC9ofAjdLt5qufv-gJdL3NXBTUVgLAqMF-ichG8UTG8Wl9Zz5D78BQPbSrE8ReqQggjL1dfIIx-nkNGAXuK7ZQxiQZU8yfZU3
+            [devicetoken] => cGDn_aHb53o:APA91bFwLQ8_E3XvvApCG3WhJk7R6IwWmr51IXC1X5WfC9ofAjdLt5qufv-gJdL3NXBTUVgLAqMF-ichG8UTG8Wl9Zz5D78BQPbSrE8ReqQggjL1dfIIx-nkNGAXuK7ZQxiQZU8yfZU3
+        )
+
+    [143] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => iOS
+            [plataforma] => iOS
+            [2] => cgI14v-OJ0Y:APA91bGIwgc_U-GpCstZ2r-dYPkAj36gdxW-kv825i2ULil23Mj43DT9WPhHwQFoJs4iLFED0hGsuGTGLGfB_gkAmId5mghGNtHJlIPDqj6fl6BFCqTh4gyZlvpwJ6gIOaDTPvYihg58
+            [devicetoken] => cgI14v-OJ0Y:APA91bGIwgc_U-GpCstZ2r-dYPkAj36gdxW-kv825i2ULil23Mj43DT9WPhHwQFoJs4iLFED0hGsuGTGLGfB_gkAmId5mghGNtHJlIPDqj6fl6BFCqTh4gyZlvpwJ6gIOaDTPvYihg58
+        )
+
+    [144] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => cGMU0jqaYqA:APA91bFwBaGwrhIdB4Synyzf7JiBwah0leFWmsW5Qtkos83eTGIitISZL6k4pcqpXcRYhrTyX37M8B6AWizG-seFVXxECM2iVV1B2fJAfRoRvVGZ13eFwtLD_i7I7cMimPYgqpC-tWSx
+            [devicetoken] => cGMU0jqaYqA:APA91bFwBaGwrhIdB4Synyzf7JiBwah0leFWmsW5Qtkos83eTGIitISZL6k4pcqpXcRYhrTyX37M8B6AWizG-seFVXxECM2iVV1B2fJAfRoRvVGZ13eFwtLD_i7I7cMimPYgqpC-tWSx
+        )
+
+    [145] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => cjo0JzFreKU:APA91bF2VrxV5Grc49waPHMf7kwNdMxBf0uqDbJB50zQZOWKGj3fCAEmjXPYUxo8V2hxwufK9Y4ibMEiD-7ZZV9h-eXhE_I3ncJCPc9RCuR_a8aEVn4J1faq4eBxpPMHMZ1WFqKeVx1J-wZVHRWoaOhx4zhBLuTmQg
+            [devicetoken] => cjo0JzFreKU:APA91bF2VrxV5Grc49waPHMf7kwNdMxBf0uqDbJB50zQZOWKGj3fCAEmjXPYUxo8V2hxwufK9Y4ibMEiD-7ZZV9h-eXhE_I3ncJCPc9RCuR_a8aEVn4J1faq4eBxpPMHMZ1WFqKeVx1J-wZVHRWoaOhx4zhBLuTmQg
+        )
+
+    [146] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => cKiSJq4CsUM:APA91bHALct4E7N02MmjeMbHqcykixgmeVyp5Rx-rftuWBIlgES4jKOPgr2VhDfooXxdedlOqSIMwk66aDjNfDMlBblL960Pnaycw2noxV_Eln7W6cNoX_efOji0DzseoESsBikv0tva
+            [devicetoken] => cKiSJq4CsUM:APA91bHALct4E7N02MmjeMbHqcykixgmeVyp5Rx-rftuWBIlgES4jKOPgr2VhDfooXxdedlOqSIMwk66aDjNfDMlBblL960Pnaycw2noxV_Eln7W6cNoX_efOji0DzseoESsBikv0tva
+        )
+
+    [147] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => cMgtPvNCNGY:APA91bHqBwZxDKMOweNcNQiFVo4nS0VqethBoJD4yABrSTsKKkcLSaSwWO9y5yG5KtVcSmhwBrhqf5WfVSTV2D2XboInchQR17q_8Or4L4KmiNVQTC_oqtX5xACoiBAJX-hPOmLIkz13
+            [devicetoken] => cMgtPvNCNGY:APA91bHqBwZxDKMOweNcNQiFVo4nS0VqethBoJD4yABrSTsKKkcLSaSwWO9y5yG5KtVcSmhwBrhqf5WfVSTV2D2XboInchQR17q_8Or4L4KmiNVQTC_oqtX5xACoiBAJX-hPOmLIkz13
+        )
+
+    [148] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => cnrnfYQcGvI:APA91bEccGUS7io2VZfoDnzq3jmYv6RO7_OAgOuydpB_9aj-nDLWjUv2k3K1oYHFjx8vXGEFb2yd2YEnsQMKoyr-CWP1pq9CmKkRInbZ5DdJvVC57whTrkmjA4x4DJG_CTT71W9TTLga
+            [devicetoken] => cnrnfYQcGvI:APA91bEccGUS7io2VZfoDnzq3jmYv6RO7_OAgOuydpB_9aj-nDLWjUv2k3K1oYHFjx8vXGEFb2yd2YEnsQMKoyr-CWP1pq9CmKkRInbZ5DdJvVC57whTrkmjA4x4DJG_CTT71W9TTLga
+        )
+
+    [149] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => cOuGn2coH90:APA91bGrHHmRab1TSuzKbh49zIF-oP9fYnZqFTKogc3OpoLI97_3mDlbBlKl0OoJRUI7uMSowjRDDz_arK2UmGeRa1ZSqAQHIUjX6Uhuk6VvI58p8IAAubK_ySPiaWjI1hDT_k5QhBlL
+            [devicetoken] => cOuGn2coH90:APA91bGrHHmRab1TSuzKbh49zIF-oP9fYnZqFTKogc3OpoLI97_3mDlbBlKl0OoJRUI7uMSowjRDDz_arK2UmGeRa1ZSqAQHIUjX6Uhuk6VvI58p8IAAubK_ySPiaWjI1hDT_k5QhBlL
+        )
+
+    [150] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => cPfgm08ck-8:APA91bFANdw3bidL_3s75b_HJ84sCRpk62FcsFCwxT1rU4Q1q6sO-rpCSZLSEHqlOiRUkeM2OB5kQPAHY0L9ZtQ6TTLmZeA_I-jNoMhUjad_cNP1KQAMChzxvy29ED3dA6kMB-lMM1Gb
+            [devicetoken] => cPfgm08ck-8:APA91bFANdw3bidL_3s75b_HJ84sCRpk62FcsFCwxT1rU4Q1q6sO-rpCSZLSEHqlOiRUkeM2OB5kQPAHY0L9ZtQ6TTLmZeA_I-jNoMhUjad_cNP1KQAMChzxvy29ED3dA6kMB-lMM1Gb
+        )
+
+    [151] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => cR1jDgfAerI:APA91bHUP9ZuONjm9qcMrvFJ7dZYFc9NYdXcprXWNlUSDy80j3e9FXCxJ_k8oy2arn1bhmUlVAfgqQtOvHCGLykma-lIGBRY6WahIkDc7Z8t2AS7oQVgSWWnUDQWkyjEC5mnS1BpAMhU
+            [devicetoken] => cR1jDgfAerI:APA91bHUP9ZuONjm9qcMrvFJ7dZYFc9NYdXcprXWNlUSDy80j3e9FXCxJ_k8oy2arn1bhmUlVAfgqQtOvHCGLykma-lIGBRY6WahIkDc7Z8t2AS7oQVgSWWnUDQWkyjEC5mnS1BpAMhU
+        )
+
+    [152] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => crieONrb9uc:APA91bGErFbyhrlCLY0WNQDCplRp87YAlEHn3OXzuhv12s3NVPSwUIKJdmg2CP-_6yNUOgkCVwDNbwa4KxMA0Yh-KR4vdWMYj7A-1hBNoY7VxYz6VwnHcH8rHcKcSIEY9GTcYLXEkHnl
+            [devicetoken] => crieONrb9uc:APA91bGErFbyhrlCLY0WNQDCplRp87YAlEHn3OXzuhv12s3NVPSwUIKJdmg2CP-_6yNUOgkCVwDNbwa4KxMA0Yh-KR4vdWMYj7A-1hBNoY7VxYz6VwnHcH8rHcKcSIEY9GTcYLXEkHnl
+        )
+
+    [153] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => csZK3tzVmeo:APA91bGlDr8v0LhhLwDW4Ng7nMdtf1oJAh9qhB5bzjr9eidf1EKzrGtDilsUXY1_6GF-RteiWGU2U8ga0GGp0oLsxcLsDmntCodQVMucdX6756W78F-okjiYSrSk8pu8V7U1DQPvddgy
+            [devicetoken] => csZK3tzVmeo:APA91bGlDr8v0LhhLwDW4Ng7nMdtf1oJAh9qhB5bzjr9eidf1EKzrGtDilsUXY1_6GF-RteiWGU2U8ga0GGp0oLsxcLsDmntCodQVMucdX6756W78F-okjiYSrSk8pu8V7U1DQPvddgy
+        )
+
+    [154] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => ct1dManDxKw:APA91bHTZUa7wT2ZbJtlTVRf7giWt-g9N-oAj8m08URMXAVfNsUJe3vKcRVQJB0ZTSYmyvxDS3mZwURNbSTwB30nDb0iBrNa9RdmfMkNERe5KBZV_bJLuUT0xO4BB__IZ47e07NHv-y1
+            [devicetoken] => ct1dManDxKw:APA91bHTZUa7wT2ZbJtlTVRf7giWt-g9N-oAj8m08URMXAVfNsUJe3vKcRVQJB0ZTSYmyvxDS3mZwURNbSTwB30nDb0iBrNa9RdmfMkNERe5KBZV_bJLuUT0xO4BB__IZ47e07NHv-y1
+        )
+
+    [155] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => cta2WNRqqTA:APA91bHW-KgHx3hp9Cy5Nh0xEoKAfKtkLzj1e34NUkldusgC0zkBzpZCGkaR1AUw-ogoN74fbNjGpRY7iI4UBuzeqvltCmkF-P1qESuXWO9b1J5iFZ5WKF-L8Afzbyq61zz9T8sWncV5
+            [devicetoken] => cta2WNRqqTA:APA91bHW-KgHx3hp9Cy5Nh0xEoKAfKtkLzj1e34NUkldusgC0zkBzpZCGkaR1AUw-ogoN74fbNjGpRY7iI4UBuzeqvltCmkF-P1qESuXWO9b1J5iFZ5WKF-L8Afzbyq61zz9T8sWncV5
+        )
+
+    [156] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => cUlKxU1y0yA:APA91bFAUcvSfioYWG8AfoUpf4Hm6-ZKOe8AqHudsYLcfwNgwDb1QqnTvhPZRShw7EjiIZIhE17qDURfSFpBRSN5L-X9C33zxaL4I0_-QmBcImekgJhQ9_EDffxlRzgmmjdXlclAH2i0
+            [devicetoken] => cUlKxU1y0yA:APA91bFAUcvSfioYWG8AfoUpf4Hm6-ZKOe8AqHudsYLcfwNgwDb1QqnTvhPZRShw7EjiIZIhE17qDURfSFpBRSN5L-X9C33zxaL4I0_-QmBcImekgJhQ9_EDffxlRzgmmjdXlclAH2i0
+        )
+
+    [157] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => cUuiXcV6BB4:APA91bFxGxppLN060yTgg3zniudaoBm63JTKeLw8RbMVlbzILO4EuNv6xJPPnXLw7wbw-xWHCdmWRoEvqWkE2m7caXLFcYcmI1UgJCuUJOXtf_Evfwg_z-JhbQMJUGTr5F30DXooOA35
+            [devicetoken] => cUuiXcV6BB4:APA91bFxGxppLN060yTgg3zniudaoBm63JTKeLw8RbMVlbzILO4EuNv6xJPPnXLw7wbw-xWHCdmWRoEvqWkE2m7caXLFcYcmI1UgJCuUJOXtf_Evfwg_z-JhbQMJUGTr5F30DXooOA35
+        )
+
+    [158] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => cW04aTI2Ugw:APA91bGzgNrLQ2KZwDCxjJTGZv90y39QHnRL4QpL3CCrUiQnpfFoyFD5HHfg5wP8mQ8g_Cg5ct7gOuaTvqWaNVUWxjdNLBwoz4SvL10USoc0RsrcxufJhaVhAhxRIb_5ByotJl4DNsSN8QtDfNyXQZPkadv25jtJJQ
+            [devicetoken] => cW04aTI2Ugw:APA91bGzgNrLQ2KZwDCxjJTGZv90y39QHnRL4QpL3CCrUiQnpfFoyFD5HHfg5wP8mQ8g_Cg5ct7gOuaTvqWaNVUWxjdNLBwoz4SvL10USoc0RsrcxufJhaVhAhxRIb_5ByotJl4DNsSN8QtDfNyXQZPkadv25jtJJQ
+        )
+
+    [159] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => cWOQTzfvtr0:APA91bEcYNRACPNUV1Zv5X2YwAzWGZRN-HczWe9hM0F1e9i2JfUqyHnrMM0MwqvDfzYXX45W0DeyKicrQQhEXNGGmo4K3eFYseRM0rEo_FAucnEOlLWgdUDePI6G_5kUAV-OTQYA6jEY
+            [devicetoken] => cWOQTzfvtr0:APA91bEcYNRACPNUV1Zv5X2YwAzWGZRN-HczWe9hM0F1e9i2JfUqyHnrMM0MwqvDfzYXX45W0DeyKicrQQhEXNGGmo4K3eFYseRM0rEo_FAucnEOlLWgdUDePI6G_5kUAV-OTQYA6jEY
+        )
+
+    [160] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => cwywdUg9ji4:APA91bHDFHqfLpstJxG2RlCBSuV_2J9I8vuUN5T7BOnUG8jgAPB0Oa5l7zYI1qhPmT-KfLqvc3Wii1SnY0N_IBrWI4UqWBGb722NxK-u4-YizCrk-StG-8b_WO0ML3ZIIDpXddGZTwJD
+            [devicetoken] => cwywdUg9ji4:APA91bHDFHqfLpstJxG2RlCBSuV_2J9I8vuUN5T7BOnUG8jgAPB0Oa5l7zYI1qhPmT-KfLqvc3Wii1SnY0N_IBrWI4UqWBGb722NxK-u4-YizCrk-StG-8b_WO0ML3ZIIDpXddGZTwJD
+        )
+
+    [161] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => cX172vmi4-0:APA91bG3kIMWlDCiI1Fq1HcwErg4RvXw4P1rgrQEHqQxEs9T9D9uIC-TUNxBo_pTFzLz--PIGYl2CU62fIOC9l2CMugLH_ZGOTZIC6y0bFvHgUhphiFIMeav5Z0fxu9OwKZiIMB63z_g
+            [devicetoken] => cX172vmi4-0:APA91bG3kIMWlDCiI1Fq1HcwErg4RvXw4P1rgrQEHqQxEs9T9D9uIC-TUNxBo_pTFzLz--PIGYl2CU62fIOC9l2CMugLH_ZGOTZIC6y0bFvHgUhphiFIMeav5Z0fxu9OwKZiIMB63z_g
+        )
+
+    [162] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => cZ8-0REqL3A:APA91bGZKr3KM1OEur7qOlUBUj6LlVG3xy0zMzdm-SI30jiA0VTzk75mf8NthirmTOxKzM7GFj3zZl1H_H6AI17KkV4blocEynPW0ZImed5zpquB79Sf3qkYoD4wZohFtmXPS5QPFp6i
+            [devicetoken] => cZ8-0REqL3A:APA91bGZKr3KM1OEur7qOlUBUj6LlVG3xy0zMzdm-SI30jiA0VTzk75mf8NthirmTOxKzM7GFj3zZl1H_H6AI17KkV4blocEynPW0ZImed5zpquB79Sf3qkYoD4wZohFtmXPS5QPFp6i
+        )
+
+    [163] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => c_CG5qc4Dm4:APA91bHApi37NJ7alJM1PMFBkTf3LJAGstJFBBd0VHVXpzhCjQ_zox8lI93EfXV56H2uH6-P2eW3ZawpgE8KcZqly0uNZfoqBbRS20rOunS-MwYTvDWsR7SKWmp2MKOXmM2K6Lr0zmh5
+            [devicetoken] => c_CG5qc4Dm4:APA91bHApi37NJ7alJM1PMFBkTf3LJAGstJFBBd0VHVXpzhCjQ_zox8lI93EfXV56H2uH6-P2eW3ZawpgE8KcZqly0uNZfoqBbRS20rOunS-MwYTvDWsR7SKWmp2MKOXmM2K6Lr0zmh5
+        )
+
+    [164] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => c_FtngBxqAQ:APA91bFIOkWgmH9CS6nTCt6oLhZ-XoX7DSNpxjJ1I091htkIRbxCmpoIWAGydk3hvDJC8w1JF27tx8k3KJOEr3oF2Jg_eoZmCXXtuWCk8Rbbu7zTg3QvK-9vCqFZ3N4ko-WLORfkCxL6
+            [devicetoken] => c_FtngBxqAQ:APA91bFIOkWgmH9CS6nTCt6oLhZ-XoX7DSNpxjJ1I091htkIRbxCmpoIWAGydk3hvDJC8w1JF27tx8k3KJOEr3oF2Jg_eoZmCXXtuWCk8Rbbu7zTg3QvK-9vCqFZ3N4ko-WLORfkCxL6
+        )
+
+    [165] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => iOS
+            [plataforma] => iOS
+            [2] => d-uXdD5oK-I:APA91bGahRcN3r4-BLcqTAC_lbhLoZJ1XSHDEISxaN-QAKY1OQ7HIPMwJiJWjYeNqT6iIiDGtDJ6r5ArOIEsB0EQ-LSc9Y5zV_g4KVMoKarll-28WvkBCbKyRPXtnBaCTqSwIFHo94OO
+            [devicetoken] => d-uXdD5oK-I:APA91bGahRcN3r4-BLcqTAC_lbhLoZJ1XSHDEISxaN-QAKY1OQ7HIPMwJiJWjYeNqT6iIiDGtDJ6r5ArOIEsB0EQ-LSc9Y5zV_g4KVMoKarll-28WvkBCbKyRPXtnBaCTqSwIFHo94OO
+        )
+
+    [166] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => d0cPMFw5ekc:APA91bEcO6NIXsBOqZL_2jnHD2OVp1vyx8y4HUGYQInfpnADw38h-ziww7-_2WBarWyfAY637jHRGS0BRRbQcL_ygrAe3pjxkDXWDIgxuLkhl41qPv1n8Rw8lKfXTmsY5Mz7XnXkuudB
+            [devicetoken] => d0cPMFw5ekc:APA91bEcO6NIXsBOqZL_2jnHD2OVp1vyx8y4HUGYQInfpnADw38h-ziww7-_2WBarWyfAY637jHRGS0BRRbQcL_ygrAe3pjxkDXWDIgxuLkhl41qPv1n8Rw8lKfXTmsY5Mz7XnXkuudB
+        )
+
+    [167] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => d0h7BftZq1E:APA91bHgQ7n_2p_uDY4PAKY5g7Fk34Vdr6QV5-SLkh5q05QnegDos_cnM53Ops6vvzMRlL5GzllXqTduqxvKwBeinaK2dlsyeRsqcYl9JP2HqOMG7kSeJLtFH-LpoYfa8V9WzRcAKUFx
+            [devicetoken] => d0h7BftZq1E:APA91bHgQ7n_2p_uDY4PAKY5g7Fk34Vdr6QV5-SLkh5q05QnegDos_cnM53Ops6vvzMRlL5GzllXqTduqxvKwBeinaK2dlsyeRsqcYl9JP2HqOMG7kSeJLtFH-LpoYfa8V9WzRcAKUFx
+        )
+
+    [168] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => d2O5pGBlVHw:APA91bF4WR0hzyEassyDyhiXKrsT5cLyYrVqQg7I724isAaftoQ0QrflJWiS-7QYD9n89yQvwHk5-qpA6MePIy1ZfL0uD0S7jiXYBTtuChvKD_OLiZJ1h_M0ip4ScpnRHyF_uLkppKk6
+            [devicetoken] => d2O5pGBlVHw:APA91bF4WR0hzyEassyDyhiXKrsT5cLyYrVqQg7I724isAaftoQ0QrflJWiS-7QYD9n89yQvwHk5-qpA6MePIy1ZfL0uD0S7jiXYBTtuChvKD_OLiZJ1h_M0ip4ScpnRHyF_uLkppKk6
+        )
+
+    [169] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => d3cEZEkU09U:APA91bG2GpM2fkAj40LFlJlKK0gvcnU2dDxWE3cPdAnWgNOoe7RE6bgQ-MK-LOWoMVjIu0lslLuQFENXVxDZP2eMCRI_RG7Cejnn_A7qMFPW0OXBBsKVh1Hr2Px0OWjzzDruzEheUPde
+            [devicetoken] => d3cEZEkU09U:APA91bG2GpM2fkAj40LFlJlKK0gvcnU2dDxWE3cPdAnWgNOoe7RE6bgQ-MK-LOWoMVjIu0lslLuQFENXVxDZP2eMCRI_RG7Cejnn_A7qMFPW0OXBBsKVh1Hr2Px0OWjzzDruzEheUPde
+        )
+
+    [170] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => d3gM04-BSu4:APA91bGPLLZJqrPRdMeQQH9XJ9MjT7B4fKoXdPzte9SEaoI65ym23NFZk0PnJVC_EZgrQp2fBg_5YXgYMPWTva_kOpK86FuhiVSiGmfv7b1jyXum89asr3ai0G2QzzpUjuvyoC9Ky_74ujgdCzuBz6r0mZgxwMfY9Q
+            [devicetoken] => d3gM04-BSu4:APA91bGPLLZJqrPRdMeQQH9XJ9MjT7B4fKoXdPzte9SEaoI65ym23NFZk0PnJVC_EZgrQp2fBg_5YXgYMPWTva_kOpK86FuhiVSiGmfv7b1jyXum89asr3ai0G2QzzpUjuvyoC9Ky_74ujgdCzuBz6r0mZgxwMfY9Q
+        )
+
+    [171] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => d3L32jflkq8:APA91bGuzYW2SI0tefYZJ8QiqhhD1cSnGTsskvs-TX-FiQkHvmpKlmr2JcdhhTCLo4dRTPzeQxVHdn5DJkY2jTwU7WbErtxP5KETFlgeuvpuEDjdH0lt6KPm9xUUL59ptm0KP5xZVKXN
+            [devicetoken] => d3L32jflkq8:APA91bGuzYW2SI0tefYZJ8QiqhhD1cSnGTsskvs-TX-FiQkHvmpKlmr2JcdhhTCLo4dRTPzeQxVHdn5DJkY2jTwU7WbErtxP5KETFlgeuvpuEDjdH0lt6KPm9xUUL59ptm0KP5xZVKXN
+        )
+
+    [172] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => d4j9zYeiCjo:APA91bHQ_746MHypczR429EttHnP4HaSy6z93yjSK0BGcirIUf1m4cLzk1Oh7b_Uw-lwOG1TofhhtwqnxycF4T4zuaqmgwZ-qTBtX-9YFenKoiGLpIh-Ygn34OqH32U3APET0mg--Ecu
+            [devicetoken] => d4j9zYeiCjo:APA91bHQ_746MHypczR429EttHnP4HaSy6z93yjSK0BGcirIUf1m4cLzk1Oh7b_Uw-lwOG1TofhhtwqnxycF4T4zuaqmgwZ-qTBtX-9YFenKoiGLpIh-Ygn34OqH32U3APET0mg--Ecu
+        )
+
+    [173] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => d5rfhAqDSO4:APA91bFY9SfFRdWrX7HIcpIfnZuE3QO9iOkzZoCUMWFsiotWSeOTqxe2zDRHcavcoSJ-7EtWzmdI1Xn3LrM9d-QI1rBXYHXbwkKVZ5V45TWdnEhb041VArDgxGNmvViiKFXv2xfLg52l
+            [devicetoken] => d5rfhAqDSO4:APA91bFY9SfFRdWrX7HIcpIfnZuE3QO9iOkzZoCUMWFsiotWSeOTqxe2zDRHcavcoSJ-7EtWzmdI1Xn3LrM9d-QI1rBXYHXbwkKVZ5V45TWdnEhb041VArDgxGNmvViiKFXv2xfLg52l
+        )
+
+    [174] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => d6YNCmVWPmo:APA91bElSMC-2CFmO3j6DyCf0u2H4XkCy_LfFVOMhdDHKxVovYbZL5vvZIdmRZZhGDAxQidQJ8Yt2dcI9V0R-ixnG3lHX46qgqa5NPl7ZhQmV32-iBsQmJ3METsUoeauo_Tfy-QNjxHH
+            [devicetoken] => d6YNCmVWPmo:APA91bElSMC-2CFmO3j6DyCf0u2H4XkCy_LfFVOMhdDHKxVovYbZL5vvZIdmRZZhGDAxQidQJ8Yt2dcI9V0R-ixnG3lHX46qgqa5NPl7ZhQmV32-iBsQmJ3METsUoeauo_Tfy-QNjxHH
+        )
+
+    [175] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => d7FCRJUd-mI:APA91bHck-UO9Ym6JkEA_TOO6HipKfjDcEcW7vxTa8yFIrvMp3MbIKzys45kmHlpSq_pmvt0Ih_hXkUqGFn53p8sNKh3Ftzam3Lt1YNcvEB2TnseUpeoxYnj8zIpYNVN5U7ufa4lY8Fu
+            [devicetoken] => d7FCRJUd-mI:APA91bHck-UO9Ym6JkEA_TOO6HipKfjDcEcW7vxTa8yFIrvMp3MbIKzys45kmHlpSq_pmvt0Ih_hXkUqGFn53p8sNKh3Ftzam3Lt1YNcvEB2TnseUpeoxYnj8zIpYNVN5U7ufa4lY8Fu
+        )
+
+    [176] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => iOS
+            [plataforma] => iOS
+            [2] => d8zwI-3d1YM:APA91bFTSqRyjvJMtTJlj7ccuxDPjGvqZwpqaRK72W0qTbzjl2TvSrlIm823R0qeOra17Vxdx64ZGS88CTu6HAmtTfutNusQTprc-6rpz3dl4PkoYkePBOoXwKh7-FWtv1V5xYVqN0kj
+            [devicetoken] => d8zwI-3d1YM:APA91bFTSqRyjvJMtTJlj7ccuxDPjGvqZwpqaRK72W0qTbzjl2TvSrlIm823R0qeOra17Vxdx64ZGS88CTu6HAmtTfutNusQTprc-6rpz3dl4PkoYkePBOoXwKh7-FWtv1V5xYVqN0kj
+        )
+
+    [177] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => d9eAisKP0WQ:APA91bHvQcpE1tvnacdchhQSl0RllV93RV4Jl4484LK3MMI9SKENB9x0Phg6BBljSJeYEMEszEsHefVQ6yR-EhLWIaZ-m3oVsinKXN68mv700NoRJo_80TBGMloBWDAgeDzr-gOy67vl
+            [devicetoken] => d9eAisKP0WQ:APA91bHvQcpE1tvnacdchhQSl0RllV93RV4Jl4484LK3MMI9SKENB9x0Phg6BBljSJeYEMEszEsHefVQ6yR-EhLWIaZ-m3oVsinKXN68mv700NoRJo_80TBGMloBWDAgeDzr-gOy67vl
+        )
+
+    [178] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => iOS
+            [plataforma] => iOS
+            [2] => dA4zel-2pVE:APA91bE2NRDDupygMKOknp8FGmngUYcJEPIRt3TEqz1pVJq82ocifVt-wT2-l6kTJZ2aY8C_pQpphbGIauN_wIFmaxuls1mbVprNHdR95O5AAQblLXQrt4mXzpCdSMSRq7QilJBDRUSs
+            [devicetoken] => dA4zel-2pVE:APA91bE2NRDDupygMKOknp8FGmngUYcJEPIRt3TEqz1pVJq82ocifVt-wT2-l6kTJZ2aY8C_pQpphbGIauN_wIFmaxuls1mbVprNHdR95O5AAQblLXQrt4mXzpCdSMSRq7QilJBDRUSs
+        )
+
+    [179] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => dacyaTr9ges:APA91bHJER2iBAKokNGZbplXe5PO3hAuqXPFYjck4QRbABr6psJSVuesR8D11q0MtON2bhZQjZYVlY8UierujHE102BYFE7iJmYeixhSc0BSv8VpXsOBVlyu_5c46kQNspQpeOAueLxq
+            [devicetoken] => dacyaTr9ges:APA91bHJER2iBAKokNGZbplXe5PO3hAuqXPFYjck4QRbABr6psJSVuesR8D11q0MtON2bhZQjZYVlY8UierujHE102BYFE7iJmYeixhSc0BSv8VpXsOBVlyu_5c46kQNspQpeOAueLxq
+        )
+
+    [180] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => iOS
+            [plataforma] => iOS
+            [2] => dAf_fldfuHQ:APA91bFjV0HH4xqKjt0Au-LJu28rt86CLUag0YlYOa-EFXmhNIApk4zeWvDMrwwzlfShlcD-N-WWBlEE-7_dWS9Qz24-n_enfPxbo1ZDtukjfAA8ay6JWaqROHf39bX2U1wRv8N0OfUw
+            [devicetoken] => dAf_fldfuHQ:APA91bFjV0HH4xqKjt0Au-LJu28rt86CLUag0YlYOa-EFXmhNIApk4zeWvDMrwwzlfShlcD-N-WWBlEE-7_dWS9Qz24-n_enfPxbo1ZDtukjfAA8ay6JWaqROHf39bX2U1wRv8N0OfUw
+        )
+
+    [181] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => dBzR3ATQzHg:APA91bEe9MeWSDoFKE95dHb-D09vp_sl3GY_JDlx28wrGsrjSlC2M9y9TfISIpnJytrqTDBlU8RplTNTcMLhgWH7QwND4m4dOEf75nJT35tGZOyModV-Jb-anYKEj6znesHFHFrqkt6D
+            [devicetoken] => dBzR3ATQzHg:APA91bEe9MeWSDoFKE95dHb-D09vp_sl3GY_JDlx28wrGsrjSlC2M9y9TfISIpnJytrqTDBlU8RplTNTcMLhgWH7QwND4m4dOEf75nJT35tGZOyModV-Jb-anYKEj6znesHFHFrqkt6D
+        )
+
+    [182] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => dDXBX_t2zMk:APA91bH_NdwXR7m1cM5XrjujBz187ZDprKmrOEnWzkxLd4LIRZKSzVSCzoIDs-2s_7mw8-fb1WmjAuGaQ6-JUR2QuBo-Kd1_SxRVIcjEzlxxsLqhkDm_yPhQ8rE43JW42YPit1LR46G-
+            [devicetoken] => dDXBX_t2zMk:APA91bH_NdwXR7m1cM5XrjujBz187ZDprKmrOEnWzkxLd4LIRZKSzVSCzoIDs-2s_7mw8-fb1WmjAuGaQ6-JUR2QuBo-Kd1_SxRVIcjEzlxxsLqhkDm_yPhQ8rE43JW42YPit1LR46G-
+        )
+
+    [183] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => ddzmEh5nyhE:APA91bGqdFIwp6E7fTgMXjDxqktAkNda0YGpPvM7LhJybTrQRzPWepgRRGryll0YUQTIN5pyzFFNuV9j1fOWuyAj1j1r456O85omL9gavxLEtv-QNIb453euWQeg6sOy3IimcP2eyFuX
+            [devicetoken] => ddzmEh5nyhE:APA91bGqdFIwp6E7fTgMXjDxqktAkNda0YGpPvM7LhJybTrQRzPWepgRRGryll0YUQTIN5pyzFFNuV9j1fOWuyAj1j1r456O85omL9gavxLEtv-QNIb453euWQeg6sOy3IimcP2eyFuX
+        )
+
+    [184] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => dEb4lwCyvs0:APA91bHbQHBInqX1CB0GRWcxLk23OvHEe00N4r0nMrIb2vXZvAbknE4jQcykp-AODwjxH6ouvvaZgmmU1QeuiKzw3hsL-aNutHz-L8ntEEGJf54mCQgMzDOXWD3UwpbpMoAF4MvmF7lD
+            [devicetoken] => dEb4lwCyvs0:APA91bHbQHBInqX1CB0GRWcxLk23OvHEe00N4r0nMrIb2vXZvAbknE4jQcykp-AODwjxH6ouvvaZgmmU1QeuiKzw3hsL-aNutHz-L8ntEEGJf54mCQgMzDOXWD3UwpbpMoAF4MvmF7lD
+        )
+
+    [185] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => dFJGWn3z5LI:APA91bHl1lc0aC1mmzXlE0xLJDZB2r3Gwn6xz55YoOO4uqcGz4iXmIyjRdLIHkUMBxwg8ndPXff1qmo1WplL50YGwgaZfDVz1FLpTS6WyvFDRJ44w46z-8tXTtRnd6q1Ni5mIxobW5LL
+            [devicetoken] => dFJGWn3z5LI:APA91bHl1lc0aC1mmzXlE0xLJDZB2r3Gwn6xz55YoOO4uqcGz4iXmIyjRdLIHkUMBxwg8ndPXff1qmo1WplL50YGwgaZfDVz1FLpTS6WyvFDRJ44w46z-8tXTtRnd6q1Ni5mIxobW5LL
+        )
+
+    [186] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => dGgFbjFhHks:APA91bF-Q3_0Uh0HtHY4kjBtEl0pL_Xfp0coK6pL7nv65YSfHE5x9-_88K9lIh1AEj2RbwTxlfwIVVNpZf-9pR7jSGWB4cq76zbMONlBp-sprZid6VbsRCUgnp-Z7ofTDsiv_wges155
+            [devicetoken] => dGgFbjFhHks:APA91bF-Q3_0Uh0HtHY4kjBtEl0pL_Xfp0coK6pL7nv65YSfHE5x9-_88K9lIh1AEj2RbwTxlfwIVVNpZf-9pR7jSGWB4cq76zbMONlBp-sprZid6VbsRCUgnp-Z7ofTDsiv_wges155
+        )
+
+    [187] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => dh2xoPZ00gA:APA91bE_HtKj4UazioY9PgnS_vapL4ZTSq_FF4u6HV9d6t4pZ8XENlRkQ2l2g9E5uBChj6QSwlJMGjwPwwIWaUPabTWUUnWMF8xnvH12K0Xt9RyiJdDNe6JTTGKqjSWM_gbmfZzMHT42
+            [devicetoken] => dh2xoPZ00gA:APA91bE_HtKj4UazioY9PgnS_vapL4ZTSq_FF4u6HV9d6t4pZ8XENlRkQ2l2g9E5uBChj6QSwlJMGjwPwwIWaUPabTWUUnWMF8xnvH12K0Xt9RyiJdDNe6JTTGKqjSWM_gbmfZzMHT42
+        )
+
+    [188] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => dICjeLJ9D7g:APA91bEgE7ux5S-seq12WH_IOFqB8PM4JhzknJsZfvPqfHx0Ut1pErZzwgLKLKsUdONtgm6AE-BsngRiupT4zpV4lCi9liWIskOjSQckrhF61Hzvw0y3FsFgbn6-aaAQ05dYZcCKrdiT
+            [devicetoken] => dICjeLJ9D7g:APA91bEgE7ux5S-seq12WH_IOFqB8PM4JhzknJsZfvPqfHx0Ut1pErZzwgLKLKsUdONtgm6AE-BsngRiupT4zpV4lCi9liWIskOjSQckrhF61Hzvw0y3FsFgbn6-aaAQ05dYZcCKrdiT
+        )
+
+    [189] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => dIKaBKTdiHU:APA91bEWT7lZyEg9TXXsOTI-9Uu1cs_YD75iJPoHw7GQpYCjh0L9QzgG7tEo4zDheIAr47LAa2RNw81D46TUR-o6RfcMoqnw2hQ6zOHJlZYEe2FUZQ7HCT4Tb4X3xPSaJdOfGxPIqNUT
+            [devicetoken] => dIKaBKTdiHU:APA91bEWT7lZyEg9TXXsOTI-9Uu1cs_YD75iJPoHw7GQpYCjh0L9QzgG7tEo4zDheIAr47LAa2RNw81D46TUR-o6RfcMoqnw2hQ6zOHJlZYEe2FUZQ7HCT4Tb4X3xPSaJdOfGxPIqNUT
+        )
+
+    [190] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => dikea8HrmiA:APA91bEaIooUgC5S57Vs6av6HdGtht38tBnBtfGIwDWeXlJS5sTYbXeV00TQwZMb-smaFpE3mweoa4U5nl2AR2q4FM7JndiD1JzYhCQdOs9iSf644Z9nw7aZQo7YVDAb7n_dvMq9_9yP
+            [devicetoken] => dikea8HrmiA:APA91bEaIooUgC5S57Vs6av6HdGtht38tBnBtfGIwDWeXlJS5sTYbXeV00TQwZMb-smaFpE3mweoa4U5nl2AR2q4FM7JndiD1JzYhCQdOs9iSf644Z9nw7aZQo7YVDAb7n_dvMq9_9yP
+        )
+
+    [191] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => iOS
+            [plataforma] => iOS
+            [2] => dKVbGawRJMA:APA91bH8Y5D1ONK-zMNa4nK9rx_38X_1uL4RxUNu9mHD9UOErUg15DL9l8rAzPM3Jxqp85LevHQO83NzxKQ9xrYJXV2Lkd9cyaAF06gKcmRCBc0HRtdwBGF4lptexT7L82j0Ef9msj2J
+            [devicetoken] => dKVbGawRJMA:APA91bH8Y5D1ONK-zMNa4nK9rx_38X_1uL4RxUNu9mHD9UOErUg15DL9l8rAzPM3Jxqp85LevHQO83NzxKQ9xrYJXV2Lkd9cyaAF06gKcmRCBc0HRtdwBGF4lptexT7L82j0Ef9msj2J
+        )
+
+    [192] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => dLNQ9ISeEoo:APA91bFuMQBnEak_p-vS5jt7CalsCpQCUkyZE1uKrQGHfar_ugXrN9s9CBH87IfMsBPjyFPdrDYPb-vA3ZGFWK853EOAvwFGfkU3yY828M4zOTjJ-Hg9VYr-FB_l6RqJUHKtyXV4F5li
+            [devicetoken] => dLNQ9ISeEoo:APA91bFuMQBnEak_p-vS5jt7CalsCpQCUkyZE1uKrQGHfar_ugXrN9s9CBH87IfMsBPjyFPdrDYPb-vA3ZGFWK853EOAvwFGfkU3yY828M4zOTjJ-Hg9VYr-FB_l6RqJUHKtyXV4F5li
+        )
+
+    [193] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => dM1a1Voq2qQ:APA91bGgoUnZJ9ZBmnT7WlPXHhCnfl5s0LIfj9y5CAdFKmfFcWIXpHg42QPHHdGL9qcBmcYSC82DFQPK0cB8nWmLI2C_0aFWAG_mA-E15mhzS0dBP9DkfBqjU-_KBMChZNwvCpOHpcn4
+            [devicetoken] => dM1a1Voq2qQ:APA91bGgoUnZJ9ZBmnT7WlPXHhCnfl5s0LIfj9y5CAdFKmfFcWIXpHg42QPHHdGL9qcBmcYSC82DFQPK0cB8nWmLI2C_0aFWAG_mA-E15mhzS0dBP9DkfBqjU-_KBMChZNwvCpOHpcn4
+        )
+
+    [194] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => iOS
+            [plataforma] => iOS
+            [2] => dmQeHw7EAhY:APA91bE01YJfwNWDFB6cqewyf1530QFKNioCQ1Ve1Z54uC2_3oIjon5XSO7adnDUkqWLikLzzsk4vHX2f9INLIWsxSH-l-Sapz5BNPFPwOb3g2Tr5MHykcmnVMOPYj_OKbcjWzGP4Ojm
+            [devicetoken] => dmQeHw7EAhY:APA91bE01YJfwNWDFB6cqewyf1530QFKNioCQ1Ve1Z54uC2_3oIjon5XSO7adnDUkqWLikLzzsk4vHX2f9INLIWsxSH-l-Sapz5BNPFPwOb3g2Tr5MHykcmnVMOPYj_OKbcjWzGP4Ojm
+        )
+
+    [195] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => dNq-SEpRg6w:APA91bFbJ3Z5QSTe8yOxHikor7BbnM7kPDMl7fZY2Q23o6_J3Vzw_Ibwq5xnauBrqWrdTvv2SCQnhI2MD5upv1tAbCyLDZFkoiUZdwNlGtOxkCH8vSwAJhw3YGvogkuUIEJue75u5tN2
+            [devicetoken] => dNq-SEpRg6w:APA91bFbJ3Z5QSTe8yOxHikor7BbnM7kPDMl7fZY2Q23o6_J3Vzw_Ibwq5xnauBrqWrdTvv2SCQnhI2MD5upv1tAbCyLDZFkoiUZdwNlGtOxkCH8vSwAJhw3YGvogkuUIEJue75u5tN2
+        )
+
+    [196] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => dnQmswDBT0I:APA91bFRUEiWjU1jMZvpyKL6EmTWhVLZJ9FyuAULCfOXe0KEynIFcRNcHlhD_IuETJQVql7JarVl3P5BWMXpn6rrDIDr-YnkdnCJOeb-_nPWNNZgLie1XCJ_aXwd2g_EOxeqia7BjauD
+            [devicetoken] => dnQmswDBT0I:APA91bFRUEiWjU1jMZvpyKL6EmTWhVLZJ9FyuAULCfOXe0KEynIFcRNcHlhD_IuETJQVql7JarVl3P5BWMXpn6rrDIDr-YnkdnCJOeb-_nPWNNZgLie1XCJ_aXwd2g_EOxeqia7BjauD
+        )
+
+    [197] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => dpF1lWf2GYs:APA91bHtWOZYlj0ou0R2FhAlW76lECkXqYXvSYZcUyYTmNtQOfFJ1uw1EQK3CEmuMv2yEHNG5XyIB0jdVk8sMoCcBP7DjffSladmJR3Iq97we0QLlhcVkmWyFVgQRRiLBVGdDGZcElqw
+            [devicetoken] => dpF1lWf2GYs:APA91bHtWOZYlj0ou0R2FhAlW76lECkXqYXvSYZcUyYTmNtQOfFJ1uw1EQK3CEmuMv2yEHNG5XyIB0jdVk8sMoCcBP7DjffSladmJR3Iq97we0QLlhcVkmWyFVgQRRiLBVGdDGZcElqw
+        )
+
+    [198] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => dPzt9bAMfS8:APA91bEPNGkrYyIBhkNbKV28U8BaPu9X-Wrr8XKjig2kq1Soc15x_CAa0hqI1vP2UOCupikPcsK11nh8mts5b_txsM7aDvypf4arwnyUmh5iTaHci3Xp4S-iUfpUUyglTT8a3hTHbzPS
+            [devicetoken] => dPzt9bAMfS8:APA91bEPNGkrYyIBhkNbKV28U8BaPu9X-Wrr8XKjig2kq1Soc15x_CAa0hqI1vP2UOCupikPcsK11nh8mts5b_txsM7aDvypf4arwnyUmh5iTaHci3Xp4S-iUfpUUyglTT8a3hTHbzPS
+        )
+
+    [199] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => drbZQro1BL8:APA91bFJ8FzqxC6dcoW3k2mt-gdDs36Y46p2oz92nyztDdfcuwdnRWqn-btqFe_XoMWelq4jkIfPTfYc5Hra3UtVYRQcdGd7lULX8apm3RtAqlfFhbf5Xko4On1OdFQvkPuGD9SdIG6c
+            [devicetoken] => drbZQro1BL8:APA91bFJ8FzqxC6dcoW3k2mt-gdDs36Y46p2oz92nyztDdfcuwdnRWqn-btqFe_XoMWelq4jkIfPTfYc5Hra3UtVYRQcdGd7lULX8apm3RtAqlfFhbf5Xko4On1OdFQvkPuGD9SdIG6c
+        )
+
+    [200] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => dSn0-mS0_Z8:APA91bFy6XD-BTNvQOHQVkTq8_7Nkk9wYSorJzoubsAM29DCB03JK99LeWh8Rv1UviHb90WaYyrqHKOUNNPga4WtRwN9fwtQg7w1K1WKrH6lBM2xkWWUI7HqQJYbysyh_af7sY_va1z5
+            [devicetoken] => dSn0-mS0_Z8:APA91bFy6XD-BTNvQOHQVkTq8_7Nkk9wYSorJzoubsAM29DCB03JK99LeWh8Rv1UviHb90WaYyrqHKOUNNPga4WtRwN9fwtQg7w1K1WKrH6lBM2xkWWUI7HqQJYbysyh_af7sY_va1z5
+        )
+
+    [201] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => dss8rgOD-Xs:APA91bELYUQCJ-GGmvZqNPuIbZdeaIqsMI9liq5pbZ4INMNA5NpslJM3Kvznx86W4CRAqTnd5Uhf5PfsrL1SvBw3xMjzb6H7wtA0WXHe9ih9KfbvVyd1lDHR0rW1VXLsKsRYxZp9CwAX
+            [devicetoken] => dss8rgOD-Xs:APA91bELYUQCJ-GGmvZqNPuIbZdeaIqsMI9liq5pbZ4INMNA5NpslJM3Kvznx86W4CRAqTnd5Uhf5PfsrL1SvBw3xMjzb6H7wtA0WXHe9ih9KfbvVyd1lDHR0rW1VXLsKsRYxZp9CwAX
+        )
+
+    [202] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => dTRr007O9vc:APA91bF-K3V9zRJ9riAAT74D5v6FAVPfK9ta7Q06MBLEZVnjG4LUdUv3vjou5BQSyqZvRcXWFL3Ml3GJFXIg8OBQL84EpGLq2rv5CJV-44pmH2rbRq70ZeEl2L6VDPRA86yRjt-LOP_jJZtiK3EawurePrH-2MPKeQ
+            [devicetoken] => dTRr007O9vc:APA91bF-K3V9zRJ9riAAT74D5v6FAVPfK9ta7Q06MBLEZVnjG4LUdUv3vjou5BQSyqZvRcXWFL3Ml3GJFXIg8OBQL84EpGLq2rv5CJV-44pmH2rbRq70ZeEl2L6VDPRA86yRjt-LOP_jJZtiK3EawurePrH-2MPKeQ
+        )
+
+    [203] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => iOS
+            [plataforma] => iOS
+            [2] => du__huA9zyE:APA91bGZPyS8lG1_i9YE02nOtgQ0Pb1xHDKCEZn96YYTtNNJeIiDESjTn1rr2-AxhICHQbONfo6VUY7aN0AJsE8F6WcGPXapb8tc6eus6G5N8YQFCsOg62-YBdyvtfJEZcCIeRyxqbI9
+            [devicetoken] => du__huA9zyE:APA91bGZPyS8lG1_i9YE02nOtgQ0Pb1xHDKCEZn96YYTtNNJeIiDESjTn1rr2-AxhICHQbONfo6VUY7aN0AJsE8F6WcGPXapb8tc6eus6G5N8YQFCsOg62-YBdyvtfJEZcCIeRyxqbI9
+        )
+
+    [204] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => dW8zXdEyJ4I:APA91bEWgCZO1idc0JfYaAg-F1vctb3EctvOUnmU8kyJS_Tmq3EnuVzbBtMwLhO3B-OSrEjlZbQJxVD71UZKg2z7hgM8CX1g073iGg5egaB9Vlpa8WSmEWH88qBmSR4zrCA_xvIZ24Va
+            [devicetoken] => dW8zXdEyJ4I:APA91bEWgCZO1idc0JfYaAg-F1vctb3EctvOUnmU8kyJS_Tmq3EnuVzbBtMwLhO3B-OSrEjlZbQJxVD71UZKg2z7hgM8CX1g073iGg5egaB9Vlpa8WSmEWH88qBmSR4zrCA_xvIZ24Va
+        )
+
+    [205] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => dWfz0CvmgoA:APA91bFNnLB2NZrOiwax2qV7OA4tNv7T5gVrO2M2g33jytf8z8-QTvWBVgfT44Qy3PDUNZr32c2bDbsOdYzh8tulzNR2wbm14eA9aKxWLGSuOCQUtgS-mQECG9I69kdgnfw4yqDu1KFv
+            [devicetoken] => dWfz0CvmgoA:APA91bFNnLB2NZrOiwax2qV7OA4tNv7T5gVrO2M2g33jytf8z8-QTvWBVgfT44Qy3PDUNZr32c2bDbsOdYzh8tulzNR2wbm14eA9aKxWLGSuOCQUtgS-mQECG9I69kdgnfw4yqDu1KFv
+        )
+
+    [206] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => dXUESDTD-ZA:APA91bGXKfhP4lkdw6s10Hxn57DqilaEJzVOzukVxYVMx3DbcQPKHq1YMKKv76R-leSDpav1DiNbPk5wlkOCteBAbkxbnNvCt3tO_E3PbfVDc_7KRI0sXTeKdPsiVvHCgY1Mf-Xe8T84
+            [devicetoken] => dXUESDTD-ZA:APA91bGXKfhP4lkdw6s10Hxn57DqilaEJzVOzukVxYVMx3DbcQPKHq1YMKKv76R-leSDpav1DiNbPk5wlkOCteBAbkxbnNvCt3tO_E3PbfVDc_7KRI0sXTeKdPsiVvHCgY1Mf-Xe8T84
+        )
+
+    [207] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => dxVzGqtu66M:APA91bGQsz6T49yX_w_qoPjE5Fjw3TR1W1dCvR9qEU9A0ktuZljwY9Lpob4wEe3QSfqfWH72fU2oS8GteHNwdi-GO1UZa5m7rZ5objH_T5u7j43ajVRJMZqQBvY2BIMqxcZtHA_g3adI
+            [devicetoken] => dxVzGqtu66M:APA91bGQsz6T49yX_w_qoPjE5Fjw3TR1W1dCvR9qEU9A0ktuZljwY9Lpob4wEe3QSfqfWH72fU2oS8GteHNwdi-GO1UZa5m7rZ5objH_T5u7j43ajVRJMZqQBvY2BIMqxcZtHA_g3adI
+        )
+
+    [208] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => dX_92_s98Xs:APA91bHEd7-PoSJUFKYsF0ZgOMxc-oU10K9XAyA7u5qhgjNnoHTd50R4SAaC6BVhP4l3yVhcX8vDcB1DQ2KGhFoyQCvyeBHuO1dHlWbrqL7g11KJq99wtpIeQHTzMoyoqrYbpXkMOE5F
+            [devicetoken] => dX_92_s98Xs:APA91bHEd7-PoSJUFKYsF0ZgOMxc-oU10K9XAyA7u5qhgjNnoHTd50R4SAaC6BVhP4l3yVhcX8vDcB1DQ2KGhFoyQCvyeBHuO1dHlWbrqL7g11KJq99wtpIeQHTzMoyoqrYbpXkMOE5F
+        )
+
+    [209] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => dYDAhfczP0k:APA91bHL31TKljTDAQ4g2fuPeyBWa9lL2XXrbPvECqq-QALHEjrcr-qBhBto0UeO-Ry5ZEDgMmAPnWhcZfmP7BICWmICNG7So6gDW1Fu9LQFntnvx8HVXJrAM-InPJPIBGN_OvCue5ra
+            [devicetoken] => dYDAhfczP0k:APA91bHL31TKljTDAQ4g2fuPeyBWa9lL2XXrbPvECqq-QALHEjrcr-qBhBto0UeO-Ry5ZEDgMmAPnWhcZfmP7BICWmICNG7So6gDW1Fu9LQFntnvx8HVXJrAM-InPJPIBGN_OvCue5ra
+        )
+
+    [210] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => dySfx9-omTw:APA91bEYbzvPwCoD2jKTz7xDn4ByA0Dt7OpIzcVvRGsM04O_o0qv2lcdme3gv09XXbcXDj9CjcrGOBY7i9S27kH2PpWd8tZq57Jv33sMdWGj0uKdpChy7zo5Cd3KPzYgLia1nZgZD_p279eT10E8e0YPlpCjh56GfA
+            [devicetoken] => dySfx9-omTw:APA91bEYbzvPwCoD2jKTz7xDn4ByA0Dt7OpIzcVvRGsM04O_o0qv2lcdme3gv09XXbcXDj9CjcrGOBY7i9S27kH2PpWd8tZq57Jv33sMdWGj0uKdpChy7zo5Cd3KPzYgLia1nZgZD_p279eT10E8e0YPlpCjh56GfA
+        )
+
+    [211] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => e0v9L-hx5Ow:APA91bEcO3XRrDh4h4BLYL7NfHkehw237Ria7xSAsblWli0PXlpjWBRKOMb2-UhfMsozJYwWAMghhJdqU1RTvaVOMD5ioWd7HdY-JkxPYLkpx7SxHA_u3blcM6dOBIeQqOp468tOTc3-
+            [devicetoken] => e0v9L-hx5Ow:APA91bEcO3XRrDh4h4BLYL7NfHkehw237Ria7xSAsblWli0PXlpjWBRKOMb2-UhfMsozJYwWAMghhJdqU1RTvaVOMD5ioWd7HdY-JkxPYLkpx7SxHA_u3blcM6dOBIeQqOp468tOTc3-
+        )
+
+    [212] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => e27M_yA0Lbo:APA91bHaEBvvYIX1HNUM_fshrAzGOWSOiHewhSYlYI6qVG08lpN7NGMGqf_-vKnxzsyt-0eCq-waRMI6k6BcQ5Wutsww8GvFlX69T00UDxDwZS7wVPRCFiVgFu9UkR237752FRlIKBZz
+            [devicetoken] => e27M_yA0Lbo:APA91bHaEBvvYIX1HNUM_fshrAzGOWSOiHewhSYlYI6qVG08lpN7NGMGqf_-vKnxzsyt-0eCq-waRMI6k6BcQ5Wutsww8GvFlX69T00UDxDwZS7wVPRCFiVgFu9UkR237752FRlIKBZz
+        )
+
+    [213] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => e2cFg66gN5Q:APA91bHLi4xc3cbvRaFt008kqpG-wZamuGZTHX2SW0nq0OtoxJyvMUvP-sd_oV5UHZTGOOItFJn3tKfjREh1sgkucsjMdbfFdpuGSC1cSqVPw4xs8tM4OJ--wiHmNZHgeF8zmJqNx9DX
+            [devicetoken] => e2cFg66gN5Q:APA91bHLi4xc3cbvRaFt008kqpG-wZamuGZTHX2SW0nq0OtoxJyvMUvP-sd_oV5UHZTGOOItFJn3tKfjREh1sgkucsjMdbfFdpuGSC1cSqVPw4xs8tM4OJ--wiHmNZHgeF8zmJqNx9DX
+        )
+
+    [214] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => e2fIXnT1fPM:APA91bHlwGgzoLBpWM9k9_lRzHg5XBiOhdwkH8TuknmTXQxLvzGe8FOVwm0QdA2AeiKENv_XbdBRH5dp0gvUdFh8dQazmUuS69ZsvNN_4jIxbbUWUNNqngRaXrtnQDrJ5DpLcOLnrDZ2
+            [devicetoken] => e2fIXnT1fPM:APA91bHlwGgzoLBpWM9k9_lRzHg5XBiOhdwkH8TuknmTXQxLvzGe8FOVwm0QdA2AeiKENv_XbdBRH5dp0gvUdFh8dQazmUuS69ZsvNN_4jIxbbUWUNNqngRaXrtnQDrJ5DpLcOLnrDZ2
+        )
+
+    [215] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => e2Je2HFw0as:APA91bE4QKqjDpd7qoMYk_1_ZijSmdicHaHVSv3FC10pw8peiZcnYJXAbOZ4uUSXpmfBHcWNQDq7oh9rxzHIrgyYfw6wPMGOZoY88D80EbPjBzUmLsq-nU8GPUkCs75M6zh4E_1HAQ5Z
+            [devicetoken] => e2Je2HFw0as:APA91bE4QKqjDpd7qoMYk_1_ZijSmdicHaHVSv3FC10pw8peiZcnYJXAbOZ4uUSXpmfBHcWNQDq7oh9rxzHIrgyYfw6wPMGOZoY88D80EbPjBzUmLsq-nU8GPUkCs75M6zh4E_1HAQ5Z
+        )
+
+    [216] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => e3Cx_Oe5HBM:APA91bFDQUMgGOiVL6_NUyCwRJ-r-NStX1D0SThhT67ngBY8RE_HD30x2vPR2oMxlrBsGEuC0ugBkpnMFjWfH_RqIopdKPR559skly7hNhKy-QL4-2IohIK9Dp3HOdi4D1DuLt9q6T0p
+            [devicetoken] => e3Cx_Oe5HBM:APA91bFDQUMgGOiVL6_NUyCwRJ-r-NStX1D0SThhT67ngBY8RE_HD30x2vPR2oMxlrBsGEuC0ugBkpnMFjWfH_RqIopdKPR559skly7hNhKy-QL4-2IohIK9Dp3HOdi4D1DuLt9q6T0p
+        )
+
+    [217] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => e3mNaONyYkQ:APA91bFIS0cML9d7CVjEkSq0leuG8t6mkoOOGDmz_tB0RZc3cSZuJWvo49NUvqxgk59bDBoZbgRwm6g1ury7j0mP_vu7fCmBoJzgsAfvuYNBUCMKo0lM_aTwWDoGAeDW3zOT7F8BEb4J
+            [devicetoken] => e3mNaONyYkQ:APA91bFIS0cML9d7CVjEkSq0leuG8t6mkoOOGDmz_tB0RZc3cSZuJWvo49NUvqxgk59bDBoZbgRwm6g1ury7j0mP_vu7fCmBoJzgsAfvuYNBUCMKo0lM_aTwWDoGAeDW3zOT7F8BEb4J
+        )
+
+    [218] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => e68ZQjqPgCg:APA91bEvY6LcqN9-zl8RKtMGI3u3-HqJK6MmxJi073D3YpenpcnlaMz7g-7BJBC6aLjlqIn_Z6wyDzcoYO7y9qgiGWSzPMXE5aoHsUTMY-trlPGgvuFrq7a0OmGI2EXxheVyk_PsE25h
+            [devicetoken] => e68ZQjqPgCg:APA91bEvY6LcqN9-zl8RKtMGI3u3-HqJK6MmxJi073D3YpenpcnlaMz7g-7BJBC6aLjlqIn_Z6wyDzcoYO7y9qgiGWSzPMXE5aoHsUTMY-trlPGgvuFrq7a0OmGI2EXxheVyk_PsE25h
+        )
+
+    [219] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => e6IO8JiPHA8:APA91bGEzO9n6wpXfmbk5bFehNu5AIHzjqjGcKYt4W0KtUPfBEHQ3pIcEskfB29lG0X_vshWA-F4zVA6Alt8QO5sKxqaPEPThmefNXpRc4j9PXJaLJFJ0Ad7tYt5lrr_k6X_561Uztu_
+            [devicetoken] => e6IO8JiPHA8:APA91bGEzO9n6wpXfmbk5bFehNu5AIHzjqjGcKYt4W0KtUPfBEHQ3pIcEskfB29lG0X_vshWA-F4zVA6Alt8QO5sKxqaPEPThmefNXpRc4j9PXJaLJFJ0Ad7tYt5lrr_k6X_561Uztu_
+        )
+
+    [220] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => e7FDF9Z4CyM:APA91bHKzkj-nQaH9WzS-CmDrIImH48zdXNEiBiPjuf26jDgJv7PEY8LbAcIGMubTZlrlBTk90sh8t27VfXQJHDt27SLQ8snoptwS6lFARtASUj66LroDqoCaGr9CAT63aSnmwhhRZLK
+            [devicetoken] => e7FDF9Z4CyM:APA91bHKzkj-nQaH9WzS-CmDrIImH48zdXNEiBiPjuf26jDgJv7PEY8LbAcIGMubTZlrlBTk90sh8t27VfXQJHDt27SLQ8snoptwS6lFARtASUj66LroDqoCaGr9CAT63aSnmwhhRZLK
+        )
+
+    [221] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => e8EIY4kGAf0:APA91bEkLUR7S3KDt86LVMs-xEYyEmrE-ZStEz6ZEBRQJUGzueX2e0aA_6RBZWwiZQWKSqzB9eZLPt35ElqaL1hjpKm87uIGpIzaoW0vrjTlKcEYGAyvuIJ8b2GAHBvbX8yVFRb8swQu
+            [devicetoken] => e8EIY4kGAf0:APA91bEkLUR7S3KDt86LVMs-xEYyEmrE-ZStEz6ZEBRQJUGzueX2e0aA_6RBZWwiZQWKSqzB9eZLPt35ElqaL1hjpKm87uIGpIzaoW0vrjTlKcEYGAyvuIJ8b2GAHBvbX8yVFRb8swQu
+        )
+
+    [222] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => ea2nkavGvZ0:APA91bGt2f-xgZFpN5C3pnNGERASy5tkwS4zhBCKziEVvXr-N0jpO723w2oBe88DWJwT-qIDTXXzOv6-3xYa4ZEJtwVOv6FnCYpyHAanF83Ahogzh_SeZ-XjVUMpSTIbR37VTvNNP1Ah
+            [devicetoken] => ea2nkavGvZ0:APA91bGt2f-xgZFpN5C3pnNGERASy5tkwS4zhBCKziEVvXr-N0jpO723w2oBe88DWJwT-qIDTXXzOv6-3xYa4ZEJtwVOv6FnCYpyHAanF83Ahogzh_SeZ-XjVUMpSTIbR37VTvNNP1Ah
+        )
+
+    [223] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => iOS
+            [plataforma] => iOS
+            [2] => eAe98r7Bccw:APA91bEvmC79Y5EUDSgePzRW_kfrCnNz9Y0wjuWUtKRGWUvmGXoG5ea8ylxokrOgHUqKXLMOKDpAN4XqUEIlDHoG2p_-54ztpcy0LRx1UmpNEX6U7C1bq9S2Q8skGgltjTjlg5y29mAq
+            [devicetoken] => eAe98r7Bccw:APA91bEvmC79Y5EUDSgePzRW_kfrCnNz9Y0wjuWUtKRGWUvmGXoG5ea8ylxokrOgHUqKXLMOKDpAN4XqUEIlDHoG2p_-54ztpcy0LRx1UmpNEX6U7C1bq9S2Q8skGgltjTjlg5y29mAq
+        )
+
+    [224] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => eA_dkzh9Ci0:APA91bEtk721d3aYlSXnCleR4RlD4SzoRH7JFHuA_aH7800hZU-zLWAHMa_6fzbPXxhahmLRDt6_Hz8SeRBVwuMnEKLxyZDKhjCDGRY6mK5nG1xxmOsBRlrZQcuFNcbp9MM7qDQZua9u
+            [devicetoken] => eA_dkzh9Ci0:APA91bEtk721d3aYlSXnCleR4RlD4SzoRH7JFHuA_aH7800hZU-zLWAHMa_6fzbPXxhahmLRDt6_Hz8SeRBVwuMnEKLxyZDKhjCDGRY6mK5nG1xxmOsBRlrZQcuFNcbp9MM7qDQZua9u
+        )
+
+    [225] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => ebMYeoFznQg:APA91bFkfPXbCfJbmxPvlnCuV2uQjmS_ikwU9ti_sBRXa9iw8u0n2qJVabdYvmCDYYSFoThWdv-7BoKa0EcqkCJW1SStrkDNEw4U3kXeIp8yhkjCKkXyQiPASIGw6HPeLt_eBhUuZuV6
+            [devicetoken] => ebMYeoFznQg:APA91bFkfPXbCfJbmxPvlnCuV2uQjmS_ikwU9ti_sBRXa9iw8u0n2qJVabdYvmCDYYSFoThWdv-7BoKa0EcqkCJW1SStrkDNEw4U3kXeIp8yhkjCKkXyQiPASIGw6HPeLt_eBhUuZuV6
+        )
+
+    [226] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => eBqHx6o3xmg:APA91bEAzSGGSpZykPAgwoNlx1ZwR9JiiYtFLVkI86yg-Q7aABfMxVqXS1iP-iEQ549KQlS8i8Lq-IjOnA2Z7pmJatvktsyJVR0QF7RDE5cQU0dnJpUo45rBFliG2wPM6FsMdMH_a3sv
+            [devicetoken] => eBqHx6o3xmg:APA91bEAzSGGSpZykPAgwoNlx1ZwR9JiiYtFLVkI86yg-Q7aABfMxVqXS1iP-iEQ549KQlS8i8Lq-IjOnA2Z7pmJatvktsyJVR0QF7RDE5cQU0dnJpUo45rBFliG2wPM6FsMdMH_a3sv
+        )
+
+    [227] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => iOS
+            [plataforma] => iOS
+            [2] => eBul61P07R8:APA91bF46ggnJh87vXRcRwda_M6BuZ06fhp2Ms9wvZUoKcYbk05ycuQRIXYLw0Z6T8GMhibrj_M4JdTMj8FlEFRcseAcPcHCNvSMpIkGvoFGwt7lsNSTxZVp2FZd8nAu5R-vL0LJblC0
+            [devicetoken] => eBul61P07R8:APA91bF46ggnJh87vXRcRwda_M6BuZ06fhp2Ms9wvZUoKcYbk05ycuQRIXYLw0Z6T8GMhibrj_M4JdTMj8FlEFRcseAcPcHCNvSMpIkGvoFGwt7lsNSTxZVp2FZd8nAu5R-vL0LJblC0
+        )
+
+    [228] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => edSRvg7Rh7w:APA91bHS1I15MdOoNrJB_5eBmDKhwU0FSvOcs626AZAn-toTgvP2lJEm4RgSfu5koj6IYgkTvg2Pf3_sEDNf7S8NZOJBWCtG9vt0Yj2lpwf_1BJ8V7E4zu1F8oKczUkByluNOjh_7zPS
+            [devicetoken] => edSRvg7Rh7w:APA91bHS1I15MdOoNrJB_5eBmDKhwU0FSvOcs626AZAn-toTgvP2lJEm4RgSfu5koj6IYgkTvg2Pf3_sEDNf7S8NZOJBWCtG9vt0Yj2lpwf_1BJ8V7E4zu1F8oKczUkByluNOjh_7zPS
+        )
+
+    [229] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => eDTGQuUj7Bc:APA91bHTlz4g0QT3T4ipPuK1S3s5KZlxNWhhQ2-Fi_bdQux8OhJA1QsfSWJXwnvMIdM7-DowBDhH8lpRgl-MrXmZoJSW8gPeeFrXTYnMia8eFW8eJxKXcFOiiN3AC0icGjD3alypTVpiRxlsiFo2KPdQ2Mc-rLaAJg
+            [devicetoken] => eDTGQuUj7Bc:APA91bHTlz4g0QT3T4ipPuK1S3s5KZlxNWhhQ2-Fi_bdQux8OhJA1QsfSWJXwnvMIdM7-DowBDhH8lpRgl-MrXmZoJSW8gPeeFrXTYnMia8eFW8eJxKXcFOiiN3AC0icGjD3alypTVpiRxlsiFo2KPdQ2Mc-rLaAJg
+        )
+
+    [230] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => eDvfSIOwQC0:APA91bGTJ4ZUS0DQN0hIguiyoWr6wLOH3fS_g5lS3Qf8cDdNydQWu6Gm7NLEMDn7RnHVMRC5_3LptLDJ3eIIRhJxj5Rb-eewLa9xWK60mvO7mJ9SUcVnY7FyuYte6r-iW2stfuYlRFLl
+            [devicetoken] => eDvfSIOwQC0:APA91bGTJ4ZUS0DQN0hIguiyoWr6wLOH3fS_g5lS3Qf8cDdNydQWu6Gm7NLEMDn7RnHVMRC5_3LptLDJ3eIIRhJxj5Rb-eewLa9xWK60mvO7mJ9SUcVnY7FyuYte6r-iW2stfuYlRFLl
+        )
+
+    [231] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => eeDYHPl5z3o:APA91bHhfcYi7gBewPUPWxXE9_njzb9GxghuOoHdfLudBUdaBYgCC-rFzintWibB6tiwt9OKlhoFRs6xepYOulDv_Mz2sfoIvaiMhY-ylnqEfLJhBjDQ341f0tuchc9EDKgUacHRLce1
+            [devicetoken] => eeDYHPl5z3o:APA91bHhfcYi7gBewPUPWxXE9_njzb9GxghuOoHdfLudBUdaBYgCC-rFzintWibB6tiwt9OKlhoFRs6xepYOulDv_Mz2sfoIvaiMhY-ylnqEfLJhBjDQ341f0tuchc9EDKgUacHRLce1
+        )
+
+    [232] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => eEoTun98YVU:APA91bGo_YDjHafLSXPQZl1sjNLCFhWWmc2BFAQJrbDw4N-XjDwlQCAEXueE0wzaFCfATlWGFKU-46r251L9n-mCE4437Tcxbeui8EfNmMBLuTk_CP3thlP9hP-Fvwip415uvZIOBXnSevgHhOtdcRtX_jqITJAUbQ
+            [devicetoken] => eEoTun98YVU:APA91bGo_YDjHafLSXPQZl1sjNLCFhWWmc2BFAQJrbDw4N-XjDwlQCAEXueE0wzaFCfATlWGFKU-46r251L9n-mCE4437Tcxbeui8EfNmMBLuTk_CP3thlP9hP-Fvwip415uvZIOBXnSevgHhOtdcRtX_jqITJAUbQ
+        )
+
+    [233] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => eF2UIAH4HjA:APA91bH5TNLraaAOQyiaYpeMY1lgKweKAtnf_Ff24oMIAhL3iZubZrivWi9GYuveZQYf3m2LUOA-5Bt6Qjrmjpys2L8QaEBikOBi6pwqxS8Bixx2SVrpezaydf1ayzJ56KEVzFYaeR-D
+            [devicetoken] => eF2UIAH4HjA:APA91bH5TNLraaAOQyiaYpeMY1lgKweKAtnf_Ff24oMIAhL3iZubZrivWi9GYuveZQYf3m2LUOA-5Bt6Qjrmjpys2L8QaEBikOBi6pwqxS8Bixx2SVrpezaydf1ayzJ56KEVzFYaeR-D
+        )
+
+    [234] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => eF6mte0UyKE:APA91bHhwlFp12zlR5weYndMLCHPLJJYVTxZUhyuSWX8UeSRboP-T-50eQlMp-yPQ1KOSOfqdtlNxMTIQ2S7FlgVLNk3qNrqmhGgWDysq3e-2GdQ7AuhJBB-ifkmq-7po0YnyR6XEbgW
+            [devicetoken] => eF6mte0UyKE:APA91bHhwlFp12zlR5weYndMLCHPLJJYVTxZUhyuSWX8UeSRboP-T-50eQlMp-yPQ1KOSOfqdtlNxMTIQ2S7FlgVLNk3qNrqmhGgWDysq3e-2GdQ7AuhJBB-ifkmq-7po0YnyR6XEbgW
+        )
+
+    [235] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => egdNJDlR_Mk:APA91bFaYVExh2Hv3xm9Hevu_UZh21StZvDJ4QPijIUqT6_7gK-hZVq-QD430_HLB1bQLmePjz-nQNjpP71udv6eIS4DVDrV6_l5tteIH5yzpuZ1FZbiJmQtEQWHeZD-Q9Xjl8LVIJkVztecUR87N_0bQpdG0HAHjw
+            [devicetoken] => egdNJDlR_Mk:APA91bFaYVExh2Hv3xm9Hevu_UZh21StZvDJ4QPijIUqT6_7gK-hZVq-QD430_HLB1bQLmePjz-nQNjpP71udv6eIS4DVDrV6_l5tteIH5yzpuZ1FZbiJmQtEQWHeZD-Q9Xjl8LVIJkVztecUR87N_0bQpdG0HAHjw
+        )
+
+    [236] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => iOS
+            [plataforma] => iOS
+            [2] => eI4S1kWsSjg:APA91bGABWItpse-_fM0R-Omi4NNNM3ufKbD700z-WTKKm-Eegt2zIAOeV_lfC0MMSSVzAO68V7EZvuO_0EeNzoO04u6z-4E2TYY-Wi4rDPQG5tXwYAyyCGeEfasCQPSKdAI8lLKSNjs
+            [devicetoken] => eI4S1kWsSjg:APA91bGABWItpse-_fM0R-Omi4NNNM3ufKbD700z-WTKKm-Eegt2zIAOeV_lfC0MMSSVzAO68V7EZvuO_0EeNzoO04u6z-4E2TYY-Wi4rDPQG5tXwYAyyCGeEfasCQPSKdAI8lLKSNjs
+        )
+
+    [237] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => ej1WnxTl2co:APA91bGHiMtSSZLwHQ5cpHtCAJrqEJiJmuYgekDq91KcmLZpY0zJGm_pi0Kd62XCb7GIAmCqMXK27LrcidX5vZUyevkNmZoYBTjJ_gCSdMVmlkSBJLNYRsZwwF41TMRkyLPZ8quqE_3Q
+            [devicetoken] => ej1WnxTl2co:APA91bGHiMtSSZLwHQ5cpHtCAJrqEJiJmuYgekDq91KcmLZpY0zJGm_pi0Kd62XCb7GIAmCqMXK27LrcidX5vZUyevkNmZoYBTjJ_gCSdMVmlkSBJLNYRsZwwF41TMRkyLPZ8quqE_3Q
+        )
+
+    [238] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => eJsw7-ZBPDo:APA91bEXRkSv5E9Gnw88MdBAQ5dlYxrnyTXJJzcD1SzijjA9fROw4DFkMEjsOeWm6vT36kN3Csl6f3tBODObS-u70-uqMJAt0koQoHPvKGuMSpugwkSO03oWC17hmHbrwAYcItK3fc3e
+            [devicetoken] => eJsw7-ZBPDo:APA91bEXRkSv5E9Gnw88MdBAQ5dlYxrnyTXJJzcD1SzijjA9fROw4DFkMEjsOeWm6vT36kN3Csl6f3tBODObS-u70-uqMJAt0koQoHPvKGuMSpugwkSO03oWC17hmHbrwAYcItK3fc3e
+        )
+
+    [239] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => ejvoWY8_knM:APA91bFARXbeYt4Atvb5ccrOMzEKvmRpiq6uLmUEAYhCSaB1SdQ48U5AkRaRUb6WFrz0tkph1rRqOMikKY24imGgxISyfdteWoFrqSI5SK6O6iJ05amRzOO3ju8S_HwytGGiA1oSrHZo
+            [devicetoken] => ejvoWY8_knM:APA91bFARXbeYt4Atvb5ccrOMzEKvmRpiq6uLmUEAYhCSaB1SdQ48U5AkRaRUb6WFrz0tkph1rRqOMikKY24imGgxISyfdteWoFrqSI5SK6O6iJ05amRzOO3ju8S_HwytGGiA1oSrHZo
+        )
+
+    [240] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => iOS
+            [plataforma] => iOS
+            [2] => eK1CAqLrm84:APA91bHaM11QLI1hZ5vxAiWXN96Y38s569usQtOFj9cDg89WH2ho4Xi4S1L6efPRGS49I2SRG41W4DLjj1_Nhyy5WSLjjbof0iiY5pAeDgsbYtsOrBN0bf_LyD46n1pFf-UzmgjuDXeU
+            [devicetoken] => eK1CAqLrm84:APA91bHaM11QLI1hZ5vxAiWXN96Y38s569usQtOFj9cDg89WH2ho4Xi4S1L6efPRGS49I2SRG41W4DLjj1_Nhyy5WSLjjbof0iiY5pAeDgsbYtsOrBN0bf_LyD46n1pFf-UzmgjuDXeU
+        )
+
+    [241] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => ekIRQJ1h7b0:APA91bE8S_nTOiYwQjfyZFwChMLdWCA7Nuufms-lj2X2sKqT2KqLTtzCdvTAxwlDfXT7daOX1AGFgl-jZq-x1TTna8XoVKJn2F6uQapFfvfUY3NkbZ2ubkS2csXzujQRQ7UCwkkj0Ffl
+            [devicetoken] => ekIRQJ1h7b0:APA91bE8S_nTOiYwQjfyZFwChMLdWCA7Nuufms-lj2X2sKqT2KqLTtzCdvTAxwlDfXT7daOX1AGFgl-jZq-x1TTna8XoVKJn2F6uQapFfvfUY3NkbZ2ubkS2csXzujQRQ7UCwkkj0Ffl
+        )
+
+    [242] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => eKq1VCO7UAo:APA91bF5BQIkYOtYg9Kgt6N88jyeAWpGeMRnHVo5dzXBK-BJklwkAJ6Pg2n2HhsfsG7tXV--1YdLyqZeUp_opd6kxu3zPKHl7y-uagZXbyItVp1gJJ6g0CDpD52GOYgJbpPlF8MsOEPA
+            [devicetoken] => eKq1VCO7UAo:APA91bF5BQIkYOtYg9Kgt6N88jyeAWpGeMRnHVo5dzXBK-BJklwkAJ6Pg2n2HhsfsG7tXV--1YdLyqZeUp_opd6kxu3zPKHl7y-uagZXbyItVp1gJJ6g0CDpD52GOYgJbpPlF8MsOEPA
+        )
+
+    [243] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => eL78_lEZ_KA:APA91bG9vCB0HLwHNyPIxXPl93Rf3K7MAoRwS2f4FtSDA37ZBywQV912PUixFeUBmquv0Ii8Xug6yrwOOf42KrImct11HSqzWd5toElTlz-6g1pTzydMJ0SaPpuVB4ILZdKEO-kRvLkO
+            [devicetoken] => eL78_lEZ_KA:APA91bG9vCB0HLwHNyPIxXPl93Rf3K7MAoRwS2f4FtSDA37ZBywQV912PUixFeUBmquv0Ii8Xug6yrwOOf42KrImct11HSqzWd5toElTlz-6g1pTzydMJ0SaPpuVB4ILZdKEO-kRvLkO
+        )
+
+    [244] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => iOS
+            [plataforma] => iOS
+            [2] => eMD2GLzLh7s:APA91bGotnOj2EzZsiRo4F7WGvERBAc1io-n4h87-0DmKDlybfPcLPRvh1ZhyrveNKW-SvLPP1ezBcZRoixZZHXu-Z5L4vLx8ZMPd4dleFVW6VI2tvDu8JPRz2iEWkAulAcl-JyhTY99
+            [devicetoken] => eMD2GLzLh7s:APA91bGotnOj2EzZsiRo4F7WGvERBAc1io-n4h87-0DmKDlybfPcLPRvh1ZhyrveNKW-SvLPP1ezBcZRoixZZHXu-Z5L4vLx8ZMPd4dleFVW6VI2tvDu8JPRz2iEWkAulAcl-JyhTY99
+        )
+
+    [245] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => en8c540RZ40:APA91bGpgIpJo2Lvbvumv-y0nANaTD2wirv0sTt5jFLeiAeofoEjP7AlGu0HHmVMKfzA2yK-SitCpOGI1yizdGJyTSEy6Sskfy_1WoUq68FJziNgsDdiEKgBAg9z4Akgadw9I8qBw56P
+            [devicetoken] => en8c540RZ40:APA91bGpgIpJo2Lvbvumv-y0nANaTD2wirv0sTt5jFLeiAeofoEjP7AlGu0HHmVMKfzA2yK-SitCpOGI1yizdGJyTSEy6Sskfy_1WoUq68FJziNgsDdiEKgBAg9z4Akgadw9I8qBw56P
+        )
+
+    [246] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => enCjUMlaGEM:APA91bFTF9rWTRHpP9xP6H2lZ1qhALgetEB0asRwILMJswlhU3XU_yrxrO4CkG_uINr_-b989RhOnfmZQr09Gkt-jteCzNQ5E93iABwajEtDKsKQnKi1STQejQSF3XeCq_HCGV_wVmXZ
+            [devicetoken] => enCjUMlaGEM:APA91bFTF9rWTRHpP9xP6H2lZ1qhALgetEB0asRwILMJswlhU3XU_yrxrO4CkG_uINr_-b989RhOnfmZQr09Gkt-jteCzNQ5E93iABwajEtDKsKQnKi1STQejQSF3XeCq_HCGV_wVmXZ
+        )
+
+    [247] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => iOS
+            [plataforma] => iOS
+            [2] => eoAiqSw5kPE:APA91bEQnlR0K12Nzy65Wh4wSxdmhgLl3FA0aDM0o9F_nEvW6_L2YDFfkw-43bwcrfc_AebdBVTt93BwhomzEmVboBfpyyxBVpIOOBe03U9XusZ_fOu4I_P-9cpOPNmOcDiXkIoDNxzK
+            [devicetoken] => eoAiqSw5kPE:APA91bEQnlR0K12Nzy65Wh4wSxdmhgLl3FA0aDM0o9F_nEvW6_L2YDFfkw-43bwcrfc_AebdBVTt93BwhomzEmVboBfpyyxBVpIOOBe03U9XusZ_fOu4I_P-9cpOPNmOcDiXkIoDNxzK
+        )
+
+    [248] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => eP2eYl1yvyE:APA91bFvmyE3HCM6xmZksYmoeWlKzsrPxS8pvkubQ4SGvv961lNFnvFPrV7OQANIxoG9g7w30lSyL41r5IfTo587jWjUWjKvTNGcQUNDKKa7nGgFcozdhhvDu10LzGVk3oFYUzOuoNth
+            [devicetoken] => eP2eYl1yvyE:APA91bFvmyE3HCM6xmZksYmoeWlKzsrPxS8pvkubQ4SGvv961lNFnvFPrV7OQANIxoG9g7w30lSyL41r5IfTo587jWjUWjKvTNGcQUNDKKa7nGgFcozdhhvDu10LzGVk3oFYUzOuoNth
+        )
+
+    [249] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => iOS
+            [plataforma] => iOS
+            [2] => ep4wHvVIAXM:APA91bFvIgEXneUCU56BhL-4fY381neci8pZc2_9ZbnII9i9PIXoc2vsV3pxHGmv5pHEXSO5hNZQnNU5ya6Oobx63iuH0aL92wTTvvomN2STKKjiYmX0UY1Ut9cFkHtBa6G2KVhf4nzN
+            [devicetoken] => ep4wHvVIAXM:APA91bFvIgEXneUCU56BhL-4fY381neci8pZc2_9ZbnII9i9PIXoc2vsV3pxHGmv5pHEXSO5hNZQnNU5ya6Oobx63iuH0aL92wTTvvomN2STKKjiYmX0UY1Ut9cFkHtBa6G2KVhf4nzN
+        )
+
+    [250] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => ePfkp9WvDzs:APA91bEPwvKEgROXHnQsfy3WjjSH3I-L9iuTaXKsiXQWadTequjtJWN8YdCIlKpTjzAER_4fA22y_ASwFVc_KSsEoCdGeHtrGjVF2YkRbIe4W7ec1TJ7JmIoSPIIbeYcMyWvtdBOkjYJ
+            [devicetoken] => ePfkp9WvDzs:APA91bEPwvKEgROXHnQsfy3WjjSH3I-L9iuTaXKsiXQWadTequjtJWN8YdCIlKpTjzAER_4fA22y_ASwFVc_KSsEoCdGeHtrGjVF2YkRbIe4W7ec1TJ7JmIoSPIIbeYcMyWvtdBOkjYJ
+        )
+
+    [251] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => epqWhL2RJXw:APA91bE1g02192fndbCUgf5tUUN16b2H9uud9Aoz2Z12KYo3Sk2v7hGEcAvvWy_GQpuYVL8HPsMldEgXn4k98NCfhvfVYUOHwhVe-KiNCIjqyypYHQcPiKyL-fOLI7zr0LGsMgCb0rGD
+            [devicetoken] => epqWhL2RJXw:APA91bE1g02192fndbCUgf5tUUN16b2H9uud9Aoz2Z12KYo3Sk2v7hGEcAvvWy_GQpuYVL8HPsMldEgXn4k98NCfhvfVYUOHwhVe-KiNCIjqyypYHQcPiKyL-fOLI7zr0LGsMgCb0rGD
+        )
+
+    [252] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => ePVn3ZdE_W0:APA91bGPV-mF73H8fTkukUJLHQ5vtjDgIZN1XzYTFWedpcQ2-OLwJn6nLr1WltucayLbz5RTaPT6m88-HDe-w71nMLGcpYfqfRYrChkINBjsgeu_7E045TIQHIuayEaESCi2RnbeJZJap--heq5x13gZDpbM-XA-UQ
+            [devicetoken] => ePVn3ZdE_W0:APA91bGPV-mF73H8fTkukUJLHQ5vtjDgIZN1XzYTFWedpcQ2-OLwJn6nLr1WltucayLbz5RTaPT6m88-HDe-w71nMLGcpYfqfRYrChkINBjsgeu_7E045TIQHIuayEaESCi2RnbeJZJap--heq5x13gZDpbM-XA-UQ
+        )
+
+    [253] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => es2MBmVaD7Q:APA91bH85KYCe20nNIBxo30bx7um24SCC0THFEzgVibhqM0JK4CvI7H-tS1SJ-6uR_fLVsdbXgqAe34I346fT-1yJ0FMlPIa1LDiNyZvYGJloEE9VebaaA39FhacjmaC4WMMINesCILz
+            [devicetoken] => es2MBmVaD7Q:APA91bH85KYCe20nNIBxo30bx7um24SCC0THFEzgVibhqM0JK4CvI7H-tS1SJ-6uR_fLVsdbXgqAe34I346fT-1yJ0FMlPIa1LDiNyZvYGJloEE9VebaaA39FhacjmaC4WMMINesCILz
+        )
+
+    [254] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => eSl0Gz-IHwM:APA91bHsobACpUyM2D1cdfw_fYuynGANGZ-vM2B_6gp7fxEsXX9iUSBg02sWYxfL9bR4ECktIyMqdv53wtUspTd6wDAwN9AQgTgX_Xiu-96vtm28m5IA20em8RZEgoCLj7O-z7OyYQN1
+            [devicetoken] => eSl0Gz-IHwM:APA91bHsobACpUyM2D1cdfw_fYuynGANGZ-vM2B_6gp7fxEsXX9iUSBg02sWYxfL9bR4ECktIyMqdv53wtUspTd6wDAwN9AQgTgX_Xiu-96vtm28m5IA20em8RZEgoCLj7O-z7OyYQN1
+        )
+
+    [255] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => eSR0ZisZce4:APA91bEbk8bnensiCjk1UPAqRLwZ8eIJKymLbxJu_2-EF0Y_OgDBUgW0OMjDIGUoBvMjTFQOOmiWVGrs4MdvS1pwNSMUpqUTzq-rv9716bbhy2vPmz1-UgSU4Db4wo6lwzQXJScUNlGv
+            [devicetoken] => eSR0ZisZce4:APA91bEbk8bnensiCjk1UPAqRLwZ8eIJKymLbxJu_2-EF0Y_OgDBUgW0OMjDIGUoBvMjTFQOOmiWVGrs4MdvS1pwNSMUpqUTzq-rv9716bbhy2vPmz1-UgSU4Db4wo6lwzQXJScUNlGv
+        )
+
+    [256] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => etQnGMA48LY:APA91bHFBzcU5O68FiRZnDqEKhjPdlWyzlcVEkEXx_C6FBRfhrL-ENWMsSNM_GVgv9kXxpAkWMV2SYPY0RocoIDZAW4GamR5GIDAsmRTAGpTLSVs65FwX2j75XDSmQSgLJySEVruFk67
+            [devicetoken] => etQnGMA48LY:APA91bHFBzcU5O68FiRZnDqEKhjPdlWyzlcVEkEXx_C6FBRfhrL-ENWMsSNM_GVgv9kXxpAkWMV2SYPY0RocoIDZAW4GamR5GIDAsmRTAGpTLSVs65FwX2j75XDSmQSgLJySEVruFk67
+        )
+
+    [257] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => eUBay0J_yFs:APA91bG7vRyFS8J5MpqrVkjuhLpdzAVOZGnpIlCyLhvGKKy82QUdiZGzj6qn9bpjR7Y__XdrEtDZ8qu4mRU_OoNEP7ParQbf2mvG9LQ1BHkv_ajUaEqfhVo9EHXv3ZHXITiUGfaPSr18
+            [devicetoken] => eUBay0J_yFs:APA91bG7vRyFS8J5MpqrVkjuhLpdzAVOZGnpIlCyLhvGKKy82QUdiZGzj6qn9bpjR7Y__XdrEtDZ8qu4mRU_OoNEP7ParQbf2mvG9LQ1BHkv_ajUaEqfhVo9EHXv3ZHXITiUGfaPSr18
+        )
+
+    [258] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => eUqmEBSrUTY:APA91bFa4lB3EOhDIJYVcslhXcVuI92wWs8giQG0tanDx2WWOPmffSoTPFG0j7o-UkyVUbAfKKvH3Sr39yr59LV_4P8HgsdRe4LGPv-jG5mgH5P6SvKbbaEWgwCdaYOf2qzh2MpIMtMR
+            [devicetoken] => eUqmEBSrUTY:APA91bFa4lB3EOhDIJYVcslhXcVuI92wWs8giQG0tanDx2WWOPmffSoTPFG0j7o-UkyVUbAfKKvH3Sr39yr59LV_4P8HgsdRe4LGPv-jG5mgH5P6SvKbbaEWgwCdaYOf2qzh2MpIMtMR
+        )
+
+    [259] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => ev7DF7CxJiE:APA91bHn5lcQf6SFlfk6Me0F9wpLevZ0l4D6WfJCuyq57Q36GWVC23vZ3a3QLnBVJV66w2NyOwo3QQWiFxFU19slmgS257tQsAMo73-lID6QLMLPOvXX2HoAmFHHRqgbz5SiZmZx2m-o
+            [devicetoken] => ev7DF7CxJiE:APA91bHn5lcQf6SFlfk6Me0F9wpLevZ0l4D6WfJCuyq57Q36GWVC23vZ3a3QLnBVJV66w2NyOwo3QQWiFxFU19slmgS257tQsAMo73-lID6QLMLPOvXX2HoAmFHHRqgbz5SiZmZx2m-o
+        )
+
+    [260] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => eVIrSTEDE4s:APA91bGAIm_odqwWkDt1HIv4c0dzOpDg2gP7SKe3681ZafF0s3KuqUloEcdt2fGCugGeQlZbsu5tXAWblGMMQtl-7LnQVvUiRSYCsdmgajG5aQw0l1LayaglHtgTbRfqMMLzFmvbYkm4
+            [devicetoken] => eVIrSTEDE4s:APA91bGAIm_odqwWkDt1HIv4c0dzOpDg2gP7SKe3681ZafF0s3KuqUloEcdt2fGCugGeQlZbsu5tXAWblGMMQtl-7LnQVvUiRSYCsdmgajG5aQw0l1LayaglHtgTbRfqMMLzFmvbYkm4
+        )
+
+    [261] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => eW2395ex1XY:APA91bHHdd_G2TADqrehg5mI8E32LVEbbBuuAwEamRHzjD8T7DbTjVH_6xbe4LGz8z2lE-3R0X865JfQL4HlAhQw9dijcHWAAKyBk-eGOTz_EEI_KT3VpiM8FpLbB9psqyeOYiTsywgO
+            [devicetoken] => eW2395ex1XY:APA91bHHdd_G2TADqrehg5mI8E32LVEbbBuuAwEamRHzjD8T7DbTjVH_6xbe4LGz8z2lE-3R0X865JfQL4HlAhQw9dijcHWAAKyBk-eGOTz_EEI_KT3VpiM8FpLbB9psqyeOYiTsywgO
+        )
+
+    [262] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => exz9GcAxhU8:APA91bEAcf3p2CPWZBM3tSUvWYNv4B0H13kej9Dt-ORBtGQ9kTUzrAwVGbaB8HBfullzGQuWGtn6tdSAhE7Rmfhgv380zpF9MyojinVM7bWAwiSCMIpykvRL9cTB5qehIHhgzJdP52Iv
+            [devicetoken] => exz9GcAxhU8:APA91bEAcf3p2CPWZBM3tSUvWYNv4B0H13kej9Dt-ORBtGQ9kTUzrAwVGbaB8HBfullzGQuWGtn6tdSAhE7Rmfhgv380zpF9MyojinVM7bWAwiSCMIpykvRL9cTB5qehIHhgzJdP52Iv
+        )
+
+    [263] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => ey1Qi4hMnj4:APA91bG7Xk3_UXQtvhfaP7QUBTQfoTARYSMq1-ED1NCgrPEe9GxSvyhiUaSlbL6doWein_GlkuZuILKFADGY7khVwJ-DfY9sU-Oapzhr5xsxaLrGHBW6-r4BsVYxoaqJ05CxFuXuhjSi
+            [devicetoken] => ey1Qi4hMnj4:APA91bG7Xk3_UXQtvhfaP7QUBTQfoTARYSMq1-ED1NCgrPEe9GxSvyhiUaSlbL6doWein_GlkuZuILKFADGY7khVwJ-DfY9sU-Oapzhr5xsxaLrGHBW6-r4BsVYxoaqJ05CxFuXuhjSi
+        )
+
+    [264] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => eYRXWB4y8KI:APA91bFCCwc8fjFt7Yj5-Z7Je-h6_KaTgwvvrT6tIxhAxxS4xejGzXdoErLh_B_bIgoOvh6sD-EBnxO8kxqIe92qqhthgP-tSMw-3A6VC4GO-lYyrUFLOXu1XJjOh4C3dye-eah_mLSr
+            [devicetoken] => eYRXWB4y8KI:APA91bFCCwc8fjFt7Yj5-Z7Je-h6_KaTgwvvrT6tIxhAxxS4xejGzXdoErLh_B_bIgoOvh6sD-EBnxO8kxqIe92qqhthgP-tSMw-3A6VC4GO-lYyrUFLOXu1XJjOh4C3dye-eah_mLSr
+        )
+
+    [265] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => iOS
+            [plataforma] => iOS
+            [2] => eZAHxv9Bj2M:APA91bFJ0HyABXQMvlQfYqLHDteuvUAmPvKGDU5p7TGEojmK3yGn1QpxQEPEfNNjjqciuHaQYTFSQt54s1m_rQmyq7fK7w1bUnE1d9Q6Qpfkgba9ShXsL7O9Hkh2s5xDik76on1bazQM
+            [devicetoken] => eZAHxv9Bj2M:APA91bFJ0HyABXQMvlQfYqLHDteuvUAmPvKGDU5p7TGEojmK3yGn1QpxQEPEfNNjjqciuHaQYTFSQt54s1m_rQmyq7fK7w1bUnE1d9Q6Qpfkgba9ShXsL7O9Hkh2s5xDik76on1bazQM
+        )
+
+    [266] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => eZGuu4SMg-o:APA91bH78vF9xcFAJE6S1kpKtL9DQsoissLrVdUu7WIaNXCnsJhNQ5S8GPmcKPHsn1dsaf5UzQS-X7hSGcujFdW2xZ2qZrhpaiD_pqOCh5tQxivAeHCZbpqSaiokNNUIPh-Jy_HN63SF
+            [devicetoken] => eZGuu4SMg-o:APA91bH78vF9xcFAJE6S1kpKtL9DQsoissLrVdUu7WIaNXCnsJhNQ5S8GPmcKPHsn1dsaf5UzQS-X7hSGcujFdW2xZ2qZrhpaiD_pqOCh5tQxivAeHCZbpqSaiokNNUIPh-Jy_HN63SF
+        )
+
+    [267] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => eZROIpd5tcM:APA91bEKo_T9ZrmjB1WSBI33Pz2e7V06lfzuAuqzEjmPIvJfRt_P7QK6FAG7dsDfhaDFN76fuhj7qV5L6D1zqWHgkeQJwmQihBEayu5SVI4vpw9mwwNix09lY5CypuG0MgTTYzKXegyGb-bpmLfLZPQo7iKIRo3PBg
+            [devicetoken] => eZROIpd5tcM:APA91bEKo_T9ZrmjB1WSBI33Pz2e7V06lfzuAuqzEjmPIvJfRt_P7QK6FAG7dsDfhaDFN76fuhj7qV5L6D1zqWHgkeQJwmQihBEayu5SVI4vpw9mwwNix09lY5CypuG0MgTTYzKXegyGb-bpmLfLZPQo7iKIRo3PBg
+        )
+
+    [268] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => e_cYnsRyfJw:APA91bH7JyqqwVqFq7r251zN93yLy782spsZjjnbNJZa_LS2wnmi-5bL5ni5H4jQg1EM_XsrxESX4DgG__D7QnmsUCoT59FWtAaL-KlkWgAKDdzoOUzvoLvIHe2GVRGqYSTf0Gnmwi8t
+            [devicetoken] => e_cYnsRyfJw:APA91bH7JyqqwVqFq7r251zN93yLy782spsZjjnbNJZa_LS2wnmi-5bL5ni5H4jQg1EM_XsrxESX4DgG__D7QnmsUCoT59FWtAaL-KlkWgAKDdzoOUzvoLvIHe2GVRGqYSTf0Gnmwi8t
+        )
+
+    [269] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => iOS
+            [plataforma] => iOS
+            [2] => f06Po5coqiI:APA91bH4fk_1eDq2zaKo7Z76_Rlea4zP-e3_jIxCF7AOEp0IUHkrZlUbpAcWu6OUGvmagJvAbALwMgWP8MD1_WCpNW0FbE-DHIo_FplYltvg2fuF3v5RVFt0KHDJC4W2-iuNRj6vpnlg
+            [devicetoken] => f06Po5coqiI:APA91bH4fk_1eDq2zaKo7Z76_Rlea4zP-e3_jIxCF7AOEp0IUHkrZlUbpAcWu6OUGvmagJvAbALwMgWP8MD1_WCpNW0FbE-DHIo_FplYltvg2fuF3v5RVFt0KHDJC4W2-iuNRj6vpnlg
+        )
+
+    [270] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => iOS
+            [plataforma] => iOS
+            [2] => f3G98oTP5eI:APA91bHGBD5bymwqbRkNwfjd5Y3QMxrE-Ei1_MwnA3YoFApAIMiwZJsqmNxeaUFR_glVZMWg7P3T901rkpZFZ46tsYscpE3cV9xhpNd3Kpp1oIgth3pgLndgK9V27rqbSNdwEFCuqInS
+            [devicetoken] => f3G98oTP5eI:APA91bHGBD5bymwqbRkNwfjd5Y3QMxrE-Ei1_MwnA3YoFApAIMiwZJsqmNxeaUFR_glVZMWg7P3T901rkpZFZ46tsYscpE3cV9xhpNd3Kpp1oIgth3pgLndgK9V27rqbSNdwEFCuqInS
+        )
+
+    [271] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => iOS
+            [plataforma] => iOS
+            [2] => f7iiy1VAO9A:APA91bHlCsOm7pyT2h7X1u8e7pOso1196CP5T_jYDMkdxJbhRaanjEDXDykfl9n7EAhavYrZCm4ctra9oqAWuEE21i6ZZNQ50yrI_mZoTSZ3NKQUJYNOeiHc7DclC21XOHzRtNsrpQgc
+            [devicetoken] => f7iiy1VAO9A:APA91bHlCsOm7pyT2h7X1u8e7pOso1196CP5T_jYDMkdxJbhRaanjEDXDykfl9n7EAhavYrZCm4ctra9oqAWuEE21i6ZZNQ50yrI_mZoTSZ3NKQUJYNOeiHc7DclC21XOHzRtNsrpQgc
+        )
+
+    [272] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => fB0Y1XKf3so:APA91bH6Lb6SMav2dR8gsH38tADwghCrPWxi8BEcbptzuXve_-qAe_1nQUo0vDjbCUCkWpUAVMIMIFu8sEbWgzUleZE0RdJfrEMfaozONLNDhpvR0wuP-_KR3NHXI4Q6MXTDIfKz06Md
+            [devicetoken] => fB0Y1XKf3so:APA91bH6Lb6SMav2dR8gsH38tADwghCrPWxi8BEcbptzuXve_-qAe_1nQUo0vDjbCUCkWpUAVMIMIFu8sEbWgzUleZE0RdJfrEMfaozONLNDhpvR0wuP-_KR3NHXI4Q6MXTDIfKz06Md
+        )
+
+    [273] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => fbIAyjRVEWE:APA91bFJoUwDVYEUTQzwnyIZc1Y3k4CcU5K4Omh80i4aQQwXRGO7iCD6ANrGa9CY63Fx2RYvYBcLW7KJ_ssYVjP5Q93W0fVyLKzR7wJMz3b4_mAWXLkvCRVk5LFl12BcMFCQsjhuScSb
+            [devicetoken] => fbIAyjRVEWE:APA91bFJoUwDVYEUTQzwnyIZc1Y3k4CcU5K4Omh80i4aQQwXRGO7iCD6ANrGa9CY63Fx2RYvYBcLW7KJ_ssYVjP5Q93W0fVyLKzR7wJMz3b4_mAWXLkvCRVk5LFl12BcMFCQsjhuScSb
+        )
+
+    [274] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => fbMTu38zYec:APA91bGXMY32IrVSAfelFieRWNL54_JN4nkqVdb6bufGW7geRY7NZ9IS8asreYB1xEKjCPqGKDVY3JgU9sojioYoAmszF_zqgYA2DyzAjQVj98un6iyu6bdpATY66ZUMy-JMVGwP39fH
+            [devicetoken] => fbMTu38zYec:APA91bGXMY32IrVSAfelFieRWNL54_JN4nkqVdb6bufGW7geRY7NZ9IS8asreYB1xEKjCPqGKDVY3JgU9sojioYoAmszF_zqgYA2DyzAjQVj98un6iyu6bdpATY66ZUMy-JMVGwP39fH
+        )
+
+    [275] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => fdRLKYuVXAs:APA91bFQYpCV3e0uFSpmEmUUU9HYrRwrlpK-VUC5CArth7Y_XVCivzlyyg8fzipygm8WNlCF68bxv7hnOnhFc7-TdeXe27Rh2GM9AzwnE-cq23SrRonfdN_SjTLi-8k7_ZJmLfxkjQrL
+            [devicetoken] => fdRLKYuVXAs:APA91bFQYpCV3e0uFSpmEmUUU9HYrRwrlpK-VUC5CArth7Y_XVCivzlyyg8fzipygm8WNlCF68bxv7hnOnhFc7-TdeXe27Rh2GM9AzwnE-cq23SrRonfdN_SjTLi-8k7_ZJmLfxkjQrL
+        )
+
+    [276] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => fdroxkFxbzw:APA91bHoc30DzwooVRJI11-TfRfBFJtwKj7BYgAuT0OQ-q_3hE13bJZcr4j8-060Tueq0K1RPmWC4rf4btJrLTnFLaGhaqrdNnC3DVvAwgdwQTyrXTcaCCG-iZ_F6sWc0pu1gnVVb0rw
+            [devicetoken] => fdroxkFxbzw:APA91bHoc30DzwooVRJI11-TfRfBFJtwKj7BYgAuT0OQ-q_3hE13bJZcr4j8-060Tueq0K1RPmWC4rf4btJrLTnFLaGhaqrdNnC3DVvAwgdwQTyrXTcaCCG-iZ_F6sWc0pu1gnVVb0rw
+        )
+
+    [277] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => iOS
+            [plataforma] => iOS
+            [2] => feJjoZeeoBU:APA91bFHHO8eAxgumVrHbZCrHXYIxVU8btoBkFApA3DHWDdtbgan8iKR4x4siXNzssHBQfuKFpvcHintZ1lwyRiaOrJU3aDlxUxI7k1HDBlpgtOhB97bzJHc8xlr6nsXyc9yrzEcE7bB
+            [devicetoken] => feJjoZeeoBU:APA91bFHHO8eAxgumVrHbZCrHXYIxVU8btoBkFApA3DHWDdtbgan8iKR4x4siXNzssHBQfuKFpvcHintZ1lwyRiaOrJU3aDlxUxI7k1HDBlpgtOhB97bzJHc8xlr6nsXyc9yrzEcE7bB
+        )
+
+    [278] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => ff6uhxOrrUM:APA91bGjTu6r6T2GdAUTJcDz_mfDixzBA2FoD9SvhX72s8GVGN8LaiHl0LWvfU3zlTX6fIUIOj8Cg9mTIQy2xnuYHoiuz2BcerGauaHS6rybMLqnRaO_exu9kJg_akPQmIZblRayyo5H
+            [devicetoken] => ff6uhxOrrUM:APA91bGjTu6r6T2GdAUTJcDz_mfDixzBA2FoD9SvhX72s8GVGN8LaiHl0LWvfU3zlTX6fIUIOj8Cg9mTIQy2xnuYHoiuz2BcerGauaHS6rybMLqnRaO_exu9kJg_akPQmIZblRayyo5H
+        )
+
+    [279] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => iOS
+            [plataforma] => iOS
+            [2] => fFSK6IEJZeE:APA91bGlPXfmMXW4YIZhmWP4oDtW0uEBU25DLzs76sUfeBlixQFxgyDX-jEnq7hu21VRsxktooxbtGblAjp8zypejYSXUGTbPrbkdO98hF9YPt4KMv0g7Um14emyEo_430Py9v1ZRbtP
+            [devicetoken] => fFSK6IEJZeE:APA91bGlPXfmMXW4YIZhmWP4oDtW0uEBU25DLzs76sUfeBlixQFxgyDX-jEnq7hu21VRsxktooxbtGblAjp8zypejYSXUGTbPrbkdO98hF9YPt4KMv0g7Um14emyEo_430Py9v1ZRbtP
+        )
+
+    [280] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => fFxQPDMO_KQ:APA91bGhZYKwOCaZ64jfgh2J3-7p5xTpwhpm6dQLBa-Mosv41dYivGNBT9ne89W-zpSM9Lvr26fwMdelKIoCzJRCPcBuNvP_oKyUnu1c8YJEjsCt5ObLncouF0ncpJOrMGz8f93S6mXH
+            [devicetoken] => fFxQPDMO_KQ:APA91bGhZYKwOCaZ64jfgh2J3-7p5xTpwhpm6dQLBa-Mosv41dYivGNBT9ne89W-zpSM9Lvr26fwMdelKIoCzJRCPcBuNvP_oKyUnu1c8YJEjsCt5ObLncouF0ncpJOrMGz8f93S6mXH
+        )
+
+    [281] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => fhE5GXPPTN8:APA91bHGZZDR3W1I94fiv3Y78EPb27g4LEixYqDTlN74NA11yQlX_Hptr4P-s2YBxvUKEqGxEp2S3-rWP90iwF6EO61xRA4oJzCzvU6iCaiVno0SxDuJus9vZHs10VGwRctlOAzRaCDg
+            [devicetoken] => fhE5GXPPTN8:APA91bHGZZDR3W1I94fiv3Y78EPb27g4LEixYqDTlN74NA11yQlX_Hptr4P-s2YBxvUKEqGxEp2S3-rWP90iwF6EO61xRA4oJzCzvU6iCaiVno0SxDuJus9vZHs10VGwRctlOAzRaCDg
+        )
+
+    [282] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => iOS
+            [plataforma] => iOS
+            [2] => fhNjOSEHzGY:APA91bHL1igj_yG1qoK0y9NZRM7o-mrZ1c9VUy5sp0xfa-gjWVP5ADHTe9syRTIX9Wp0rrTw3ASmj2YP-sTRXSR8YxseVU133FMU6M84IgppYFMGEJJnidIRiVNmO8Yq_f6QnMWD2UeX
+            [devicetoken] => fhNjOSEHzGY:APA91bHL1igj_yG1qoK0y9NZRM7o-mrZ1c9VUy5sp0xfa-gjWVP5ADHTe9syRTIX9Wp0rrTw3ASmj2YP-sTRXSR8YxseVU133FMU6M84IgppYFMGEJJnidIRiVNmO8Yq_f6QnMWD2UeX
+        )
+
+    [283] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => fIHZkNrw1tg:APA91bGa60NlbmnDWZs1nv3ImY1-r5otOHsYnyfQ9jCjDp5ktBXT3xHLdbW_BE58s3kKpocJzjbxsULkAsPbmyjU24YjgBSNtOz7pukp4TxiAKNYUQzmU8uBnhKJ8TINSBNCVQ2uGpLr
+            [devicetoken] => fIHZkNrw1tg:APA91bGa60NlbmnDWZs1nv3ImY1-r5otOHsYnyfQ9jCjDp5ktBXT3xHLdbW_BE58s3kKpocJzjbxsULkAsPbmyjU24YjgBSNtOz7pukp4TxiAKNYUQzmU8uBnhKJ8TINSBNCVQ2uGpLr
+        )
+
+    [284] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => iOS
+            [plataforma] => iOS
+            [2] => fJgkOYINR8k:APA91bH2WdVKKZswTuPdeIFCxiOEjurEs5b0BvSvaoQBahyaI7Z-xbzVdiknHUhj4a3u3yjFBzNd8LI9h3B-8v1Ei0bmyTnVRWZrtP32SjwYr-WVnGZgYgsJVUM7HHmXlhmQvH_eS_fy
+            [devicetoken] => fJgkOYINR8k:APA91bH2WdVKKZswTuPdeIFCxiOEjurEs5b0BvSvaoQBahyaI7Z-xbzVdiknHUhj4a3u3yjFBzNd8LI9h3B-8v1Ei0bmyTnVRWZrtP32SjwYr-WVnGZgYgsJVUM7HHmXlhmQvH_eS_fy
+        )
+
+    [285] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => fJxdjFlnf9k:APA91bGSVM6QTI7KGAQJnGkJWafmGpl_O-MDOZRHawz5r71qCBAMUX0XRRiqm4UgPqAf9lvyjj745s6g1ocJmATaz_sS2xuoOomBFuixjKS7d67jYsytqqZXq9CXQknCiel90W8Ddbq4
+            [devicetoken] => fJxdjFlnf9k:APA91bGSVM6QTI7KGAQJnGkJWafmGpl_O-MDOZRHawz5r71qCBAMUX0XRRiqm4UgPqAf9lvyjj745s6g1ocJmATaz_sS2xuoOomBFuixjKS7d67jYsytqqZXq9CXQknCiel90W8Ddbq4
+        )
+
+    [286] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => fKLdlaMsXOA:APA91bFmLo7tkB737YjzVVIXg3VmcTmB5pidGQ4htF67kJTfjbHFZQEpq1iA33fpLjLJ5d-mzROlkwM8b6mmynL9NS1zmwB14kOKfFwmRJoGYmxi8tLMDN5yy2ZpFed0iR1J16KR2Wjqt1lyNcDlg7MDSAO5k8P7kQ
+            [devicetoken] => fKLdlaMsXOA:APA91bFmLo7tkB737YjzVVIXg3VmcTmB5pidGQ4htF67kJTfjbHFZQEpq1iA33fpLjLJ5d-mzROlkwM8b6mmynL9NS1zmwB14kOKfFwmRJoGYmxi8tLMDN5yy2ZpFed0iR1J16KR2Wjqt1lyNcDlg7MDSAO5k8P7kQ
+        )
+
+    [287] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => iOS
+            [plataforma] => iOS
+            [2] => fMQBBDgnkEQ:APA91bF97gUjXQgIvVHujKd_4guc6o7ukE1ZIWDFljJTJTVO78Od7B9sy7w2oeR87goDKUOaoKGKjFGoJVog_hzte_TjuPq0UCYqxRk-Za7PFWr98diK9CT4saehNuDdvPsCmOcvLl57
+            [devicetoken] => fMQBBDgnkEQ:APA91bF97gUjXQgIvVHujKd_4guc6o7ukE1ZIWDFljJTJTVO78Od7B9sy7w2oeR87goDKUOaoKGKjFGoJVog_hzte_TjuPq0UCYqxRk-Za7PFWr98diK9CT4saehNuDdvPsCmOcvLl57
+        )
+
+    [288] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => fMSz3YMf7d0:APA91bFxmBy2AtCPJsZrsnUhQjBm0gfKssq3-MByamQvNqEhCNU3WPbUIzw24SzfztoJNbA65624OGvTNi4MrCDuLJTDlPKrCjFxN4E4i2APn3-mkVVFrJ-ETZDDVvTidd6WPge1BZlp
+            [devicetoken] => fMSz3YMf7d0:APA91bFxmBy2AtCPJsZrsnUhQjBm0gfKssq3-MByamQvNqEhCNU3WPbUIzw24SzfztoJNbA65624OGvTNi4MrCDuLJTDlPKrCjFxN4E4i2APn3-mkVVFrJ-ETZDDVvTidd6WPge1BZlp
+        )
+
+    [289] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => fonUuzfb2O8:APA91bHIPN5UX4aC_fN9cQ_THWLgzeX1wUnbCNyASVgUoemVlQ5R722tZLEBxE4eg8k0w1PVOtc_kDgaUgzw0Wlt3EkdA4cSpoLMFGfxkzb4HAwAoEKgR_FCotXrDsAoLP8axWfm9db9
+            [devicetoken] => fonUuzfb2O8:APA91bHIPN5UX4aC_fN9cQ_THWLgzeX1wUnbCNyASVgUoemVlQ5R722tZLEBxE4eg8k0w1PVOtc_kDgaUgzw0Wlt3EkdA4cSpoLMFGfxkzb4HAwAoEKgR_FCotXrDsAoLP8axWfm9db9
+        )
+
+    [290] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => iOS
+            [plataforma] => iOS
+            [2] => fouUj075hpI:APA91bH6R9ruaLszRTffrEhUu-9lCWZlxm6tR3bhDSWoJy1PWAsJ6poHOXgOZQ3Bv3M3rwJItwfZkVrwrUomihejf2cSyljgAOVsQ1WPXDneENdTI8kbeV23oJZx1xPuGEpi-j3FOpWj
+            [devicetoken] => fouUj075hpI:APA91bH6R9ruaLszRTffrEhUu-9lCWZlxm6tR3bhDSWoJy1PWAsJ6poHOXgOZQ3Bv3M3rwJItwfZkVrwrUomihejf2cSyljgAOVsQ1WPXDneENdTI8kbeV23oJZx1xPuGEpi-j3FOpWj
+        )
+
+    [291] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => iOS
+            [plataforma] => iOS
+            [2] => fqk5LmsupYk:APA91bHiw9NdBwtLshFP7-7a8T5brhbLEGBJ3WaP8t2b_k1tnVvdIkzSC-ToPWb_zCAL0_ZLCNwLIuWdpp2ZFe2BvGWw7NPxZyuT6UuGgrU2OvS7Yh9tTSajWC-g26Oop2W6RCP3e2Sd
+            [devicetoken] => fqk5LmsupYk:APA91bHiw9NdBwtLshFP7-7a8T5brhbLEGBJ3WaP8t2b_k1tnVvdIkzSC-ToPWb_zCAL0_ZLCNwLIuWdpp2ZFe2BvGWw7NPxZyuT6UuGgrU2OvS7Yh9tTSajWC-g26Oop2W6RCP3e2Sd
+        )
+
+    [292] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => fqwfjrEU5zI:APA91bHTwRiq2vsjbweEDh5mNkC9uizPouor3U3aVzu3HqlOiPtmHP3bFB8T7VduOoQ-pACIs3_g0KwlVfWmRkAIPZn7SBimL6KZSdXGQDYXgkaxzg-BqVrZBsvibTQH8r0dnUUXBQ0N
+            [devicetoken] => fqwfjrEU5zI:APA91bHTwRiq2vsjbweEDh5mNkC9uizPouor3U3aVzu3HqlOiPtmHP3bFB8T7VduOoQ-pACIs3_g0KwlVfWmRkAIPZn7SBimL6KZSdXGQDYXgkaxzg-BqVrZBsvibTQH8r0dnUUXBQ0N
+        )
+
+    [293] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => frDN7mkQQcg:APA91bFz3HwNUOR0eoRGok_DBxIMIbyg0s-gFWloNw2iUOWFQD3pPImAedRpLwVYcGb3R-or5MD9IUpyrtM2d1e1RDyPAbdsOv_UmQ619t7sLNv5vVvMzy6ZdYaz4dxfw5q-q-sBXZWr
+            [devicetoken] => frDN7mkQQcg:APA91bFz3HwNUOR0eoRGok_DBxIMIbyg0s-gFWloNw2iUOWFQD3pPImAedRpLwVYcGb3R-or5MD9IUpyrtM2d1e1RDyPAbdsOv_UmQ619t7sLNv5vVvMzy6ZdYaz4dxfw5q-q-sBXZWr
+        )
+
+    [294] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => frf0vTJMjS0:APA91bFCUlBKeWSRiYJDA3_IK6yIZghvvkw9W49aY_5sz-MCVovDIWpsV5nLS3jP7w9xg0qsYk8gERBNd9-tRouAjUhB78nRqahWqXvcPpWdZD5iXlJfgVVVRoXlbp-z3Y2lF6f7iuYN
+            [devicetoken] => frf0vTJMjS0:APA91bFCUlBKeWSRiYJDA3_IK6yIZghvvkw9W49aY_5sz-MCVovDIWpsV5nLS3jP7w9xg0qsYk8gERBNd9-tRouAjUhB78nRqahWqXvcPpWdZD5iXlJfgVVVRoXlbp-z3Y2lF6f7iuYN
+        )
+
+    [295] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => iOS
+            [plataforma] => iOS
+            [2] => fs7PHyQWvr8:APA91bFVeuy2RGm0YdaOjDsdpuwpA9anK941JxUgJTsgBOd8wDi9u0lOBt8OhpyywpaOleRCQW292cRM0KDAgKAm_2BPLLAuFVWgn70AAbCyUc4neA0wMNNoZlXjs7wDG6JvbOh3M5dP
+            [devicetoken] => fs7PHyQWvr8:APA91bFVeuy2RGm0YdaOjDsdpuwpA9anK941JxUgJTsgBOd8wDi9u0lOBt8OhpyywpaOleRCQW292cRM0KDAgKAm_2BPLLAuFVWgn70AAbCyUc4neA0wMNNoZlXjs7wDG6JvbOh3M5dP
+        )
+
+    [296] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => fsgG1GM_nB8:APA91bHv4q7pAoXjkRFvM6M7joX4dEsOaYKBitZI1uANU-LYIcs4oKZhuOoYHjtRt_GuN2UB2G7YE85aUCZ9HKXu5RerQwqlXb1oqDjyKLwLTk2jCB3vKThnQBeXRyTLm60Ub4CxE_yL
+            [devicetoken] => fsgG1GM_nB8:APA91bHv4q7pAoXjkRFvM6M7joX4dEsOaYKBitZI1uANU-LYIcs4oKZhuOoYHjtRt_GuN2UB2G7YE85aUCZ9HKXu5RerQwqlXb1oqDjyKLwLTk2jCB3vKThnQBeXRyTLm60Ub4CxE_yL
+        )
+
+    [297] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => iOS
+            [plataforma] => iOS
+            [2] => fsKACnEo64s:APA91bE8eppAg_v_1MVZnJxSul3Su3SBWdmLdj-p2M3DLxujTDyksXfqC88lqsMGlR4YdaZ_4fLHQPSpofT_I9z9pxaWRbCVX1aKTsK_xUG7GanKxc6JA_OzvbmdEK4XlpvOUp0ml6My
+            [devicetoken] => fsKACnEo64s:APA91bE8eppAg_v_1MVZnJxSul3Su3SBWdmLdj-p2M3DLxujTDyksXfqC88lqsMGlR4YdaZ_4fLHQPSpofT_I9z9pxaWRbCVX1aKTsK_xUG7GanKxc6JA_OzvbmdEK4XlpvOUp0ml6My
+        )
+
+    [298] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => fsMo2PqMCvQ:APA91bG0brMN2zveD5sjCal8K8fCJC55Coy-K8V_dCJObUSb7hvxqqsku0OpPdT3_-9MZB0dHoDL7-Fw09c2DeniyyhkK21Vs7l6xBU1lOz3APWYAPoMbhE1W3dEOe4Da5sV8arN0Ik-
+            [devicetoken] => fsMo2PqMCvQ:APA91bG0brMN2zveD5sjCal8K8fCJC55Coy-K8V_dCJObUSb7hvxqqsku0OpPdT3_-9MZB0dHoDL7-Fw09c2DeniyyhkK21Vs7l6xBU1lOz3APWYAPoMbhE1W3dEOe4Da5sV8arN0Ik-
+        )
+
+    [299] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => iOS
+            [plataforma] => iOS
+            [2] => fu7gnXKzOw8:APA91bElONyZM99fB8gE6AmYZUyYDyf_rzu7ecX_XbXIZXwQMLg-a2U0fQGv9XdMUA-xXNSiNpp3Mu1S6q4AbhFkyVBmdZeaYVutOMu1WK0AetAbYkYwIU3M_iJlhCE40iqmdoQNMknh
+            [devicetoken] => fu7gnXKzOw8:APA91bElONyZM99fB8gE6AmYZUyYDyf_rzu7ecX_XbXIZXwQMLg-a2U0fQGv9XdMUA-xXNSiNpp3Mu1S6q4AbhFkyVBmdZeaYVutOMu1WK0AetAbYkYwIU3M_iJlhCE40iqmdoQNMknh
+        )
+
+    [300] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => fuxC5oOplRA:APA91bFbeUUlmcNsI4MZjfoffHGbNMfzD2W4sNYCQpexWRvO7lk54NywV_mZtx-zXWpIN3aXr0QeKje_1NlyQNbLAaIBIDB_kQg0qgUak0SulMUtvEMySv9Y7SR516qlSVVTcB_Q66VN
+            [devicetoken] => fuxC5oOplRA:APA91bFbeUUlmcNsI4MZjfoffHGbNMfzD2W4sNYCQpexWRvO7lk54NywV_mZtx-zXWpIN3aXr0QeKje_1NlyQNbLAaIBIDB_kQg0qgUak0SulMUtvEMySv9Y7SR516qlSVVTcB_Q66VN
+        )
+
+    [301] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => fvep-ZMHc2U:APA91bEbgm7fz_aGBUkeLHcjTindbVBy-6I9ufdb73T7aH0iWwL9lc2s9wGwcZFPh6mfHbZrXM5G7fYfylGXYjAYpx874rf_pcemlg1HDAowrAjMx6l6IyiRvXtp1Jw1vroDK_jzilnd
+            [devicetoken] => fvep-ZMHc2U:APA91bEbgm7fz_aGBUkeLHcjTindbVBy-6I9ufdb73T7aH0iWwL9lc2s9wGwcZFPh6mfHbZrXM5G7fYfylGXYjAYpx874rf_pcemlg1HDAowrAjMx6l6IyiRvXtp1Jw1vroDK_jzilnd
+        )
+
+    [302] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => iOS
+            [plataforma] => iOS
+            [2] => fVj4uOMK5vQ:APA91bGcCuywxmXKKYsUfI69JgYE6BV_ADMi8Muu0FNfoirbdSuqgYQ1RIsGI5tP2VzzyAiE-5-BzRcIbv15gDbRSfIHoJbw2j1THoQ_UkZg_LRNLQ5DMdo73iD-9vw7S_2x5NGLkXpJ
+            [devicetoken] => fVj4uOMK5vQ:APA91bGcCuywxmXKKYsUfI69JgYE6BV_ADMi8Muu0FNfoirbdSuqgYQ1RIsGI5tP2VzzyAiE-5-BzRcIbv15gDbRSfIHoJbw2j1THoQ_UkZg_LRNLQ5DMdo73iD-9vw7S_2x5NGLkXpJ
+        )
+
+    [303] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => fvrL59587Kk:APA91bGpImfu84gVwBnZO_iKkhOWjfTNAOVIYS44na9Yt3D20TE3Bm2JHX8AoM5ZvcgVUSdErkyM_bIimIImfvEwTGzdeA7txOvBXzgVD7pGXpkeWfWU637iNj1xdAVrO02exrLf1C1f
+            [devicetoken] => fvrL59587Kk:APA91bGpImfu84gVwBnZO_iKkhOWjfTNAOVIYS44na9Yt3D20TE3Bm2JHX8AoM5ZvcgVUSdErkyM_bIimIImfvEwTGzdeA7txOvBXzgVD7pGXpkeWfWU637iNj1xdAVrO02exrLf1C1f
+        )
+
+    [304] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => iOS
+            [plataforma] => iOS
+            [2] => fvwMSj0paUA:APA91bEmxDBKdeSxfFlulpbY0S-8FDCPVY6Hwp9RBJBV_gViR23kviHwDtTZmhWI_4ELdWb8ZisI9XHZHA7ISGP_1X46Cjo65fT422XRnmqaEQnXipPywLXKfzvlod6LtDu-PlzGIpL6
+            [devicetoken] => fvwMSj0paUA:APA91bEmxDBKdeSxfFlulpbY0S-8FDCPVY6Hwp9RBJBV_gViR23kviHwDtTZmhWI_4ELdWb8ZisI9XHZHA7ISGP_1X46Cjo65fT422XRnmqaEQnXipPywLXKfzvlod6LtDu-PlzGIpL6
+        )
+
+    [305] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => fylEjvxBkF0:APA91bGzk0eKB-xzKWZoWhngO7PSozF1V8X7ePxLbXD0EOjUkONwgH2WMXGdE8I4h9k3GYZ4rQ92ihZJogKelNqKI8LLfNw4L6o5boLQQkUnGDfvi6w1F2Na2Lr_D3HlDwi3V-A88XgW
+            [devicetoken] => fylEjvxBkF0:APA91bGzk0eKB-xzKWZoWhngO7PSozF1V8X7ePxLbXD0EOjUkONwgH2WMXGdE8I4h9k3GYZ4rQ92ihZJogKelNqKI8LLfNw4L6o5boLQQkUnGDfvi6w1F2Na2Lr_D3HlDwi3V-A88XgW
+        )
+
+    [306] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => fyX3riAqQoo:APA91bGb45Qtfp-A3CaWrDPRBdKYRRrHBlmqUMPx-SMJKut7LHlHDs6aAF4gEnChVEDT_TWwhZSwBgSPm8DvFiMwiMdnUCOJs7cgODTYXwvn_HgzsIg0BYQObhf9oi1lvlPUZcnCyt41
+            [devicetoken] => fyX3riAqQoo:APA91bGb45Qtfp-A3CaWrDPRBdKYRRrHBlmqUMPx-SMJKut7LHlHDs6aAF4gEnChVEDT_TWwhZSwBgSPm8DvFiMwiMdnUCOJs7cgODTYXwvn_HgzsIg0BYQObhf9oi1lvlPUZcnCyt41
+        )
+
+    [307] => Array
+        (
+            [0] => 58843
+            [idUsuario] => 58843
+            [1] => android
+            [plataforma] => android
+            [2] => fZvh6DBHAsE:APA91bGR59P3_WRQSIasvIo7iximhjZOOATeouvplH7AzoZGVyJV4l2R86jEvrRva_80In2S1uhRMCHgQ7gJsJN2s__Uv6x_oO4f8qjxowwdgCD4QjemT_vcsckdgDKqPg_ibYjTyGdr
+            [devicetoken] => fZvh6DBHAsE:APA91bGR59P3_WRQSIasvIo7iximhjZOOATeouvplH7AzoZGVyJV4l2R86jEvrRva_80In2S1uhRMCHgQ7gJsJN2s__Uv6x_oO4f8qjxowwdgCD4QjemT_vcsckdgDKqPg_ibYjTyGdr
+        )
+
+)
+
+resultiOS: {"multicast_id":6925077802125975835,"success":84,"failure":13,"canonical_ids":0,"results":[{"message_id":"1605709911729817"},{"message_id":"1605709911735641"},{"message_id":"1605709911834210"},{"message_id":"1605709911730069"},{"message_id":"1605709911766810"},{"message_id":"1605709911736021"},{"message_id":"1605709911732306"},{"message_id":"1605709911733166"},{"message_id":"1605709911736606"},{"message_id":"1605709911733257"},{"message_id":"1605709911735037"},{"message_id":"1605709911768303"},{"message_id":"1605709911750006"},{"message_id":"1605709911734897"},{"message_id":"1605709911732456"},{"message_id":"1605709911733255"},{"message_id":"1605709911735310"},{"message_id":"1605709911732399"},{"message_id":"1605709911731635"},{"message_id":"1605709911806352"},{"message_id":"1605709911757428"},{"message_id":"1605709911734056"},{"message_id":"1605709911737044"},{"message_id":"1605709911735640"},{"message_id":"1605709911752905"},{"message_id":"1605709911735186"},{"message_id":"1605709911736024"},{"message_id":"1605709911746342"},{"message_id":"1605709911734731"},{"message_id":"1605709911733254"},{"message_id":"1605709911776719"},{"message_id":"1605709911753830"},{"message_id":"1605709911764954"},{"message_id":"1605709911733256"},{"message_id":"1605709911754882"},{"message_id":"1605709911792704"},{"message_id":"1605709911769610"},{"message_id":"1605709911734095"},{"message_id":"1605709911734054"},{"message_id":"1605709911734055"},{"message_id":"1605709911747528"},{"message_id":"1605709911762158"},{"message_id":"1605709911736017"},{"message_id":"1605709911734058"},{"message_id":"1605709911735185"},{"message_id":"1605709911760089"},{"message_id":"1605709911735039"},{"message_id":"1605709911745239"},{"message_id":"1605709911735038"},{"message_id":"1605709911734779"},{"message_id":"1605709911736023"},{"message_id":"1605709911734057"},{"message_id":"1605709911735183"},{"message_id":"1605709911736611"},{"message_id":"1605709911754881"},{"message_id":"1605709911736015"},{"message_id":"1605709911736019"},{"message_id":"1605709911736609"},{"message_id":"1605709911735642"},{"message_id":"1605709911735184"},{"message_id":"1605709911758733"},{"message_id":"1605709911735040"},{"message_id":"1605709911768699"},{"message_id":"1605709911774252"},{"message_id":"1605709911738135"},{"message_id":"1605709911736020"},{"message_id":"1605709911748489"},{"error":"NotRegistered"},{"error":"NotRegistered"},{"message_id":"1605709911735182"},{"error":"NotRegistered"},{"message_id":"1605709911735187"},{"message_id":"1605709911733259"},{"error":"NotRegistered"},{"error":"NotRegistered"},{"message_id":"1605709911733626"},{"message_id":"1605709911735643"},{"message_id":"1605709911738134"},{"error":"NotRegistered"},{"message_id":"1605709911740195"},{"message_id":"1605709911757415"},{"error":"NotRegistered"},{"message_id":"1605709911735431"},{"message_id":"1605709911734096"},{"message_id":"1605709911735644"},{"error":"NotRegistered"},{"error":"NotRegistered"},{"message_id":"1605709911736560"},{"message_id":"1605709911736016"},{"error":"NotRegistered"},{"message_id":"1605709911744276"},{"error":"NotRegistered"},{"message_id":"1605709911736605"},{"message_id":"1605709911736608"},{"error":"NotRegistered"},{"error":"NotRegistered"},{"message_id":"1605709911774610"}]}
+resultAndroid: {"multicast_id":9100211052102474050,"success":116,"failure":95,"canonical_ids":0,"results":[{"message_id":"0:1605709913185174%9b1031ea9b1031ea"},{"message_id":"0:1605709913192711%9b1031ea9b1031ea"},{"message_id":"0:1605709913163409%9b1031ea9b1031ea"},{"message_id":"0:1605709913149128%9b1031ea9b1031ea"},{"message_id":"0:1605709913171670%9b1031ea9b1031ea"},{"message_id":"0:1605709913158755%9b1031ea9b1031ea"},{"message_id":"0:1605709913172701%9b1031ea9b1031ea"},{"message_id":"0:1605709913194734%9b1031ea9b1031ea"},{"message_id":"0:1605709913191492%9b1031ea9b1031ea"},{"message_id":"0:1605709913175085%9b1031ea9b1031ea"},{"message_id":"0:1605709913188345%9b1031ea9b1031ea"},{"message_id":"0:1605709913159702%9b1031ea9b1031ea"},{"message_id":"0:1605709913153733%9b1031ea9b1031ea"},{"message_id":"0:1605709913154947%9b1031ea9b1031ea"},{"message_id":"0:1605709913168259%9b1031ea9b1031ea"},{"message_id":"0:1605709913160285%9b1031ea9b1031ea"},{"message_id":"0:1605709913196920%9b1031ea9b1031ea"},{"message_id":"0:1605709913179268%9b1031ea9b1031ea"},{"message_id":"0:1605709913203653%9b1031ea9b1031ea"},{"message_id":"0:1605709913155222%9b1031ea9b1031ea"},{"message_id":"0:1605709913154346%9b1031ea9b1031ea"},{"message_id":"0:1605709913176814%9b1031ea9b1031ea"},{"message_id":"0:1605709913153092%9b1031ea9b1031ea"},{"message_id":"0:1605709913169464%9b1031ea9b1031ea"},{"message_id":"0:1605709913177797%9b1031ea9b1031ea"},{"message_id":"0:1605709913190358%9b1031ea9b1031ea"},{"message_id":"0:1605709913149469%9b1031ea9b1031ea"},{"message_id":"0:1605709913186483%9b1031ea9b1031ea"},{"message_id":"0:1605709913177796%9b1031ea9b1031ea"},{"message_id":"0:1605709913182006%9b1031ea9b1031ea"},{"message_id":"0:1605709913171713%9b1031ea9b1031ea"},{"message_id":"0:1605709913157818%9b1031ea9b1031ea"},{"message_id":"0:1605709913150293%9b1031ea9b1031ea"},{"message_id":"0:1605709913168258%9b1031ea9b1031ea"},{"message_id":"0:1605709913169463%9b1031ea9b1031ea"},{"message_id":"0:1605709913200700%9b1031ea9b1031ea"},{"message_id":"0:1605709913175087%9b1031ea9b1031ea"},{"message_id":"0:1605709913163840%9b1031ea9b1031ea"},{"message_id":"0:1605709913179267%9b1031ea9b1031ea"},{"message_id":"0:1605709913171714%9b1031ea9b1031ea"},{"message_id":"0:1605709913157037%9b1031ea9b1031ea"},{"message_id":"0:1605709913154946%9b1031ea9b1031ea"},{"message_id":"0:1605709913180924%9b1031ea9b1031ea"},{"message_id":"0:1605709913153732%9b1031ea9b1031ea"},{"message_id":"0:1605709913153095%9b1031ea9b1031ea"},{"message_id":"0:1605709913153734%9b1031ea9b1031ea"},{"message_id":"0:1605709913153729%9b1031ea9b1031ea"},{"message_id":"0:1605709913163838%9b1031ea9b1031ea"},{"message_id":"0:1605709913155960%9b1031ea9b1031ea"},{"message_id":"0:1605709913168051%9b1031ea9b1031ea"},{"message_id":"0:1605709913156596%9b1031ea9b1031ea"},{"message_id":"0:1605709913184607%9b1031ea9b1031ea"},{"message_id":"0:1605709913156568%9b1031ea9b1031ea"},{"message_id":"0:1605709913163410%9b1031ea9b1031ea"},{"message_id":"0:1605709913173750%9b1031ea9b1031ea"},{"message_id":"0:1605709913200699%9b1031ea9b1031ea"},{"message_id":"0:1605709913165344%9b1031ea9b1031ea"},{"message_id":"0:1605709913162197%9b1031ea9b1031ea"},{"message_id":"0:1605709913152332%9b1031ea9b1031ea"},{"message_id":"0:1605709913175086%9b1031ea9b1031ea"},{"message_id":"0:1605709913154344%9b1031ea9b1031ea"},{"message_id":"0:1605709913184673%9b1031ea9b1031ea"},{"message_id":"0:1605709913194334%9b1031ea9b1031ea"},{"message_id":"0:1605709913164380%9b1031ea9b1031ea"},{"message_id":"0:1605709913188121%9b1031ea9b1031ea"},{"message_id":"0:1605709913155768%9b1031ea9b1031ea"},{"message_id":"0:1605709913153916%9b1031ea9b1031ea"},{"error":"NotRegistered"},{"error":"NotRegistered"},{"error":"NotRegistered"},{"message_id":"0:1605709913153917%9b1031ea9b1031ea"},{"message_id":"0:1605709913176116%9b1031ea9b1031ea"},{"error":"NotRegistered"},{"error":"NotRegistered"},{"error":"NotRegistered"},{"message_id":"0:1605709913170773%9b1031ea9b1031ea"},{"error":"NotRegistered"},{"error":"NotRegistered"},{"message_id":"1605709913160507"},{"error":"NotRegistered"},{"message_id":"0:1605709913157817%9b1031ea9b1031ea"},{"error":"NotRegistered"},{"error":"NotRegistered"},{"error":"NotRegistered"},{"error":"NotRegistered"},{"message_id":"0:1605709913156594%9b1031ea9b1031ea"},{"error":"NotRegistered"},{"message_id":"0:1605709913181871%9b1031ea9b1031ea"},{"message_id":"0:1605709913197694%9b1031ea9b1031ea"},{"error":"NotRegistered"},{"error":"NotRegistered"},{"error":"NotRegistered"},{"error":"NotRegistered"},{"message_id":"1605709913153094"},{"error":"NotRegistered"},{"error":"NotRegistered"},{"message_id":"0:1605709913183137%9b1031ea9b1031ea"},{"message_id":"1605709913156407"},{"message_id":"0:1605709913213257%9b1031ea9b1031ea"},{"error":"NotRegistered"},{"error":"NotRegistered"},{"error":"NotRegistered"},{"error":"NotRegistered"},{"error":"NotRegistered"},{"error":"NotRegistered"},{"error":"NotRegistered"},{"message_id":"0:1605709913191493%9b1031ea9b1031ea"},{"message_id":"0:1605709913156593%9b1031ea9b1031ea"},{"error":"NotRegistered"},{"error":"NotRegistered"},{"message_id":"1605709913162408"},{"error":"NotRegistered"},{"error":"NotRegistered"},{"error":"NotRegistered"},{"message_id":"1605709913155508"},{"error":"NotRegistered"},{"error":"NotRegistered"},{"message_id":"0:1605709913298291%9b1031ea9b1031ea"},{"message_id":"0:1605709913183690%9b1031ea9b1031ea"},{"error":"NotRegistered"},{"error":"NotRegistered"},{"error":"NotRegistered"},{"error":"NotRegistered"},{"error":"NotRegistered"},{"error":"NotRegistered"},{"error":"NotRegistered"},{"message_id":"0:1605709913158268%9b1031ea9b1031ea"},{"error":"NotRegistered"},{"message_id":"0:1605709913204025%9b1031ea9b1031ea"},{"message_id":"1605709913156458"},{"error":"NotRegistered"},{"message_id":"1605709913156491"},{"error":"NotRegistered"},{"message_id":"0:1605709913156490%9b1031ea9b1031ea"},{"message_id":"0:1605709913155223%9b1031ea9b1031ea"},{"message_id":"1605709913160287"},{"error":"NotRegistered"},{"error":"NotRegistered"},{"error":"NotRegistered"},{"error":"NotRegistered"},{"message_id":"0:1605709913157038%9b1031ea9b1031ea"},{"message_id":"0:1605709913176161%9b1031ea9b1031ea"},{"error":"NotRegistered"},{"error":"NotRegistered"},{"error":"NotRegistered"},{"error":"NotRegistered"},{"error":"NotRegistered"},{"message_id":"0:1605709913180525%9b1031ea9b1031ea"},{"message_id":"0:1605709913208631%9b1031ea9b1031ea"},{"message_id":"0:1605709913189954%9b1031ea9b1031ea"},{"message_id":"0:1605709913157820%9b1031ea9b1031ea"},{"error":"NotRegistered"},{"message_id":"0:1605709913163388%9b1031ea9b1031ea"},{"message_id":"0:1605709913175982%9b1031ea9b1031ea"},{"error":"NotRegistered"},{"error":"NotRegistered"},{"error":"NotRegistered"},{"error":"NotRegistered"},{"error":"NotRegistered"},{"error":"NotRegistered"},{"error":"NotRegistered"},{"message_id":"0:1605709913156595%9b1031ea9b1031ea"},{"error":"NotRegistered"},{"error":"NotRegistered"},{"error":"NotRegistered"},{"message_id":"0:1605709913188119%9b1031ea9b1031ea"},{"error":"NotRegistered"},{"message_id":"0:1605709913195614%9b1031ea9b1031ea"},{"message_id":"1605709913179269"},{"error":"NotRegistered"},{"message_id":"0:1605709913162354%9b1031ea9b1031ea"},{"message_id":"1605709913181481"},{"error":"NotRegistered"},{"error":"NotRegistered"},{"error":"NotRegistered"},{"error":"NotRegistered"},{"error":"NotRegistered"},{"error":"NotRegistered"},{"error":"NotRegistered"},{"error":"NotRegistered"},{"error":"NotRegistered"},{"message_id":"1605709913163408"},{"error":"NotRegistered"},{"error":"NotRegistered"},{"message_id":"0:1605709913164249%9b1031ea9b1031ea"},{"message_id":"0:1605709913205187%9b1031ea9b1031ea"},{"error":"NotRegistered"},{"error":"NotRegistered"},{"error":"NotRegistered"},{"error":"NotRegistered"},{"error":"NotRegistered"},{"error":"NotRegistered"},{"message_id":"1605709913160508"},{"message_id":"0:1605709913162196%9b1031ea9b1031ea"},{"error":"NotRegistered"},{"message_id":"0:1605709913162407%9b1031ea9b1031ea"},{"message_id":"1605709913163839"},{"error":"NotRegistered"},{"error":"NotRegistered"},{"message_id":"0:1605709913198886%9b1031ea9b1031ea"},{"error":"NotRegistered"},{"error":"NotRegistered"},{"message_id":"1605709913161008"},{"message_id":"1605709913176787"},{"error":"NotRegistered"},{"error":"NotRegistered"},{"error":"NotRegistered"},{"error":"NotRegistered"},{"error":"NotRegistered"},{"error":"NotRegistered"},{"error":"NotRegistered"}]}
+

@@ -1,0 +1,27 @@
+name: Secure Development Workflow
+
+on: [push]
+
+jobs:
+  combined:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@fa2e9d605c4eeb9fcad4c99c224cee0c6c7f3594 # v2.16.0
+        with:
+          egress-policy: audit
+
+      - uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5.0.1
+      - name: Vulnerability scan
+        uses: debricked/actions@659ae7accc12313772fbfbd1b1fccec31772ce41 # v4.0.0
+        env:
+          DEBRICKED_TOKEN: ${{ secrets.DEBRICKED_TOKEN }}
+      - name: Resolve vulnerabilities
+        if: always()  # Always attempt resolution, even after failures
+        uses: debricked/actions/resolve@659ae7accc12313772fbfbd1b1fccec31772ce41 # v4.0.0
+        env:
+          DEBRICKED_TOKEN: ${{ secrets.DEBRICKED_TOKEN }}
+          # Add optional inputs for vulnerability prioritization and resolution strategies
+          # e.g., DEBRICKED_RESOLVE_STRATEGY: upgrade, DEBRICKED_SEVERITY_THRESHOLD: high
+          # See https://debricked.com/docs/actions/resolve for complete list

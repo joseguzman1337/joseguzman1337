@@ -1,0 +1,77 @@
+body, html {
+	font-family: Arial, Helvetica, sans-serif;
+	margin:0;
+	padding:0;
+}
+.contenido {
+	background-color:#fff;
+	width:920px;
+	height:295px; /*esta altura debe ser igual a la de .frame y .contenido en principal.css*/
+}
+.menulateral {
+	width:200px; /*ancho de menu lateral*/
+	background:#596221 url(../imagenes/fondo_menulateral.gif) bottom no-repeat;
+	height:100%;
+	font-size: 13px;
+	color: #E99100;
+	float:left;
+}
+.menulateral div {
+	text-align:right;
+	border-bottom:#4F571E solid 1px;
+}
+.enlace_lateral, .enlace_lateral_division {
+	display:block;
+	padding:10px 15px 10px 15px;
+	text-decoration:none;
+}
+.enlace_lateral {
+	font-size:1.2em;
+	color:#badc01;
+}
+.enlace_lateral_division {
+	color:#E99100;
+}
+.enlace_lateral:hover, .enlace_lateral_division:hover {
+	margin-right:-5px;
+	color:#fff;
+	background-color:#4F571E;
+}
+.frame_derecho {
+	width:720px;
+	height:295px;
+	border:none;
+	overflow:hidden;
+	background:#414928;
+}
+.frame_unico {
+	width:auto;
+	/*height:auto;*/
+	overflow:hidden;
+	padding:10px;
+	background:#414928;
+}
+#tercero .frame_unico {
+	height:100px;
+}
+
+.area							{ float:left; width:205px; height:255px; background:#343916; margin:10px; }
+.area.educont					{ height:50px; margin:5px; }
+.panel							{ width:680px; height:235px; background:#fff; margin:20px; }
+.area_titular					{ display:block; width:185px; font-size:1.2em; line-height:1em; text-align:right; padding:5px 10px; }
+.area_contenido					{ display:block; width:185px; text-align:right; padding:0 10px; }
+#area_titular1					{ color:#BC0D3B; }
+#area_titular2					{ color:#E99000; }
+#area_titular3					{ color:#E3B112; }
+#area_titular4					{ color:#1B96B3; }
+.programa						{ display:block; color:#fff; text-decoration:none; line-height:1em; margin:10px 0; }
+.programa:hover					{ color:#df7e00; }
+.area_especializacion			{ display:block; font-size:1.2em; padding:0; margin:0; }
+.programa_especializacion		{ text-indent:-12px; display:block; font-size:0.9em; color:#fff; text-decoration:none; line-height:1em; margin:5px 0 5px 12px; }
+.programa_especializacion:hover	{ color:#df7e00; }
+.latinas						{ color:#88ab0c; }
+.maestria_en					{ display:block; font-size:1em; }
+.programa_maestria				{ display:block; margin-left:10px; font-size:1.2em; }
+.enlace_maestria				{ text-decoration:none; color:#fff; line-height:1.2em; padding:0; }
+.enlace_maestria:hover			{ color:#df7e00; }
+.titulo							{ display:block; width:100%; height:20px; color:#fff;  padding:10px; font-weight:bold; }

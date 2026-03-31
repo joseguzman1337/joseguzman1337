@@ -1,0 +1,312 @@
+/*
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package io.trino.sql.planner;
+
+import com.google.common.collect.ImmutableList;
+import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.ImmutableSet;
+import io.trino.Session;
+import io.trino.metadata.ResolvedFunction;
+import io.trino.metadata.TestingFunctionResolution;
+import io.trino.operator.RetryPolicy;
+import io.trino.spi.function.OperatorType;
+import io.trino.sql.ir.Between;
+import io.trino.sql.ir.Call;
+import io.trino.sql.ir.Comparison;
+import io.trino.sql.ir.Constant;
+import io.trino.sql.ir.Logical;
+import io.trino.sql.ir.Reference;
+import io.trino.sql.planner.OptimizerConfig.JoinDistributionType;
+import io.trino.sql.planner.OptimizerConfig.JoinReorderingStrategy;
+import io.trino.sql.planner.assertions.BasePlanTest;
+import io.trino.sql.planner.plan.DynamicFilterSourceNode;
+import io.trino.sql.planner.plan.SemiJoinNode;
+import org.junit.jupiter.api.Test;
+
+import java.util.Arrays;
+import java.util.Optional;
+
+import static io.trino.SystemSessionProperties.ENABLE_DYNAMIC_FILTERING;
+import static io.trino.SystemSessionProperties.FILTERING_SEMI_JOIN_TO_INNER;
+import static io.trino.SystemSessionProperties.JOIN_DISTRIBUTION_TYPE;
+import static io.trino.SystemSessionProperties.JOIN_REORDERING_STRATEGY;
+import static io.trino.SystemSessionProperties.RETRY_POLICY;
+import static io.trino.spi.type.BigintType.BIGINT;
+import static io.trino.spi.type.BooleanType.BOOLEAN;
+import static io.trino.spi.type.IntegerType.INTEGER;
+import static io.trino.sql.ir.Booleans.TRUE;
+import static io.trino.sql.ir.Comparison.Operator.EQUAL;
+import static io.trino.sql.ir.Comparison.Operator.GREATER_THAN_OR_EQUAL;
+import static io.trino.sql.ir.Comparison.Operator.LESS_THAN_OR_EQUAL;
+import static io.trino.sql.ir.Logical.Operator.AND;
+import static io.trino.sql.planner.OptimizerConfig.JoinDistributionType.BROADCAST;
+import static io.trino.sql.planner.OptimizerConfig.JoinDistributionType.PARTITIONED;
+import static io.trino.sql.planner.assertions.PlanMatchPattern.anyTree;
+import static io.trino.sql.planner.assertions.PlanMatchPattern.exchange;
+import static io.trino.sql.planner.assertions.PlanMatchPattern.expression;
+import static io.trino.sql.planner.assertions.PlanMatchPattern.filter;
+import static io.trino.sql.planner.assertions.PlanMatchPattern.join;
+import static io.trino.sql.planner.assertions.PlanMatchPattern.node;
+import static io.trino.sql.planner.assertions.PlanMatchPattern.project;
+import static io.trino.sql.planner.assertions.PlanMatchPattern.semiJoin;
+import static io.trino.sql.planner.assertions.PlanMatchPattern.tableScan;
+import static io.trino.sql.planner.assertions.SemiJoinDynamicFilterProducer.dynamicFilter;
+import static io.trino.sql.planner.plan.ExchangeNode.Scope.LOCAL;
+import static io.trino.sql.planner.plan.ExchangeNode.Scope.REMOTE;
+import static io.trino.sql.planner.plan.ExchangeNode.Type.REPARTITION;
+import static io.trino.sql.planner.plan.ExchangeNode.Type.REPLICATE;
+import static io.trino.sql.planner.plan.JoinType.INNER;
+
+public class TestAddDynamicFilterSource
+        extends BasePlanTest
+{
+    private static final TestingFunctionResolution FUNCTIONS = new TestingFunctionResolution();
+    private static final ResolvedFunction SUBTRACT_BIGINT = FUNCTIONS.resolveOperator(OperatorType.SUBTRACT, ImmutableList.of(BIGINT, BIGINT));
+    private static final ResolvedFunction MODULUS_INTEGER = FUNCTIONS.resolveOperator(OperatorType.MODULUS, ImmutableList.of(INTEGER, INTEGER));
+
+    public TestAddDynamicFilterSource()
+    {
+        super(ImmutableMap.of(
+                RETRY_POLICY, RetryPolicy.TASK.name(),
+                ENABLE_DYNAMIC_FILTERING, "true",
+                JOIN_REORDERING_STRATEGY, JoinReorderingStrategy.NONE.name()));
+    }
+
+    @Test
+    public void testBroadcastInnerJoin()
+    {
+        assertDistributedPlan(
+                "SELECT l.suppkey FROM lineitem l, supplier s WHERE l.suppkey = s.suppkey",
+                withJoinDistributionType(BROADCAST),
+                anyTree(
+                        join(INNER, builder -> builder
+                                .equiCriteria("LINEITEM_SK", "SUPPLIER_SK")
+                                .addDynamicFilter("DF", "SUPPLIER_SK")
+                                .left(
+                                        filter(
+                                                TRUE,
+                                                dynamicFilters -> dynamicFilters.addConsumer(consumer -> consumer.alias("DF").expression(BIGINT, "LINEITEM_SK")),
+                                                tableScan("lineitem", ImmutableMap.of("LINEITEM_SK", "suppkey"))))
+                                .right(
+                                        exchange(
+                                                LOCAL,
+                                                exchange(
+                                                        REMOTE,
+                                                        REPLICATE,
+                                                        node(
+                                                                DynamicFilterSourceNode.class,
+                                                                tableScan("supplier", ImmutableMap.of("SUPPLIER_SK", "suppkey")))))))));
+    }
+
+    @Test
+    public void testPartitionedInnerJoin()
+    {
+        assertDistributedPlan(
+                "SELECT l.suppkey FROM lineitem l, supplier s WHERE l.suppkey = s.suppkey",
+                withJoinDistributionType(PARTITIONED),
+                anyTree(
+                        join(INNER, builder -> builder
+                                .equiCriteria("LINEITEM_SK", "SUPPLIER_SK")
+                                .addDynamicFilter("DF", "SUPPLIER_SK")
+                                .left(
+                                        exchange(
+                                                REMOTE,
+                                                REPARTITION,
+                                                filter(
+                                                        TRUE,
+                                                        dynamicFilters -> dynamicFilters.addConsumer(consumer -> consumer.alias("DF").expression(BIGINT, "LINEITEM_SK")),
+                                                        tableScan("lineitem", ImmutableMap.of("LINEITEM_SK", "suppkey")))))
+                                .right(
+                                        exchange(
+                                                LOCAL,
+                                                exchange(
+                                                        REMOTE,
+                                                        REPARTITION,
+                                                        node(
+                                                                DynamicFilterSourceNode.class,
+                                                                tableScan("supplier", ImmutableMap.of("SUPPLIER_SK", "suppkey")))))))));
+    }
+
+    @Test
+    public void testSemiJoin()
+    {
+        for (JoinDistributionType joinDistributionType : Arrays.asList(BROADCAST, PARTITIONED)) {
+            SemiJoinNode.DistributionType semiJoinDistributionType = joinDistributionType == PARTITIONED
+                    ? SemiJoinNode.DistributionType.PARTITIONED
+                    : SemiJoinNode.DistributionType.REPLICATED;
+            assertDistributedPlan(
+                    "SELECT * FROM orders WHERE orderkey IN (SELECT orderkey FROM lineitem WHERE linenumber % 4 = 0)",
+                    noSemiJoinRewrite(joinDistributionType),
+                    anyTree(
+                            filter(
+                                    new Reference(BOOLEAN, "S"),
+                                    semiJoin("X", "Y", "S", dynamicFilter("DF"), Optional.of(semiJoinDistributionType),
+                                            filter(
+                                                    TRUE,
+                                                    dynamicFilters -> dynamicFilters.addConsumer(consumer -> consumer.alias("DF").expression(BIGINT, "X")),
+                                                    tableScan("orders", ImmutableMap.of("X", "orderkey"))),
+                                            exchange(
+                                                    LOCAL,
+                                                    exchange(
+                                                            REMOTE,
+                                                            joinDistributionType == PARTITIONED ? REPARTITION : REPLICATE,
+                                                            node(
+                                                                    DynamicFilterSourceNode.class,
+                                                                    project(
+                                                                            filter(
+                                                                                    new Comparison(EQUAL, new Call(MODULUS_INTEGER, ImmutableList.of(new Reference(INTEGER, "Z"), new Constant(INTEGER, 4L))), new Constant(INTEGER, 0L)),
+                                                                                    tableScan("lineitem", ImmutableMap.of("Y", "orderkey", "Z", "linenumber")))))))))));
+        }
+    }
+
+    @Test
+    public void testInnerJoinWithUnionAllOnBuild()
+    {
+        assertDistributedPlan(
+                "SELECT l.suppkey FROM lineitem l JOIN (SELECT suppkey FROM supplier UNION ALL SELECT suppkey FROM supplier) s ON l.suppkey = s.suppkey",
+                withJoinDistributionType(BROADCAST),
+                anyTree(
+                        join(INNER, builder -> builder
+                                .equiCriteria("LINEITEM_SK", "SUPPLIER_SK")
+                                .addDynamicFilter("DF", "SUPPLIER_SK")
+                                .left(
+                                        filter(
+                                                TRUE,
+                                                dynamicFilters -> dynamicFilters.addConsumer(consumer -> consumer.alias("DF").expression(BIGINT, "LINEITEM_SK")),
+                                                tableScan("lineitem", ImmutableMap.of("LINEITEM_SK", "suppkey"))))
+                                .right(
+                                        exchange(
+                                                LOCAL,
+                                                exchange(
+                                                        REMOTE,
+                                                        REPLICATE,
+                                                        node(
+                                                                DynamicFilterSourceNode.class,
+                                                                exchange(
+                                                                        LOCAL,
+                                                                        Optional.empty(),
+                                                                        Optional.empty(),
+                                                                        ImmutableList.of(),
+                                                                        ImmutableSet.of(),
+                                                                        Optional.empty(),
+                                                                        ImmutableList.of("SUPPLIER_SK"),
+                                                                        Optional.empty(),
+                                                                        tableScan("supplier", ImmutableMap.of("SUPPLIER_SK_1", "suppkey")),
+                                                                        tableScan("supplier", ImmutableMap.of("SUPPLIER_SK_2", "suppkey"))))))))));
+
+        // TODO: Add support for cases where the build side has multiple sources
+        assertDistributedPlan(
+                "SELECT l.suppkey FROM lineitem l JOIN (SELECT suppkey FROM supplier UNION ALL SELECT suppkey FROM supplier) s ON l.suppkey = s.suppkey",
+                withJoinDistributionType(PARTITIONED),
+                anyTree(
+                        join(INNER, builder -> builder
+                                .equiCriteria("LINEITEM_SK", "SUPPLIER_SK")
+                                .left(
+                                        anyTree(
+                                                tableScan("lineitem", ImmutableMap.of("LINEITEM_SK", "suppkey"))))
+                                .right(
+                                        exchange(
+                                                LOCAL,
+                                                Optional.empty(),
+                                                Optional.empty(),
+                                                ImmutableList.of(),
+                                                ImmutableSet.of(),
+                                                Optional.empty(),
+                                                ImmutableList.of("SUPPLIER_SK"),
+                                                Optional.empty(),
+                                                exchange(tableScan("supplier", ImmutableMap.of("SUPPLIER_SK_1", "suppkey"))),
+                                                exchange(tableScan("supplier", ImmutableMap.of("SUPPLIER_SK_2", "suppkey"))))))));
+    }
+
+    @Test
+    public void testCrossJoinInequality()
+    {
+        assertDistributedPlan(
+                "SELECT o.orderkey FROM orders o, lineitem l WHERE o.orderkey BETWEEN l.orderkey AND l.partkey",
+                anyTree(
+                        filter(
+                                new Between(new Reference(BIGINT, "O_ORDERKEY"), new Reference(BIGINT, "L_ORDERKEY"), new Reference(BIGINT, "L_PARTKEY")),
+                                join(INNER, builder -> builder
+                                        .addDynamicFilter("DF", "O_ORDERKEY")
+                                        .left(
+                                                filter(
+                                                        TRUE,
+                                                        dynamicFilters -> dynamicFilters
+                                                                .addConsumer(consumer -> consumer.alias("DF").expression(BIGINT, "L_ORDERKEY").operator(LESS_THAN_OR_EQUAL))
+                                                                .addConsumer(consumer -> consumer.alias("DF").expression(BIGINT, "L_PARTKEY").operator(GREATER_THAN_OR_EQUAL)),
+                                                        tableScan("lineitem", ImmutableMap.of("L_ORDERKEY", "orderkey", "L_PARTKEY", "partkey"))))
+                                        .right(
+                                                exchange(
+                                                        LOCAL,
+                                                        exchange(
+                                                                REMOTE,
+                                                                node(DynamicFilterSourceNode.class,
+                                                                        tableScan("orders", ImmutableMap.of("O_ORDERKEY", "orderkey"))))))))));
+
+        // TODO: Add support for dynamic filters in the below case
+        assertDistributedPlan(
+                "SELECT o.orderkey FROM orders o, lineitem l WHERE o.orderkey >= l.orderkey AND o.orderkey <= l.partkey - 1",
+                withJoinDistributionType(PARTITIONED),
+                anyTree(
+                        filter(
+                                new Logical(AND, ImmutableList.of(new Comparison(GREATER_THAN_OR_EQUAL, new Reference(BIGINT, "O_ORDERKEY"), new Reference(BIGINT, "L_ORDERKEY")), new Comparison(LESS_THAN_OR_EQUAL, new Reference(BIGINT, "O_ORDERKEY"), new Reference(BIGINT, "expr")))),
+                                join(INNER, builder -> builder
+                                        .left(
+                                                tableScan("orders", ImmutableMap.of("O_ORDERKEY", "orderkey")))
+                                        .right(
+                                                exchange(
+                                                        LOCAL,
+                                                        project(
+                                                                ImmutableMap.of("expr", expression(new Call(SUBTRACT_BIGINT, ImmutableList.of(new Reference(BIGINT, "L_PARTKEY"), new Constant(BIGINT, 1L))))),
+                                                                exchange(
+                                                                        REMOTE,
+                                                                        tableScan("lineitem", ImmutableMap.of("L_ORDERKEY", "orderkey", "L_PARTKEY", "partkey"))))))))));
+    }
+
+    @Test
+    public void testJoinWithPrePartitionedBuild()
+    {
+        // TODO: Add support for dynamic filters in the below case
+        assertDistributedPlan(
+                "SELECT * FROM lineitem JOIN (SELECT suppkey FROM supplier GROUP BY 1) s ON lineitem.suppkey = s.suppkey",
+                withJoinDistributionType(PARTITIONED),
+                anyTree(
+                        join(INNER, builder -> builder
+                                .equiCriteria("LINEITEM_SK", "SUPPLIER_SK")
+                                .left(
+                                        exchange(
+                                                REMOTE,
+                                                REPARTITION,
+                                                tableScan("lineitem", ImmutableMap.of("LINEITEM_SK", "suppkey"))))
+                                .right(
+                                        anyTree(
+                                                tableScan("supplier", ImmutableMap.of("SUPPLIER_SK", "suppkey")))))));
+    }
+
+    private Session noSemiJoinRewrite(JoinDistributionType distributionType)
+    {
+        return Session.builder(getPlanTester().getDefaultSession())
+                .setSystemProperty(FILTERING_SEMI_JOIN_TO_INNER, "false")
+                .setSystemProperty(JOIN_DISTRIBUTION_TYPE, distributionType.name())
+                .build();
+    }
+
+    private Session withJoinDistributionType(JoinDistributionType distributionType)
+    {
+        return Session.builder(getPlanTester().getDefaultSession())
+                .setSystemProperty(JOIN_REORDERING_STRATEGY, JoinReorderingStrategy.NONE.name())
+                .setSystemProperty(JOIN_DISTRIBUTION_TYPE, distributionType.name())
+                .build();
+    }
+}

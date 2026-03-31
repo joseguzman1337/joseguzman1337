@@ -1,0 +1,300 @@
+/*
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package io.trino.plugin.jdbc;
+
+import io.trino.plugin.jdbc.JdbcProcedureHandle.ProcedureQuery;
+import io.trino.plugin.jdbc.expression.ParameterizedExpression;
+import io.trino.spi.TrinoException;
+import io.trino.spi.connector.AggregateFunction;
+import io.trino.spi.connector.ColumnHandle;
+import io.trino.spi.connector.ColumnMetadata;
+import io.trino.spi.connector.ColumnPosition;
+import io.trino.spi.connector.ConnectorSession;
+import io.trino.spi.connector.ConnectorSplitSource;
+import io.trino.spi.connector.ConnectorTableMetadata;
+import io.trino.spi.connector.JoinStatistics;
+import io.trino.spi.connector.JoinType;
+import io.trino.spi.connector.RelationColumnsMetadata;
+import io.trino.spi.connector.RelationCommentMetadata;
+import io.trino.spi.connector.RetryMode;
+import io.trino.spi.connector.SchemaTableName;
+import io.trino.spi.connector.SystemTable;
+import io.trino.spi.connector.TableScanRedirectApplicationResult;
+import io.trino.spi.expression.ConnectorExpression;
+import io.trino.spi.statistics.TableStatistics;
+import io.trino.spi.type.Type;
+
+import java.sql.CallableStatement;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+import java.util.OptionalInt;
+import java.util.OptionalLong;
+import java.util.Set;
+import java.util.function.Consumer;
+
+import static io.trino.spi.StandardErrorCode.NOT_SUPPORTED;
+import static io.trino.spi.connector.ConnectorMetadata.MODIFYING_ROWS_MESSAGE;
+
+public interface JdbcClient
+{
+    default boolean schemaExists(ConnectorSession session, String schema)
+    {
+        return getSchemaNames(session).contains(schema);
+    }
+
+    Set<String> getSchemaNames(ConnectorSession session);
+
+    List<SchemaTableName> getTableNames(ConnectorSession session, Optional<String> schema);
+
+    Optional<JdbcTableHandle> getTableHandle(ConnectorSession session, SchemaTableName schemaTableName);
+
+    JdbcTableHandle getTableHandle(ConnectorSession session, PreparedQuery preparedQuery);
+
+    JdbcProcedureHandle getProcedureHandle(ConnectorSession session, ProcedureQuery procedureQuery);
+
+    List<JdbcColumnHandle> getColumns(ConnectorSession session, SchemaTableName schemaTableName, RemoteTableName remoteTableName);
+
+    Iterator<RelationColumnsMetadata> getAllTableColumns(ConnectorSession session, Optional<String> schema);
+
+    List<RelationCommentMetadata> getAllTableComments(ConnectorSession session, Optional<String> schema);
+
+    Optional<ColumnMapping> toColumnMapping(ConnectorSession session, Connection connection, JdbcTypeHandle typeHandle);
+
+    /**
+     * Bulk variant of {@link #toColumnMapping(ConnectorSession, Connection, JdbcTypeHandle)}.
+     */
+    List<ColumnMapping> toColumnMappings(ConnectorSession session, List<JdbcTypeHandle> typeHandles);
+
+    WriteMapping toWriteMapping(ConnectorSession session, Type type);
+
+    default Optional<Type> getSupportedType(ConnectorSession session, Type type)
+    {
+        return Optional.empty();
+    }
+
+    default boolean supportsAggregationPushdown(ConnectorSession session, JdbcTableHandle table, List<AggregateFunction> aggregates, Map<String, ColumnHandle> assignments, List<List<ColumnHandle>> groupingSets)
+    {
+        return true;
+    }
+
+    default Optional<JdbcExpression> implementAggregation(ConnectorSession session, AggregateFunction aggregate, Map<String, ColumnHandle> assignments)
+    {
+        return Optional.empty();
+    }
+
+    default Optional<ParameterizedExpression> convertPredicate(ConnectorSession session, ConnectorExpression expression, Map<String, ColumnHandle> assignments)
+    {
+        return Optional.empty();
+    }
+
+    default Optional<JdbcExpression> convertProjection(ConnectorSession session, JdbcTableHandle handle, ConnectorExpression expression, Map<String, ColumnHandle> assignments)
+    {
+        return Optional.empty();
+    }
+
+    ConnectorSplitSource getSplits(ConnectorSession session, JdbcTableHandle tableHandle);
+
+    ConnectorSplitSource getSplits(ConnectorSession session, JdbcProcedureHandle procedureHandle);
+
+    Connection getConnection(ConnectorSession session, JdbcSplit split, JdbcTableHandle tableHandle)
+            throws SQLException;
+
+    Connection getConnection(ConnectorSession session, JdbcSplit split, JdbcProcedureHandle procedureHandle)
+            throws SQLException;
+
+    void execute(ConnectorSession session, String query);
+
+    default void abortReadConnection(Connection connection, ResultSet resultSet)
+            throws SQLException
+    {
+        // most drivers do not need this
+    }
+
+    PreparedQuery prepareQuery(
+            ConnectorSession session,
+            JdbcTableHandle table,
+            Optional<List<List<JdbcColumnHandle>>> groupingSets,
+            List<JdbcColumnHandle> columns,
+            Map<String, ParameterizedExpression> columnExpressions);
+
+    PreparedStatement buildSql(ConnectorSession session, Connection connection, JdbcSplit split, JdbcTableHandle table, List<JdbcColumnHandle> columns)
+            throws SQLException;
+
+    CallableStatement buildProcedure(ConnectorSession session, Connection connection, JdbcSplit split, JdbcProcedureHandle procedureHandle)
+            throws SQLException;
+
+    Optional<PreparedQuery> implementJoin(
+            ConnectorSession session,
+            JoinType joinType,
+            PreparedQuery leftSource,
+            Map<JdbcColumnHandle, String> leftProjections,
+            PreparedQuery rightSource,
+            Map<JdbcColumnHandle, String> rightProjections,
+            List<ParameterizedExpression> joinConditions,
+            JoinStatistics statistics);
+
+    @Deprecated
+    Optional<PreparedQuery> legacyImplementJoin(
+            ConnectorSession session,
+            JoinType joinType,
+            PreparedQuery leftSource,
+            PreparedQuery rightSource,
+            List<JdbcJoinCondition> joinConditions,
+            Map<JdbcColumnHandle, String> rightAssignments,
+            Map<JdbcColumnHandle, String> leftAssignments,
+            JoinStatistics statistics);
+
+    boolean supportsTopN(ConnectorSession session, JdbcTableHandle handle, List<JdbcSortItem> sortOrder);
+
+    /**
+     * Reports whether result cardinality and ordering is guaranteed when {@link #supportsTopN(ConnectorSession, JdbcTableHandle, List)} returns true.
+     */
+    boolean isTopNGuaranteed(ConnectorSession session);
+
+    boolean supportsLimit();
+
+    boolean isLimitGuaranteed(ConnectorSession session);
+
+    boolean supportsMerge();
+
+    default Optional<String> getTableComment(ResultSet resultSet)
+            throws SQLException
+    {
+        return Optional.ofNullable(resultSet.getString("REMARKS"));
+    }
+
+    default void setTableComment(ConnectorSession session, JdbcTableHandle handle, Optional<String> comment)
+    {
+        throw new TrinoException(NOT_SUPPORTED, "This connector does not support setting table comments");
+    }
+
+    default void setColumnComment(ConnectorSession session, JdbcTableHandle handle, JdbcColumnHandle column, Optional<String> comment)
+    {
+        throw new TrinoException(NOT_SUPPORTED, "This connector does not support setting column comments");
+    }
+
+    void addColumn(ConnectorSession session, JdbcTableHandle handle, ColumnMetadata column, ColumnPosition position);
+
+    void dropColumn(ConnectorSession session, JdbcTableHandle handle, JdbcColumnHandle column);
+
+    void renameColumn(ConnectorSession session, JdbcTableHandle handle, JdbcColumnHandle jdbcColumn, String newColumnName);
+
+    void setColumnType(ConnectorSession session, JdbcTableHandle handle, JdbcColumnHandle column, Type type);
+
+    void dropNotNullConstraint(ConnectorSession session, JdbcTableHandle handle, JdbcColumnHandle column);
+
+    void renameTable(ConnectorSession session, JdbcTableHandle handle, SchemaTableName newTableName);
+
+    default void setTableProperties(ConnectorSession session, JdbcTableHandle handle, Map<String, Optional<Object>> properties)
+    {
+        throw new TrinoException(NOT_SUPPORTED, "This connector does not support setting table properties");
+    }
+
+    void createTable(ConnectorSession session, ConnectorTableMetadata tableMetadata);
+
+    JdbcOutputTableHandle beginCreateTable(ConnectorSession session, ConnectorTableMetadata tableMetadata, Consumer<Runnable> rollbackActionCollector);
+
+    void commitCreateTable(ConnectorSession session, JdbcOutputTableHandle handle, Set<Long> pageSinkIds);
+
+    JdbcOutputTableHandle beginInsertTable(ConnectorSession session, JdbcTableHandle tableHandle, List<JdbcColumnHandle> columns);
+
+    void finishInsertTable(ConnectorSession session, JdbcOutputTableHandle handle, Set<Long> pageSinkIds);
+
+    default JdbcMergeTableHandle beginMerge(
+            ConnectorSession session,
+            JdbcTableHandle handle,
+            Map<Integer, Collection<ColumnHandle>> updateColumnHandles,
+            Consumer<Runnable> rollbackActionCollector,
+            RetryMode retryMode)
+    {
+        throw new TrinoException(NOT_SUPPORTED, MODIFYING_ROWS_MESSAGE);
+    }
+
+    default void finishMerge(ConnectorSession session, JdbcMergeTableHandle handle, Set<Long> pageSinkIds)
+    {
+        throw new TrinoException(NOT_SUPPORTED, "This connector does not support MERGE with fault-tolerant execution");
+    }
+
+    void dropTable(ConnectorSession session, JdbcTableHandle jdbcTableHandle);
+
+    void rollbackDestinationTableCreation(ConnectorSession session, RemoteTableName remoteTableName);
+
+    void rollbackTemporaryTableCreation(ConnectorSession session, JdbcOutputTableHandle handle);
+
+    boolean supportsRetries();
+
+    String buildInsertSql(JdbcOutputTableHandle handle, List<WriteFunction> columnWriters);
+
+    Connection getConnection(ConnectorSession session)
+            throws SQLException;
+
+    Connection getConnection(ConnectorSession session, JdbcOutputTableHandle handle)
+            throws SQLException;
+
+    PreparedStatement getPreparedStatement(Connection connection, String sql, Optional<Integer> columnCount)
+            throws SQLException;
+
+    TableStatistics getTableStatistics(ConnectorSession session, JdbcTableHandle handle);
+
+    void createSchema(ConnectorSession session, String schemaName);
+
+    void dropSchema(ConnectorSession session, String schemaName, boolean cascade);
+
+    void renameSchema(ConnectorSession session, String schemaName, String newSchemaName);
+
+    default Optional<SystemTable> getSystemTable(ConnectorSession session, SchemaTableName tableName)
+    {
+        return Optional.empty();
+    }
+
+    String quoted(String name);
+
+    String quoted(RemoteTableName remoteTableName);
+
+    Map<String, Object> getTableProperties(ConnectorSession session, JdbcTableHandle tableHandle);
+
+    default Optional<TableScanRedirectApplicationResult> getTableScanRedirection(ConnectorSession session, JdbcTableHandle tableHandle)
+    {
+        return Optional.empty();
+    }
+
+    OptionalLong delete(ConnectorSession session, JdbcTableHandle handle);
+
+    void truncateTable(ConnectorSession session, JdbcTableHandle handle);
+
+    OptionalLong update(ConnectorSession session, JdbcTableHandle handle);
+
+    OptionalInt getMaxWriteParallelism(ConnectorSession session);
+
+    default OptionalInt getMaxColumnNameLength(ConnectorSession session)
+    {
+        return OptionalInt.empty();
+    }
+
+    /**
+     * Retrieves primary keys for remote table used in the merge process.
+     * These primary keys are unique identifiers of each row in table, commonly mapping to primary or unique keys in the database.
+     */
+    default List<JdbcColumnHandle> getPrimaryKeys(ConnectorSession session, RemoteTableName remoteTableName)
+    {
+        return List.of();
+    }
+}

@@ -1,0 +1,125 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>{{title}}</title>
+         <script type="text/javascript">
+        function datos() {          
+            var x = document.getElementById("variable").value; 
+            switch(x) {
+                case '1':
+                {
+                    document.getElementById("informacion").value = "La variable de participante permite la generación de un reporte de los estudiantes según el periodo seleccionado, indicando los datos personales con los que el estudiante fue registrado.";
+                    document.getElementById("buscar").action = '../Controller/reporteparticipantes.php';
+                     document.getElementById('imagen').style.display = 'none';
+                }
+                break;
+                case '2':
+                {
+                    document.getElementById("informacion").value = "La variable matriculados, permite la generación de un reporte de los estudiantes matriculados nuevos, matriculados antiguos y matriculados de reintegro, validando el periodo de ingreso";
+                    document.getElementById("buscar").action = '../Controller/reportematriculados.php';  
+                    document.getElementById('imagen').style.display = 'none';
+                }
+                break;
+                case '3':
+                {
+                    document.getElementById("informacion").value = "Persona natural que, previo el proceso de selección realizado por el programa académico o la institución de educación superior y el cumplimiento de los requisitos de ley, es aceptado para iniciar el proceso de formalización como estudiante en el programa al que se inscribió.";
+                    document.getElementById("buscar").action = '../Controller/reporteadmitidos.php'; 
+                    document.getElementById('imagen').style.display = 'none';
+                }
+                break;
+                case '4':
+                {
+                    document.getElementById("informacion").value = "El estudiante de primer semestre de programas tanto pregrado como postgrado, esta variable se calcula a partir de la información matricula.                                   Recuerde que antes de cargar la variable de Primer curso debe reportar la variable Inscritos y Admitidos.";
+                    document.getElementById("buscar").action = '../Controller/reporteprimercurso.php'; 
+                    document.getElementById('imagen').style.display = 'none';
+                }
+                break;
+                case '5':
+                {
+                    document.getElementById("informacion").value = "La variable Inscritos: Persona natural que solicita formalmente el ingreso a un programa academico en calidad de estudiante.";
+                    document.getElementById("buscar").action = '../Controller/reporteinscritos.php'; 
+                    document.getElementById('imagen').style.display = 'none';
+                }
+                break;
+                case '6':
+                {
+                    document.getElementById("informacion").value = "La variable graduados: Persona natural que, previa culminación del programa académico y cumplimiento de los requisitos de ley y los exigidos por la respectiva institución de educación superior, recibe el título académico.";
+                    document.getElementById("buscar").action = '../Controller/reportegraduados.php'; 
+                    document.getElementById('imagen').style.display = 'none';
+                }
+                break;
+                case '7':
+                {
+                    document.getElementById("informacion").value = "La variable InscritosPrograma: Persona natural que solicita formalmente el ingreso a un programa academico con registro calificado activo en calidad de estudiante.";
+                    document.getElementById("buscar").action = '../Controller/reporteinscritosprograma.php'; 
+                    document.getElementById('imagen').style.display = 'none';
+                }
+                break;				
+                case '8':
+                {
+                    document.getElementById("informacion").value = "La variable MateriaMatriculados: permite la generación de un reporte de la cantidad de materias inscritas de los estudiantes matriculados nuevos, matriculados antiguos y matriculados de reintegro, validando el periodo de ingreso.";
+                    document.getElementById("buscar").action = '../Controller/reportemateriasmatriculados.php'; 
+                    document.getElementById('imagen').style.display = 'none';
+                }				
+                break;
+            }
+        }
+        function mostrar()
+        {
+            document.getElementById('imagen').style.display = 'block';
+        }
+        function cambiar()
+        {
+             document.getElementById('imagen').style.display = 'none';
+        }
+        </script>
+	</head>
+	<body class="body">
+        <div id="container">
+            <center><h1>{{title}}</h1></center>
+        </div>
+        <div id="demo">
+            <form id="buscar" name="buscar" method="post">
+            <table align="center" width="40%"  >
+                <tr>
+                    <td>
+                        Seleccione la Variable:
+                    </td>
+                    <td>
+                        <select id="variable" name="variable" onchange="datos(this)">
+                            <option></option>
+                        {{#variable}}
+                            <option value="{{idvariable}}">{{nombrevariable}}</option>
+                        {{/variable}}
+                        </select>
+                    </td>
+                   <td>
+                        <select id="periodo" name="periodo" onchange="cambiar()">
+                        {{#periodo}}
+                            <option value="{{codigoperiodo}}">{{codigoperiodo}}</option>
+                        {{/periodo}}                               
+                        </select>
+                        <input type="submit" id="enviar" value="Consultar" onclick="mostrar()" />
+                    </td>
+                </tr>
+                <tr><td><br></td></tr>
+                <tr>
+                    <td colspan="3">Informacion:</td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <textarea rows="10" style="width:100%" name="informacion" id="informacion" readonly></textarea>
+                    </td>
+                </tr>
+            </table>
+            </form>
+        </div>
+        <center>
+            <div id="imagen" style='display:none;'>
+                <h1>Procesando, Por favor espere...</h1>
+                <img src="../../mgi/images/engranaje-09.gif" id="img"/>
+            </div>
+        </center>
+    </body>
+</html>

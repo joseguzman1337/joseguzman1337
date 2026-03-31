@@ -1,0 +1,64 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>{{title}}</title>
+		<link rel="stylesheet" type="text/css" href="funciones/sala.css">
+		<link rel="stylesheet" type="text/css" href="funciones/calendario_nuevo/calendar-win2k-1.css">
+		<script type="text/javascript" src="funciones/calendario_nuevo/calendar.js"></script>
+		<script type="text/javascript" src="funciones/calendario_nuevo/calendar-es.js"></script>
+		<script type="text/javascript" src="funciones/calendario_nuevo/calendar-setup.js"></script>
+</head>
+<body>
+<form name="form1" method="post" action="">
+<p>Log Auditoría Notas </p>
+<table  border="1">
+  <tr>
+    <td>Fecha Inicial </td>
+    <td>
+	    <input type="text" size="7" value="" id="fechainicio" name="fechainicio">
+		<span class="Estilo99">*</span>  
+        <button id="btfechainicio">...</button></td>
+  </tr>
+  <tr>
+    <td>Fecha Final </td>
+    <td><input type="text" size="7" value="" id="fechafinal" name="fechafinal"><span class="Estilo99">*</span>  
+            <button id="btfechafinal">...</button></td>
+  </tr>
+  <tr>
+		<td>Programa acad&eacute;mico</td>
+		<td><select name="codigocarrera">
+		<option value="">Seleccione...</option> 
+		{{# programas }}
+		  <option value="{{codigocarrera}}" {{selected}}>{{nombrecarrera}}</option>
+		{{/ programas }}
+		</select>
+		</td>
+	</tr>
+  <tr>
+    <td colspan="2"><div align="center">
+      <input name="Enviar" type="submit" id="Enviar" value="Enviar">
+    </div></td>
+  </tr>
+</table>
+</form>
+
+<script type="text/javascript">
+	Calendar.setup(
+	{
+		inputField : "fechainicio", // ID of the input field
+		ifFormat : "%Y-%m-%d", // the date format
+		button : "btfechainicio" // ID of the button
+	}
+	);
+
+	Calendar.setup(
+	{
+		inputField : "fechafinal", // ID of the input field
+		ifFormat : "%Y-%m-%d", // the date format
+		button : "btfechafinal" // ID of the button
+	}
+	);
+</script>
+</body>
+</html>

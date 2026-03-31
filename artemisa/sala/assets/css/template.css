@@ -1,0 +1,37 @@
+.bg-white{
+	background-color: #ffffff;
+}
+.autocomplete-suggestions { 
+    border: 1px solid #999; 
+    background: #FFF; 
+    overflow: auto;
+    left: 15px !important;
+    width: 229px !important;
+}
+.autocomplete-suggestion { 
+    padding: 2px 5px; 
+    white-space: nowrap;
+    font-size:0.77em;
+    overflow: hidden;
+    cursor:pointer;
+}
+.autocomplete-selected { 
+    background: #3e4729;
+    color:#FFF;
+}
+.autocomplete-suggestions strong {
+    color: #f1aa40; 
+}
+.autocomplete-group { 
+    padding: 2px 5px; 
+}
+.autocomplete-group strong { 
+    display: block; 
+    border-bottom: 1px solid #000; 
+}
+.bs-dashDoard-btn .btn {
+    margin: 7px 7px 7px 0;
+}
+.bs-dashDoard-btn .btn:not(.btn-icon) {
+    min-width: 17.5%;
+}

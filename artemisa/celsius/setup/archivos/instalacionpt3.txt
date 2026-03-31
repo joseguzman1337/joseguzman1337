@@ -1,0 +1,8 @@
+Creacion de el usuários de MySQL para el uso de la base de datos
+Debe llenar los campo para poder continuar.
+Sera creada una cuenta de acesso a la base de datos de MySQL
+Nombre de usuario de
+celsius
+Contraseña para el usuário de
+Confirme a contraseñas de usuario
+Continuar confundir con la cuenta de Linux

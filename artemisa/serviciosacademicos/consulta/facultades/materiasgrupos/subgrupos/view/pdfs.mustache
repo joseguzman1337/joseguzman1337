@@ -1,0 +1,80 @@
+<?php 
+    require_once"../../../../../mgi/dompdf/dompdf_config.inc.php";
+    
+
+# Contenido HTML del documento que queremos generar en PDF.
+$html='<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<script type="text/javascript" language="javascript" src="../../../../../mgi/js/jquery.js"></script>		
+		<link rel="stylesheet" href="../css/chosen.css">
+	</head>
+	<body class="body">
+        <h3>Bogotá, {{Fecha}}</h3>
+        <p>
+            {{Doctor}} <br />
+            {{RICARDO DE LA ESPRIELLA}}<br />
+            {{Jefe de Educación Médica}}<br />
+            {{Clínica Nuestra Señora de la Paz}}<br />
+            {{Cra. 13 No. 68 F-25}}<br />
+            {{Bogotá}}
+        </p>
+        <br />
+        <p>Respetado Doctor {{de la Espriella:}}</p>
+        <br />
+        <p>Reciba un cordial saludo, para dar continuidad al CONVENIO DOCENTE ASISTENCIAL me permito relacionar a continuación el primer grupo de {{semestre}} semestre de la asignatura  {{PSICOPATOLOGIA – SEMIOLOGIA PSIQUIATRICA}} que harán su práctica en la {{CLINICA NUESTRA SEÑORA DE LA PAZ}} durante el {{segundo}} periodo académico {{2015}} y quienes estarán a cargo de {{la Dra. CLAUDIA VANEGAS}} esta rotación se hará los días {{martes}} de {{2:00 p.m.}}a {{5:00 p.m.}} cada 8 días a partir del {{fechainicio}} al  {{fechafin}} del año en curso.</p>
+        <br />
+        <table border="1">
+            <thead>
+            <tr>
+            <td>Documento</td><td>Nombre</td>
+            </tr>
+            </thead>
+            <tbody>
+                {{#estudiantes}}
+                    <tr>
+                        <td>{{numerodocumento}}</td><td>{{nombre}}</td>
+                    </tr>
+                {{/estudiantes}}
+            </tbody>
+        </table>
+        <br />
+        <p>Agradezco su atención y amable colaboración </p>
+        <br />
+        <p>Cordialmente,</p>
+        <br />
+        <p>
+            {{ALFONSO RODRIGUEZ GONZALEZ}}<br />
+            {{Director}}<br />
+            {{AREA PSICOSOCIAL DE MEDICINA}}<br /> 
+        </p>
+        <br />
+        <p>Adjunto: Listado Estudiantes
+
+            Copia: Dr.   Pedro Vargas Navarro Coordinador
+                Dra. Claudia Vanegas
+                  Consecutivo      
+        </p>
+    </body>
+</html>';
+
+
+require_once('../html2pdf/html2pdf.class.php');
+    try
+    {   
+        $html2pdf = new HTML2PDF('L','A4','es', true, 'UTF-8', 0);
+        //$html2pdf = new HTML2PDF('P','A4','es', true, 'UTF-8', 0);
+		 $html2pdf->setDefaultFont('Arial');
+        //$html2pdf = new HTML2PDF('P', 'A4', 'fr', true, 'UTF-8', 0);
+        //$html2pdf->pdf->SetDisplayMode('fullpage');
+        $html2pdf->WriteHTML($html, isset($_GET['vuehtml']));
+        $html2pdf->Output('certificadoEstudiante_'.$_REQUEST["estudiante"].'.pdf');
+        //var_dump($content);
+        //echo "<pre>";print_r($content);
+    }
+    catch(HTML2PDF_exception $e) {
+        echo $e;
+        exit;
+    }
+?>

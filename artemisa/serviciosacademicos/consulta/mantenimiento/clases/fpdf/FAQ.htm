@@ -1,0 +1,293 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8">
+<TITLE>FAQ</TITLE>
+<LINK TYPE="text/css" REL="stylesheet" HREF="fpdf.css">
+</HEAD>
+<BODY>
+<H2>FAQ</H2>
+<B>1.</B> <A HREF='#1'>¿Cuál es exactamente el tipo de licencia de FPDF? ¿Existen restricciones de uso?</A><BR>
+<B>2.</B> <A HREF='#2'>Cuando intento crear un PDF, aparecen un montón de caracteres raros. ¿Por qué?</A><BR>
+<B>3.</B> <A HREF='#3'>Intento generar un PDF y IE muestra una página en blanco. ¿Qué pasa?</A><BR>
+<B>4.</B> <A HREF='#4'>Mando parámetros mediante el método POST y los valores no aparecen en el PDF.</A><BR>
+<B>5.</B> <A HREF='#5'>Cuando uso una sesión PHP, IE no me muestra el PDF, pero me pregunta si deseo descargarlo.</A><BR>
+<B>6.</B> <A HREF='#6'>Cuando estoy en SSL, IE no puede abrir el PDF.</A><BR>
+<B>7.</B> <A HREF='#7'>Cuando ejecuto un script me da un error "FPDF error: Don't alter the locale before including class file".</A><BR>
+<B>8.</B> <A HREF='#8'>Intento insertar un PNG y Acrobat dice "There was an error processing a page. A drawing error occurred".</A><BR>
+<B>9.</B> <A HREF='#9'>Encuentro el siguiente error cuando intento generar un PDF: Warning: Cannot add header information - headers already sent by (output started at script.php:X)</A><BR>
+<B>10.</B> <A HREF='#10'>Intento mostrar una variable en el método Header pero no se imprime nada.</A><BR>
+<B>11.</B> <A HREF='#11'>He definido los métodos Header y Footer en mi clase PDF, pero no se muestra nada.</A><BR>
+<B>12.</B> <A HREF='#12'>No consigo que los saltos de línea funcionen. Pongo \n en la cadena para MultiCell, pero no funciona.</A><BR>
+<B>13.</B> <A HREF='#13'>Intento incluir el símbolo del euro, pero no funciona.</A><BR>
+<B>14.</B> <A HREF='#14'>Dibujo un marco con dimensiones muy precisas pero, cuando lo imprimo, noto algunas diferencias.</A><BR>
+<B>15.</B> <A HREF='#15'>Me gustaría usar toda la superficie de la página, pero cuando imprimo siempre aparecen márgenes. ¿Cómo puedo deshacerme de ellos?</A><BR>
+<B>16.</B> <A HREF='#16'>¿Cuál es el límite de tamaño de los ficheros que puedo generar con FPDF?</A><BR>
+<B>17.</B> <A HREF='#17'>¿Puedo modificar un PDF con FPDF?</A><BR>
+<B>18.</B> <A HREF='#18'>Me gustaría hacer un motor de búsqueda en PHP e indexar ficheros PDF. ¿Puedo hacerlo con FPDF?</A><BR>
+<B>19.</B> <A HREF='#19'>¿Puedo convertir una página HTML en PDF con FPDF?</A><BR>
+<B>20.</B> <A HREF='#20'>¿Puedo concatenar ficheros PDF con FPDF?</A><BR>
+<BR><BR>
+<P><A NAME='1'></A><B>1.</B> <FONT CLASS='st'>¿Cuál es exactamente el tipo de licencia de FPDF? ¿Existen restricciones de uso?</FONT></P>
+FPDF es freeware (tal y como se afirma al principio del fichero fuente). No hay
+limitaciones de uso. Puede usarlo libre y gratuitamente en su aplicación (comercial o no), con
+o sin modificaciones.
+<P><A NAME='2'></A><B>2.</B> <FONT CLASS='st'>Cuando intento crear un PDF, aparecen un montón de caracteres raros. ¿Por qué?</FONT></P>
+Esos caracteres "raros" constituyen de hecho el contenido del PDF. Este comportamiento es un
+fallo de Internet Explorer (IE). Cuando recibe una página en HTML y después un PDF de la misma
+URL, lo muestra directamente sin lanzar Acrobat. Esto ocurre con frecuencia durante la fase
+de desarrollo: al menor fallo en el script, se envía una página HTML y, después de corregirlo,
+se envía el PDF.
+<BR>
+Para resolver el problema, simplemente reinicie IE. También puede irse a otra URL y volver.
+<BR>
+Para evitar estas molestias durante el desarrollo, puede generar el PDF directamente a un fichero
+y abrirlo mediante el navegador.
+<P><A NAME='3'></A><B>3.</B> <FONT CLASS='st'>Intento generar un PDF y IE muestra una página en blanco. ¿Qué pasa?</FONT></P>
+Antes de nada, compruebe que no envía nada al navegador después del PDF (ni siquiera un espacio
+o un salto de línea). Puede incluir una instrucción exist justo después de llamar al método
+Output() para asegurarse.
+<BR>
+Si esto no funciona, significa que es usted víctima del "síndrome de la página en blanco". IE
+usado con la extensión de Acrobat tiene numerosos fallos, en todas las versiones. Debería probar
+su aplicación con tantas versiones de IE como le sea posible (al menos si está usted en Internet).
+El problema ocurre sobre todo con el método POST, así que se aconseja encarecidamente que lo
+evite (a no ser que cause otros problemas, véase la siguiente pregunta). El método GET funciona
+mejor, pero puede fallar si la URL es demasiado larga: no use una cadena de petición de más de
+45 caracteres. Sin embargo, existe un truco para exceder este límite: haga terminar la URL con .pdf,
+lo que engaña a IE. Si usa un formulario, puede añadir un campo oculto en el último lugar:
+<BR>
+<BR>
+<TABLE WIDTH="100%" BGCOLOR="#E0E0E0"><TR><TD>
+<TT>
+&lt;INPUT TYPE=&quot;HIDDEN&quot; NAME=&quot;ext&quot; VALUE=&quot;.pdf&quot;&gt;
+</TT>
+</TD></TR></TABLE><BR>
+El uso de sesiones de PHP también causa problemas con frecuencia (evite usar cabeceras HTTP que
+eviten el caché). Véase la cuestión 5 para un atajo.
+<BR>
+<BR>
+Para evitar todos estos problemas de manera fiable, existen dos técnicas fundamentalmente:
+<BR>
+<BR>
+- Deshabilite la extensión y use Acrobat como una aplicación auxiliar. Para esto, abra Acrobat;
+en el menú Archivo, Preferencias, General, desmarque la casilla "Integración con el navegador" (para
+Acrobat 5: Edición, Preferencias, Opciones, "Mostrar PDF en el navegador"). La próxima vez que
+cargue un PDF en IE, se le mostrará un mensaje "Abrir" o "Guardar en disco". Desmarque la casilla
+"Preguntar siempre antes de abrir este tipo de archivo" y escoja Abrir. A partir de ahora, los
+ficheros PDF se abrirán automáticamente en una ventana externa de Acrobat.
+<BR>
+La pega de este método es que necesita alterar la configuración del cliente, que es algo
+viable en una intranet, pero imposible para Internet.
+<BR>
+<BR>
+- Use una técnica de redirección. Consiste en generar el PDF en un fichero temporal en el
+servidor y redireccionar al cliente al fichero (usando JavaScript, no la cabecera HTTP Location,
+ya que también da problemas). Por ejemplo, al final del script, puede añadir lo siguiente:
+<BR>
+<BR>
+<TABLE WIDTH="100%" BGCOLOR="#E0E0E0"><TR><TD>
+<TT>
+//Determinar un nombre temporal de fichero en el directorio actual<BR>
+$file=basename(tempnam(getcwd(),'tmp'));<BR>
+//Guardar el PDF en el fichero<BR>
+$pdf-&gt;Output($file);<BR>
+//Redirecci&oacute;n por JavaScript<BR>
+echo &quot;&lt;HTML&gt;&lt;SCRIPT&gt;document.location='getpdf.php?f=$file';&lt;/SCRIPT&gt;&lt;/HTML&gt;&quot;;
+</TT>
+</TD></TR></TABLE><BR>
+Después, cree el fichero getpdf.php con esto:
+<BR>
+<BR>
+<TABLE WIDTH="100%" BGCOLOR="#E0E0E0"><TR><TD>
+<TT>
+&lt;?php<BR>
+$f=$HTTP_GET_VARS['f'];<BR>
+//Comprobar el fichero (&iexcl;no lo pase por alto!)<BR>
+if(substr($f,0,3)!='tmp' or strpos($f,'/') or strpos($f,'\\'))<BR>
+  die('Nombre incorrecto de fichero');<BR>
+if(!file_exists($f))<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;die('El fichero no existe');<BR>
+//Gestionar peticiones especiales de IE si es necesario<BR>
+if($HTTP_ENV_VARS['USER_AGENT']=='contype')<BR>
+{<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;Header('Content-Type: application/pdf');<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;exit;<BR>
+}<BR>
+//Devolver el PDF<BR>
+Header('Content-Type: application/pdf');<BR>
+Header('Content-Length: '.filesize($f));<BR>
+readfile($f);<BR>
+//Eliminar el fichero<BR>
+unlink($f);<BR>
+exit;<BR>
+?&gt;
+</TT>
+</TD></TR></TABLE><BR>
+Este método funciona en la mayoría de los casos, pero IE6 puede todavía causar problemas. El método
+"definitivo" consiste en redireccionar directamente al fichero temporal. Por tanto, el nombre de fichero
+debe terminar con .pdf:
+<BR>
+<BR>
+<TABLE WIDTH="100%" BGCOLOR="#E0E0E0"><TR><TD>
+<TT>
+//Determinar un nombre temporal de fichero en el directorio actual<BR>
+$file=basename(tempnam(getcwd(),'tmp'));<BR>
+rename($file,$file.'.pdf');<BR>
+$file.='.pdf';<BR>
+//Guardar el PDF en un fichero<BR>
+$pdf-&gt;Output($file);<BR>
+//Redirecci&oacute;n con JavaScript<BR>
+echo &quot;&lt;HTML&gt;&lt;SCRIPT&gt;document.location='$file';&lt;/SCRIPT&gt;&lt;/HTML&gt;&quot;;
+</TT>
+</TD></TR></TABLE><BR>
+Este método convierte el PDF dinámico en estático y evita todos los problemas. Pero
+debe hacer limpieza de los ficheros temporales. Por ejemplo:
+<BR>
+<BR>
+<TABLE WIDTH="100%" BGCOLOR="#E0E0E0"><TR><TD>
+<TT>
+function CleanFiles($dir)<BR>
+{<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;//Borrar los ficheros temporales<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;$t=time();<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;$h=opendir($dir);<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;while($file=readdir($h))<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;{<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(substr($file,0,3)=='tmp' and substr($file,-4)=='.pdf')<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$path=$dir.'/'.$file;<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if($t-filemtime($path)&gt;3600)<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@unlink($path);<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;}<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;closedir($h);<BR>
+}
+</TT>
+</TD></TR></TABLE><BR>
+Esta función borra todos los ficheros de la forma tmp*.pdf más antiguos de una hora en el
+directorio especificado. Puede ser llamada donde usted quiera como, por ejemplo, en el script
+que genera el PDF.
+<BR>
+<BR>
+Nota: es necesario abrir el PDF en una ventana nueva, ya que no podrá ir hacia atrás debido a
+la redirección.
+<P><A NAME='4'></A><B>4.</B> <FONT CLASS='st'>Mando parámetros mediante el método POST y los valores no aparecen en el PDF.</FONT></P>
+Es un problema que afecta a algunas versiones de IE (especialmente a los primeros 5.5). Véase
+la pregunta anterior para algunas soluciones.
+<P><A NAME='5'></A><B>5.</B> <FONT CLASS='st'>Cuando uso una sesión PHP, IE no me muestra el PDF, pero me pregunta si deseo descargarlo.</FONT></P>
+Se trata de un problema con algunas versiones de IE. Para solucionarlo, añada la siguiente línea
+antes de session_start();
+<BR>
+<BR>
+<TABLE WIDTH="100%" BGCOLOR="#E0E0E0"><TR><TD>
+<TT>
+session_cache_limiter('private');
+</TT>
+</TD></TR></TABLE><BR>
+o haga una redirección como se explicó en la pregunta 3.
+<P><A NAME='6'></A><B>6.</B> <FONT CLASS='st'>Cuando estoy en SSL, IE no puede abrir el PDF.</FONT></P>
+El problema puede solucionarse añadiendo esta línea:
+<BR>
+<BR>
+<TABLE WIDTH="100%" BGCOLOR="#E0E0E0"><TR><TD>
+<TT>
+Header('Pragma: public');
+</TT>
+</TD></TR></TABLE><BR>
+
+<P><A NAME='7'></A><B>7.</B> <FONT CLASS='st'>Cuando ejecuto un script me da un error "FPDF error: Don't alter the locale before including class file".</FONT></P>
+Cuando el separador de decimales se configura para que se una coma antes de incluir un fichero,
+existe un <A HREF="http://bugs.php.net/bug.php?id=17105" TARGET="_blank">fallo</A> en PHP,
+y los números decimales se truncan. Por tanto, no debería hacer ninguna llamada a setlocale()
+antes de incluir la clase. En Unix, no debería tampoco establecer la variable de entorno
+LC_ALL, ya que es equivalente a una llamada a setlocale().
+<P><A NAME='8'></A><B>8.</B> <FONT CLASS='st'>Intento insertar un PNG y Acrobat dice "There was an error processing a page. A drawing error occurred".</FONT></P>
+Acrobat 5 tiene un fallo y no puede mostrar imágenes monocromas transparentes (1 bit por píxel).
+Elimine la transparencia o guarde su imagen en 16 colores (4 bits por píxel) o más.
+<P><A NAME='9'></A><B>9.</B> <FONT CLASS='st'>Encuentro el siguiente error cuando intento generar un PDF: Warning: Cannot add header information - headers already sent by (output started at script.php:X)</FONT></P>
+No puede enviar nada al navegador excepto el PDF mismo: ni HTML, ni espacios, ni saltos de línea,
+ni antes ni después. El script está enviando algo en la línea X.
+<P><A NAME='10'></A><B>10.</B> <FONT CLASS='st'>Intento mostrar una variable en el método Header pero no se imprime nada.</FONT></P>
+Debe usar la directiva <TT>global</TT>, por ejemplo:
+<BR>
+<BR>
+<TABLE WIDTH="100%" BGCOLOR="#E0E0E0"><TR><TD>
+<TT>
+function Header()<BR>
+{<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;global $title;<BR>
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;$this-&gt;SetFont('Arial','B',15);<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;$this-&gt;Cell(0,10,$title,1,1,'C');<BR>
+}
+</TT>
+</TD></TR></TABLE><BR>
+
+<P><A NAME='11'></A><B>11.</B> <FONT CLASS='st'>He definido los métodos Header y Footer en mi clase PDF, pero no se muestra nada.</FONT></P>
+Tiene que crear un objeto de la clase PDF, no de la FPDF:
+<BR>
+<BR>
+<TABLE WIDTH="100%" BGCOLOR="#E0E0E0"><TR><TD>
+<TT>
+$pdf=new PDF();
+</TT>
+</TD></TR></TABLE><BR>
+
+<P><A NAME='12'></A><B>12.</B> <FONT CLASS='st'>No consigo que los saltos de línea funcionen. Pongo \n en la cadena para MultiCell, pero no funciona.</FONT></P>
+Debe usted utilizar comillas dobles ("), no simples ('), para la cadena.
+<P><A NAME='13'></A><B>13.</B> <FONT CLASS='st'>Intento incluir el símbolo del euro, pero no funciona.</FONT></P>
+Las fuentes estándares tiene el carácter euro en la posición 128. Puede definir una constante
+como esta para su comodidad:
+<BR>
+<BR>
+<TABLE WIDTH="100%" BGCOLOR="#E0E0E0"><TR><TD>
+<TT>
+define('EURO',chr(128));
+</TT>
+</TD></TR></TABLE><BR>
+
+<P><A NAME='14'></A><B>14.</B> <FONT CLASS='st'>Dibujo un marco con dimensiones muy precisas pero, cuando lo imprimo, noto algunas diferencias.</FONT></P>
+Para que se respeten las dimensiones, debe desmarcan la casilla "Ajustar a página" en la ventana de impresión de Acrobat.
+<P><A NAME='15'></A><B>15.</B> <FONT CLASS='st'>Me gustaría usar toda la superficie de la página, pero cuando imprimo siempre aparecen márgenes. ¿Cómo puedo deshacerme de ellos?</FONT></P>
+Todas las impresoras tienen márgenes físicos (dependiendo del modelo). Por tanto, es imposible quitarlos
+e imprimir en la totalidad del papel.
+<P><A NAME='16'></A><B>16.</B> <FONT CLASS='st'>¿Cuál es el límite de tamaño de los ficheros que puedo generar con FPDF?</FONT></P>
+No hay ningún límte en particular. Sin embargo, hay ciertas limitaciones:
+<BR>
+<BR>
+- El máximo de memoria reservada para los scripts en PHP es, por defecto, de 8 MB. Para documentos
+muy extensos, especialmente si contienen imágenes, este límite puede alcanzarse (ya que el fichero
+se construye en memoria). El límite se define en el fichero php.ini.
+<BR>
+<BR>
+- El tiempo máximo de ejecución es por defecto de 30 segundos. Este límite puede ser fácilmente
+sobrepasado. Se define en php.ini y puede ser modificado dinámicamente mediante set_time_limit().
+<BR>
+<BR>
+- Los navegadores tienen por lo general un límite de 5 minutos de inactividad. Si envía directamente
+el PDF al navegador y sobrepasa el límite, se perderá el documento. Por tanto, en el caso de documentos
+muy grandes, se aconseja generarlos en un fichero y enviar información al navegador de tanto en tanto (por
+ejemplo, la página 1, la 2... con flush(), que fuerza la salida). Cuando el documento esté terminado,
+puede redireccionar a él con JavaScript o crear un enlace.
+<BR>
+Nota: incluso si el navegador agota su tiempo, el script puede continuar ejecutándose en el servidor.
+<P><A NAME='17'></A><B>17.</B> <FONT CLASS='st'>¿Puedo modificar un PDF con FPDF?</FONT></P>
+No.
+<P><A NAME='18'></A><B>18.</B> <FONT CLASS='st'>Me gustaría hacer un motor de búsqueda en PHP e indexar ficheros PDF. ¿Puedo hacerlo con FPDF?</FONT></P>
+No. Pero existe una utilidad GPL escrita en C, pdftotext, que es capaz de extraer el texto de
+un PDF. Viene con el paquete Xpdf:
+<BR>
+<BR>
+<A HREF="http://www.foolabs.com/xpdf/" TARGET="_blank">http://www.foolabs.com/xpdf/</A>
+<P><A NAME='19'></A><B>19.</B> <FONT CLASS='st'>¿Puedo convertir una página HTML en PDF con FPDF?</FONT></P>
+No. Pero existe una utilidad GPL escrita en C. htmldoc, que le permite hacerlo y da buen resultado:
+<BR>
+<BR>
+<A HREF="http://www.htmldoc.org" TARGET="_blank">http://www.htmldoc.org</A>
+<P><A NAME='20'></A><B>20.</B> <FONT CLASS='st'>¿Puedo concatenar ficheros PDF con FPDF?</FONT></P>
+No. Pero existe un programa gratuito escrito en C para hacerlo:
+<BR>
+<BR>
+<A HREF="http://thierry.schmit.free.fr/dev/mbtPdfAsm/enMbtPdfAsm2.html" TARGET="_blank">http://thierry.schmit.free.fr/dev/mbtPdfAsm/enMbtPdfAsm2.html</A>
+</BODY>
+</HTML>

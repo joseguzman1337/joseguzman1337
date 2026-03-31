@@ -1,0 +1,88 @@
+/*
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package io.trino.decoder.json;
+
+import com.fasterxml.jackson.databind.json.JsonMapper;
+import com.google.inject.Inject;
+import io.trino.decoder.DecoderColumnHandle;
+import io.trino.decoder.RowDecoder;
+import io.trino.decoder.RowDecoderFactory;
+import io.trino.decoder.RowDecoderSpec;
+import io.trino.spi.TrinoException;
+import io.trino.spi.connector.ConnectorSession;
+
+import java.util.Map;
+import java.util.Optional;
+import java.util.Set;
+
+import static com.google.common.base.Preconditions.checkArgument;
+import static com.google.common.collect.ImmutableMap.toImmutableMap;
+import static io.trino.spi.StandardErrorCode.GENERIC_USER_ERROR;
+import static java.lang.String.format;
+import static java.util.Objects.requireNonNull;
+import static java.util.function.Function.identity;
+
+public class JsonRowDecoderFactory
+        implements RowDecoderFactory
+{
+    private final JsonMapper jsonMapper;
+
+    @Inject
+    public JsonRowDecoderFactory(JsonMapper jsonMapper)
+    {
+        this.jsonMapper = requireNonNull(jsonMapper, "jsonMapper is null");
+    }
+
+    @Override
+    public RowDecoder create(ConnectorSession session, RowDecoderSpec rowDecoderSpec)
+    {
+        return new JsonRowDecoder(jsonMapper, chooseFieldDecoders(rowDecoderSpec.columns()));
+    }
+
+    private Map<DecoderColumnHandle, JsonFieldDecoder> chooseFieldDecoders(Set<DecoderColumnHandle> columns)
+    {
+        return columns.stream()
+                .collect(toImmutableMap(identity(), this::chooseFieldDecoder));
+    }
+
+    private JsonFieldDecoder chooseFieldDecoder(DecoderColumnHandle column)
+    {
+        try {
+            requireNonNull(column);
+            checkArgument(!column.isInternal(), "unexpected internal column '%s'", column.getName());
+
+            String dataFormat = Optional.ofNullable(column.getDataFormat()).orElse("");
+            return switch (dataFormat) {
+                case "custom-date-time" -> new CustomDateTimeJsonFieldDecoder(column);
+                case "iso8601" -> new ISO8601JsonFieldDecoder(column);
+                case "seconds-since-epoch" -> new SecondsSinceEpochJsonFieldDecoder(column);
+                case "milliseconds-since-epoch" -> new MillisecondsSinceEpochJsonFieldDecoder(column);
+                case "rfc2822" -> new RFC2822JsonFieldDecoder(column);
+                case "" -> new DefaultJsonFieldDecoder(column);
+                default -> throw new IllegalArgumentException(format("unknown data format '%s' used for column '%s'", column.getDataFormat(), column.getName()));
+            };
+        }
+        catch (IllegalArgumentException e) {
+            throw new TrinoException(GENERIC_USER_ERROR, e);
+        }
+    }
+
+    public static JsonFieldDecoder throwUnsupportedColumnType(DecoderColumnHandle column)
+    {
+        if (column.getDataFormat() == null) {
+            throw new IllegalArgumentException(format("unsupported column type '%s' for column '%s'", column.getType().getDisplayName(), column.getName()));
+        }
+        throw new IllegalArgumentException(format("unsupported column type '%s' for column '%s' with data format '%s'", column.getType(), column.getName(), column.getDataFormat()));
+    }
+}

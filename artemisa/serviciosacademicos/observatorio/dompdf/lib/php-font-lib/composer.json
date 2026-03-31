@@ -1,0 +1,22 @@
+{
+  "authors": [ {
+    "email": "fabien.menager@gmail.com",
+    "name": "Fabien Ménager"
+  } ],
+  "autoload": {
+    "psr-4": {
+      "FontLib\\": "src/FontLib"
+    }
+  },
+  "config": {
+    "bin-dir": "bin"
+  },
+  "description": "A library to read, parse, export and make subsets of different types of font files.",
+  "homepage": "https://github.com/PhenX/php-font-lib",
+  "license": "LGPL-3.0",
+  "name": "phenx/php-font-lib",
+  "require-dev": {
+    "phpunit/phpunit": "12.5.14"
+  },
+  "type": "library"
+}

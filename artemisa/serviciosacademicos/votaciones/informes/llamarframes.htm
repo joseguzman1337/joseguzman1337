@@ -1,0 +1,17 @@
+<html>
+<head>
+<script language="javascript">
+function llamadaFrame(){
+//alert("Entro?="+parent.topFrame.location.href);
+	parent.topFrame.location.reload();
+	//parent.mainFrame.frametabladatos..location.reload();
+	//='pieEscrutinio.php';
+	setTimeout("llamadaFrame()",40000);
+}
+setTimeout("llamadaFrame()",40000);
+//llamadaFrame();
+</script>
+</head>
+<p>Hola</p>
+<p>&nbsp;</p>
+</html>

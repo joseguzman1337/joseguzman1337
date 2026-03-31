@@ -1,0 +1,12 @@
+@charset "utf-8";
+/* CSS Document */
+
+.cajas {
+		font-family: Tahoma;
+		font-size: 9px;
+		font-weight: bold;
+		color: #333333;
+		background-color: #F1FBF2;
+		border: thin solid #336699;
+		
+	}

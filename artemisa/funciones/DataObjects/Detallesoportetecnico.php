@@ -1,0 +1,33 @@
+<?php
+/**
+ * Table Definition for detallesoportetecnico
+ */
+require_once 'DB/DataObject.php';
+
+class DataObjects_Detallesoportetecnico extends DB_DataObject 
+{
+    ###START_AUTOCODE
+    /* the code below is auto generated do not remove the above tag */
+
+    var $__table = 'detallesoportetecnico';           // table name
+    var $iddetallesoportetecnico;         // int(11)  not_null primary_key auto_increment
+    var $idsoportetecnico;                // int(11)  not_null multiple_key
+    var $idusuario;                       // int(11)  not_null multiple_key
+    var $descripciondetallesoportetecnico;    // blob(-1)  not_null blob
+    var $codigotipodetallesoportetecnico;    // string(3)  not_null multiple_key
+    var $fechadesdedetallesoportetecnico;    // datetime(19)  not_null binary
+    var $solucionpropuestadetallesoportetecnico;    // blob(-1)  not_null blob
+    var $iddirectivosoluciondetallesoportetecnico;    // int(11)  not_null multiple_key
+    var $fechasoluciondetallesoportetecnico;    // datetime(19)  not_null binary
+    var $codigotipodetallesoportetecnicosoluccion;    // string(3)  not_null multiple_key
+    var $nombrereporteusuariodetallesoportetecnico;    // string(50)  not_null
+
+    /* ZE2 compatibility trick*/
+    function __clone() { return $this;}
+
+    /* Static get */
+    function staticGet($k,$v=NULL) { return DB_DataObject::staticGet('DataObjects_Detallesoportetecnico',$k,$v); }
+
+    /* the code above is auto generated do not remove the tag below */
+    ###END_AUTOCODE
+}

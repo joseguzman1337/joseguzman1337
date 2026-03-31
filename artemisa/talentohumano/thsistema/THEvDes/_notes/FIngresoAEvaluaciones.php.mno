@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_ListaJefes" value="name:IdRegColab;datatype:int,name:IdColab;datatype:int,name:NombCol;datatype:string,name:CarCol;datatype:string,name:FeInCol;datatype:string,name:FeReCol;datatype:string,name:CodCol;datatype:int,name:ContCol;datatype:string,name:DepCol;datatype:string,name:JefeCol;datatype:string,name:CargoJefeCol;datatype:string,name:CCJefeCol;datatype:string" />
+</info>

@@ -1,0 +1,46 @@
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+
+# This workflow integrates njsscan with GitHub's Code Scanning feature
+# nodejsscan is a static security code scanner that finds insecure code patterns in your Node.js applications
+
+name: njsscan sarif
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    # The branches below must be a subset of the branches above
+    branches: [ master ]
+  schedule:
+    - cron: '35 3 * * 0'
+
+permissions:
+  contents: read
+
+jobs:
+  njsscan:
+    permissions:
+      contents: read # for actions/checkout to fetch code
+      security-events: write # for github/codeql-action/upload-sarif to upload SARIF results
+    runs-on: ubuntu-latest
+    name: njsscan code scanning
+    steps:
+    - name: Harden Runner
+      uses: step-security/harden-runner@fa2e9d605c4eeb9fcad4c99c224cee0c6c7f3594 # v2.16.0
+      with:
+        egress-policy: audit
+
+    - name: Checkout the code
+      uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5
+    - name: nodejsscan scan
+      id: njsscan
+      uses: ajinabraham/njsscan-action@c7b65a3590ade829628b2b3c87b34ac0ce666a79
+      with:
+        args: '. --sarif --output results.sarif || true'
+    - name: Upload njsscan report
+      uses: github/codeql-action/upload-sarif@38697555549f1db7851b81482ff19f1fa5c4fedc # v4.34.1
+      with:
+        sarif_file: results.sarif

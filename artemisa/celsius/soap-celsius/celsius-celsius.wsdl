@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+	xmlns:tns="http://sedici.unlp.edu.ar/celsiusNT/"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="CelsiusCelsius"
+	targetNamespace="http://sedici.unlp.edu.ar/celsiusNT/">
+
+	<wsdl:types>
+		<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+			targetNamespace="http://sedici.unlp.edu.ar/celsiusNT/">
+
+			<xsd:complexType name="ArrayOfString">
+				<xsd:complexContent>
+					<xsd:restriction base="soapenc:Array">
+						<xsd:attribute ref="soapenc:arrayType"
+							wsdl:arrayType="xsd:string[]" />
+					</xsd:restriction>
+				</xsd:complexContent>
+				
+				<!--
+				<xsd:sequence>
+			    	<xsd:element name="string" minOccurs="0" maxOccurs="unbounded" form="qualified" type="xsd:string" />
+				</xsd:sequence>
+				-->
+			</xsd:complexType>
+			
+			<xsd:complexType name="ArrayOfArrayOfString">
+				<xsd:complexContent>
+					<xsd:restriction base="soapenc:Array">
+						<xsd:attribute ref="soapenc:arrayType" wsdl:arrayType="tns:ArrayOfString[]"/>
+					</xsd:restriction>
+				</xsd:complexContent>
+			</xsd:complexType>
+			
+		</xsd:schema>
+	</wsdl:types>
+
+	
+	<!-- getEventos -->
+	<wsdl:message name="getEventosOrigenRemotoRequest">
+		<wsdl:part name="id_instancia_remota" type="xsd:string"/>
+		<wsdl:part name="id_pedido" type="xsd:string"/>
+	</wsdl:message>
+	<wsdl:message name="getEventosOrigenRemotoResponse">
+		<wsdl:part name="eventos" type="tns:ArrayOfArrayOfString"/>
+	</wsdl:message>
+	
+	<!-- Crear Pedido -->
+	<wsdl:message name="crearPedido_OrigenRemotoRequest">
+		<wsdl:part name="id_instancia_remota" type="xsd:string" />
+		<wsdl:part name="cols" type="tns:ArrayOfString" />
+		<wsdl:part name="values" type="tns:ArrayOfString" />
+	</wsdl:message>
+	<wsdl:message name="crearPedido_OrigenRemotoResponse">
+			<wsdl:part name="idPedido" type="xsd:string" />
+	</wsdl:message>
+	
+	<!-- Cancelar Evento -->
+	<wsdl:message name="cancelarEvento_OrigenRemotoRequest">
+		<wsdl:part name="id_instancia_remota" type="xsd:string" />
+		<wsdl:part name="id_pedido_remoto" type="xsd:string" />
+		<wsdl:part name="codigo_evento_nt" type="xsd:int" />
+	</wsdl:message>
+	<wsdl:message name="cancelarEvento_OrigenRemotoResponse">
+		<wsdl:part name="result" type="xsd:boolean" />
+	</wsdl:message>
+	
+	<!-- Generar Evento -->
+	<wsdl:message name="generarEvento_OrigenRemotoRequest">
+		<wsdl:part name="id_instancia_remota" type="xsd:string" />
+		<wsdl:part name="idPedido" type="xsd:string" />
+		<wsdl:part name="cols" type="tns:ArrayOfString" />
+		<wsdl:part name="values" type="tns:ArrayOfString" />
+		<wsdl:part name="rol" type="xsd:string" />
+		<wsdl:part name="file" type="xsd:base64Binary"/>
+	</wsdl:message>
+	<wsdl:message name="generarEvento_OrigenRemotoResponse">
+		<wsdl:part name="result" type="xsd:boolean" />
+	</wsdl:message>
+
+	<wsdl:message name="MensajeErrorFault">
+		<wsdl:part name="errorMessage" type="xsd:string" />
+	</wsdl:message>	
+	
+	
+	<wsdl:portType name="CelsiusCelsiusPortType">
+		
+		<wsdl:operation name="getEventosOrigenRemoto">
+			<wsdl:input message="tns:getEventosOrigenRemotoRequest"></wsdl:input>
+			<wsdl:output message="tns:getEventosOrigenRemotoResponse"></wsdl:output>
+			<wsdl:fault message="tns:MensajeErrorFault" />
+		</wsdl:operation>
+		
+		
+		<wsdl:operation name="crearPedido_OrigenRemoto">
+			<wsdl:input message="tns:crearPedido_OrigenRemotoRequest" />
+			<wsdl:output message="tns:crearPedido_OrigenRemotoResponse" />
+			<wsdl:fault message="tns:MensajeErrorFault" />
+		</wsdl:operation>
+		
+		<wsdl:operation name="cancelarEvento_OrigenRemoto">
+			<wsdl:input message="tns:cancelarEvento_OrigenRemotoRequest" />
+			<wsdl:output message="tns:cancelarEvento_OrigenRemotoResponse" />
+			<wsdl:fault message="tns:MensajeErrorFault" />
+		</wsdl:operation>
+		
+		<wsdl:operation name="generarEvento_OrigenRemoto">
+			<wsdl:input message="tns:generarEvento_OrigenRemotoRequest" />
+			<wsdl:output message="tns:generarEvento_OrigenRemotoResponse" />
+			<wsdl:fault message="tns:MensajeErrorFault" />
+		</wsdl:operation>
+		
+	</wsdl:portType>
+
+	<wsdl:binding name="CelsiusCelsiusBinding"
+		type="tns:CelsiusCelsiusPortType">
+		<soap:binding style="rpc"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+
+		<wsdl:operation name="vaciarColaEventosNT">
+			<soap:operation
+				soapAction="urn:celsiusNT-operations#vaciarColaEventosNT" />
+			<wsdl:input>
+				<soap:body
+					encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+					namespace="http://sedici.unlp.edu.ar/celsiusNT/" use="encoded" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body
+					encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+					namespace="http://sedici.unlp.edu.ar/celsiusNT/" use="encoded" />
+			</wsdl:output>
+			
+			<wsdl:fault>
+				<soap:fault use="encoded"
+					namespace="urn:celsiusNT-operations"
+					encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+			</wsdl:fault>
+		</wsdl:operation>
+		
+		<wsdl:operation name="getEventosOrigenRemoto">
+			<soap:operation
+				soapAction="urn:celsiusNT-operations#getEventosOrigenRemoto" />
+			<wsdl:input>
+				<soap:body
+					encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+					namespace="http://sedici.unlp.edu.ar/celsiusNT/" use="encoded" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body
+					encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+					namespace="http://sedici.unlp.edu.ar/celsiusNT/" use="encoded" />
+			</wsdl:output>
+			
+			<wsdl:fault>
+				<soap:fault use="encoded"
+					namespace="urn:celsiusNT-operations"
+					encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+			</wsdl:fault>
+		</wsdl:operation>
+		
+		<wsdl:operation name="crearPedido_OrigenRemoto">
+			<soap:operation
+				soapAction="urn:celsiusNT-operations#crearPedido_OrigenRemoto" />
+			<wsdl:input>
+				<soap:body
+					encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+					namespace="http://sedici.unlp.edu.ar/celsiusNT/" use="encoded" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body
+					encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+					namespace="http://sedici.unlp.edu.ar/celsiusNT/" use="encoded" />
+			</wsdl:output>
+			
+			<wsdl:fault>
+				<soap:fault use="encoded"
+					namespace="urn:celsiusNT-operations"
+					encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+			</wsdl:fault>
+		</wsdl:operation>
+		
+		<wsdl:operation name="cancelarEvento_OrigenRemoto">
+			<soap:operation
+				soapAction="urn:celsiusNT-operations#cancelarEvento_OrigenRemoto" />
+			<wsdl:input>
+				<soap:body use="encoded"
+					namespace="urn:celsiusNT-operations"
+					encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="encoded"
+					namespace="urn:celsiusNT-operations"
+					encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+			</wsdl:output>
+			
+			<wsdl:fault>
+				<soap:fault use="encoded"
+					namespace="urn:celsiusNT-operations"
+					encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+			</wsdl:fault>
+		</wsdl:operation>
+		
+		<wsdl:operation name="generarEvento_OrigenRemoto">
+			<soap:operation
+				soapAction="urn:celsiusNT-operations#generarEvento_OrigenRemoto" />
+			<wsdl:input>
+				<soap:body use="encoded"
+					namespace="urn:celsiusNT-operations"
+					encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="encoded"
+					namespace="urn:celsiusNT-operations"
+					encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+			</wsdl:output>
+			
+			<wsdl:fault>
+				<soap:fault use="encoded"
+					namespace="urn:celsiusNT-operations"
+					encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+			</wsdl:fault>
+		</wsdl:operation>
+	</wsdl:binding>
+
+	<wsdl:service name="CelsiusCelsiusService">
+		<wsdl:port binding="tns:CelsiusCelsiusBinding"
+			name="CelsiusCelsiusPort">
+			<soap:address
+				location="http://www.unbosque.edu.co/celsius/soap-celsius/CelsiusSOAPServer.php" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

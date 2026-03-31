@@ -1,0 +1,129 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>{{title}}</title>
+		<link type="text/css" href="../educacionContinuada/css/normalize.css" rel="stylesheet">
+        <link rel="stylesheet" href="../css/themes/smoothness/jquery-ui-1.8.4.custom.css" type="text/css" /> 
+		<link media="screen, projection" type="text/css" href="../educacionContinuada/css/style.css" rel="stylesheet">
+		<link media="screen, projection" type="text/css" href="../consulta/estadisticas/riesgos/data/media/css/demo_page.css" rel="stylesheet">
+		<link media="screen, projection" type="text/css" href="../consulta/estadisticas/riesgos/data/media/css/demo_table_jui.css" rel="stylesheet">
+		<link media="screen, projection" type="text/css" href="../consulta/estadisticas/riesgos/data/media/css/ColVis.css" rel="stylesheet">
+		<link media="screen, projection" type="text/css" href="../consulta/estadisticas/riesgos/data/media/css/TableTools.css" rel="stylesheet">
+        <script type='text/javascript' language="javascript" src="../js/jquery.js"></script>
+        <script type="text/javascript" language="javascript" src="../js/jquery.dataTables.js"></script>
+        <script type="text/javascript" language="javascript" src="../js/jquery-ui-1.8.21.custom.min.js"></script>   
+        <script type="text/javascript" language="javascript" src="../consulta/estadisticas/riesgos/data/media/js/jquery.dataTables.js"></script>
+        <script type="text/javascript" charset="utf-8" src="../consulta/estadisticas/riesgos/data/media/js/ColVis.js"></script>
+        <script type="text/javascript" charset="utf-8" src="../consulta/estadisticas/riesgos/data/media/js/ZeroClipboard.js"></script>
+        <script type="text/javascript" charset="utf-8" src="../consulta/estadisticas/riesgos/data/media/js/TableTools.js"></script>
+        <script type="text/javascript" charset="utf-8" src="../consulta/estadisticas/riesgos/data/media/js/jquery.modal.js"></script>
+		<style>		
+                table#example1 tr td,table#example1 tr th{
+					border:1px solid #000;
+					padding: 8px 5px;
+				}
+				table#example1 tr th{
+				  background-color: #dde;
+				}
+				table tr td a,table tr td button.soft{
+					display:inline-block;
+					margin-right:10px;
+				}
+		</style>
+		 <script type="text/javascript" language="javascript">
+        /****************************************************************/
+        	$(document).ready( function () {
+        			
+        			oTable1 = $('#example').dataTable({
+                                    "sDom": '<"H"Cfrltip>',
+                                    "bJQueryUI": true,
+                                    "bPaginate": true,
+                                    "sPaginationType": "full_numbers",
+                                    "oColVis": {
+                                          "buttonText": "Ver/Ocultar Columnas",
+                                           "aiExclude": [ 0 ]
+                                    }
+                                });
+                                var oTableTools1 = new TableTools( oTable1, {
+        					"buttons": [
+        						"copy",
+        						"csv",
+        						"xls",
+        						"pdf",
+        						{ "type": "print", "buttonText": "Imprimir" }
+        					]
+        		         });
+                         
+                         $('#demo').before( oTableTools1.dom.container );
+                                
+        		} );  
+        	/**************************************************************/
+        </script>	
+	</head>
+	 <body class="body"> 
+    <div id="pageContainer">
+	 <div id="container">
+        <center><h1>{{^rotacion}}MATERIAS{{/rotacion}}{{#rotacion}}GRUPOS DE MATERIAS DE ROTACIÓN DE{{/rotacion}} {{carrera}}</h1></center>
+		<div id="demo">
+          <table cellpadding="0" cellspacing="0" border="1" class="display" id="example">
+		  <thead>
+                    <tr>
+                        <th>Código</th>
+                        <th>Materia</th>
+						{{^rotacion}}
+							<th>Tipo de Rotación</th>
+							<th>Detalle</th>
+						{{/rotacion}}
+						{{#rotacion}}
+							<th>Tipo de Materia</th>
+							<th>Código Grupo</th>
+							<th>Grupo</th>
+							<th>Matriculados</th>
+                            <th>Sin Matricular</th>
+							<th>Estado Horarios</th>
+							<th>Acciones</th>
+						{{/rotacion}}
+                   </tr>
+                </thead>
+            <tbody>  							
+				{{# materias }}
+						<tr class="{{# class_even }}{{conteo}}{{/ class_even }}">				
+							<td width="20%" align="center">{{codigomateria}}</td>
+							<td width="40%" >{{nombremateria}}</td>
+						{{^rotacion}}
+							<td width="20%" align="center">{{NombreTipoRotacion}}</td>
+                            <td valign="top" align="center">
+								<a href="materia.php?id={{codigomateria}}" style="" title="Ver detalle" >
+									<img src="../mgi/images/file_search.png" alt="Ver detalle" width="20"/>
+								</a>
+                            </td>
+						{{/rotacion}}
+						{{#rotacion}}
+							<td width="20%" align="center">{{nombretipomateria}}</td>
+							<td width="20%" align="center">
+                            <ul>
+                            {{#idgrupo}}    
+                                <li>{{idgrupo}}</li>
+                            {{/idgrupo}}
+                            </ul>
+                            </td>
+							<td width="20%" align="center">{{nombregrupo}}</td>
+							<td width="20%" align="center">{{matriculadosgrupo}}</td>
+                            <td width="20%" align="center">{{nomatriculados}}</td>
+							<td width="20%" align="center">{{estadohorario}}</td>
+                            <td valign="top" align="center">
+								<a href="../consulta/facultades/materiasgrupos/subgrupos/controller/subgrupos.php?materia={{codigomateria}}&idgrupo={{Idgrupo}}" style="" title="Administrar subgrupos" >
+									<img src="../mgi/images/Groups_Meeting_Light_icon.png" alt="Administrar subgrupos" width="40"/>
+								</a>
+                            </td>
+						{{/rotacion}}
+						</tr>
+				{{/ materias }}
+			</tbody>
+			</table>
+		</div>
+		</div>
+	</div>	
+	</body>
+</html>

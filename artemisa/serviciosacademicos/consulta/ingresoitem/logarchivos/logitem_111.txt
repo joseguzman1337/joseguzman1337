@@ -1,0 +1,10 @@
+<b>Log Item</b> 
+
+<span style='background:red'>Ya existen ítems asociados a la cuenta operacion principal y parcial correspondiente a la Fila No 1, si desea modificar el ítem asociado comuníquese con el área de tecnología.</span>
+
+<span style='background:red'>Ya existen ítems asociados a la cuenta operacion principal y parcial correspondiente a la Fila No 2, si desea modificar el ítem asociado comuníquese con el área de tecnología.</span>
+
+<span style='background:red'>Ya existen ítems asociados a la cuenta operacion principal y parcial correspondiente a la Fila No 3, si desea modificar el ítem asociado comuníquese con el área de tecnología.</span>
+
+<span style='background:green'>Se han creado correctamente los Conceptos correspondientes a la Fila No 4</span> 
+

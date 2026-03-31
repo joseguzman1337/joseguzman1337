@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8">
+<TITLE>AddPage</TITLE>
+<LINK TYPE="text/css" REL="stylesheet" HREF="../fpdf.css">
+</HEAD>
+<BODY>
+<H2>AddPage</H2>
+<TT>AddPage([<B>string</B> orientation])</TT>
+<H4 CLASS='st'>Version</H4>
+1.0
+<H4 CLASS='st'>Descripción</H4>
+Añade una nueva página al documento. Si la página ya está presente, el método Footer() es invocado primero para producir
+el pie de página. Entonces es añadida la página, la posición actual se establece en la esquina superior izquierda de
+acuerdo a los márgenes izquierda y superior, y el Header() es invocado para mostrar el encabezado.<BR>
+La fuente que fue fijada antes de ser invocada es restaurada automáticamente. No es necesario invocar nuevamente SetFont()
+si desea continuar con la misma fuente. Esto también se aplica para colores y ancho de líneas.<BR>
+El origen del sistema de coordenadas es la esquina superior izquierda y se incrementan  hacia abajo.
+<H4 CLASS='st'>Parámetros</H4>
+<TT><U>orientation</U></TT>
+<BLOCKQUOTE>
+Orientación de página. Los valores posibles son (case insensitive):
+<UL>
+<LI><TT>P</TT> o <TT>Portrait</TT> (normal)
+<LI><TT>L</TT> o <TT>Landscape</TT> (apaisado)
+</UL>
+El valor por defecto el mismo que que se ha pasado al constructor.
+</BLOCKQUOTE>
+<H4 CLASS='st'>Vea además</H4>
+<A HREF="fpdf.htm">FPDF()</A>,
+<A HREF="header.htm">Header()</A>,
+<A HREF="footer.htm">Footer()</A>,
+<A HREF="setmargins.htm">SetMargins()</A>.
+<HR STYLE="margin-top:1.5em">
+<DIV STYLE="text-align:center"><A HREF="index.htm">Inicio</A></DIV>
+</BODY>
+</HTML>

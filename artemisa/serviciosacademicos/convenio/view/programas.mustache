@@ -1,0 +1,113 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>{{title}}</title>
+		<link type="text/css" href="../../educacionContinuada/css/normalize.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../css/themes/smoothness/jquery-ui-1.8.4.custom.css" type="text/css" /> 
+		<link media="screen, projection" type="text/css" href="../../educacionContinuada/css/style.css" rel="stylesheet">
+        <script type='text/javascript' language="javascript" src="../../js/jquery.js"></script>
+        <script type="text/javascript" language="javascript" src="../../js/jquery-ui-1.8.21.custom.min.js"></script> 
+        <script type="text/javascript" language="javascript" src="../../educacionContinuada/js/functions.js"></script>
+        <script type="text/javascript" language="javascript" src="../js/funcionesGestionContraprestaciones.js "></script>
+        <script>
+        function identificarmodal(id)
+        {
+            $('#conveniocarrera').val(id);  
+        }
+        </script>
+		<style>
+			form span.info{
+				margin-left:15px;position:relative;top:2px;
+				clear: right;
+				display: inline-block;
+				float: left;
+			}
+            .modal-contenido{
+              background-color: white;
+              width:300px;
+              padding: 10px 20px;
+              margin: 20% auto;
+              position: relative;
+            }
+            .modal{
+              background-color: rgba(0,0,0,.8);
+              position:fixed;
+              top:0;
+              right:0;
+              bottom:0;
+              left:0;
+              opacity:0;
+              pointer-events:none;
+              transition: all 1s;
+            }
+            #miModal:target{
+              opacity:1;
+              pointer-events: auto;
+            }
+		</style>
+	</head>
+	<body class="body">
+        <div id="container">
+            <center><h1>{{title}}</h1></center>
+            <center><h3>{{nombreconvenio}}</h3></center>
+            <center><h3>{{nombrecontra}}</h3></center>
+        </div>
+        <div>
+            <fieldset>
+            <center>
+                <table cellpadding="3" border="0" width="920px">
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Nombre</th>
+                        <th>Modalidad</th>
+                        <th>Estado</th>
+                        <th>Editar</th>                        
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {{#lista_programas}}
+                        <tr>
+                            <td>{{row}}</td>
+                            <td>{{nombrecarrera}}</td>
+                            <td>{{nombremodalidadacademica}}</td>
+                            <td>{{nombreestado}}</td>
+                            <td>
+                                <a href="#miModal" id="{{row}}" onclick="identificarmodal('{{idconveniocarrera}}');"><img src="../img/iconoLupa.png" /></a>
+                                <div id="miModal" class="modal" name="{{row}}">
+                                  <div class="modal-contenido">
+                                    <a href="#">X</a>
+                                    <div>
+                                        <center><label>Estado: </label></center><br /><br />
+                                        <form id="actualizarformulario{{row}}" method="post">                                            
+                                            <input type="hidden" name="conveniocarrera" id="conveniocarrera" value="{{idconveniocarrera}}" />
+                                            <input type="hidden" name="Accion" id="Accion" value="actualizar" />                                            
+                                            <input type="radio" name="estado" value="100"/> Activo<br/>
+                                            <input type="radio" name="estado" value="200"/> Inactivo<br/>  
+                                            <input type="button" id="actualizar" name="actualizar" value="Actualizar" onclick="ActualizarPrograma('#actualizarformulario{{row}}');"/>      
+                                        </form>
+                                    </div>
+                                  </div>  
+                                </div>
+                            </td>
+                        </tr>
+                    {{/lista_programas}}
+                    </tbody>
+                </table>
+            
+            <form action="../Controller/ModificarContraprestaciones.php" method="post">
+                <input type="hidden" name="Accion" id="Accion" value="nuevoprograma" />
+                <input type="hidden" name="idconvenio" id="idconvenio" value="{{idconvenio}}" />
+                <input type="hidden" name="contraprestacion" id="contraprestacion" value="{{contraprestacion}}" />
+                <input type="submit" name="nueva" value="Nuevo Programa" />
+                <script>
+                    var Accion = 'programas';
+                </script>
+                <input type="button" value="regresar" onclick="RegresarContraprestacion(Accion);" />
+            </form>
+            </center>
+            </fieldset>
+        </div>
+    </body>
+</html>

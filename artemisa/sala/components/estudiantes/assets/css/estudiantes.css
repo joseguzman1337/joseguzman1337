@@ -1,0 +1,58 @@
+.aside-right {
+    padding: 0; 
+    position: absolute;
+    width: 250px;
+    height: auto;
+    left: auto;
+    right: 0 !important; 
+    top: 50px;
+    bottom: 0;
+    min-height: 90vh;
+    overflow: hidden;
+}
+.aside-right .nano {
+    position: relative;
+}
+.left-col{
+    display: inline-block;
+    width: -webkit-calc(100% - 252px);
+    width:    -moz-calc(100% - 252px);
+    width:         calc(100% - 252px);
+}
+.right-col{
+    display: inline-block;
+    width: 250px;
+}
+.left-col-100{
+    width: 100% !important;
+}
+.show-menu{
+    position: absolute;
+    top: 55px;
+    right: 5px;
+}
+.hide-menu{
+    position: absolute;
+    top: 55px;
+    right: 255px;
+}
+#show-hide-student-menu{
+    cursor: pointer;
+    background-color: #ffffff;
+}
+@media screen and (max-width: 769px) {
+    .left-col{
+        width: 100%;
+    }
+    .right-col{
+        display: none; 
+    }
+    .show-menu,
+    .hide-menu,
+    aside.aside-right{
+        top: 105px;
+    }
+}
+/* 972 sm*/
+@media screen and (max-width: 972px) { 
+}

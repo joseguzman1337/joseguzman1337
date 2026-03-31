@@ -1,0 +1,56 @@
+body {
+	margin-top: 0px;
+}
+.style1 {
+	font-family: Tahoma;
+	font-size: small;
+}
+
+.style3 {
+	font-size: x-small;
+	font-weight: bold;
+}
+
+.style4 {
+	font-size: x-small
+}
+
+.style5 {
+	color: #FF0000;
+	font-weight: bold;
+}
+
+.Estilo23 {
+	font-family: Tahoma;
+	font-size: x-small;
+}
+
+.Estilo24 {
+	font-family: Tahoma;
+	font-size: xx-small;
+}
+
+.Estilo27 {
+	font-family: Tahoma
+}
+
+.Estilo28 {
+	font-size: 12px;
+	font-weight: bold;
+}
+
+.Estilo31 {
+	font-size: 12
+}
+
+.Estilo34 {
+	color: #000000
+}
+
+.Estilo35 {
+	color: #FF0000
+}
+
+.Estilo36 {
+	font-size: 12px
+}

@@ -1,0 +1,93 @@
+/*
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package io.trino.spi.block;
+
+import io.airlift.slice.SliceInput;
+import io.airlift.slice.SliceOutput;
+
+import java.util.List;
+import java.util.Optional;
+
+import static io.trino.spi.block.EncoderUtil.decodeNullBitsScalar;
+import static io.trino.spi.block.EncoderUtil.decodeNullBitsVectorized;
+import static io.trino.spi.block.EncoderUtil.encodeNullsAsBitsScalar;
+import static io.trino.spi.block.EncoderUtil.encodeNullsAsBitsVectorized;
+
+public class RowBlockEncoding
+        implements BlockEncoding
+{
+    public static final String NAME = "ROW";
+
+    private final boolean vectorizeNullBitPacking;
+
+    public RowBlockEncoding(boolean vectorizeNullBitPacking)
+    {
+        this.vectorizeNullBitPacking = vectorizeNullBitPacking;
+    }
+
+    @Override
+    public String getName()
+    {
+        return NAME;
+    }
+
+    @Override
+    public Class<? extends Block> getBlockClass()
+    {
+        return RowBlock.class;
+    }
+
+    @Override
+    public void writeBlock(BlockEncodingSerde blockEncodingSerde, SliceOutput sliceOutput, Block block)
+    {
+        RowBlock rowBlock = (RowBlock) block;
+
+        sliceOutput.appendInt(rowBlock.getPositionCount());
+
+        List<Block> fieldBlocks = rowBlock.getFieldBlocks();
+        sliceOutput.appendInt(fieldBlocks.size());
+        for (Block fieldBlock : fieldBlocks) {
+            blockEncodingSerde.writeBlock(sliceOutput, fieldBlock);
+        }
+
+        if (vectorizeNullBitPacking) {
+            encodeNullsAsBitsVectorized(sliceOutput, rowBlock.getRawRowIsNull(), rowBlock.getOffsetBase(), rowBlock.getPositionCount());
+        }
+        else {
+            encodeNullsAsBitsScalar(sliceOutput, rowBlock.getRawRowIsNull(), rowBlock.getOffsetBase(), rowBlock.getPositionCount());
+        }
+    }
+
+    @Override
+    public Block readBlock(BlockEncodingSerde blockEncodingSerde, SliceInput sliceInput)
+    {
+        int positionCount = sliceInput.readInt();
+
+        int numFields = sliceInput.readInt();
+        Block[] fieldBlocks = new Block[numFields];
+        for (int i = 0; i < numFields; i++) {
+            fieldBlocks[i] = blockEncodingSerde.readBlock(sliceInput);
+        }
+
+        Optional<boolean[]> rowIsNull;
+        if (vectorizeNullBitPacking) {
+            rowIsNull = decodeNullBitsVectorized(sliceInput, positionCount);
+        }
+        else {
+            rowIsNull = decodeNullBitsScalar(sliceInput, positionCount);
+        }
+        return RowBlock.fromNotNullSuppressedFieldBlocks(positionCount, rowIsNull, fieldBlocks);
+    }
+}

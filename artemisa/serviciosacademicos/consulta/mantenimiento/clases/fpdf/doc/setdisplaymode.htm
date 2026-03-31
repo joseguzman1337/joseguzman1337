@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8">
+<TITLE>SetDisplayMode</TITLE>
+<LINK TYPE="text/css" REL="stylesheet" HREF="../fpdf.css">
+</HEAD>
+<BODY>
+<H2>SetDisplayMode</H2>
+<TT>SetDisplayMode(<B>mixed</B> zoom [, <B>string</B> layout])</TT>
+<H4 CLASS='st'>Version</H4>
+1.2
+<H4 CLASS='st'>Descripción</H4>
+Define la forma como el documento es presentado al espectador. El nivel de acercamiento puede ser establecido: la páginas pueden ser presentadas completamente en pantalla, ocupar todo el ancho de la ventana, usar el tamaño real, ser graduado por un factor específico de acercamiento o usar el visor por defecto (configurado en el menú de Preferencias de Acrobat).
+El esquema de la página puede ser también especificado: sencillo al mismo tiempo, despliegue continuo, dos columnas o por defecto el visor.
+<BR>
+Por defecto, los documentos usan el modo todo el ancho con despliegue continuo.
+<H4 CLASS='st'>Parámetros</H4>
+<TT><U>zoom</U></TT>
+<BLOCKQUOTE>
+El acercamiento a usar. Este puede ser uno de los siguiente valores:
+<UL>
+<LI><TT>fullpage</TT>: despliega la página completa en la pantalla
+<LI><TT>fullwidth</TT>: usa el ancho máximo de la pantalla
+<LI><TT>real</TT>: usa el tamaño real (equivalente a un acercamiento de 100% )
+<LI><TT>default</TT>: usa el modo por defecto del visor
+</UL>
+o un número indicando el factor de acercamiento a ser usado.
+</BLOCKQUOTE>
+<TT><U>layout</U></TT>
+<BLOCKQUOTE>
+El esquema de la página. Los posibles valores son:
+<UL>
+<LI><TT>single</TT>: despliega una página la tiempo
+<LI><TT>continuous</TT>: despliega páginas continuamente
+<LI><TT>two</TT>: despliega dos páginas en dos columnas
+<LI><TT>default</TT>: usa el modo por defecto del visor
+</UL>
+El valor por defecto es <TT>continuous</TT>.
+</BLOCKQUOTE>
+<HR STYLE="margin-top:1.5em">
+<DIV STYLE="text-align:center"><A HREF="index.htm">Inicio</A></DIV>
+</BODY>
+</HTML>

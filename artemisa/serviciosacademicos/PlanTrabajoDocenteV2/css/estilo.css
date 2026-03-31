@@ -1,0 +1,333 @@
+.combobox{
+	width: 250px;
+}
+
+.campobox{
+	width: 210px;
+}
+
+.sampletext {
+	background: #FFFFFF;
+    border: 1px solid #DBE1EB;
+    border-radius: 4px;
+    width: 230px;
+}
+
+a:link   
+{   
+ text-decoration:none;   
+}  
+
+
+#saludo{
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	font-size: large;	
+}
+
+#tituloDecanoFacultad{
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	font-size: medium;
+	color: #4d70ba;	
+}
+
+#notaSinPLan{
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	font-size: small;
+	color:#555;
+}
+
+#tituloPlan
+{
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	font-weight: bold;
+	color: #000000;
+	margin-left: 10%;
+	font-size: large;
+}
+
+#contenedor {
+	
+    width: 75%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: -10px;
+}
+
+
+#contenedor-header {
+    display: table;
+    width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 20px;
+	border-style: groove; 
+	border-width: 1px;
+	border-radius:4px;	
+    height: 178px;
+}
+
+#header {
+    display: table-cell;
+    vertical-align: top;
+    position: relative;
+    height: 110px;
+    margin:auto;
+}
+
+#dvDetalleDocente{
+	height: auto;
+	background-color:#FFF;
+    width: 80%;
+    margin-left: 10%;
+  	/*margin-right:50%;*/
+    
+    }
+
+
+#header .izquierdo{
+	background-image: url(../images/logotipo_ueb.png);
+	background-repeat:no-repeat;
+	width: 500px; 
+	height: 90px;
+	float: left;
+	margin-left: 20px;
+}
+
+#header .derecho{
+	
+	
+	width: 40px; 
+	height: 106px;
+	float: right;
+	margin-right: 0px;
+}
+
+#header .centro{
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif; 
+	font-size:20px; 
+	font-weight:bold;
+	color:#807F82;
+	width:100%;
+}
+
+#header .menu{
+    margin-right: 10px;
+	height: 33px;
+	width: 370px;
+    margin-top: 25px;
+}
+
+#header .menu .inicio{
+	background-image:url(images/Cabecera_r2_c4.jpg);
+	background-repeat:no-repeat;
+	background-position:top;
+	height: 33px;
+	width: 95px;
+	border: 0;
+}
+
+#header .menu .cerrar{
+	background-image:url(images/Cabecera_r2_c5.jpg);
+	background-repeat:no-repeat;
+	background-position:top;
+	height: 33px;
+	width: 96px;
+	border: 0;
+}
+
+#header .menu .ayuda{
+	background-image:url(images/Cabecera_r2_c6.jpg);
+	background-repeat:no-repeat;
+	background-position:top;
+	height: 33px;
+	width: 90px;
+	border: 0;
+}
+
+#migadepan{
+    height: 20px;
+	background-color:#FFF;
+    width: 100%;
+}
+
+#contenedor-contenido {
+    height: auto;
+	background-color:#FFF;
+    width: 100%;
+}
+
+#contenedor-foot{
+	background-image: url(images/Cabecera_r2_c2.jpg);
+	margin-top: 2px;
+	position: absolute;
+	margin-bottom: 0px; 
+	height:128px;
+	width: 75%;
+	border-style: groove; 
+	border-width: 1px;
+	border-radius:4px;
+}
+
+#foot-linea1{
+	background-image: url(images/Cabecera_r2_c2.jpg);
+	background-repeat:repeat;
+	height: 150px;
+}
+
+#foot-linea1 .izquierdo{
+	/*background-image: url(images/inm4.jpg);
+	background-repeat:no-repeat;*/
+	
+	width: 1024px; 
+	height: 150px;
+    margin: 0 auto; 
+	/*float: left;*/
+}
+
+
+#foot-linea2{
+	background-image: url(images/Cabecera_r2_c2.jpg);
+	background-repeat:repeat-x;
+	height: 150px;
+	width: 100%; 
+}
+
+#foot-linea2 .izquierdo{
+	background-image: url(images/Cabecera_r2_c2.jpg);
+	background-repeat:repeat;
+	width: 729px; 
+	height: 29px;
+    margin: 0 auto;
+	float: left;
+}
+
+#panelLogin{
+	width: 300px;
+}
+
+#panelContactar{
+	width: 500px;
+}
+
+#panelAgenda{
+	width: 100%;
+}
+
+#panelCalendario{
+	width: 90%;
+}
+
+#panelDia{
+	width: 95%;
+}
+
+#error{
+    height: 20px;
+	background-color:#EE5757;
+    width: 100%;
+}
+
+#resultado{
+	background-color: #C6E746;
+	height: 20px;
+    width: 100%;
+}
+
+legend{
+	color: rgb(59, 89, 152); 
+	font-weight: normal;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif
+}
+
+.descripcion
+{
+    border:1px solid #999999;
+    width:100%;
+    margin:5px 0;
+    padding:3px;
+}
+
+.gestionAlarma {
+	background-color: #D5F2CE;
+}
+.gestionTraslado {
+	background-color: #F2CED0;
+}
+
+
+span{
+  color: #000000;
+  text-decoration: none;
+}
+
+span:hover {
+  color: #cccccc;
+  position: relative;
+}
+
+span[title]:hover:after {
+  content: attr(title);
+  padding: 4px 8px;
+  color: #333;
+  position: absolute;
+  margin-top: 2px;
+  margin-left: 70px;
+  left: 0;
+  top: 100%;
+  white-space: nowrap;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  -moz-box-shadow: 0px 0px 4px #222;
+  -webkit-box-shadow: 0px 0px 4px #222;
+  box-shadow: 0px 0px 4px #222;
+  background-image: -moz-linear-gradient(top, #eeeeee, #cccccc);
+  background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, #eeeeee),color-stop(1, #cccccc));
+  background-image: -webkit-linear-gradient(top, #eeeeee, #cccccc);
+  background-image: -moz-linear-gradient(top, #eeeeee, #cccccc);
+}
+
+
+dl{ margin: 60px auto; width: auto; }
+dt, dd{ padding: 12px; }
+dt{ background: #D1CBCB; color: black; border-bottom: 1px solid #C5C2C2; border-top: 1px solid #4E4E4E; cursor: pointer;
+	-moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+	border-radius: 5px;
+	-moz-box-shadow: 0px 0px 4px #222;
+	-webkit-box-shadow: 0px 0px 4px #222;
+	box-shadow: 0px 0px 4px #222;
+	background-image: -moz-linear-gradient(top, #eeeeee, #cccccc);
+	background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, #eeeeee),color-stop(1, #cccccc));
+	background-image: -webkit-linear-gradient(top, #eeeeee, #cccccc);
+	background-image: -moz-linear-gradient(top, #eeeeee, #cccccc);
+	text-shadow: 0 1px 0 #ccc, 
+               0 2px 0 #c9c9c9,
+               0 3px 0 #bbb,
+               0 4px 0 #b9b9b9,
+               0 5px 0 #aaa,
+               0 6px 1px rgba(0,0,0,.1),
+               0 0 5px rgba(0,0,0,.1),
+               0 1px 3px rgba(0,0,0,.3),
+               0 3px 5px rgba(0,0,0,.2),
+               0 5px 10px rgba(0,0,0,.25),
+               0 10px 10px rgba(0,0,0,.2),
+               0 20px 20px rgba(0,0,0,.15); 
+}
+dd{ background: #F5F5F5; line-height: 1.4em; 
+	-moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+	border-radius: 5px;
+	-moz-box-shadow: 0px 0px 4px #222;
+	-webkit-box-shadow: 0px 0px 4px #222;
+	box-shadow: 0px 0px 4px #222;
+	background-image: -moz-linear-gradient(top, #eeeeee, #cccccc);
+	background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, #eeeeee),color-stop(1, #cccccc));
+	background-image: -webkit-linear-gradient(top, #eeeeee, #cccccc);
+	background-image: -moz-linear-gradient(top, #eeeeee, #cccccc);
+}
+dt.activo, dt:hover{ background: #FFFFFF; }
+dt:before{ content: "▸"; margin-right: 10px; }
+dt.activo:before{ content: "▾"; }
+
+

@@ -1,0 +1,140 @@
+<?xml version ="1.0" encoding ="UTF-8" ?>
+<definitions name="ClientCelsiusNT"
+	targetNamespace="http://sedici.unlp.edu.ar/celsiusNT/"
+	xmlns:tns="http://sedici.unlp.edu.ar/celsiusNT/"
+	xmlns:typens="http://sedici.unlp.edu.ar/celsiusNT/types/"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns="http://schemas.xmlsoap.org/wsdl/">
+
+	<wsdl:types>
+		<xsd:schema
+			targetNamespace="http://sedici.unlp.edu.ar/celsiusNT/types/">
+			<xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+			
+			<xsd:complexType name="ArrayOfString">
+				<xsd:complexContent>
+					<xsd:restriction base="soapenc:Array">
+						<xsd:attribute ref="soapenc:arrayType"
+							wsdl:arrayType="xsd:string[]" />
+					</xsd:restriction>
+				</xsd:complexContent>
+			</xsd:complexType>
+			
+			<!-- Estructura del queryResponse -->			
+			
+			<xsd:complexType name="QueryResponse">
+				<xsd:complexContent>
+					<xsd:restriction base="soapenc:Array">
+						<xsd:attribute ref="soapenc:arrayType"
+							wsdl:arrayType="typens:ArrayOfString[]" />
+					</xsd:restriction>
+				</xsd:complexContent>
+			</xsd:complexType>
+			
+		</xsd:schema>
+	</wsdl:types>
+
+	<message name="ejecutarQueryRequest">
+		<part name="sqlQuery" type="xsd:string[]" />
+	</message>
+	
+	<message name="ejecutarQueryResponse">
+		<part name="Result" type="typens:QueryResponse" />
+	</message>
+	
+	<wsdl:message name="MensajeErrorFault">
+		<wsdl:part name="errorMessage" type="xsd:string" />
+	</wsdl:message>	
+	
+	
+	<wsdl:message name="echoesMessage">
+		<wsdl:part name="message" type="xsd:string" />
+	</wsdl:message>
+	
+	<portType name="ClienteDirectorioPortType">
+		<operation name="ejecutarQuery">
+			<input message="tns:ejecutarQueryRequest" />
+			<output message="tns:ejecutarQueryResponse" />
+			<fault message="tns:MensajeErrorFault" />
+		</operation>
+		<operation name="vaciarColaEventosNT">
+			<fault message="tns:MensajeErrorFault" />
+		</operation>
+		
+		<operation name="echoes">
+			<input message="tns:echoesMessage" />
+			<output message="tns:echoesMessage" />
+		</operation>
+	</portType>
+
+	<binding name="ClienteDirectorioBinding" type="tns:ClienteDirectorioPortType">
+		<soap:binding style="rpc"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		<operation name="ejecutarQuery">
+			<soap:operation
+				soapAction="urn:celsiusNT-operations#ejecutarQuery" />
+			<input>
+				<soap:body use="encoded"
+					namespace="urn:celsiusNT-operations"
+					encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+			</input>
+			<output>
+				<soap:body use="encoded"
+					namespace="urn:celsiusNT-operations"
+					encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+			</output>
+			<fault>
+				<soap:fault use="encoded"
+					namespace="urn:celsiusNT-operations"
+					encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+			</fault>
+		</operation>
+		
+		<operation name="vaciarColaEventosNT">
+			<soap:operation
+				soapAction="urn:celsiusNT-operations#vaciarColaEventosNT" />
+			<input>
+				<soap:body use="encoded"
+					namespace="urn:celsiusNT-operations"
+					encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+			</input>
+			<output>
+				<soap:body use="encoded"
+					namespace="urn:celsiusNT-operations"
+					encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+			</output>
+			<fault>
+				<soap:fault use="encoded"
+					namespace="urn:celsiusNT-operations"
+					encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+			</fault>
+		</operation>
+		
+		
+		<operation name="echoes">
+			<soap:operation
+				soapAction="urn:celsiusNT-operations#echoes" />
+			<input>
+				<soap:body use="encoded"
+					namespace="urn:celsiusNT-operations"
+					encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+			</input>
+			<output>
+				<soap:body use="encoded"
+					namespace="urn:celsiusNT-operations"
+					encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+			</output>
+		</operation>
+	</binding>
+
+	<service name="ClienteDirectorioCelsiusNT">
+		<port name="ClienteDirectorioPort" binding="tns:ClienteDirectorioBinding">
+			<soap:address
+				location="http://www.unbosque.edu.co/celsius/soap-directorio/DirectorioSoapServer.php" />
+		</port>
+	</service>
+
+</definitions>

@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_medios" value="name:codigomediocomunicacion;datatype:int,name:nombremediocomunicacion;datatype:string" />
+	<infoitem key="UD_avanzado" value="name:numeroidentificaciondirectorio;datatype:string,name:iddirectorio;datatype:int,name:nombresdirectorio;datatype:string,name:apellidosdirectorio;datatype:string,name:nombreoficina;datatype:string,name:nombresede;datatype:string,name:nombrearea;datatype:string,name:nombrepiso;datatype:string,name:nombrecargo;datatype:string" />
+	<infoitem key="UD_publica" value="name:codigopublicainternetcomunicacion;datatype:string,name:nombrepublicainternetcomunicacion;datatype:string" />
+</info>

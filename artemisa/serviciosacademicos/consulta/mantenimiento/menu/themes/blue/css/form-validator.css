@@ -1,0 +1,42 @@
+.DHTMLSuite_validInput{
+	border:1px solid green;
+}
+.DHTMLSuite_invalidInput{
+	border:1px solid red;
+}
+
+.DHTMLSuite_validInput,.DHTMLSuite_invalidInput{
+	padding:1px;
+	margin:0px;
+}
+
+.DHTMLSuite_validInput select{
+	margin:0px;
+	padding:0px;
+}
+
+.DHTMLSuite_validationImage{
+	background-position:center center;
+	background-repeat:no-repeat;
+	width:10px;
+	height:10px;
+}
+
+.DHTMLSuite_invalidInputImage{
+	background-image:url(../images/form-validator/incorrect.gif);
+
+}
+.DHTMLSuite_validInputImage{
+	background-image:url(../images/form-validator/correct.gif);
+}
+
+.DHTMLSuite_validationBar{
+	width:3px;
+}
+.DHTMLSuite_validationBarInvalid{
+	background-color:#B00;
+}
+
+.DHTMLSuite_validationBarValid{
+	background-color:#0B0;
+}

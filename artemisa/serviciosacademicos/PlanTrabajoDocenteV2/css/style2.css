@@ -1,0 +1,653 @@
+#page_container {
+	width: 80%;
+	margin: 5em auto 0;
+}
+
+.form_container {
+	background: #ffffff;
+	padding: 20px;
+	border: 1px dashed #BEBEBE;
+	overflow: hidden;
+}
+
+.form_container h3 {
+	font-size: 20px;
+	margin: 0 0 10px 0;
+	color: #909090;
+}
+
+#expense_table {
+	width: 100%;
+	margin: 0 0 1em 0;
+}
+
+#expense_table td, #expense_table th{
+	border: 1px solid #cccccc !important;
+}
+
+#expense_table th{ 
+	padding: .5em .3em;
+	background: #ececec;
+	font-weight: bold;
+}
+
+#expense_table td {
+	padding: 0.3em;
+}
+
+#add_ExpenseRow {
+	cursor: pointer;
+	background: #dbe8bf url(../images/add_row.png) 6px 4px no-repeat;
+	padding: 3px 4px 3px 25px;
+	border: 1px solid #a3c261;
+    color: #000;
+    border-radius: 10px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    display: inline-block;
+    font-size: 14px;
+    text-align: center;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+#add_ExpenseRow:hover {
+	background-color: #c5d5a3;
+}
+
+#expense_table .del_ExpenseRow {
+	cursor: pointer;
+	background: url(../images/delete_row.png) 5px 4px no-repeat;
+	width: 28px;
+	height: 26px;
+	border: 1px solid #e26c6c;
+	text-indent: -9999px;
+}
+
+#expense_table .del_ExpenseRow:hover {
+	background-color: #e07171;
+}
+
+#expense_table .del_ExpenseRow_subjects {
+	cursor: pointer;
+	background: url(../images/delete_row.png) 5px 4px no-repeat;
+	width: 28px;
+	height: 26px;
+	border: 1px solid #e26c6c;
+	text-indent: -9999px;
+}
+
+#expense_table .del_ExpenseRow_subjects:hover {
+	background-color: #e07171;
+}
+
+/* TAB 2 DESCUBRIMIENTO */
+
+#expense_table_descubrimiento {
+	width: 100%;
+	margin: 0 0 1em 0;
+}
+
+#expense_table_descubrimiento td, #expense_table_descubrimiento th{
+	border: 1px solid #cccccc !important;
+}
+
+#expense_table_descubrimiento th{ 
+	padding: .5em .3em;
+	background: #ececec;
+	font-weight: bold;
+}
+
+#expense_table_descubrimiento td {
+	padding: 0.3em;
+}
+
+#add_ExpenseRow_descubrimiento {
+	cursor: pointer;
+	background: #dbe8bf url(../images/add_row.png) 6px 4px no-repeat;
+	padding: 3px 4px 3px 25px;
+	border: 1px solid #a3c261;
+    color: #000;
+    border-radius: 10px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    display: inline-block;
+    font-size: 14px;
+    text-align: center;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+#add_ExpenseRow_descubrimiento:hover {
+	background-color: #c5d5a3;
+}
+
+#expense_table_descubrimiento .del_ExpenseRow_descubrimiento {
+	cursor: pointer;
+	background: url(../images/delete_row.png) 5px 4px no-repeat;
+	width: 28px;
+	height: 26px;
+	border: 1px solid #e26c6c;
+	text-indent: -9999px;
+    border-radius: 10px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    color: #e8f0de;
+    display: inline-block;
+    font-size: 14px;
+    padding: 8px 19px 9px;
+    text-align: center;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+#expense_table_descubrimiento .del_ExpenseRow_descubrimiento:hover {
+	background-color: #e07171;
+}
+
+
+/* TAB 2 ORIENTACION */
+
+#expense_table_orientacion {
+	width: 100%;
+	margin: 0 0 1em 0;
+}
+
+#expense_table_orientacion td, #expense_table_orientacion th{
+	border: 1px solid #cccccc !important;
+}
+
+#expense_table_orientacion th{ 
+	padding: .5em .3em;
+	background: #ececec;
+	font-weight: bold;
+}
+
+#expense_table_orientacion td {
+	padding: 0.3em;
+}
+
+#add_ExpenseRow_orientacion {
+	cursor: pointer;
+	background: #dbe8bf url(../images/add_row.png) 6px 4px no-repeat;
+	padding: 3px 4px 3px 25px;
+	border: 1px solid #a3c261;
+    color: #000;
+    border-radius: 10px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    display: inline-block;
+    font-size: 14px;
+    text-align: center;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+#add_ExpenseRow_orientacion:hover {
+	background-color: #c5d5a3;
+}
+
+#expense_table_orientacion .del_ExpenseRow_orientacion {
+	cursor: pointer;
+	background: url(../images/delete_row.png) 5px 4px no-repeat;
+	width: 28px;
+	height: 26px;
+	border: 1px solid #e26c6c;
+	text-indent: -9999px;
+    border-radius: 10px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    color: #e8f0de;
+    display: inline-block;
+    font-size: 14px;
+    padding: 8px 19px 9px;
+    text-align: center;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+#expense_table_orientacion .del_ExpenseRow_orientacion:hover {
+	background-color: #e07171;
+}
+
+#expense_table_orientacion .del_ExpenseRow_compromiso {
+	cursor: pointer;
+	background: url(../images/delete_row.png) 5px 4px no-repeat;
+	width: 28px;
+	height: 26px;
+	border: 1px solid #e26c6c;
+	text-indent: -9999px;
+    border-radius: 10px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    color: #e8f0de;
+    display: inline-block;
+    font-size: 14px;
+    padding: 8px 19px 9px;
+    text-align: center;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+#expense_table_orientacion .del_ExpenseRow_compromiso:hover {
+	background-color: #e07171;
+}
+
+
+/* TAB 2 COMPROMISO */
+
+#expense_table_compromiso {
+	width: 100%;
+	margin: 0 0 1em 0;
+}
+
+#expense_table_compromiso td, #expense_table_compromiso th{
+	border: 1px solid #cccccc !important;
+}
+
+#expense_table_compromiso th{ 
+	padding: .5em .3em;
+	background: #ececec;
+	font-weight: bold;
+}
+
+#expense_table_compromiso td {
+	padding: 0.3em;
+}
+
+#add_ExpenseRow_compromiso {
+	cursor: pointer;
+	background: #dbe8bf url(../images/add_row.png) 6px 4px no-repeat;
+	padding: 3px 4px 3px 25px;
+	border: 1px solid #a3c261;
+    color: #000;
+    border-radius: 10px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    display: inline-block;
+    font-size: 14px;
+    text-align: center;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+#add_ExpenseRow_compromiso:hover {
+	background-color: #c5d5a3;
+}
+
+#expense_table_compromiso .del_ExpenseRow_compromiso {
+	cursor: pointer;
+	background: url(../images/delete_row.png) 5px 4px no-repeat;
+	width: 28px;
+	height: 26px;
+	border: 1px solid #e26c6c;
+	text-indent: -9999px;
+    border-radius: 10px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    color: #e8f0de;
+    display: inline-block;
+    font-size: 14px;
+    padding: 8px 19px 9px;
+    text-align: center;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+#expense_table_compromiso .del_ExpenseRow_compromiso:hover {
+	background-color: #e07171;
+}
+
+/* TAB 2 GESTION */
+
+#expense_table_gestion {
+	width: 100%;
+	margin: 0 0 1em 0;
+}
+
+#expense_table_gestion td, #expense_table_gestion th{
+	border: 1px solid #cccccc !important;
+}
+
+#expense_table_gestion th{ 
+	padding: .5em .3em;
+	background: #ececec;
+	font-weight: bold;
+}
+
+#expense_table_gestion td {
+	padding: 0.3em;
+}
+
+#add_ExpenseRow_gestion {
+	cursor: pointer;
+	background: #dbe8bf url(../images/add_row.png) 6px 4px no-repeat;
+	padding: 3px 4px 3px 25px;
+	border: 1px solid #a3c261;
+    color: #000;
+    border-radius: 10px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    display: inline-block;
+    font-size: 14px;
+    text-align: center;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+#add_ExpenseRow_gestion:hover {
+	background-color: #c5d5a3;
+}
+
+#expense_table_gestion .del_ExpenseRow_gestion {
+	cursor: pointer;
+	background: url(../images/delete_row.png) 5px 4px no-repeat;
+	width: 28px;
+	height: 26px;
+	border: 1px solid #e26c6c;
+	text-indent: -9999px;
+    border-radius: 10px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    color: #e8f0de;
+    display: inline-block;
+    font-size: 14px;
+    padding: 8px 19px 9px;
+    text-align: center;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+#expense_table_gestion .del_ExpenseRow_gestion:hover {
+	background-color: #e07171;
+}
+
+
+/* TAB 2 LABORATORIOS */
+
+#expense_table_laboratorios {
+	width: 100%;
+	margin: 0 0 1em 0;
+}
+
+#expense_table_laboratorios td, #expense_table_laboratorios th{
+	border: 1px solid #cccccc !important;
+}
+
+#expense_table_laboratorios th{ 
+	padding: .5em .3em;
+	background: #ececec;
+	font-weight: bold;
+}
+
+#expense_table_laboratorios td {
+	padding: 0.3em;
+}
+
+#add_ExpenseRow_laboratorios {
+	cursor: pointer;
+	background: #dbe8bf url(../images/add_row.png) 6px 4px no-repeat;
+	padding: 3px 4px 3px 25px;
+	border: 1px solid #a3c261;
+    color: #000;
+    border-radius: 10px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    display: inline-block;
+    font-size: 14px;
+    text-align: center;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+#add_ExpenseRow_laboratorios:hover {
+	background-color: #c5d5a3;
+}
+
+#expense_table_laboratorios .del_ExpenseRow_laboratorios {
+	cursor: pointer;
+	background: url(../images/delete_row.png) 5px 4px no-repeat;
+	width: 28px;
+	height: 26px;
+	border: 1px solid #e26c6c;
+	text-indent: -9999px;
+    border-radius: 10px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    color: #e8f0de;
+    display: inline-block;
+    font-size: 14px;
+    padding: 8px 19px 9px;
+    text-align: center;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+#expense_table_laboratorios .del_ExpenseRow_laboratorios:hover {
+	background-color: #e07171;
+}
+
+/* TAB 2 PAE */
+
+#expense_table_pae {
+	width: 100%;
+	margin: 0 0 1em 0;
+}
+
+#expense_table_pae td, #expense_table_pae th{
+	border: 1px solid #cccccc !important;
+}
+
+#expense_table_v th{ 
+	padding: .5em .3em;
+	background: #ececec;
+	font-weight: bold;
+}
+
+#expense_table_pae td {
+	padding: 0.3em;
+}
+
+#add_ExpenseRow_pae {
+	cursor: pointer;
+	background: #dbe8bf url(../images/add_row.png) 6px 4px no-repeat;
+	padding: 3px 4px 3px 25px;
+	border: 1px solid #a3c261;
+    color: #000;
+    border-radius: 10px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    display: inline-block;
+    font-size: 14px;
+    text-align: center;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+#add_ExpenseRow_pae:hover {
+	background-color: #c5d5a3;
+}
+
+#expense_table_pae .del_ExpenseRow_pae {
+	cursor: pointer;
+	background: url(../images/delete_row.png) 5px 4px no-repeat;
+	width: 28px;
+	height: 26px;
+	border: 1px solid #e26c6c;
+	text-indent: -9999px;
+    border-radius: 10px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    color: #e8f0de;
+    display: inline-block;
+    font-size: 14px;
+    padding: 8px 19px 9px;
+    text-align: center;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+#expense_table_pae .del_ExpenseRow_pae:hover {
+	background-color: #e07171;
+}
+
+/* TAB 2 TIC */
+
+#expense_table_tic {
+	width: 100%;
+	margin: 0 0 1em 0;
+}
+
+#expense_table_tic td, #expense_table_tic th{
+	border: 1px solid #cccccc !important;
+}
+
+#expense_table_v th{ 
+	padding: .5em .3em;
+	background: #ececec;
+	font-weight: bold;
+}
+
+#expense_table_tic td {
+	padding: 0.3em;
+}
+
+#add_ExpenseRow_tic {
+	cursor: pointer;
+	background: #dbe8bf url(../images/add_row.png) 6px 4px no-repeat;
+	padding: 3px 4px 3px 25px;
+	border: 1px solid #a3c261;
+    color: #000;
+    border-radius: 10px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    display: inline-block;
+    font-size: 14px;
+    text-align: center;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+#add_ExpenseRow_tic:hover {
+	background-color: #c5d5a3;
+}
+
+#expense_table_tic .del_ExpenseRow_tic {
+	cursor: pointer;
+	background: url(../images/delete_row.png) 5px 4px no-repeat;
+	width: 28px;
+	height: 26px;
+	border: 1px solid #e26c6c;
+	text-indent: -9999px;
+    border-radius: 10px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    color: #e8f0de;
+    display: inline-block;
+    font-size: 14px;
+    padding: 8px 19px 9px;
+    text-align: center;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+#expense_table_tic .del_ExpenseRow_tic:hover {
+	background-color: #e07171;
+}
+/*
+* Caso 87930
+* @modified Luis Dario Gualteros 
+* <castroluisd@unbosque.edu.co>
+* Se modificá la consulta para que muestre el nuevo campo de innovación para nueva funcionalidad de Innovación según
+* solicitud de Liliana Ahumada.
+* @since Marzo 6 de 2017
+*/ 
+/*TAB 2 INNOVAR*/
+#expense_table_Innovar {
+	width: 100%;
+	margin: 0 0 1em 0;
+}
+
+#expense_table_Innovar td, #expense_table_Innovar th{
+	border: 1px solid #cccccc !important;
+}
+
+#expense_table_v th{ 
+	padding: .5em .3em;
+	background: #ececec;
+	font-weight: bold;
+}
+
+#expense_table_Innovar td {
+	padding: 0.3em;
+}
+
+#add_ExpenseRow_Innovar {
+	cursor: pointer;
+	background: #dbe8bf url(../images/add_row.png) 6px 4px no-repeat;
+	padding: 3px 4px 3px 25px;
+	border: 1px solid #a3c261;
+    color: #000;
+    border-radius: 10px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    display: inline-block;
+    font-size: 14px;
+    text-align: center;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+#add_ExpenseRow_Innovar:hover {
+	background-color: #c5d5a3;
+}
+
+#expense_table_Innovar .del_ExpenseRow_Innovar {
+	cursor: pointer;
+	background: url(../images/delete_row.png) 5px 4px no-repeat;
+	width: 28px;
+	height: 26px;
+	border: 1px solid #e26c6c;
+	text-indent: -9999px;
+    border-radius: 10px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    color: #e8f0de;
+    display: inline-block;
+    font-size: 14px;
+    padding: 8px 19px 9px;
+    text-align: center;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+#expense_table_Innovar .del_ExpenseRow_Innovar:hover {
+	background-color: #e07171;
+}
+
+/*END TAB INNOVAR*/
+/*END Caso 87930*/
+#listaDocumentos {
+    counter-reset: li; 
+    list-style: none; 
+    *list-style: decimal; 
+    font: 15px 'trebuchet MS', 'lucida sans';
+    padding: 0;
+    margin-bottom: 4em;
+    text-shadow: 0 1px 0 rgba(255,255,255,.5);
+}
+
+#listaDocumentos ol {
+    margin: 0 0 0 2em; 
+}
+
+#listaDocumentos li{
+    position: relative;
+    display: block;
+    padding: .4em .4em .4em 2em;
+    *padding: .4em;
+    margin: .5em 0;
+    background: #ddd;
+    color: #444;
+    text-decoration: none;
+    border-radius: .3em;
+    transition: all .3s ease-out;   
+}
+
+#listaDocumentos li:hover{
+    background: #eee;
+}
+
+#listaDocumentos li:hover:before{
+    transform: rotate(360deg);  
+}
+
+#listaDocumentos li:before{
+    content: counter(li);
+    counter-increment: li;
+    position: absolute; 
+    left: -1.3em;
+    top: 50%;
+    margin-top: -1.3em;
+    background: #87ceeb;
+    height: 2em;
+    width: 2em;
+    line-height: 2em;
+    border: .3em solid #fff;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 2em;
+    transition: all .3s ease-out;
+}
+
+#linkDocumentos{
+	color: #444;
+	font-weight: normal;
+	font-size: 14pt;
+}
+
+/* -- START MAIN CSS -- */

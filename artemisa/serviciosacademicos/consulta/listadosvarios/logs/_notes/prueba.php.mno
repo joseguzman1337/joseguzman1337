@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_sala" value="name:idauditoria;datatype:int,name:numerodocumento;datatype:string,name:usuario;datatype:string,name:fechaauditoria;datatype:datetime,name:codigomateria;datatype:int,name:grupo;datatype:string,name:codigoestudiante;datatype:int,name:notaanterior;datatype:real,name:notamodificada;datatype:real,name:corte;datatype:string,name:tipoauditoria;datatype:string,name:observacion;datatype:string,name:ip;datatype:string" />
+</info>

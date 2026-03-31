@@ -1,0 +1,89 @@
+<div id="container">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>{{title}}</title>
+        <link rel="stylesheet" href="../../../css/demo_page.css" type="text/css" /> 
+        <link rel="stylesheet" href="../../../css/demo_table_jui.css" type="text/css" />
+        <link rel="stylesheet" href="../../../css/themes/smoothness/jquery-ui-1.8.4.custom.css" type="text/css" />
+        <link rel="stylesheet" href="../../../mgi/css/styleDatos.css" type="text/css" /> 
+		<script type="text/javascript" language="javascript" src="../../../mgi/js/jquery.js"></script>
+        <script type="text/javascript" language="javascript" src="../../../mgi/js/jquery.js"></script>
+        <script type="text/javascript" language="javascript" src="../../../mgi/js/jquery.dataTables.js"></script>
+        <script type="text/javascript" language="javascript" src="../../../mgi/js/jquery-ui-1.8.21.custom.min.js"></script>   
+        <script type="text/javascript" language="javascript" src="../../../mgi/js/jquery.fastLiveFilter.js"></script>  
+        <script type="text/javascript" language="javascript" src="../../../mgi/js/functions.js"></script>  
+        <script type="text/javascript" language="javascript" src="../../../mgi/js/functionsMonitoreo.js"></script>
+        <script type="text/javascript" language="javascript" src="../js/CrearSalaAprendizaje.js"></script>
+        <script type="text/javascript" src="../nicEdit/nicEdit.js"></script>
+        <script type="text/javascript">
+            	bkLib.onDomLoaded(function() { 
+            	  /*console.log('Data');
+                  new nicEditor({ fullPanel: true }).panelInstance('area1');                  
+                  new nicEditor({ fullPanel: true }).panelInstance('area2');
+                  new nicEditor({ fullPanel: true }).panelInstance('area3');
+                  new nicEditor({ fullPanel: true }).panelInstance('area4');*/
+             });                
+       </script>
+        <style>
+        .button{
+            background-color: #fff;
+            background-image: -moz-linear-gradient(0% 100% 90deg, #bbbbbb, #ffffff);
+            border: 1px solid #f1f1f1;
+            border-radius: 10px;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+            color: #444;
+            font-family: Helvetica,Arial,sans-serif;
+            font-weight: bold;
+            line-height: 1;
+            padding: 9px 17px;
+            text-shadow: 0 1px 1px rgba(255, 255, 255, 0.85);
+            cursor: pointer;
+        }
+        
+        fieldset{
+            border: grey 1px solid; margin: 1%;padding: 1%;
+        }
+       </style>
+	<body class="body">
+        <form id="Listado">
+        <div>{{baner}}</div>
+        <input type="hidden" id="id" name="id" />
+        <input type="hidden" id="action_ID" name="action_ID" value="Editar" />
+        <fieldset style="width: 90%;margin-left:2%; margin-top: 2%; ">
+            <legend><strong>Salas de Aprendizaje</strong></legend>
+            <table style="width: 100%;" border="1">
+                <thead>
+                    <tr style="background: #D1FFD0;">
+                        <th>N&deg;</th>
+                        <th>Sala de Aprendizaje</th>
+                        <th>Departamento o Programa</th>
+                        <th>Competencia</th>
+                        <th>Opciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {{#Data}}
+                    <tr style="background: #{{Color}};">
+                        <td style="text-align: center;">{{Num}}</td>
+                        <td style="text-align: justify;">{{Nombre}}</td>
+                        <td style="text-align: justify;">{{nombrecarrera}}</td>
+                        <td style="text-align: justify;">{{NombreData}}</td>
+                        <td style="text-align: center;">
+                            <img src="../../../mgi/images/eye.png" width="25" style="cursor: pointer;" title="Ver Sala Aprendizaje" onclick="VerSalaAprendizaje('{{SalaAprendizajeId}}')" />&nbsp;    
+                            <img src="../../../mgi/images/file_edit.png" width="20" style="cursor: pointer;" title="Editar Sala Aprendizaje" onclick="EditarSalaAprendizaje('{{SalaAprendizajeId}}')" />&nbsp;
+                            <img src="../../../mgi/images/delete.png" width="20" style="cursor: pointer;" title="Eliminar Sala Aprendizaje" onclick="EliminarSalaAprendizaje('{{SalaAprendizajeId}}')" />
+                        </td>
+                    </tr>
+                {{/Data}}
+                </tbody>
+            </table>
+       </fieldset>
+       </form> 
+       <div style="margin-left: 2%;">
+            <button type="button" id="CrearSala"  class="button" onclick="CrearSala()" title="Crear Sala">Nueva Sala de Aprendizaje&nbsp;&nbsp;<img src="../../images/home.png" width="20" /></button>
+       </div> 
+	</body>
+</html>
+</div>

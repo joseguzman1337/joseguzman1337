@@ -1,0 +1,30 @@
+<html>
+<head>
+<title>Universidad El Bosque</title>
+<meta http-equiv="Content-Type" content="UTF-8">
+<script language="javascript">
+function llamadaFrame(){
+//alert("Entro?="+parent.topFrame.location.href);
+	mainFrame.frametabladatos.location.reload();
+	//='pieEscrutinio.php';
+	setTimeout("llamadaFrame()",40000);
+}
+setTimeout("llamadaFrame()",40000);
+//llamadaFrame();
+</script>
+
+<frameset rows="350,*" cols="*" framespacing="0" frameborder="NO" border="0">
+
+	<frame src="escrutinio.php" name="mainFrame" scrolling="NO"  frameborder="NO">
+	<frameset rows="10,*" cols="*" framespacing="0" frameborder="NO" border="0">
+			<frame src="llamarframes.htm" name="topFrame1" scrolling="NO" noresize />
+			<frame src="pieEscrutinio.php" name="topFrame" scrolling="NO" noresize />
+	</frameset>
+	
+	</frameset><noframes></noframes>
+</head>
+<body>
+<div id="foo">
+</div>
+</body>
+</html>

@@ -1,0 +1,135 @@
+/*
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package io.trino.connector.system.runtime;
+
+import io.trino.Session;
+import io.trino.plugin.tpch.TpchPlugin;
+import io.trino.spi.security.Identity;
+import io.trino.testing.AbstractTestQueryFramework;
+import io.trino.testing.DistributedQueryRunner;
+import io.trino.testing.QueryRunner;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInstance;
+import org.junit.jupiter.api.Timeout;
+import org.junit.jupiter.api.parallel.Execution;
+
+import java.util.Optional;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+import java.util.concurrent.TimeUnit;
+import java.util.function.Function;
+
+import static com.google.common.collect.MoreCollectors.toOptional;
+import static com.google.common.util.concurrent.Uninterruptibles.sleepUninterruptibly;
+import static io.airlift.concurrent.Threads.threadsNamed;
+import static io.trino.testing.TestingAccessControlManager.TestingPrivilegeType.KILL_QUERY;
+import static io.trino.testing.TestingAccessControlManager.privilege;
+import static io.trino.testing.TestingSession.testSessionBuilder;
+import static java.lang.String.format;
+import static java.util.UUID.randomUUID;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.junit.jupiter.api.TestInstance.Lifecycle.PER_CLASS;
+import static org.junit.jupiter.api.parallel.ExecutionMode.SAME_THREAD;
+
+@TestInstance(PER_CLASS)
+@Execution(SAME_THREAD) // e.g. some tests methods modify AC configuration
+public class TestKillQuery
+        extends AbstractTestQueryFramework
+{
+    private final ExecutorService executor = Executors.newSingleThreadScheduledExecutor(threadsNamed(TestKillQuery.class.getSimpleName()));
+
+    @Override
+    protected QueryRunner createQueryRunner()
+            throws Exception
+    {
+        Session defaultSession = testSessionBuilder()
+                .setCatalog("tpch")
+                .setSchema("tiny")
+                .build();
+
+        QueryRunner queryRunner = DistributedQueryRunner.builder(defaultSession).build();
+        queryRunner.installPlugin(new TpchPlugin());
+        queryRunner.createCatalog("tpch", "tpch");
+        return queryRunner;
+    }
+
+    @AfterAll
+    public void tearDown()
+    {
+        executor.shutdownNow();
+    }
+
+    @Test
+    @Timeout(60)
+    public void testKillQuery()
+    {
+        killQuery(queryId -> format("CALL system.runtime.kill_query('%s', 'because')", queryId), "Message: because");
+        killQuery(queryId -> format("CALL system.runtime.kill_query('%s')", queryId), "No message provided.");
+    }
+
+    private void killQuery(Function<String, String> sql, String expectedKilledMessage)
+    {
+        String testQueryId = "test_query_id_" + randomUUID().toString().replace("-", "");
+        Future<?> queryFuture = executor.submit(() -> {
+            getQueryRunner().execute(format("SELECT count(comment) as %s FROM tpch.sf100000.lineitem", testQueryId));
+        });
+
+        Optional<Object> queryIdValue = Optional.empty();
+        while (queryIdValue.isEmpty()) {
+            sleepUninterruptibly(50, TimeUnit.MILLISECONDS);
+            queryIdValue = computeActual(format(
+                    "SELECT query_id FROM system.runtime.queries WHERE query LIKE '%%%s%%' AND query NOT LIKE '%%system.runtime.queries%%'",
+                    testQueryId))
+                    .getOnlyColumn()
+                    .collect(toOptional());
+        }
+        String queryId = queryIdValue.get().toString();
+
+        assertThat(queryFuture.isDone()).isFalse();
+
+        getQueryRunner().getAccessControl().deny(privilege("query", KILL_QUERY));
+        try {
+            assertThatThrownBy(() -> getQueryRunner().execute(getSession("other_user"), format("CALL system.runtime.kill_query('%s', 'should fail')", queryId)))
+                    .hasMessageContaining("Cannot kill query");
+        }
+        finally {
+            getQueryRunner().getAccessControl().reset();
+        }
+
+        getQueryRunner().execute(sql.apply(queryId));
+
+        assertThatThrownBy(() -> queryFuture.get(1, TimeUnit.MINUTES))
+                .isInstanceOf(ExecutionException.class)
+                .hasMessageContaining("Query killed. " + expectedKilledMessage);
+    }
+
+    @Test
+    public void testKillQueryWithNullArgument()
+    {
+        assertQueryFails("CALL system.runtime.kill_query(NULL, 'should fail')", "query_id cannot be null");
+    }
+
+    private Session getSession(String user)
+    {
+        return testSessionBuilder()
+                .setCatalog(getSession().getCatalog())
+                .setSchema(getSession().getSchema())
+                .setIdentity(Identity.ofUser(user))
+                .build();
+    }
+}

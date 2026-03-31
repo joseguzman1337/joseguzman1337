@@ -1,0 +1,134 @@
+/*
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package io.trino.spi.resourcegroups;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
+
+import java.net.URLDecoder;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
+
+import static java.nio.charset.StandardCharsets.UTF_8;
+import static java.util.Collections.singletonList;
+import static java.util.Objects.requireNonNull;
+import static java.util.stream.Collectors.joining;
+import static java.util.stream.Collectors.toUnmodifiableList;
+
+public final class ResourceGroupId
+{
+    private final List<String> segments;
+
+    public ResourceGroupId(String name)
+    {
+        this(singletonList(requireNonNull(name, "name is null")));
+    }
+
+    public ResourceGroupId(ResourceGroupId parent, String name)
+    {
+        this(append(parent.segments, requireNonNull(name, "name is null")));
+    }
+
+    private static List<String> append(List<String> list, String element)
+    {
+        List<String> result = new ArrayList<>(list);
+        result.add(element);
+        return result;
+    }
+
+    @JsonCreator
+    public ResourceGroupId(List<String> segments)
+    {
+        if (segments.isEmpty()) {
+            throw new IllegalArgumentException("Resource group id is empty");
+        }
+        for (String segment : segments) {
+            if (segment.isEmpty()) {
+                throw new IllegalArgumentException("Empty segment in resource group id");
+            }
+        }
+        this.segments = segments;
+    }
+
+    // this is needed by JAX-RS, see: org.glassfish.jersey.internal.util.ReflectionHelper
+    public static ResourceGroupId valueOf(String value)
+    {
+        return new ResourceGroupId(
+                Arrays.stream(value.split("/"))
+                        .map(part -> URLDecoder.decode(part, UTF_8))
+                        .collect(toUnmodifiableList()));
+    }
+
+    public String getLastSegment()
+    {
+        return segments.getLast();
+    }
+
+    @JsonValue
+    public List<String> getSegments()
+    {
+        return segments;
+    }
+
+    public ResourceGroupId getRoot()
+    {
+        return new ResourceGroupId(segments.get(0));
+    }
+
+    public Optional<ResourceGroupId> getParent()
+    {
+        if (segments.size() == 1) {
+            return Optional.empty();
+        }
+        return Optional.of(new ResourceGroupId(segments.subList(0, segments.size() - 1)));
+    }
+
+    public boolean isAncestorOf(ResourceGroupId descendant)
+    {
+        List<String> descendantSegments = descendant.getSegments();
+        if (segments.size() >= descendantSegments.size()) {
+            return false;
+        }
+        return descendantSegments.subList(0, segments.size()).equals(segments);
+    }
+
+    @Override
+    public String toString()
+    {
+        return segments.stream()
+                .collect(joining("."));
+    }
+
+    @Override
+    public boolean equals(Object o)
+    {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        ResourceGroupId that = (ResourceGroupId) o;
+        return Objects.equals(segments, that.segments);
+    }
+
+    @Override
+    public int hashCode()
+    {
+        return Objects.hash(segments);
+    }
+}

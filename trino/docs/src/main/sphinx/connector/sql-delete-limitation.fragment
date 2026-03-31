@@ -1,0 +1,4 @@
+### DELETE limitation
+
+If a ``WHERE`` clause is specified, the ``DELETE`` operation only works if the
+predicate in the clause can be fully pushed down to the data source.

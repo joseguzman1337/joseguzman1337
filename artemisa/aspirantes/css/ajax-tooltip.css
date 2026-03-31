@@ -1,0 +1,34 @@
+/* CSS needed for the script */
+#ajax_tooltipObj{
+	z-index:1000000;
+	text-align:left;
+
+}
+#ajax_tooltipObj div{
+	position:relative;
+}
+/* If you don't want the arrow - Just set the width of this div to 1 or something like that and drop the background selectors from the CSS below */
+#ajax_tooltipObj .ajax_tooltip_arrow{	/* Left div for the small arrow */
+	background-image:url('../imagenes/arrow.gif');
+	width:20px;
+	position:absolute;
+	left:0px;
+	top:0px;
+	background-repeat:no-repeat;
+	background-position:center left;
+	z-index:1000005;
+	height:60px;
+}
+#ajax_tooltipObj .ajax_tooltip_content{
+	border:2px solid #317082;	/* Border width */
+	left:18px;	/* Same as border thickness */
+	top:0px;
+	position:absolute;
+	width:399px;	/* Width of tooltip content */
+	height:180px;	/* Height of tooltip content */
+	background-color:#FFF;	/* Background color */
+	padding:10px;	/* Space between border and content */
+	font-size:1.0em;	/* Font size of content */
+	overflow:auto;	/* Hide overflow content */
+	z-index:10;
+}

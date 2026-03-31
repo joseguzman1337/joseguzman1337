@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es" lang="es" dir="ltr" xmlns:v="urn:schemas-microsoft-com:vml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>GUÍA DE ESTILO PORTAL WEB UNIVERSIDAD EL BOSQUE</title>
+		<link type="text/css" rel="stylesheet" href="../css/normalize.css">
+		<link type="text/css" rel="stylesheet" href="../css/font-page.css">
+		<link type="text/css" rel="stylesheet" href="../css/font-awesome.css">
+		<link type="text/css" rel="stylesheet" href="../css/bootstrap.css">
+		<link type="text/css" rel="stylesheet" href="../css/general.css">
+		<link type="text/css" rel="stylesheet" href="../css/chosen.css">
+		<link type="text/css" rel="stylesheet" href="css/layout.css">
+		<link type="text/css" rel="stylesheet" href="css/custom.css">
+		<script type="text/javascript" src="../js/jquery-3.6.0.min.js"></script>
+		<script type="text/javascript" src="../js/bootstrap.js"></script>
+		<script type="text/javascript" src="../js/chosen.js"></script>
+		<script type="text/javascript" src="../js/triggerChosen.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$("a.cargar").click(function(e){
+					e.stopPropagation();
+					e.preventDefault();
+					var urlSite = $(this).attr("href"); 
+					cargarMenu(urlSite);
+				});
+				cargarMenu("inicio.html");
+			});
+			function cargarMenu(urlSite){
+				$.ajax({
+					type: 'post',
+					url: urlSite,
+					data:{},
+					cache: true,
+					//contentType:'json',
+					dataType: 'html',
+					success: function(respuesta){
+						$('#container').empty().append(respuesta);
+					}
+			     });
+			}
+		</script>
+	</head>
+	<body>
+		<header id="header" role="banner">
+			<div class="header-inner">
+				<div class="header_first region-content">
+					<div class="block block-system block-system-branding-block">
+						<div class="block-inner">
+							<div class="title-suffix"></div>
+							<a href="/" title="Inicio" rel="home">
+								<img src="img/logo.png" alt="Inicio">
+							</a>
+						</div>
+					</div>
+  				</div>
+  				<div class="close-search"></div>
+  				<div class="clearfix"></div>
+  			</div>
+  			<div class="clearfix"></div>
+  		</header>
+  		<div class="clearfix"></div>
+  		<div class="wrap-content">
+  			<div class="layout-info" role="contentinfo"></div>
+  			<div class="clearfix"></div>
+  			<div class="layout-content">
+  				<aside class="sidebar-first" role="complementary">
+  					<div class="sidebar_first region-content">
+  						<nav role="navigation" aria-labelledby="-menu" class="sidebar-menu block block-menu navigation menu--menu-admisiones-lateral">
+  							<h2 class="visually-hidden" id="-menu">GUÍA DE ESTILO</h2>
+  							<ul class="menu">
+  								<li class="menu-item">
+  									<a href="inicio.html" class="cargar">Inicio</a>
+  								</li>
+  								<li class="menu-item">
+  									<a href="contenedores.html" class="cargar">Contenedores - Colores</a>
+  								</li>
+  								<li class="menu-item">
+  									<a href="contenedorPadding.html" class="cargar">Contenedores - Paddings</a>
+  								</li>
+  								<li class="menu-item">
+  									<a href="botones.html" class="cargar">Botones</a>
+  								</li>
+  								<li class="menu-item">
+  									<a href="tablas.html" class="cargar">Tablas</a>
+  								</li>
+  							</ul>
+  						</nav>
+  					</div>
+  				</aside>
+  				<main id="main" class="content" role="main">
+  					<div class="content region-content" id="container">
+  						wewerwer
+  					</div>
+  				</main>
+  			</div>
+  		</div>
+	</body>
+</html>

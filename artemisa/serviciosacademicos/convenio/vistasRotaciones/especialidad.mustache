@@ -1,0 +1,93 @@
+<html>
+	<head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>{{title}}</title>
+		<link type="text/css" href="../educacionContinuada/css/normalize.css" rel="stylesheet">
+        <link rel="stylesheet" href="../css/themes/smoothness/jquery-ui-1.8.4.custom.css" type="text/css" /> 
+		<link media="screen, projection" type="text/css" href="../educacionContinuada/css/style.css" rel="stylesheet">
+        <script type='text/javascript' language="javascript" src="../js/jquery.js"></script>
+        <script type="text/javascript" language="javascript" src="../js/jquery-ui-1.8.21.custom.min.js"></script> 
+        <script type="text/javascript" language="javascript" src="../educacionContinuada/js/functions.js"></script>
+         <script type="text/javascript">
+        function val_texto(e) {
+            tecla = (document.all) ? e.keyCode : e.which;
+            if (tecla==8) return true;
+            patron = /[0-9a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+$/;
+            te = String.fromCharCode(tecla);
+            return patron.test(te);
+        }
+        
+        function Regresar()
+        {
+            document.location.href = "EspecialidadesCarrera.php";
+        }
+        </script>
+		<style>
+			form span.info{
+				margin-left:15px;position:relative;top:2px;
+			}
+		</style> 
+	</head>
+	 <body class="body"> 
+    <div id="pageContainer">
+	 <div id="container">
+        <center><h1>{{titulo}} especialidad</h1></center>
+		<div id="form"> 
+			<form method="post" action="processEspecialidad.php" id="form_especialidad">
+				<input type="hidden" name="action" id="action" value="{{action}}" />
+				{{# editar }}
+					<input type="hidden" name="EspecialidadCarreraId" id="EspecialidadCarreraId" value="{{especialidad.especialidadcarreraid}}" />
+				{{/ editar }}	
+				<input type="hidden" name="codigocarrera" id="codigocarrera" value="{{codigocarrera}}" />
+		<span class="mandatory">* Son campos obligatorios</span>
+            <fieldset>   
+                <legend>Información Especialidad</legend>
+				<label class="fixed">Programa académico:</label>
+				<span class="info">{{carrera}}</span>
+				<label class="fixed">Especialidad: <span class="mandatory">(*)</span></label>
+				<input class="grid-6-12 required"  type="text" value="{{especialidad.especialidad}}" name="especialidad" onkeypress="return val_texto(event)" />
+			</fieldset>
+			<input type="submit" name="submit" id="submit" value="Guardar" />
+            <img src="../educacionContinuada/images/ajax-loader2.gif" style="display:none;clear:both;margin-bottom:15px;margin-left: 16.4%;" id="loading"/>
+            <input type="button" name="regresar" id="regresar" value="Regresar" onclick="Regresar()" />
+			</form>
+            
+         </div>
+		</div>
+	</div>
+	<script type="text/javascript">
+                $(':submit').click(function(event) {
+                    event.preventDefault();
+                    var valido= validateForm("#form_especialidad");
+                    if(valido){
+                        sendForm();
+                    }
+                });			
+
+                function sendForm(){
+                    $(':submit').css("display","none");
+                    $("#loading").css("display","block");
+                    $.ajax({
+                        dataType: 'json',
+                        type: 'POST',
+                        url: 'processEspecialidad.php',
+                        data: $('#form_especialidad').serialize(),                
+                        success:function(data){
+                            if (data.success == true){
+								alert(data.message);
+                                 window.location.href="EspecialidadesCarrera.php";
+                            }
+                            else{ 
+                                alert(data.message);
+                                //$('#msg-error').html('<p>' + data.message + '</p>');
+                                //$('#msg-error').addClass('msg-error');
+                            }
+                            $(':submit').css("display","block");
+                            $("#loading").css("display","none");
+                        },
+                        error: function(data,error,errorThrown){alert(error + errorThrown);}
+                    });            
+                }
+		</script>
+	</body>
+</html>

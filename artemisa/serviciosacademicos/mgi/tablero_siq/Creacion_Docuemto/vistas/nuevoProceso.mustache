@@ -1,0 +1,92 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<!--<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">-->
+		<title>{{title}}</title>
+		<link rel="stylesheet" type="text/css" href="../../css/cssreset-min.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/normalize.css" />
+		<link rel="stylesheet" type="text/css" href="../../../css/demo_page.css" />
+		<link rel="stylesheet" type="text/css" href="../../../css/demo_table_jui.css" />
+		<link rel="stylesheet" type="text/css" href="../../../css/themes/smoothness/jquery-ui-1.8.4.custom.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/emergenteMGI.css" />     
+		<script type="text/javascript" language="javascript" src="../../js/jquery.js"></script>
+        <script type="text/javascript" language="javascript" src="../../js/jquery.validate.min.js"></script>
+		<script type="text/javascript" language="javascript" src="../../js/jquery.dataTables.js"></script>
+		<script type="text/javascript" language="javascript" src="../../js/jquery-ui-1.8.21.custom.min.js"></script>
+		<!--<script type="text/javascript" language="javascript" src="js/jquery-ui.js"></script>-->
+		<script type="text/javascript" language="javascript" src="../../js/nicEdit.js"></script>
+		<script type="text/javascript" language="javascript" src="../../js/functions.js"></script>
+		<script type="text/javascript" language="javascript" src="../../js/ajax.js"></script>
+		
+	</head>
+	<body class="body">
+	<form name="forma" id="forma" action="" method="post" enctype="multipart/form-data">
+			<div id="pageContainer">
+				<fieldset>
+				<legend>&nbsp;Procesos de autoevaluación<br>&nbsp;{{nombreFactor}}&nbsp;</legend>  
+					<div align="left" style="width:100%;height:70px;font-size:24px"><strong>Nuevo proceso</strong></div> 
+					<div>
+					
+						<div id="DivIndicadores2">
+							<div id="pageContainer">
+								<input type="hidden"  name="idsiq_factor" value="{{idsiq_factor}}">
+								<input type="hidden"  name="idsiq_estructuradocumento" value="{{idsiq_estructuradocumento}}">
+								<table width="80%" cellspacing="0" cellpadding="0" border="0" align="center">
+									<tbody>
+											<tr>
+												<td width="20%" class="titulo"><strong>Proceso</strong></td>
+												<td width="80%" class="contenido"><input class="required" type="text" name="nombreproceso" id="nombreproceso" size="50"></td>
+											</tr>
+											<tr>
+												<td width="20%" class="titulo"><strong>Descripción</strong></td>
+												<td width="80%" class="contenido"><textarea class="required" rows="6" cols="60" name="descripcionproceso" id="descripcionproceso"></textarea></td>
+											</tr>
+										</tbody>
+								</table>
+								<br>
+									<table width="80%" cellspacing="0" cellpadding="0" border="0" align="center">
+										<tr><td><strong>Para crear un proceso debe adjuntar por lo menos un archivo.</strong></td></tr>
+									</table>
+									<br>
+								<table width="80%" cellspacing="0" cellpadding="0" border="0" align="center">
+										<tbody>
+											<tr>
+												<td width="20%" class="titulo"><strong>Archivo</strong></td>
+												<td width="80%" class="contenido"><input class="required" type="file" name="archivo" id="archivo" size="50"></td>
+											</tr>
+											<tr>
+												<td width="20%" class="titulo"><strong>Descripción archivo</strong></td>
+												<td width="80%" class="contenido"><textarea class="required" rows="6" cols="60" name="descripcionarchivo" id="descripcionarchivo"></textarea></td>
+											</tr>
+										</tbody>
+								</table>
+							</div>
+						</div>
+						
+						<br>
+						<center>
+							{{# tienePermisos }}
+								<input type="submit"  name="accion" value="Guardar" style="">
+							{{/ tienePermisos }}
+							<input type="button" name="accion" value="Volver" onclick="location.href='emergente.php?idsiq_estructuradocumento={{idsiq_estructuradocumento}}&idsiq_factor={{idsiq_factor}}&tp=pa'">
+						</center>
+					</div>
+				
+				</fieldset>
+			</div>
+			<input type="hidden"  name="tp" value="{{tp}}">
+		</form>	
+		
+		<script type="text/javascript">
+			jQuery(function() { 		
+					{{# guardar }}
+						alert('Archivo cargado');
+						location.href='emergente.php?idsiq_estructuradocumento={{idsiq_estructuradocumento}}&idsiq_factor={{"idsiq_factor}}&tp=pa';
+					{{/ guardar }}
+			
+					$('#forma').validate();
+			})
+		</script>	
+	</body>
+</html>

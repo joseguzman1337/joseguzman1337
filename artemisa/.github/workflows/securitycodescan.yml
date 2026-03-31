@@ -1,0 +1,46 @@
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+
+# This workflow integrates SecurityCodeScan with GitHub's Code Scanning feature
+# SecurityCodeScan is a vulnerability patterns detector for C# and VB.NET
+
+name: SecurityCodeScan
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    # The branches below must be a subset of the branches above
+    branches: [ master ]
+  schedule:
+    - cron: '44 13 * * 0'
+
+jobs:
+  SCS:
+    runs-on: windows-latest
+    steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@fa2e9d605c4eeb9fcad4c99c224cee0c6c7f3594 # v2.16.0
+        with:
+          egress-policy: audit
+
+      - uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5
+      - uses: nuget/setup-nuget@9694d5c2eb40d0e2fcad96b502790514399d6c37
+      - uses: microsoft/setup-msbuild@6fb02220983dee41ce7ae257b6f4d8f9bf5ed4ce # v2.0.0
+      
+      - name: Set up projects for analysis
+        uses: security-code-scan/security-code-scan-add-action@2439fb4aaeda4ad590a7c8bde327d159d03875fd
+        
+      - name: Restore dependencies	
+        run: dotnet restore
+
+      - name: Build
+        run: dotnet build --no-restore
+
+      - name: Convert sarif for uploading to GitHub
+        uses: security-code-scan/security-code-scan-results-action@579058214e4be88ce9eea302f1fb74df1b8bc1ed
+
+      - name: Upload sarif
+        uses: github/codeql-action/upload-sarif@38697555549f1db7851b81482ff19f1fa5c4fedc # v4.34.1

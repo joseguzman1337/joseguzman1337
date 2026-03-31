@@ -1,0 +1,168 @@
+20 12 2017 01:12:09 logtraceID: 	<m:messageRequest xmlns:m="http://xmlns.oracle.com/Enterprise/Tools/schemas/UBI_CREA_ORDENPAG_REQ_MSG.VERSION_1">
+					<UBI_ESTADO>I</UBI_ESTADO>
+					<UBI_OPERACION_ORD>U</UBI_OPERACION_ORD>
+					<NATIONAL_ID_TYPE>CC</NATIONAL_ID_TYPE>
+					<NATIONAL_ID>1110539914</NATIONAL_ID>
+					<NATIONAL_ID_TYPE_OLD></NATIONAL_ID_TYPE_OLD>
+					<NATIONAL_ID_OLD></NATIONAL_ID_OLD>
+					<FIRST_NAME>MIGUEL</FIRST_NAME>
+					<MIDDLE_NAME>GERMAN</MIDDLE_NAME>
+					<LAST_NAME>SANCHEZ</LAST_NAME>
+					<SECOND_LAST_NAME>TARQUINO</SECOND_LAST_NAME>
+					<BIRTHDATE>10061993</BIRTHDATE>
+					<BIRTHCOUNTRY>CO</BIRTHCOUNTRY>
+					<BIRTHSTATE>73</BIRTHSTATE>
+					<BIRTHPLACE>73001</BIRTHPLACE>
+					<SEX>M</SEX>
+					<MAR_STATUS>S</MAR_STATUS>
+					<ADDRESS1>CALLE   EDIFICIO FONTENOVA BARRIO BELEN</ADDRESS1>
+					<PHONE>2773029</PHONE>
+					<EMAIL_ADDR>sanchopansa7-2@hotmail.com</EMAIL_ADDR>
+					<BUSINESS_UNIT>UBSF0</BUSINESS_UNIT>
+				</m:messageRequest> id:1 descripcion:2017-12-20-01.00.08.000000>>>  - Integration Gateway: General Connection Failed (158,10836) LC_PERSONAL_DATA_AP.LC_SERVICIOS_AP.LC_BASE_AC.OnExecute  Name:asignarIDCT  PCPC:110587  Statement:821
+Called from:PERSONAL_DATA.GBL.SavePostChange  Statement:14Error saving Component Interface. {HCR_PERSONAL_DATA_SRV} (91,37) (0,0) HMCR_API2CI.ciHandler.OnExecute  Name:notificarErroresCI  PCPC:63152  Statement:1234
+Called from:HMCR_API2CI.ciHandler.OnExecute  Name:ciSave  Statement:109
+Called from:HMCR_API2CI.ciLocalPool.OnExecute  Name:ciSavePool  Statement:40
+Called from:HCR_PERSON_SERVICES.Person.SetPerson_v1_1.implSetPerson.OnExecute  Name:Save  Statement:364
+Called from:HCR_PERSON_SERVICES.Person.SetPerson_v1_1.implSetPerson.OnExecute  Name:DoService  Statement:343
+Called from:SCC_HR_INTEGRATION.HRServices.PersonServices.OnE
+20 12 2017 01:12:12 logtraceID: 	<m:messageRequest xmlns:m="http://xmlns.oracle.com/Enterprise/Tools/schemas/UBI_CREA_ORDENPAG_REQ_MSG.VERSION_1">
+		<UBI_ESTADO>I</UBI_ESTADO>
+		<UBI_OPERACION_ORD>U</UBI_OPERACION_ORD>
+		<NATIONAL_ID_TYPE>CC</NATIONAL_ID_TYPE>
+		<NATIONAL_ID>1014245147</NATIONAL_ID>
+		<NATIONAL_ID_TYPE_OLD></NATIONAL_ID_TYPE_OLD>
+		<NATIONAL_ID_OLD>1014245147</NATIONAL_ID_OLD>
+		<FIRST_NAME>JENNY</FIRST_NAME>
+		<MIDDLE_NAME>PAOLA</MIDDLE_NAME>
+		<LAST_NAME>RODRIGUEZ</LAST_NAME>
+		<SECOND_LAST_NAME>MOLINA</SECOND_LAST_NAME>
+		<BIRTHDATE>06201993</BIRTHDATE>
+		<BIRTHCOUNTRY>CO</BIRTHCOUNTRY>
+		<BIRTHSTATE>11</BIRTHSTATE>
+		<BIRTHPLACE>11001</BIRTHPLACE>
+		<SEX>F</SEX>
+		<MAR_STATUS>S</MAR_STATUS>
+		<ADDRESS1>CALLE 70F  CASA 105I 29 BARRIO PLAZUELAS DEL VIRREY OCCIDENTE</ADDRESS1>
+		<PHONE>7484176</PHONE>
+		<EMAIL_ADDR>pao.rodriguez20@hotmail.com</EMAIL_ADDR>
+		<BUSINESS_UNIT>UBSF0</BUSINESS_UNIT>
+	</m:messageRequest> id:1 descripcion:2017-12-20-01.00.12.000000>>>  - Integration Gateway: General Connection Failed (158,10836) LC_PERSONAL_DATA_AP.LC_SERVICIOS_AP.LC_BASE_AC.OnExecute  Name:asignarIDCT  PCPC:110587  Statement:821
+Called from:PERSONAL_DATA.GBL.SavePostChange  Statement:14Error saving Component Interface. {HCR_PERSONAL_DATA_SRV} (91,37) (0,0) HMCR_API2CI.ciHandler.OnExecute  Name:notificarErroresCI  PCPC:63152  Statement:1234
+Called from:HMCR_API2CI.ciHandler.OnExecute  Name:ciSave  Statement:109
+Called from:HMCR_API2CI.ciLocalPool.OnExecute  Name:ciSavePool  Statement:40
+Called from:HCR_PERSON_SERVICES.Person.SetPerson_v1_1.implSetPerson.OnExecute  Name:Save  Statement:364
+Called from:HCR_PERSON_SERVICES.Person.SetPerson_v1_1.implSetPerson.OnExecute  Name:DoService  Statement:343
+Called from:SCC_HR_INTEGRATION.HRServices.PersonServices.OnE
+20 12 2017 01:12:16 logtraceID: 	<m:messageRequest xmlns:m="http://xmlns.oracle.com/Enterprise/Tools/schemas/UBI_CREA_ORDENPAG_REQ_MSG.VERSION_1">
+		<UBI_ESTADO>I</UBI_ESTADO>
+		<UBI_OPERACION_ORD>U</UBI_OPERACION_ORD>
+		<NATIONAL_ID_TYPE>CC</NATIONAL_ID_TYPE>
+		<NATIONAL_ID>1026292616</NATIONAL_ID>
+		<NATIONAL_ID_TYPE_OLD></NATIONAL_ID_TYPE_OLD>
+		<NATIONAL_ID_OLD>1026292616</NATIONAL_ID_OLD>
+		<FIRST_NAME>MARIA</FIRST_NAME>
+		<MIDDLE_NAME>ALEJANDRA</MIDDLE_NAME>
+		<LAST_NAME>HUERTAS</LAST_NAME>
+		<SECOND_LAST_NAME>ZAMBRANO</SECOND_LAST_NAME>
+		<BIRTHDATE>10061995</BIRTHDATE>
+		<BIRTHCOUNTRY>CO</BIRTHCOUNTRY>
+		<BIRTHSTATE>11</BIRTHSTATE>
+		<BIRTHPLACE>11001</BIRTHPLACE>
+		<SEX>F</SEX>
+		<MAR_STATUS>S</MAR_STATUS>
+		<ADDRESS1>Carrera 71d #12c 60</ADDRESS1>
+		<PHONE>4684379</PHONE>
+		<EMAIL_ADDR>m.alejandrahuertas@hotmail.com</EMAIL_ADDR>
+		<BUSINESS_UNIT>UBSF0</BUSINESS_UNIT>
+	</m:messageRequest> id:1 descripcion:2017-12-20-01.00.15.000000>>>  - Integration Gateway: General Connection Failed (158,10836) LC_PERSONAL_DATA_AP.LC_SERVICIOS_AP.LC_BASE_AC.OnExecute  Name:asignarIDCT  PCPC:110587  Statement:821
+Called from:PERSONAL_DATA.GBL.SavePostChange  Statement:14Error saving Component Interface. {HCR_PERSONAL_DATA_SRV} (91,37) (0,0) HMCR_API2CI.ciHandler.OnExecute  Name:notificarErroresCI  PCPC:63152  Statement:1234
+Called from:HMCR_API2CI.ciHandler.OnExecute  Name:ciSave  Statement:109
+Called from:HMCR_API2CI.ciLocalPool.OnExecute  Name:ciSavePool  Statement:40
+Called from:HCR_PERSON_SERVICES.Person.SetPerson_v1_1.implSetPerson.OnExecute  Name:Save  Statement:364
+Called from:HCR_PERSON_SERVICES.Person.SetPerson_v1_1.implSetPerson.OnExecute  Name:DoService  Statement:343
+Called from:SCC_HR_INTEGRATION.HRServices.PersonServices.OnE
+20 12 2017 01:12:19 logtraceID: 	<m:messageRequest xmlns:m="http://xmlns.oracle.com/Enterprise/Tools/schemas/UBI_CREA_ORDENPAG_REQ_MSG.VERSION_1">
+		<UBI_ESTADO>I</UBI_ESTADO>
+		<UBI_OPERACION_ORD>U</UBI_OPERACION_ORD>
+		<NATIONAL_ID_TYPE>TI</NATIONAL_ID_TYPE>
+		<NATIONAL_ID>1000501973</NATIONAL_ID>
+		<NATIONAL_ID_TYPE_OLD></NATIONAL_ID_TYPE_OLD>
+		<NATIONAL_ID_OLD>1000501973</NATIONAL_ID_OLD>
+		<FIRST_NAME>JAVIER</FIRST_NAME>
+		<MIDDLE_NAME>ANDRES</MIDDLE_NAME>
+		<LAST_NAME>AVILA</LAST_NAME>
+		<SECOND_LAST_NAME>CASALLAS</SECOND_LAST_NAME>
+		<BIRTHDATE>04212000</BIRTHDATE>
+		<BIRTHCOUNTRY>CO</BIRTHCOUNTRY>
+		<BIRTHSTATE>11</BIRTHSTATE>
+		<BIRTHPLACE>11001</BIRTHPLACE>
+		<SEX>M</SEX>
+		<MAR_STATUS>S</MAR_STATUS>
+		<ADDRESS1>CARRERA 58C 152B 22  INTERIOR 10 APTO 204 CONJUNTO RESIDENCIAL COLINAS DE CANTABRIA II</ADDRESS1>
+		<PHONE>4799870</PHONE>
+		<EMAIL_ADDR>JAVIERAVILACASALLAS@GMAIL.COM</EMAIL_ADDR>
+		<BUSINESS_UNIT>UBSF0</BUSINESS_UNIT>
+	</m:messageRequest> id:1 descripcion:2017-12-20-01.00.19.000000>>>  - Integration Gateway: General Connection Failed (158,10836) LC_PERSONAL_DATA_AP.LC_SERVICIOS_AP.LC_BASE_AC.OnExecute  Name:asignarIDCT  PCPC:110587  Statement:821
+Called from:PERSONAL_DATA.GBL.SavePostChange  Statement:14Error saving Component Interface. {HCR_PERSONAL_DATA_SRV} (91,37) (0,0) HMCR_API2CI.ciHandler.OnExecute  Name:notificarErroresCI  PCPC:63152  Statement:1234
+Called from:HMCR_API2CI.ciHandler.OnExecute  Name:ciSave  Statement:109
+Called from:HMCR_API2CI.ciLocalPool.OnExecute  Name:ciSavePool  Statement:40
+Called from:HCR_PERSON_SERVICES.Person.SetPerson_v1_1.implSetPerson.OnExecute  Name:Save  Statement:364
+Called from:HCR_PERSON_SERVICES.Person.SetPerson_v1_1.implSetPerson.OnExecute  Name:DoService  Statement:343
+Called from:SCC_HR_INTEGRATION.HRServices.PersonServices.OnE
+20 12 2017 01:12:22 logtraceID: 	<m:messageRequest xmlns:m="http://xmlns.oracle.com/Enterprise/Tools/schemas/UBI_CREA_ORDENPAG_REQ_MSG.VERSION_1">
+		<UBI_ESTADO>I</UBI_ESTADO>
+		<UBI_OPERACION_ORD>U</UBI_OPERACION_ORD>
+		<NATIONAL_ID_TYPE>TI</NATIONAL_ID_TYPE>
+		<NATIONAL_ID>1010140585</NATIONAL_ID>
+		<NATIONAL_ID_TYPE_OLD></NATIONAL_ID_TYPE_OLD>
+		<NATIONAL_ID_OLD>1010140585</NATIONAL_ID_OLD>
+		<FIRST_NAME>SANTIAGO</FIRST_NAME>
+		<MIDDLE_NAME></MIDDLE_NAME>
+		<LAST_NAME>MORALES</LAST_NAME>
+		<SECOND_LAST_NAME>GAVIRIA</SECOND_LAST_NAME>
+		<BIRTHDATE>08282000</BIRTHDATE>
+		<BIRTHCOUNTRY>CO</BIRTHCOUNTRY>
+		<BIRTHSTATE>76</BIRTHSTATE>
+		<BIRTHPLACE>76147</BIRTHPLACE>
+		<SEX>M</SEX>
+		<MAR_STATUS>S</MAR_STATUS>
+		<ADDRESS1>CARRERA 20B  CASA 5 A 15 BARRIO LA PRADERA</ADDRESS1>
+		<PHONE>3118969510</PHONE>
+		<EMAIL_ADDR>samgaviria@iegabo.edu.co</EMAIL_ADDR>
+		<BUSINESS_UNIT>UBSF0</BUSINESS_UNIT>
+	</m:messageRequest> id:1 descripcion:2017-12-20-01.00.22.000000>>>  - Integration Gateway: General Connection Failed (158,10836) LC_PERSONAL_DATA_AP.LC_SERVICIOS_AP.LC_BASE_AC.OnExecute  Name:asignarIDCT  PCPC:110587  Statement:821
+Called from:PERSONAL_DATA.GBL.SavePostChange  Statement:14Error saving Component Interface. {HCR_PERSONAL_DATA_SRV} (91,37) (0,0) HMCR_API2CI.ciHandler.OnExecute  Name:notificarErroresCI  PCPC:63152  Statement:1234
+Called from:HMCR_API2CI.ciHandler.OnExecute  Name:ciSave  Statement:109
+Called from:HMCR_API2CI.ciLocalPool.OnExecute  Name:ciSavePool  Statement:40
+Called from:HCR_PERSON_SERVICES.Person.SetPerson_v1_1.implSetPerson.OnExecute  Name:Save  Statement:364
+Called from:HCR_PERSON_SERVICES.Person.SetPerson_v1_1.implSetPerson.OnExecute  Name:DoService  Statement:343
+Called from:SCC_HR_INTEGRATION.HRServices.PersonServices.OnE
+20 12 2017 01:12:25 logtraceID: 	<m:messageRequest xmlns:m="http://xmlns.oracle.com/Enterprise/Tools/schemas/UBI_CREA_ORDENPAG_REQ_MSG.VERSION_1">
+		<UBI_ESTADO>I</UBI_ESTADO>
+		<UBI_OPERACION_ORD>U</UBI_OPERACION_ORD>
+		<NATIONAL_ID_TYPE>TI</NATIONAL_ID_TYPE>
+		<NATIONAL_ID>1010140585</NATIONAL_ID>
+		<NATIONAL_ID_TYPE_OLD></NATIONAL_ID_TYPE_OLD>
+		<NATIONAL_ID_OLD>1010140585</NATIONAL_ID_OLD>
+		<FIRST_NAME>SANTIAGO</FIRST_NAME>
+		<MIDDLE_NAME></MIDDLE_NAME>
+		<LAST_NAME>MORALES</LAST_NAME>
+		<SECOND_LAST_NAME>GAVIRIA</SECOND_LAST_NAME>
+		<BIRTHDATE>08282000</BIRTHDATE>
+		<BIRTHCOUNTRY>CO</BIRTHCOUNTRY>
+		<BIRTHSTATE>76</BIRTHSTATE>
+		<BIRTHPLACE>76147</BIRTHPLACE>
+		<SEX>M</SEX>
+		<MAR_STATUS>S</MAR_STATUS>
+		<ADDRESS1>CARRERA 20B  CASA 5 A 15 BARRIO LA PRADERA</ADDRESS1>
+		<PHONE>3118969510</PHONE>
+		<EMAIL_ADDR>samgaviria@iegabo.edu.co</EMAIL_ADDR>
+		<BUSINESS_UNIT>UBSF0</BUSINESS_UNIT>
+	</m:messageRequest> id:1 descripcion:2017-12-20-01.00.25.000000>>>  - Integration Gateway: General Connection Failed (158,10836) LC_PERSONAL_DATA_AP.LC_SERVICIOS_AP.LC_BASE_AC.OnExecute  Name:asignarIDCT  PCPC:110587  Statement:821
+Called from:PERSONAL_DATA.GBL.SavePostChange  Statement:14Error saving Component Interface. {HCR_PERSONAL_DATA_SRV} (91,37) (0,0) HMCR_API2CI.ciHandler.OnExecute  Name:notificarErroresCI  PCPC:63152  Statement:1234
+Called from:HMCR_API2CI.ciHandler.OnExecute  Name:ciSave  Statement:109
+Called from:HMCR_API2CI.ciLocalPool.OnExecute  Name:ciSavePool  Statement:40
+Called from:HCR_PERSON_SERVICES.Person.SetPerson_v1_1.implSetPerson.OnExecute  Name:Save  Statement:364
+Called from:HCR_PERSON_SERVICES.Person.SetPerson_v1_1.implSetPerson.OnExecute  Name:DoService  Statement:343
+Called from:SCC_HR_INTEGRATION.HRServices.PersonServices.OnE

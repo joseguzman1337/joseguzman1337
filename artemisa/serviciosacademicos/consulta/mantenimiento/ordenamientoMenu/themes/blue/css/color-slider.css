@@ -1,0 +1,65 @@
+.DHTMLSuite_colorSlider{
+	width:380px;
+	height:110px;
+}
+.DHTMLSuite_colorSlider input{
+	font-size:10px;
+}
+
+.DHTMLSuite_colorSliderPreviewParent{
+	width:50px;
+	float:left;
+}
+.DHTMLSuite_colorSliderPreview{	/* Color preview */
+	width:40px;
+	height:60px;
+	margin-left:3px;
+	border:1px solid #000;
+}
+
+.DHTMLSuite_colorSliderSliderParent{	/* Parent div of slider */
+	width:320px;
+	height:60px;
+	float:left;
+}
+
+.DHTMLSuite_colorSliderSliderColorRow{
+	height:20px;
+	clear:both;
+}
+.DHTMLSuite_colorSliderSliderColorRow div{
+
+}
+.DHTMLSuite_colorSliderSliderColorRow input{
+	width:28px;
+
+}
+.DHTMLSuite_colorSliderSliderInputDiv{/* Small div which is parent of input boxes */
+	float:left;
+	width:30px;
+	float:left;
+}
+.DHTMLSuite_colorSliderSliderLabelDiv{ /* Small div which is parent of the labels "R", "G" and "B" in front of the sliders */
+	width:20px;
+	float:left;
+}
+.DHTMLSuite_colorSliderSlider{ /* Parent of the slider */
+	width:247px;
+	float:left;
+	height:15px;
+	
+}
+
+.DHTMLSuite_colorSliderRgbBgParent{
+	margin-top:5px;
+	clear:both;
+}
+
+.DHTMLSuite_colorSliderRgbBg{
+	background-image:url('../images/colorPalettes/rgbColors.png');
+	background-repeat:no-repeat;
+	width:351px;
+	height:20px;
+	position:relative;
+	cursor:crosshair;
+}

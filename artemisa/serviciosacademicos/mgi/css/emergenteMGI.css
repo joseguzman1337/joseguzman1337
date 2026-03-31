@@ -1,0 +1,40 @@
+input.error,textarea.error { border: 1px solid #CC0000; }
+			label.error { display: none !important; }
+			#forma #pageContainer fieldset{
+				border:#316FC0 solid 1px; border-radius:8px; -moz-border-radius: 8px; -webkit-border-radius: 8px; margin-right:3%; margin-left:3%;
+			}
+			#forma #pageContainer fieldset legend{
+				color:#316FC0;font-size:20px;font-weight: bold;letter-spacing:-1px;padding-bottom:20px;padding-top:8px;ext-transform:capitalize;
+			}
+			#forma #DivIndicadores{
+				overflow:scroll;width:100%; height:600px; overflow-x:hidden;
+			}
+			#forma #DivIndicadores2{
+				overflow:scroll;width:100%; max-height:600px; overflow-x:hidden;
+			}
+			#forma #pageContainer input[type="submit"],#forma #pageContainer input[type="button"]{
+				color:#4E6CA3;font-size:12px;font-weight:bold;line-height:1.6em;
+			}
+			#forma #pageContainer table td.titulo{
+				border:#FFF solid 1px; color:#FFF;background-color:#2964B1;padding-left: 5px;
+			}
+			#forma #pageContainer table td.contenido{
+				border:#FFF solid 1px; color:#000;
+			}
+			#forma #pageContainer table td.contenido textarea{
+				color:#000; width: 540px;
+			}
+			#forma #pageContainer table thead tr{
+				background-color:#2964B1;
+			}
+			#forma #pageContainer table thead td{
+				border:#FFF solid 1px; color:#FFF;
+			}
+			img.button{
+				cursor: pointer;
+			}
+			table tr.even{
+				background-color:#DEDDF6;
+			}
+			table tr.odd{ background-color:#FFFFFF;
+			}

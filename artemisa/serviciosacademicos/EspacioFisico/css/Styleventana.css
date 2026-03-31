@@ -1,0 +1,91 @@
+
+iframe{
+    width:95%;
+    position: absolute;,
+    height:95%;
+}
+#VentanaNew{
+    z-index: 9999; 
+    display: block; 
+    left: 350px; 
+    opacity: 1; 
+    position: absolute; 
+    top: 2328.5px; 
+    height:1200px;
+    width: 1200px;
+}
+#popup, #popup2, #VentanaNew,.bMulti {
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    box-shadow: 0 0 25px 5px #999999;
+    color: #111111;
+    display: none;
+    min-width: 450px;
+    padding: 25px;
+}
+#popup .logo {
+    color: #2B91AF;
+    font: bold 325% 'Petrona',sans;
+}
+
+#popup2 iframe {
+    background: url("loader.gif") no-repeat scroll center center rgba(0, 0, 0, 0);
+    min-height: 240px;
+    min-width: 450px;
+}
+.loading {
+    background: url("loader.gif") no-repeat scroll center center rgba(0, 0, 0, 0);
+}
+.bMulti p {
+    font: 500% 'Petrona',sans-serif;
+    padding: 45px 0 0;
+    text-align: center;
+}
+.bMulti a {
+    left: 175px;
+    position: absolute;
+    top: 175px;
+}
+.lt-ie9 .bModal {
+    background-color: #000000;
+}
+.github {
+    background: url("images/github.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    height: 149px;
+    opacity: 0.6;
+    position: fixed;
+    right: 0;
+    top: 0;
+    transition-duration: 0.35s;
+    transition-property: opacity;
+    transition-timing-function: ease-out;
+    width: 149px;
+}
+.github:hover {
+    opacity: 1;
+}
+.button.b-close, .button.bClose {
+    border-radius: 7px;
+    box-shadow: none;
+    font: bold 131% sans-serif;
+    padding: 0 6px 2px;
+    position: absolute;
+    right: -7px;
+    top: -7px;
+}
+.button {
+    background-color: #2B91AF;
+    border-radius: 10px;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+}
+*::-moz-selection {
+    background-color: #2B91AF;
+    color: #FFFFFF;
+    text-shadow: none;
+}

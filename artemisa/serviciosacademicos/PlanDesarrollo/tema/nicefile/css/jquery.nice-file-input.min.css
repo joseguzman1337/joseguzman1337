@@ -1,0 +1,14 @@
+.fileWrapper{position:relative;overflow:hidden;padding:0;float:left}
+input[type=text].fileInputText{float:right;border:1px solid #ddd;margin:0;}
+input[type=button].fileInputButton{float:left;border:solid 1px #ccc; border-radius: 8px; background:#ddd;box-sizing:content-box;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;margin:0px;padding:0}
+
+a.submit {
+    padding: 4px 15px;
+   font-family: Helvetica, Arial, sans-serif;
+   font-weight: normal;
+   line-height: 1;
+   border: none;
+   border: 1px solid #f1f1f1;
+   border-radius: 10px;
+   
+}

@@ -1,0 +1,113 @@
+<!--
+ * Se modifica las validaciones de usuario y se hacen otros ajustes
+ * Vega Gabriel <vegagabriel@unbosque.edu.do>.
+ * Universidad el Bosque - Direccion de Tecnologia.
+ * Modificado 22 de Agosto de 2017.
+ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Ingreso Aspirantes Universidad El Bosque</title>
+            <script language="JavaScript" type="text/javascript">
+                function submitform()
+                {
+                    var valid = "";
+                    var usuario = document.forms["inscripcion"]["usuario"].value;
+                    var clave = document.forms["inscripcion"]["clave"].value;
+                    if (usuario == null || usuario == "")
+                    {
+                        valid += "Debe llenar el campo Usuario \n";
+                    }
+                    if (usuario != "")
+                    {
+                        if(!/^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i.test(usuario)){
+                            valid += "Debe Ingresar un usuario valido \n";
+                        }                    
+                    }                    
+                    if (clave == null || clave == "")
+                    {
+                        valid += "Debe llenar el campo Contraseña";
+                    }
+                    if (valid == "") {
+                        document.forms["inscripcion"].submit();
+                        document.forms["inscripcion"]["usuario"].value = "";
+                        document.forms["inscripcion"]["clave"].value = "";
+                    } else {
+                        alert(valid);
+                    }
+                }
+                
+            </script>
+            <style type="text/css">
+                body, html {
+                    margin:0;
+                    padding:0;
+                    font-family:Calibri, Geneva, sans-serif;
+                    background-color:#EFF2DC;
+                    color:#414928;
+                    overflow:hidden;
+                }
+
+                .info {
+                    color:#414928;
+                }
+
+                .bloque_modelo {
+                    width:700px;
+                    height:200px;
+                    left:50%;
+                    margin-left:-350px;
+                    margin-top:60px;
+                    position:relative;
+                    z-index:10;
+                }
+                .bloque_modelo .contenido {
+                    padding:20px;
+                    overflow:hidden;
+                }
+                .loggin_label {
+                    margin-bottom:5px;
+                    clear:both;
+                    margin-left:120px;
+                }
+                .loggin_input {
+                    width:270px;
+                    margin-left:5px;
+                    height:25px;
+                    border:solid 1px #C6CE94;
+                    float:right;
+                    margin-bottom:3px;
+                }
+
+                .bloque_modelo a {
+                    color:#414928;
+                    text-decoration:none;
+                    text-align:right;
+                    margin-top:10px;
+                }
+                .bloque_modelo a:hover {
+                    color:#EB8906;
+                }
+                .info {
+                    font-size:0.8em;
+                }
+            </style>
+    </head>
+
+    <body>
+        <div class="bloque_modelo">
+            <div id="loguito" style="float:left;margin:45px 0 0 30px;"><img src="logo-uelbosque.png" alt="Universidad El Bosque" width="250px"/></div>
+            <div class="contenido">       		
+                <form id="inscripcion" name="inscripcion" method="post" action="../usuarioaspirante/redireccionaingresousuario.php" enctype="multipart/form-data">    
+                    <div class="loggin_label">Usuario<br/><input type="text" name="usuario" id="usuario" size="15" value="" class="loggin_input" /></div>
+                    <div class="loggin_label">Contrase&ntilde;a<br/><input  type="password" name="clave" id="clave" size="15" class="loggin_input" />
+                        <input  type="hidden" name="ingresar" id="ingresar" value="ingresar" />
+                        <button type="button" onclick="submitform();" class="login-servicios" style="float:right"/>Ingresar</button></div>
+                </form>
+            </div>
+            <div class="info" align="center"><a href="../usuarioaspirante/recuperarclave.php">&iquest;Ha olvidado su contrase&ntilde;a? </a></div>
+        </div>
+    </body>
+</html>
+<!--end-->

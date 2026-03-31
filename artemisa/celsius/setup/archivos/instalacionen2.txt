@@ -1,0 +1,13 @@
+The next step is to create a MySQL user that will be able to use the Celsius Database
+Then, a new account for the MySQL Database will be created to allow access from Celsius ambiance
+You must have a <font color=red> MySQL root user </font> password to be able to create new MySQL users accounts
+Do not mix up with Linux root user
+ and specify a password for the new Celsius account
+
+The username and password of MySQL user are needey to continue. This information will be used to create users
+MySQL root username:
+MySQL root password:
+Celsius username:
+Celsius user password:
+Confirm Celsius user password:
+Continue

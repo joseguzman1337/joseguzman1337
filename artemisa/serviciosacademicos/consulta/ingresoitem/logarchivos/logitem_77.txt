@@ -1,0 +1,10 @@
+<b>Log Item</b> 
+
+<span style='background:green'>Se han creado correctamente los Conceptos correspondientes a la Fila No 1</span> 
+
+<span style='background:green'>Se han creado correctamente los Conceptos correspondientes a la Fila No 2</span> 
+
+<span style='background:red'> Campos vacíos en la Fila No 3</span> 
+
+<span style='background:red'> Campos vacíos en la Fila No 4</span> 
+

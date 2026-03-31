@@ -1,0 +1,580 @@
+/* FONTS *******************************************************/
+@font-face {
+  font-family: 'Lato';
+  src:  url('../fonts/lato-regular.eot');
+  src:  
+        url('../fonts/lato-regular.woff') format('woff'), 
+        url('../fonts/lato-regular.ttf') format('truetype'), 
+        url('../fonts/lato-regular.svg#webfont') format('svg');
+}
+
+/*  *******************************************************/
+*{
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+}
+body{
+
+  font-family: 'Lato', sans-serif;
+  font-size: 1.2em;
+  word-spacing: 0.1em;
+}
+#horarios,
+#mas-info{
+  margin: 0;
+}
+/* COLUMNA HORARIOS *******************************************************/
+.row,
+#horarios header{
+  font-size: 0.85em;
+  letter-spacing: 0.05em;
+  border-radius: 5px;
+  margin-bottom: 6px;
+  padding: 8px;
+  overflow: hidden;
+  font-weight: 400;
+  white-space: nowrap;
+  position: relative;
+  
+}
+#horarios{
+    font-size: 1.5em;
+    text-transform: uppercase;
+}
+#horarios header{
+  background-color: #EB8906;
+  color: white;
+}
+
+/* COLUMNA MAS INFORMACION ****************************************************/
+.logo{
+  margin-left: 1em;
+  background: url('../imagenes/logo.svg');
+  background-size: 100%;
+  background-position: left center;
+  height: 80px;
+  width: 230px;
+  float: left; 
+  background-repeat: no-repeat;
+}
+.hora{
+  padding-top: 5px;
+  text-align: center;
+  float: right;
+  padding-right: 20px;
+  
+}
+.hora > span:first-child{
+  color: white;
+  font-size: 0.7em;
+  font-weight: 100;
+  display: block;
+}
+.hora > span:last-child{
+  font-family: 'Oswald', sans-serif;
+  font-size: 2em;
+  color: #FFF02A;
+  line-height: 1.2em;
+  margin-right: 10px;
+}
+/* seccion recuerda que*/
+.recuerda-que{
+  border-radius: 5px;
+  background: rgba(156,150,148, 0.2);
+  border: 1px solid rgba(170, 204, 186, 0.2);
+  -moz-background-clip: padding;
+  -o-background-clip: padding-box;
+  -webkit-background-clip: padding;
+  background-clip: padding-box;
+  padding: 0.5em;
+  margin-left: 0.5em;
+  margin-top: 1em;
+}
+.recuerda-que > div,
+.eventos > div{
+  color: white;
+  font-size: 0.7em;
+  padding: 1em;
+}
+.tab-titulo{
+  font-size: 0.8em !important;
+  display: block;
+  padding: 0.5em 1em !important;
+  margin: 0 0 0 1em;
+  width: 40%;
+  font-weight: 600;
+}
+.recuerda-que > div h3{
+    font-style: italic;
+    color: #EB8906;
+}
+.recuerda-que > div p,
+.recuerda-que > div h3,
+.eventos > div p,
+.eventos > div h3{
+  margin: 0;
+}
+.recuerda-que > div.even,
+.tab-titulo{
+  background: rgba(146,146,148, 0.6);
+}
+.recuerda-que > div.odd{
+  background: rgba(77,77,77, 1);
+}
+.recuerda-que div:nth-child(2),
+.recuerda-que .tab-titulo,
+.eventos div:nth-child(2),
+.eventos .tab-titulo{
+  -moz-border-radius-topleft: 8px;
+  -webkit-border-top-left-radius: 8px;
+  border-top-left-radius: 8px;
+  -moz-border-radius-topright: 8px;
+  -webkit-border-top-right-radius: 8px;
+  border-top-right-radius: 8px; 
+}
+.recuerda-que > div:last-child,
+.eventos> div:last-child{
+    -moz-border-radius-bottomleft: 8px;
+  -webkit-border-bottom-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  -moz-border-radius-bottomright: 8px;
+  -webkit-border-bottom-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+/* seccion eventos*/
+.eventos{
+  border-radius: 5px;
+  background: rgba(0,0,0, 0.3);
+  border: 1px solid rgba(170, 204, 186, 0.2);
+  -moz-background-clip: padding;
+  -o-background-clip: padding-box;
+  -webkit-background-clip: padding;
+  background-clip: padding-box;
+  padding: 0.5em;
+  margin-left: 0.5em;
+}
+.eventos > div.even,
+.eventos .tab-titulo{
+  background: rgba(45,102,154, 1);
+}
+.eventos> div.odd{
+  background: rgba(45,102,154, 0.6);
+}
+.hora-evento{
+  color: #FFF02A;
+  font-weight: 600;
+}
+.eventos p{
+  color:#50B9F9;
+  font-size: 1.3em;
+}
+
+
+/* COLORES ZEBRA FILAS *******************************************************/
+.row.even{
+  background-color: #2f333a;
+  color: rgba(255, 255, 255, 0.9);
+}
+.row.odd{
+  background-color: #4e555e;
+  border:1px solid #6e7377;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.row.even .numeric{
+  background-color: #2f333a;
+}
+.row.odd .numeric{
+  background-color: #4e555e;
+}
+
+
+/* FILAS HORARIO CAMBIOS*******************************************************/
+.odd.cambio-horario > span{
+  color: #ffcf2a;
+}
+.even.cambio-horario > span{
+  color: #ffcf2a;
+}
+.cambio-horario > span.materia:after{
+  position: absolute;
+  content: ' ';
+  background: url('../imagenes/cambio.svg');
+  background-size: 40px 26px;
+  height: 26px;
+  margin-top: -3px;
+  margin-left: 0.6em;
+  width: 40px;
+}
+/*Footer*/
+footer{
+    border-radius: 5px;
+  /*background: rgba(255,255,255, 0.9);
+  border: 1px solid rgba(170, 204, 186, 0.2);*/
+  -moz-background-clip: padding;
+  -o-background-clip: padding-box;
+  -webkit-background-clip: padding;
+  background-clip: padding-box;
+  padding: 0.5em;
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: 1.2em;
+  background: #2f333a;
+  border: 2px solid #596c28;
+  color: white;
+}
+
+footer span{
+  font-weight: 700;
+  color: blue;
+  padding: 0 1em;
+}
+/* COLORES BLOQUES ***********************************************************/
+span[class*="bloque-"]{
+  border-radius: 3px;
+  padding: 2px 5px;
+  color: rgba(255, 255, 255, 1);
+  font-weight: 700;
+}
+.bloque-a{
+  background: #189DBD;
+}
+.bloque-b{
+  background: #BDBA41;
+}
+.bloque-c{
+  background: #3061A9;
+}
+.bloque-d{
+  background: #eb8a34;
+}
+.bloque-e{
+  background: #ffce41;
+}
+.bloque-f{
+  background: #ce2a74;
+}
+.bloque-g{
+  background: #a33a35;
+}
+.bloque-h{
+  background: #ea6532;
+}
+.bloque-i{
+  background: #c0232c;
+}
+.bloque-j{
+  background: #a8338f;
+}
+.bloque-k{
+  background: #1b9c50;
+}
+.bloque-l{
+  background: #62576f;
+}
+.bloque-m{
+  background: #8dc249;
+}
+.bloque-x-y-z{
+  background: #e15c30;
+}
+.bloque-n{
+  background: #e15c30;
+}
+/* HORARIOS BUSES  *******************************************************/
+
+.horarios-bus{
+  border-radius: 5px;
+  background: rgba(0,0,0, 1);
+  border: 1px solid rgba(196, 197, 198, 0.2);
+  -moz-background-clip: padding;
+  -o-background-clip: padding-box;
+  -webkit-background-clip: padding;
+  background-clip: padding-box;
+  padding: 0.5em;
+  margin-left: 0.5em; 
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+.wrap-horarios-bus{
+  background-color: #5f6872;
+  border-radius: 5px;
+  -moz-background-clip: padding;
+  -o-background-clip: padding-box;
+  -webkit-background-clip: padding;
+  background-clip: padding-box;  
+  padding-bottom: 5px;
+}
+.horarios-bus h3{
+  color: white;
+  text-transform: uppercase;
+  margin:0;
+  text-align: center;
+  padding: 0.5em 0;
+}
+.horarios-bus h3 span{
+  color: #fcea0b;
+  position: relative;
+  padding-left: 34px;
+}
+.horarios-bus h3 span:before{
+  position: absolute;
+  content: '';
+  width: 28px;
+  height:34px;
+  background: url('../imagenes/bus.png') no-repeat;
+  top: -3px;
+  left: 0;
+}
+.horarios-bus header{
+  background-color: #fcea0b;
+  font-size: 0.8em;
+  font-weight: 700;
+  overflow: hidden;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 0.5em 0;
+  position: relative;
+}
+.horarios-bus .row.even{
+  border-radius: 0;
+  background-color: #5f6872;
+  text-align: center;
+  margin-bottom: 0;
+}
+.horarios-bus .row.odd{
+  border-radius: 0;
+  background-color: #575f68;
+  text-align: center;
+  border-top: 1px solid #6e7377;
+  border-bottom: 1px solid #6e7377;
+  border-left: none;
+  border-right: none;
+  margin-bottom: 0;
+  position: relative;
+}
+.horarios-bus .row.odd:before,
+.horarios-bus .row.even:before{
+  content: '';
+  position: absolute;
+  left: 50%;
+  width: 1px;
+  height: 35px;
+  background: #6e7377;
+  top: 0;
+}
+.horarios-bus .row.even span,
+.horarios-bus .row.odd span{
+  position: relative;
+}
+.horarios-bus .row.odd span:before,
+.horarios-bus .row.even span:before{
+  position: absolute;
+  content: '';
+  width: 18px;
+  height:18px;
+  background-image: url('../imagenes/reloj.svg');
+  background-size: 100% 100%;
+  top: 0px;
+  left: 2em;
+}
+.horarios-bus span.active{
+  color:#fcea0b;
+  font-weight: 700;
+}
+
+.horarios-bus header:before{
+  content: '';
+  position: absolute;
+  left: 50%;
+  width: 1px;
+  height: 35px;
+  background: #999;
+  top: 0;
+}
+.fijo{
+    bottom: 30px;
+    position: fixed;
+}
+/* RESPONSIVE ************************************************************************/
+
+/*Separacion css*/
+
+footer span.sep{
+  background: url(../imagenes/iconoPantalla.png) no-repeat 0 5px;
+  height: 20px;
+  width: 28px;
+}
+
+/* large screens ----------- */
+@media screen and (min-width: 1600px) {
+  body{
+      background-color: #202228;
+  }
+  .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12 {
+    float: left;
+  }
+  .col-md-12 {
+    width: 100%;
+  }
+  .col-md-11 {
+    width: 91.66666667%;
+  }
+  .col-md-10 {
+    width: 83.33333333%;    
+  }
+  .col-md-9 {
+    width: 75%;
+  }
+  .col-md-8 {
+    width: 66.66666667%;
+    overflow: hidden;
+  }
+  .col-md-7 {
+    width: 58.33333333%;
+  }
+  .col-md-6 {
+    width: 50%;
+  }
+  .col-md-5 {
+    width: 41.66666667%;
+  }
+  .col-md-4 {
+    width: 33.33333333%;
+  }
+  .col-md-3 {
+    width: 25%;
+  }
+  .col-md-2 {
+    width: 16.66666667%;
+  }
+  .col-md-1 {
+    width: 8.33333333%;
+  }
+  .img-vertical{
+     display: none;
+  }
+  .img-horizontal{
+     display: block;
+  }
+}
+
+/* laptop screens ----------- */
+@media screen and (max-width: 1599px){
+  body{
+      background-color: #202228;
+  }
+  #horarios{
+    margin-top: 100px;
+  }
+  .info-date{
+    position: absolute;
+    top: 0;
+  }
+  .logo{
+    margin-top: 5px;
+    margin-left: 1em;
+    float: left;
+    background: url('../imagenes/logo.svg');
+    background-size: 212px 50px;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 60px;
+    width: 212px; 
+  }
+  .hora{
+    float: right;
+    width: 340px;
+  }
+  .hora > span:last-child{
+    font-size: 1.5em;
+  }
+ .tab-titulo{
+  width: 15%;
+ }
+ .recuerda-que,
+ .eventos{
+  margin-left: 0;
+ }
+ .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12 {
+    float: left;
+  }
+  .col-md-12,
+  section {
+    width: 100% !important;
+  }
+  .col-md-11 {
+    width: 91.66666667%;
+  }
+  .col-md-10 {
+    width: 83.33333333%;
+  }
+  .col-md-9 {
+    width: 75%;
+  }
+  .col-md-8 {
+    width: 66.66666667%;
+    overflow: hidden;
+  }
+  .col-md-7 {
+    width: 58.33333333%;
+  }
+  .col-md-6 {
+    width: 50%;
+  }
+  .col-md-5 {
+    width: 41.66666667%;
+  }
+  .col-md-4 {
+    width: 33.33333333%;
+  }
+  .col-md-3 {
+    width: 25%;
+  }
+  .col-md-2 {
+    width: 16.66666667%;
+  }
+  .col-md-1 {
+    width: 8.33333333%;
+  }
+  .img-horizontal{
+     display: none;
+  }
+  .img-vertical{
+     display: block;
+  }
+}
+
+
+/* mobile, tablets screens ----------- */
+@media only screen and (max-width: 768px) {
+  body{
+      background-color: #202228;
+  }  
+  #horarios header{
+    display: none;
+  }
+	#horarios > div > span{ 
+		width: 100%;
+    padding:0.5em 0;
+    font-weight: 100;
+	}
+	#horarios span { 
+		/* Behave  like a "row" */
+		border: none;
+		border-bottom: 1px solid #666; 
+		position: relative;
+		white-space: normal;
+		text-align:left;
+	}
+  #horarios span:last-child{
+    border-bottom: transparent; 
+  }
+  span:before { 
+    content: attr(data-title); 
+    padding-right: 10px; 
+    font-weight: bold;
+  }
+}

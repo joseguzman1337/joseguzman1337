@@ -1,0 +1,134 @@
+/* SIMBOLOS */
+*{
+	font-family: Arial;
+	font-size: 20px;
+	color: #fff;
+}
+
+@media (max-width: 1024px) {
+	/* A */
+	.aula{
+		width:49%;
+		float:left;
+	}
+	/* B */	
+	.bloque{
+		width:49%;
+		float:left;
+	}
+	/* C */
+	/* D */
+	/* E */
+	/* F */
+	/* G */
+	/* H */
+	/* I */
+	/* J */
+	/* K */
+	/* L */
+	/* M */
+	/* N */
+	/* O */
+	/* P */
+	/* Q */
+	/* R */
+	/* S */
+	/* T */
+	/* U */
+	/* V */
+	/* W */
+	/* X */
+	/* Y */
+	/* Z */
+}
+
+/* A */
+.aula{
+	width:49%;
+	float:left;
+}
+/* B */
+body{
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	background-color: #202228;
+}
+.bloque{
+	width:49%;
+	float:left;
+}
+.boton{
+	color:#000;
+}
+.boton-guardar{
+	float: left;
+    display: block;
+    width: 1024px;
+}
+/* C */
+.content{
+	float: left;
+	padding-top: 50px;
+	width: 1024px;
+}
+/* D */
+/* E */
+/* F */
+.fieldset-left{
+	float:left;
+	width:524px;
+}
+.fieldset-right{
+	width:500px;
+	float:left;
+}
+/* G */
+/* H */
+.horas{
+	width:49%;
+	float:left;
+	padding-top:50px;
+}
+.header{
+	padding-top:20px;
+	margin:auto;
+	width: 1024px;
+	display: block;
+}
+/* I */
+/* J */
+/* K */
+/* L */
+.logo{
+	margin-left: 1em;
+	background: url('../imagenes/logo.svg') no-repeat;
+	background-size: 282px 80px;
+	height: 80px;
+	width: 100%; 
+	float: left;
+}
+/* M */
+/* N */
+/* O */
+.observacion{
+	color:#000 !important;
+}
+/* P */
+/* Q */
+/* R */
+/* S */
+select{
+	background-color:#000;
+}
+/* T */
+/* U */
+/* V */
+/* W */
+.wrapper{
+	width: 1024px;
+	margin: auto;
+}
+/* X */
+/* Y */
+/* Z */

@@ -1,0 +1,74 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />        
+        <link rel="stylesheet" href="../css/chosen.css" />
+		<title>{{title}}</title>
+		<script type="text/javascript" language="javascript" src="../../../../../mgi/js/jquery.js"></script>
+        <script type="text/javascript" language="javascript" src="../js/RotacionSubGrupos.js"></script> 
+        <script>
+        function val_texto(e) {
+            tecla = (document.all) ? e.keyCode : e.which;
+            if (tecla==8) return true;
+            patron = /[0-9a-zA-ZÒ—·ÈÌÛ˙¡…Õ”⁄\s]+$/;
+            te = String.fromCharCode(tecla);
+            return patron.test(te);
+        }
+        </script>
+        <script>
+        function val_numero(e) {
+            tecla = (document.all) ? e.keyCode : e.which;
+            if (tecla==8) return true;
+            patron =/[0-9]+$/;            
+            te = String.fromCharCode(tecla);
+            return patron.test(te);
+        }
+        </script> 		
+	</head>
+	<body class="body">
+		<form action="../controller/subgrupos.php?update_save=1&SubgrupoId={{SubgrupoId}}" method="post">
+		<table align="center" cellpadding="7" cellspacing="1" bordercolor="#003333" width="600" border="1">
+			<tr bgcolor="#C5D5D6">
+				<td colspan="2" align="center">					
+						<b>Actualizar</b>
+				</td>
+			</tr>
+			<tr>
+				<td align="center">Nombre del subgrupo</td>
+				<td align="center"><input type="text" name="nombre" value="{{nombreSubgrupo}}" onkeypress="return val_texto(event)" required></td>
+			</tr>
+             <tr>
+				<td align="center">TamaÒo del subgrupo</td>
+				<td align="center"><input type="text" size="3" style="text-align: center;" maxlength="3" onkeypress="return val_numero(event)" name="sizeSub" value="{{MaximoCupo}}" required /></td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center">
+					{{{select}}}
+				</td>
+			</tr>
+			<tr>
+				<input type="hidden" name="idgrupo" id="idgrupo"value="{{idgrupo}}" />
+                <input type="hidden" name="materia" id="materia"value="{{materia}}" />
+				<td colspan="2" align="center">
+                <input type="submit" id="btn_guardar_nuevo" value="Actualizar subgrupo" />
+                <input type="button" value="Regresar" onclick="RegresarsubGrupo()" />
+                </td>
+			</tr>
+		</table>
+		</form>
+	</body>
+	<script src="../js/chosen.jquery.js" type="text/javascript"></script>
+	<script src="../js/prism.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var config = {
+			'.chosen-select'           : {},
+			'.chosen-select-deselect'  : {allow_single_deselect:true},
+			'.chosen-select-no-single' : {disable_search_threshold:10},
+			'.chosen-select-no-results': {no_results_text:'Oops, nothing found!'},
+			'.chosen-select-width'     : {width:"95%"}
+		}
+		for (var selector in config) {
+		  $(selector).chosen(config[selector]);
+		}
+	</script>
+</html>

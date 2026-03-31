@@ -1,0 +1,19 @@
+.DHTMLSuite_formCoverDiv{	/* Div used to display ajax loader */
+	background-color:#FFF;
+
+}
+
+.DHTMLSuite_formCoverDiv_ajaxLoader{
+	width:140px;
+	height:50px;
+	border:1px solid #9CBDFF;
+	background-color:#FFF;
+	position:absolute;
+	left:50%;
+	top:50%;
+	margin-left:-70px;
+	margin-top:-25px;
+	background-image:url(../images/dynamic-content/ajax-loader-darkblue.gif);
+	background-position:center center;
+	background-repeat:no-repeat;
+}

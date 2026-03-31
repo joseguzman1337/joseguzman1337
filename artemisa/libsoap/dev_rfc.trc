@@ -1,0 +1,10 @@
+
+**** ERROR file opened at 20070211 220501 COT, SAP-REL 620,0,1909 RFC-VER 3 748231 MT-SL
+T:1079559200 ======>      La clave de reconciliación 1102070605 está bloqueada por SALA                   
+T:1079559200 <* RfcReceive [2] : returns 3:RFC_SYS_EXCEPTION
+T:1079559200 <* RfcCallReceive [2] : returns 3:RFC_SYS_EXCEPTION
+
+**** ERROR file opened at 20070723 104002 COT, SAP-REL 620,0,1909 RFC-VER 3 748231 MT-SL
+T:1079559200 ======>      YA SE HA(N) VENCIDO LA(S) FECHA(S) LIMITE DE PAGO.                              
+T:1079559200 <* RfcReceive [2] : returns 3:RFC_SYS_EXCEPTION
+T:1079559200 <* RfcCallReceive [2] : returns 3:RFC_SYS_EXCEPTION

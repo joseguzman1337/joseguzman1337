@@ -1,0 +1,224 @@
+04 04 2018 01:04:09 logtraceID: 	<m:messageRequest xmlns:m="http://xmlns.oracle.com/Enterprise/Tools/schemas/UBI_CREA_ORDENPAG_REQ_MSG.VERSION_1">
+		<UBI_ESTADO>I</UBI_ESTADO>
+		<UBI_OPERACION_ORD>U</UBI_OPERACION_ORD>
+		<NATIONAL_ID_TYPE>TI</NATIONAL_ID_TYPE>
+		<NATIONAL_ID>1001324393</NATIONAL_ID>
+		<NATIONAL_ID_TYPE_OLD></NATIONAL_ID_TYPE_OLD>
+		<NATIONAL_ID_OLD>1001324393</NATIONAL_ID_OLD>
+		<FIRST_NAME>JUAN</FIRST_NAME>
+		<MIDDLE_NAME>DIEGO</MIDDLE_NAME>
+		<LAST_NAME>MARTINEZ</LAST_NAME>
+		<SECOND_LAST_NAME>SAUCEDO</SECOND_LAST_NAME>
+		<BIRTHDATE>06022000</BIRTHDATE>
+		<BIRTHCOUNTRY>CO</BIRTHCOUNTRY>
+		<BIRTHSTATE>11</BIRTHSTATE>
+		<BIRTHPLACE>11001</BIRTHPLACE>
+		<SEX>M</SEX>
+		<MAR_STATUS>S</MAR_STATUS>
+		<ADDRESS1>CARRERA 62NO165A88  APARTAMENTO 1-501 CONJUNTO RESIDENCIAL COLINA CLUB RESIDENCIAL</ADDRESS1>
+		<PHONE>7353243</PHONE>
+		<EMAIL_ADDR>Juandsaucedo@Hotmail.com</EMAIL_ADDR>
+		<BUSINESS_UNIT>UBSF0</BUSINESS_UNIT>
+	</m:messageRequest> id:1 descripcion:2018-04-04-01.00.09.000000>>>  - Integration Gateway - HttpTargetConnector:ExternalApplicationException.  Http status code HttpStatusCode returned : 500. (158,10623) LC_PERSONAL_DATA_AP.LC_SERVICIOS_AP.LC_BASE_AC.OnExecute  Name:asignarIDCT  PCPC:110587  Statement:821
+Called from:PERSONAL_DATA.GBL.SavePostChange  Statement:14Error saving Component Interface. {HCR_PERSONAL_DATA_SRV} (91,37) (0,0) HMCR_API2CI.ciHandler.OnExecute  Name:notificarErroresCI  PCPC:63152  Statement:1234
+Called from:HMCR_API2CI.ciHandler.OnExecute  Name:ciSave  Statement:109
+Called from:HMCR_API2CI.ciLocalPool.OnExecute  Name:ciSavePool  Statement:40
+Called from:HCR_PERSON_SERVICES.Person.SetPerson_v1_1.implSetPerson.OnExecute  Name:Save  Statement:364
+Called from:HCR_PERSON_SERVICES.Person.SetPerson_v1_1.implSetPerson.OnExecute  Name:DoService  Statement:343
+Called from:SCC_HR_INTEGRATION.HRServices.PersonServices.OnE
+04 04 2018 01:04:12 logtraceID: 	<m:messageRequest xmlns:m="http://xmlns.oracle.com/Enterprise/Tools/schemas/UBI_CREA_ORDENPAG_REQ_MSG.VERSION_1">
+		<UBI_ESTADO>I</UBI_ESTADO>
+		<UBI_OPERACION_ORD>U</UBI_OPERACION_ORD>
+		<NATIONAL_ID_TYPE>TI</NATIONAL_ID_TYPE>
+		<NATIONAL_ID>1001324393</NATIONAL_ID>
+		<NATIONAL_ID_TYPE_OLD></NATIONAL_ID_TYPE_OLD>
+		<NATIONAL_ID_OLD>1001324393</NATIONAL_ID_OLD>
+		<FIRST_NAME>JUAN</FIRST_NAME>
+		<MIDDLE_NAME>DIEGO</MIDDLE_NAME>
+		<LAST_NAME>MARTINEZ</LAST_NAME>
+		<SECOND_LAST_NAME>SAUCEDO</SECOND_LAST_NAME>
+		<BIRTHDATE>06022000</BIRTHDATE>
+		<BIRTHCOUNTRY>CO</BIRTHCOUNTRY>
+		<BIRTHSTATE>11</BIRTHSTATE>
+		<BIRTHPLACE>11001</BIRTHPLACE>
+		<SEX>M</SEX>
+		<MAR_STATUS>S</MAR_STATUS>
+		<ADDRESS1>CARRERA 62NO165A88  APARTAMENTO 1-501 CONJUNTO RESIDENCIAL COLINA CLUB RESIDENCIAL</ADDRESS1>
+		<PHONE>7353243</PHONE>
+		<EMAIL_ADDR>Juandsaucedo@Hotmail.com</EMAIL_ADDR>
+		<BUSINESS_UNIT>UBSF0</BUSINESS_UNIT>
+	</m:messageRequest> id:1 descripcion:2018-04-04-01.00.12.000000>>>  - Integration Gateway - HttpTargetConnector:ExternalApplicationException.  Http status code HttpStatusCode returned : 500. (158,10623) LC_PERSONAL_DATA_AP.LC_SERVICIOS_AP.LC_BASE_AC.OnExecute  Name:asignarIDCT  PCPC:110587  Statement:821
+Called from:PERSONAL_DATA.GBL.SavePostChange  Statement:14Error saving Component Interface. {HCR_PERSONAL_DATA_SRV} (91,37) (0,0) HMCR_API2CI.ciHandler.OnExecute  Name:notificarErroresCI  PCPC:63152  Statement:1234
+Called from:HMCR_API2CI.ciHandler.OnExecute  Name:ciSave  Statement:109
+Called from:HMCR_API2CI.ciLocalPool.OnExecute  Name:ciSavePool  Statement:40
+Called from:HCR_PERSON_SERVICES.Person.SetPerson_v1_1.implSetPerson.OnExecute  Name:Save  Statement:364
+Called from:HCR_PERSON_SERVICES.Person.SetPerson_v1_1.implSetPerson.OnExecute  Name:DoService  Statement:343
+Called from:SCC_HR_INTEGRATION.HRServices.PersonServices.OnE
+04 04 2018 01:04:14 logtraceID: 	<m:messageRequest xmlns:m="http://xmlns.oracle.com/Enterprise/Tools/schemas/UBI_CREA_ORDENPAG_REQ_MSG.VERSION_1">
+		<UBI_ESTADO>I</UBI_ESTADO>
+		<UBI_OPERACION_ORD>U</UBI_OPERACION_ORD>
+		<NATIONAL_ID_TYPE>CC</NATIONAL_ID_TYPE>
+		<NATIONAL_ID>1015477719</NATIONAL_ID>
+		<NATIONAL_ID_TYPE_OLD></NATIONAL_ID_TYPE_OLD>
+		<NATIONAL_ID_OLD>1015477719</NATIONAL_ID_OLD>
+		<FIRST_NAME>MARIA</FIRST_NAME>
+		<MIDDLE_NAME>PAULA</MIDDLE_NAME>
+		<LAST_NAME>BAEZ</LAST_NAME>
+		<SECOND_LAST_NAME>ESPINOSA</SECOND_LAST_NAME>
+		<BIRTHDATE>10221998</BIRTHDATE>
+		<BIRTHCOUNTRY>CO</BIRTHCOUNTRY>
+		<BIRTHSTATE>11</BIRTHSTATE>
+		<BIRTHPLACE>11001</BIRTHPLACE>
+		<SEX>F</SEX>
+		<MAR_STATUS>S</MAR_STATUS>
+		<ADDRESS1>CARRERA 82 25G 60  TORRE 1 APARTAMENTO 402 CONJUNTO RESIDENCIAL VIVA 26</ADDRESS1>
+		<PHONE>3914717</PHONE>
+		<EMAIL_ADDR>pau.baez@hotmail.com</EMAIL_ADDR>
+		<BUSINESS_UNIT>UBSF0</BUSINESS_UNIT>
+	</m:messageRequest> id:1 descripcion:2018-04-04-01.00.14.000000>>>  - Integration Gateway - HttpTargetConnector:ExternalApplicationException.  Http status code HttpStatusCode returned : 500. (158,10623) LC_PERSONAL_DATA_AP.LC_SERVICIOS_AP.LC_BASE_AC.OnExecute  Name:asignarIDCT  PCPC:110587  Statement:821
+Called from:PERSON.EMPLID.SavePreChange  Statement:5Error saving Component Interface. {HCR_PERSONAL_DATA_SRV} (91,37) (0,0) HMCR_API2CI.ciHandler.OnExecute  Name:notificarErroresCI  PCPC:63152  Statement:1234
+Called from:HMCR_API2CI.ciHandler.OnExecute  Name:ciSave  Statement:109
+Called from:HMCR_API2CI.ciLocalPool.OnExecute  Name:ciSavePool  Statement:40
+Called from:HCR_PERSON_SERVICES.Person.AddPerson_v1_1.implAddPerson.OnExecute  Name:Save  Statement:57
+Called from:HCR_PERSON_SERVICES.Person.AddPerson_v1_1.implAddPerson.OnExecute  Name:DoService  Statement:45
+Called from:SCC_HR_INTEGRATION.HRServices.PersonServices.OnExe
+04 04 2018 01:04:16 logtraceID: 	<m:messageRequest xmlns:m="http://xmlns.oracle.com/Enterprise/Tools/schemas/UBI_CREA_ORDENPAG_REQ_MSG.VERSION_1">
+		<UBI_ESTADO>I</UBI_ESTADO>
+		<UBI_OPERACION_ORD>U</UBI_OPERACION_ORD>
+		<NATIONAL_ID_TYPE>TI</NATIONAL_ID_TYPE>
+		<NATIONAL_ID>1193254320</NATIONAL_ID>
+		<NATIONAL_ID_TYPE_OLD></NATIONAL_ID_TYPE_OLD>
+		<NATIONAL_ID_OLD>1193254320</NATIONAL_ID_OLD>
+		<FIRST_NAME>SANDRA</FIRST_NAME>
+		<MIDDLE_NAME>YULEIMY</MIDDLE_NAME>
+		<LAST_NAME>SANCHEZ</LAST_NAME>
+		<SECOND_LAST_NAME>GARCIA</SECOND_LAST_NAME>
+		<BIRTHDATE>11282001</BIRTHDATE>
+		<BIRTHCOUNTRY>CO</BIRTHCOUNTRY>
+		<BIRTHSTATE>25</BIRTHSTATE>
+		<BIRTHPLACE>25126</BIRTHPLACE>
+		<SEX>F</SEX>
+		<MAR_STATUS>S</MAR_STATUS>
+		<ADDRESS1>CARRERA 5  INTERIOR 72 CONJUNTO RESIDENCIAL VILLA DE LOS SAUCES</ADDRESS1>
+		<PHONE>8837912</PHONE>
+		<EMAIL_ADDR>sandritasanchez28@hotmail.com</EMAIL_ADDR>
+		<BUSINESS_UNIT>UBSF0</BUSINESS_UNIT>
+	</m:messageRequest> id:1 descripcion:2018-04-04-01.00.16.000000>>>  - Integration Gateway - HttpTargetConnector:ExternalApplicationException.  Http status code HttpStatusCode returned : 500. (158,10623) LC_PERSONAL_DATA_AP.LC_SERVICIOS_AP.LC_BASE_AC.OnExecute  Name:asignarIDCT  PCPC:110587  Statement:821
+Called from:PERSONAL_DATA.GBL.SavePostChange  Statement:14Error saving Component Interface. {HCR_PERSONAL_DATA_SRV} (91,37) (0,0) HMCR_API2CI.ciHandler.OnExecute  Name:notificarErroresCI  PCPC:63152  Statement:1234
+Called from:HMCR_API2CI.ciHandler.OnExecute  Name:ciSave  Statement:109
+Called from:HMCR_API2CI.ciLocalPool.OnExecute  Name:ciSavePool  Statement:40
+Called from:HCR_PERSON_SERVICES.Person.SetPerson_v1_1.implSetPerson.OnExecute  Name:Save  Statement:364
+Called from:HCR_PERSON_SERVICES.Person.SetPerson_v1_1.implSetPerson.OnExecute  Name:DoService  Statement:343
+Called from:SCC_HR_INTEGRATION.HRServices.PersonServices.OnE
+04 04 2018 01:04:19 logtraceID: 	<m:messageRequest xmlns:m="http://xmlns.oracle.com/Enterprise/Tools/schemas/UBI_CREA_ORDENPAG_REQ_MSG.VERSION_1">
+		<UBI_ESTADO>I</UBI_ESTADO>
+		<UBI_OPERACION_ORD>U</UBI_OPERACION_ORD>
+		<NATIONAL_ID_TYPE>CC</NATIONAL_ID_TYPE>
+		<NATIONAL_ID>1019149746</NATIONAL_ID>
+		<NATIONAL_ID_TYPE_OLD></NATIONAL_ID_TYPE_OLD>
+		<NATIONAL_ID_OLD>1019149746</NATIONAL_ID_OLD>
+		<FIRST_NAME>DANIEL</FIRST_NAME>
+		<MIDDLE_NAME>ALEJANDRO</MIDDLE_NAME>
+		<LAST_NAME>CORONADO</LAST_NAME>
+		<SECOND_LAST_NAME>ANAYA</SECOND_LAST_NAME>
+		<BIRTHDATE>05061980</BIRTHDATE>
+		<BIRTHCOUNTRY>CO</BIRTHCOUNTRY>
+		<BIRTHSTATE>11</BIRTHSTATE>
+		<BIRTHPLACE>11001</BIRTHPLACE>
+		<SEX>M</SEX>
+		<MAR_STATUS>S</MAR_STATUS>
+		<ADDRESS1>Campo Faltante</ADDRESS1>
+		<PHONE>4524528</PHONE>
+		<EMAIL_ADDR>Daniel.alejandro.coronado.a@gmail.com</EMAIL_ADDR>
+		<BUSINESS_UNIT>UBSF0</BUSINESS_UNIT>
+	</m:messageRequest> id:1 descripcion:2018-04-04-01.00.18.000000>>>  - Integration Gateway - HttpTargetConnector:ExternalApplicationException.  Http status code HttpStatusCode returned : 500. (158,10623) LC_PERSONAL_DATA_AP.LC_SERVICIOS_AP.LC_BASE_AC.OnExecute  Name:asignarIDCT  PCPC:110587  Statement:821
+Called from:PERSON.EMPLID.SavePreChange  Statement:5Error saving Component Interface. {HCR_PERSONAL_DATA_SRV} (91,37) (0,0) HMCR_API2CI.ciHandler.OnExecute  Name:notificarErroresCI  PCPC:63152  Statement:1234
+Called from:HMCR_API2CI.ciHandler.OnExecute  Name:ciSave  Statement:109
+Called from:HMCR_API2CI.ciLocalPool.OnExecute  Name:ciSavePool  Statement:40
+Called from:HCR_PERSON_SERVICES.Person.AddPerson_v1_1.implAddPerson.OnExecute  Name:Save  Statement:57
+Called from:HCR_PERSON_SERVICES.Person.AddPerson_v1_1.implAddPerson.OnExecute  Name:DoService  Statement:45
+Called from:SCC_HR_INTEGRATION.HRServices.PersonServices.OnExe
+04 04 2018 01:04:21 logtraceID: 	<m:messageRequest xmlns:m="http://xmlns.oracle.com/Enterprise/Tools/schemas/UBI_CREA_ORDENPAG_REQ_MSG.VERSION_1">
+		<UBI_ESTADO>I</UBI_ESTADO>
+		<UBI_OPERACION_ORD>U</UBI_OPERACION_ORD>
+		<NATIONAL_ID_TYPE>CC</NATIONAL_ID_TYPE>
+		<NATIONAL_ID>1019149746</NATIONAL_ID>
+		<NATIONAL_ID_TYPE_OLD></NATIONAL_ID_TYPE_OLD>
+		<NATIONAL_ID_OLD>1019149746</NATIONAL_ID_OLD>
+		<FIRST_NAME>DANIEL</FIRST_NAME>
+		<MIDDLE_NAME>ALEJANDRO</MIDDLE_NAME>
+		<LAST_NAME>CORONADO</LAST_NAME>
+		<SECOND_LAST_NAME>ANAYA</SECOND_LAST_NAME>
+		<BIRTHDATE>05061980</BIRTHDATE>
+		<BIRTHCOUNTRY>CO</BIRTHCOUNTRY>
+		<BIRTHSTATE>11</BIRTHSTATE>
+		<BIRTHPLACE>11001</BIRTHPLACE>
+		<SEX>M</SEX>
+		<MAR_STATUS>S</MAR_STATUS>
+		<ADDRESS1>Campo Faltante</ADDRESS1>
+		<PHONE>4524528</PHONE>
+		<EMAIL_ADDR>daniel.alejandro.coronado.a@gmail.com</EMAIL_ADDR>
+		<BUSINESS_UNIT>UBSF0</BUSINESS_UNIT>
+	</m:messageRequest> id:1 descripcion:2018-04-04-01.00.20.000000>>>  - Integration Gateway - HttpTargetConnector:ExternalApplicationException.  Http status code HttpStatusCode returned : 500. (158,10623) LC_PERSONAL_DATA_AP.LC_SERVICIOS_AP.LC_BASE_AC.OnExecute  Name:asignarIDCT  PCPC:110587  Statement:821
+Called from:PERSON.EMPLID.SavePreChange  Statement:5Error saving Component Interface. {HCR_PERSONAL_DATA_SRV} (91,37) (0,0) HMCR_API2CI.ciHandler.OnExecute  Name:notificarErroresCI  PCPC:63152  Statement:1234
+Called from:HMCR_API2CI.ciHandler.OnExecute  Name:ciSave  Statement:109
+Called from:HMCR_API2CI.ciLocalPool.OnExecute  Name:ciSavePool  Statement:40
+Called from:HCR_PERSON_SERVICES.Person.AddPerson_v1_1.implAddPerson.OnExecute  Name:Save  Statement:57
+Called from:HCR_PERSON_SERVICES.Person.AddPerson_v1_1.implAddPerson.OnExecute  Name:DoService  Statement:45
+Called from:SCC_HR_INTEGRATION.HRServices.PersonServices.OnExe
+04 04 2018 01:04:23 logtraceID: 	<m:messageRequest xmlns:m="http://xmlns.oracle.com/Enterprise/Tools/schemas/UBI_CREA_ORDENPAG_REQ_MSG.VERSION_1">
+		<UBI_ESTADO>I</UBI_ESTADO>
+		<UBI_OPERACION_ORD>U</UBI_OPERACION_ORD>
+		<NATIONAL_ID_TYPE>CC</NATIONAL_ID_TYPE>
+		<NATIONAL_ID>1098668817</NATIONAL_ID>
+		<NATIONAL_ID_TYPE_OLD></NATIONAL_ID_TYPE_OLD>
+		<NATIONAL_ID_OLD>1098668817</NATIONAL_ID_OLD>
+		<FIRST_NAME>KAREN</FIRST_NAME>
+		<MIDDLE_NAME>CRISTINA</MIDDLE_NAME>
+		<LAST_NAME>JACOME</LAST_NAME>
+		<SECOND_LAST_NAME>DURAN</SECOND_LAST_NAME>
+		<BIRTHDATE>03171989</BIRTHDATE>
+		<BIRTHCOUNTRY>CO</BIRTHCOUNTRY>
+		<BIRTHSTATE>11</BIRTHSTATE>
+		<BIRTHPLACE>11001</BIRTHPLACE>
+		<SEX>F</SEX>
+		<MAR_STATUS>S</MAR_STATUS>
+		<ADDRESS1>CALLE 52 16 21  APARTAMENTO 401 SECTOR GALERíAS</ADDRESS1>
+		<PHONE>3164904034</PHONE>
+		<EMAIL_ADDR>kcjacomed@unal.edu.co</EMAIL_ADDR>
+		<BUSINESS_UNIT>UBSF0</BUSINESS_UNIT>
+	</m:messageRequest> id:1 descripcion:2018-04-04-01.00.23.000000>>>  - Integration Gateway - HttpTargetConnector:ExternalApplicationException.  Http status code HttpStatusCode returned : 500. (158,10623) LC_PERSONAL_DATA_AP.LC_SERVICIOS_AP.LC_BASE_AC.OnExecute  Name:asignarIDCT  PCPC:110587  Statement:821
+Called from:PERSONAL_DATA.GBL.SavePostChange  Statement:14Error saving Component Interface. {HCR_PERSONAL_DATA_SRV} (91,37) (0,0) HMCR_API2CI.ciHandler.OnExecute  Name:notificarErroresCI  PCPC:63152  Statement:1234
+Called from:HMCR_API2CI.ciHandler.OnExecute  Name:ciSave  Statement:109
+Called from:HMCR_API2CI.ciLocalPool.OnExecute  Name:ciSavePool  Statement:40
+Called from:HCR_PERSON_SERVICES.Person.SetPerson_v1_1.implSetPerson.OnExecute  Name:Save  Statement:364
+Called from:HCR_PERSON_SERVICES.Person.SetPerson_v1_1.implSetPerson.OnExecute  Name:DoService  Statement:343
+Called from:SCC_HR_INTEGRATION.HRServices.PersonServices.OnE
+04 04 2018 01:04:25 logtraceID: 	<m:messageRequest xmlns:m="http://xmlns.oracle.com/Enterprise/Tools/schemas/UBI_CREA_ORDENPAG_REQ_MSG.VERSION_1">
+		<UBI_ESTADO>I</UBI_ESTADO>
+		<UBI_OPERACION_ORD>U</UBI_OPERACION_ORD>
+		<NATIONAL_ID_TYPE>TI</NATIONAL_ID_TYPE>
+		<NATIONAL_ID>1000502415</NATIONAL_ID>
+		<NATIONAL_ID_TYPE_OLD></NATIONAL_ID_TYPE_OLD>
+		<NATIONAL_ID_OLD>1000502415</NATIONAL_ID_OLD>
+		<FIRST_NAME>STEPHANIE</FIRST_NAME>
+		<MIDDLE_NAME></MIDDLE_NAME>
+		<LAST_NAME>JAIMES</LAST_NAME>
+		<SECOND_LAST_NAME>CASALLAS</SECOND_LAST_NAME>
+		<BIRTHDATE>10232000</BIRTHDATE>
+		<BIRTHCOUNTRY>CO</BIRTHCOUNTRY>
+		<BIRTHSTATE>11</BIRTHSTATE>
+		<BIRTHPLACE>11001</BIRTHPLACE>
+		<SEX>F</SEX>
+		<MAR_STATUS>S</MAR_STATUS>
+		<ADDRESS1>CALLE 160  72 64  CASA 36 CONJUNTO RESIDENCIAL QUINTAS DE SANTA MARIA 3</ADDRESS1>
+		<PHONE>7030401</PHONE>
+		<EMAIL_ADDR>stephy.jaimes@hotmail.com</EMAIL_ADDR>
+		<BUSINESS_UNIT>UBSF0</BUSINESS_UNIT>
+	</m:messageRequest> id:1 descripcion:2018-04-04-01.00.25.000000>>>  - Integration Gateway - HttpTargetConnector:ExternalApplicationException.  Http status code HttpStatusCode returned : 500. (158,10623) LC_PERSONAL_DATA_AP.LC_SERVICIOS_AP.LC_BASE_AC.OnExecute  Name:asignarIDCT  PCPC:110587  Statement:821
+Called from:PERSONAL_DATA.GBL.SavePostChange  Statement:14Error saving Component Interface. {HCR_PERSONAL_DATA_SRV} (91,37) (0,0) HMCR_API2CI.ciHandler.OnExecute  Name:notificarErroresCI  PCPC:63152  Statement:1234
+Called from:HMCR_API2CI.ciHandler.OnExecute  Name:ciSave  Statement:109
+Called from:HMCR_API2CI.ciLocalPool.OnExecute  Name:ciSavePool  Statement:40
+Called from:HCR_PERSON_SERVICES.Person.SetPerson_v1_1.implSetPerson.OnExecute  Name:Save  Statement:364
+Called from:HCR_PERSON_SERVICES.Person.SetPerson_v1_1.implSetPerson.OnExecute  Name:DoService  Statement:343
+Called from:SCC_HR_INTEGRATION.HRServices.PersonServices.OnE

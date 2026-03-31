@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>{{title}}</title>
+		<link type="text/css" href="../educacionContinuada/css/normalize.css" rel="stylesheet">
+        <link rel="stylesheet" href="../css/themes/smoothness/jquery-ui-1.8.4.custom.css" type="text/css" /> 
+		<link media="screen, projection" type="text/css" href="../educacionContinuada/css/style.css" rel="stylesheet">
+        <script type='text/javascript' language="javascript" src="../js/jquery.js"></script>
+        <script type="text/javascript" language="javascript" src="../js/jquery-ui-1.8.21.custom.min.js"></script> 
+        <script type="text/javascript" language="javascript" src="../educacionContinuada/js/functions.js"></script> 
+		<style>
+			form span.info{
+				margin-left:15px;position:relative;top:2px;
+				clear: right;
+				display: inline-block;
+				float: left;
+			}
+		</style>
+	</head>
+	 <body class="body"> 
+    <div id="pageContainer">
+	 <div id="container">
+        <center><h1>{{titulo}}</h1></center>
+		<div id="form"> 
+			<form method="post" action="processMateria.php" id="form_materia">
+				<input type="hidden" name="action" id="action" value="{{action}}" />
+				{{# editar }}
+					<input type="hidden" name="codigomateria" id="codigomateria" value="{{materia.codigomateria}}" />
+				{{/ editar }}	
+				<input type="hidden" name="codigocarrera" id="codigocarrera" value="{{codigocarrera}}" />
+		<span class="mandatory">* Son campos obligatorios</span>
+            <fieldset>   
+                <legend>Información Materia</legend>
+				<label class="fixed">Programa académico:</label>
+				<span class="info">{{carrera}}</span>
+				<label class="fixed">Código Materia:</label>
+				<span class="info">{{materia.codigomateria}}</span>
+				<label class="fixed">Materia:</label>
+				<span class="info">{{materia.nombremateria}}</span>
+				<label class="fixed">Número de créditos:</label>
+				<span class="info">{{materia.numerocreditos}}</span>
+				<label class="fixed">Tipo de Rotación: <span class="mandatory">(*)</span></label>				
+				<select name="tiporotacion" id="tiporotacion">	
+						{{# tipos }}
+						<option value="{{TipoRotacionId}}" {{selected}}>{{NombreTipoRotacion}}</option>
+						{{/ tipos }}
+				</select>
+			</fieldset>
+			<input type="submit" name="submit" id="submit" value="Guardar cambios" />
+            <img src="../educacionContinuada/images/ajax-loader2.gif" style="display:none;clear:both;margin-bottom:15px;margin-left: 16.4%;" id="loading"/>
+			</form>
+         </div>
+		</div>
+	</div>
+	<script type="text/javascript">
+                $(':submit').click(function(event) {
+                    event.preventDefault();
+                    var valido= validateForm("#form_materia");
+                    if(valido){
+                        sendForm();
+                    }
+                });			
+
+                function sendForm(){
+                    $(':submit').css("display","none");
+                    $("#loading").css("display","block");
+                    $.ajax({
+                        dataType: 'json',
+                        type: 'POST',
+                        url: 'processMateria.php',
+                        data: $('#form_materia').serialize(),                
+                        success:function(data){
+                            if (data.success == true){
+								alert(data.message);
+                                 window.location.href="MateriasCarrera.php";
+                            }
+                            else{ 
+                                alert(data.message);
+                                //$('#msg-error').html('<p>' + data.message + '</p>');
+                                //$('#msg-error').addClass('msg-error');
+                            }
+                            $(':submit').css("display","block");
+                            $("#loading").css("display","none");
+                        },
+                        error: function(data,error,errorThrown){alert(error + errorThrown);}
+                    });            
+                }
+		</script>
+	</body>
+</html>

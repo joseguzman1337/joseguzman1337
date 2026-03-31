@@ -1,0 +1,90 @@
+/* CSS only needed for the demo */
+/*
+body,html{
+	margin:0px;
+	padding:0px;
+	text-align:center;
+	background-color: #E2EBED;
+	font-family: Trebuchet MS, Lucida Sans Unicode, Arial, sans-serif;
+	line-height: 130%;
+	text-align:center;
+	height:100%;
+	width:100%;
+}*/
+
+
+#mainContainer{
+	width:630px;
+	border-left:1px solid #317082;	
+	border-right:1px solid #317082;	
+	margin:0 auto;	/* Center align content, equivalent to margin-left:auto;margin-right:auto; */
+	text-align:left;	/* Override inherited text-align:center from the body tag */
+	background-color:#FFF;
+	height:100%;
+}
+
+#menuColumn{
+	width:160px;
+	float:left;
+	padding:5px;
+	font-size:0.9em;
+}
+#mainContent{
+	width:440px;
+	float:left;	
+}
+
+.oddRow{
+	background-color:#FFF;
+}
+.evenRow{
+	background-color:#EEE;
+}
+
+.productTable{
+	border:3px double #000;
+}
+h3{
+	margin-top:0px;
+}
+
+
+/* End css for the demo */
+
+/* CSS needed for the script */
+
+#ajax_tooltipObj{
+	z-index:1000000;
+	text-align:left;
+}
+#ajax_tooltipObj div{
+	position:relative;
+}
+
+/* If you don't want the arrow - Just set the width of this div to 1 or something like that and drop the background selectors from the CSS below */
+
+#ajax_tooltipObj .ajax_tooltip_arrow{	/* Left div for the small arrow */
+	background-image:url('../images/arrow.gif');
+	width:20px;
+	position:absolute;
+	left:0px;
+	top:0px;
+	background-repeat:no-repeat;
+	background-position:center left;
+	z-index:1000005;
+	height:60px;
+}
+
+#ajax_tooltipObj .ajax_tooltip_content{
+	border:2px solid #317082;	/* Border width */
+	left:18px;	/* Same as border thickness */
+	top:0px;
+	position:absolute;
+	width:150px;	/* Width of tooltip content */
+	height:80px;	/* Height of tooltip content */
+	background-color:#FFF;	/* Background color */
+	padding:5px;	/* Space between border and content */
+	font-size:0.8em;	/* Font size of content */
+	overflow:auto;	/* Hide overflow content */
+	z-index:1000001;
+}

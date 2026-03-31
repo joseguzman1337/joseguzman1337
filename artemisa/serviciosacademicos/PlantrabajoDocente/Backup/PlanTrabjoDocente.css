@@ -1,0 +1,73 @@
+@charset "utf-8";
+/* CSS Document */
+
+.Borde{
+			border:#000 solid 1px;
+		}
+		.blanco{
+			border:#FFF solid 1px;
+			}
+		.first{
+				padding: 0px 14px 0px;
+				padding: 0px 14px 0px;
+				font-size: 20px;
+				cursor: pointer;
+				text-align: center;
+				display:inline-block;
+				/*border:1px solid #D4D4D4; */ 
+				-moz-border-radius: 10px;
+				-webkit-border-radius: 10px;
+				-khtml-border-radius: 10px;
+				border-radius: 10px;
+				-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+				-moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+				box-shadow: 0 1px 2px rgba(0,0,0,.2);
+				background: #5D7D0E;
+				text-shadow: 0 1px 1px rgba(0,0,0,.3);
+				background:-moz-linear-gradient(center top , #7DB72F, #4E7D0E) repeat scroll 0 0 transparent; 
+				background: -webkit-gradient(linear, left top, left bottom, from(#7DB72F), to(#4E7D0E));
+				/*filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#7DB72F', endColorstr='#4E7D0E');*/
+				border: 1px solid #538312;
+				color: #E8F0DE;
+				margin-left: 10px;
+			}
+		.submit {
+				padding: 9px 17px;
+			   font-family: Helvetica, Arial, sans-serif;
+			   font-weight: bold;
+			   line-height: 1;
+			   color: #444;
+			   border: none;
+			   text-shadow: 0 1px 1px rgba(255, 255, 255, 0.85);
+			   background-image: -webkit-gradient( linear, 0% 0%, 0% 100%, from(#fff), to(#bbb));
+			   background-image: -moz-linear-gradient(0% 100% 90deg, #BBBBBB, #FFFFFF);
+			   background-color: #fff;
+			   border: 1px solid #f1f1f1;
+			   border-radius: 10px;
+			   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5)
+			}	
+		.Curvas{
+			
+			margin: 5px auto;
+			padding: 10px;
+			text-align: center;
+			/*-moz-border-radius: 30px 5px;
+			-khtml-border-radius: 30px 5px;  
+			-webkit-border-radius: 30px 5px;
+			 border-radius: 30px 5px;
+			-moz-border-bottom-colors:#88AB0C;
+			-moz-border-left-colors: #88AB0C;
+			-moz-border-right-colors: #00F;
+			-moz-border-top-colors: #88AB0C;*/
+			 border:2px solid  #88AB0C;
+			}
+		.Plan{
+			border:#88AB0C solid 1px;
+			}
+		.Margen{
+			font-size:9px; 
+			margin-bottom:2%; 
+			margin-left:2%; 
+			margin-right:2%; 
+			margin-top:2%
+			}			

@@ -1,0 +1,7 @@
+Please, specify the Database name
+Celsius uses a database to store information
+related with the system configuration
+Database name:
+The field with the Database name must be completed to coninue
+Coninue
+

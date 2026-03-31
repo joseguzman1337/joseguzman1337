@@ -1,0 +1,71 @@
+/*
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package io.trino.execution;
+
+import com.google.errorprone.annotations.Immutable;
+import io.trino.Session;
+import io.trino.metadata.CatalogInfo;
+import io.trino.metadata.Metadata;
+import io.trino.metadata.QualifiedObjectName;
+import io.trino.metadata.TableProperties;
+import io.trino.spi.connector.CatalogSchemaTableName;
+import io.trino.spi.connector.ColumnHandle;
+import io.trino.spi.connector.ConnectorName;
+import io.trino.spi.predicate.TupleDomain;
+import io.trino.sql.planner.PlanFragment;
+import io.trino.sql.planner.plan.PlanNode;
+import io.trino.sql.planner.plan.PlanNodeId;
+import io.trino.sql.planner.plan.TableScanNode;
+
+import java.util.Map;
+import java.util.Optional;
+
+import static com.google.common.collect.ImmutableMap.toImmutableMap;
+import static io.trino.sql.planner.optimizations.PlanNodeSearcher.searchFrom;
+import static java.util.Objects.requireNonNull;
+
+@Immutable
+public record TableInfo(
+        Optional<String> connectorName,
+        QualifiedObjectName tableName,
+        TupleDomain<ColumnHandle> predicate)
+{
+    public TableInfo
+    {
+        requireNonNull(connectorName, "connectorName is null");
+        requireNonNull(tableName, "tableName is null");
+        requireNonNull(predicate, "predicate is null");
+    }
+
+    public static Map<PlanNodeId, TableInfo> extract(Session session, Metadata metadata, PlanFragment fragment)
+    {
+        return searchFrom(fragment.getRoot())
+                .where(TableScanNode.class::isInstance)
+                .findAll()
+                .stream()
+                .map(TableScanNode.class::cast)
+                .collect(toImmutableMap(PlanNode::getId, node -> extract(session, metadata, node)));
+    }
+
+    private static TableInfo extract(Session session, Metadata metadata, TableScanNode node)
+    {
+        CatalogSchemaTableName tableName = metadata.getTableName(session, node.getTable());
+        TableProperties tableProperties = metadata.getTableProperties(session, node.getTable());
+        Optional<String> connectorName = metadata.getCatalogInfo(session, tableName.getCatalogName())
+                .map(CatalogInfo::connectorName)
+                .map(ConnectorName::toString);
+        QualifiedObjectName objectName = new QualifiedObjectName(tableName.getCatalogName(), tableName.getSchemaTableName().getSchemaName(), tableName.getSchemaTableName().getTableName());
+        return new TableInfo(connectorName, objectName, tableProperties.getPredicate());
+    }
+}

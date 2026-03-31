@@ -1,0 +1,22 @@
+
+ul{
+  margin: 0px 0px 0px 20px;
+  padding: 0;
+  color: #666;
+}
+
+pre{
+  border: 1px #eee solid;
+  margin: 0;
+  padding: 0;
+  background: #fbfbfb;
+}
+
+table{
+  width: 100%;
+  border-spacing: 0px;
+  border-collapse: collapse;
+}
+
+
+

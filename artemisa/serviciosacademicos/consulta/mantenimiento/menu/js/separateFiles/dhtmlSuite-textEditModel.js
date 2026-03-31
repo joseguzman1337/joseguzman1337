@@ -1,0 +1,4 @@
+if(!window.DHTMLSuite)var DHTMLSuite=new Object();DHTMLSuite.textEditModel=function(inputArray){var labelId;var targetId;var serversideFile;var optionObj;try{if(!standardObjectsCreated)DHTMLSuite.createStandardObjects()}catch(e){alert('Include the dhtmlSuite-common.js file')}
+if(inputArray)this.addElement(inputArray)}
+DHTMLSuite.textEditModel.prototype=
+{addElement:function(inputArray){if(inputArray['labelId'])this.labelId=inputArray['labelId'];if(inputArray['elementId'])this.elementId=inputArray['elementId'];if(inputArray['serverFile'])this.serverFile=inputArray['serverFile'];if(inputArray['listModel'])this.listModel=inputArray['listModel']}}

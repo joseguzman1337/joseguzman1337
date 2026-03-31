@@ -1,0 +1,276 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="../../../../../css/demo_page.css" type="text/css"/>
+    <link rel="stylesheet" href="../../../../../css/demo_table_jui.css" type="text/css"/>
+    <link rel="stylesheet" href="../../../../../css/themes/smoothness/jquery-ui-1.8.4.custom.css" type="text/css"/>
+    <link rel="stylesheet" href="../../../../../mgi/css/styleMonitoreo.css" type="text/css"/>
+    <link rel="stylesheet" href="../../../../../mgi/css/styleDatos.css" type="text/css"/>
+    <link rel="stylesheet" href="../../../../../../sala/assets/css/select2.min.css" type="text/css"/>
+    <script type="text/javascript" language="javascript" src="../../../../../mgi/js/jquery.js"></script>
+    <script type="text/javascript" language="javascript" src="../../../../../mgi/js/jquery.js"></script>
+    <script type="text/javascript" language="javascript" src="../../../../../mgi/js/jquery.dataTables.js"></script>
+    <script type="text/javascript" language="javascript"
+            src="../../../../../mgi/js/jquery-ui-1.8.21.custom.min.js"></script>
+    <script type="text/javascript" language="javascript" src="../../../../../mgi/js/jquery.fastLiveFilter.js"></script>
+    <script type="text/javascript" language="javascript" src="../../../../../mgi/js/nicEdit.js"></script>
+    <script type="text/javascript" language="javascript" src="../../../../../mgi/js/functions.js"></script>
+    <script type="text/javascript" language="javascript" src="../../../../../mgi/js/functionsMonitoreo.js"></script>
+    <script type="text/javascript" language="javascript" src="../js/RotacionSubGrupos.js"></script>
+    <script src="../../../../../../sala/assets/js/sweetAlert/sweetalert.min.js"></script>
+    <script src="../../../../../../sala/assets/js/select2.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('#Convenio').select2();
+        });
+
+        function val_texto(e) {
+            tecla = (document.all) ? e.keyCode : e.which;
+            if (tecla == 8 || tecla == '0') return true;
+            patron = /[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+$/;
+            te = String.fromCharCode(tecla);
+            return patron.test(te);
+        }
+
+        function val_numero(e) {
+            tecla = (document.all) ? e.keyCode : e.which;
+            if (tecla == 8 || tecla == '0') return true;
+            patron = /[0-9]+$/;
+            te = String.fromCharCode(tecla);
+            return patron.test(te);
+        }
+    </script>
+    <script>
+        function val_email(e) {
+            tecla = (document.all) ? e.keyCode : e.which;
+            if (tecla == 8) return true;
+            patron = /[0-9a-zA-Z\-\.\@\s]+$/;
+            te = String.fromCharCode(tecla);
+            return patron.test(te);
+        }
+    </script>
+    <link rel="stylesheet" href="../css/chosen.css">
+</head>
+<body class="body">
+<form id="NuevaRotacionSubGrupo">
+    <table align="center" cellpadding="7" cellspacing="1" width="900">
+        <input type="hidden" id="action_ID" name="action_ID" value="NuevaRotacion"/>
+        <input type="hidden" id="SubgrupoId" name="SubgrupoId" value="{{SubgrupoId}}"/>
+        <input type="hidden" id="idgrupo" name="idgrupo" value="{{idgrupo}}"/>
+        <input type="hidden" id="codigomateria" name="codigomateria" value="{{codigomateria}}"/>
+        <input type="hidden" id="materia" name="materia" value="{{codigomateria}}"/>
+        <input type="hidden" id="Periodo" name="Periodo" value="{{PeriodoHidden}}"/>
+        <input type="hidden" id="Carrera" name="Carrera" value="{{Carrera}}"/>
+        <tr>
+            <td>{{Fecha_1}}:<span style="color: red;">*</span></td>
+            <td>
+                <input type="text" id="fechaingreso" name="fechaingreso"/>
+            </td>
+            <td>{{Fecha_2}}:<span style="color: red;">*</span></td>
+            <td>
+                <input type="text" id="fechaegreso" name="fechaegreso"/>
+            </td>
+        </tr>
+        <tr>
+            <td>Convenio<span style="color: red;">*</span></td>
+            <td colspan="3">
+                <select id="Convenio" name="Convenio" onchange="BuscarInstituciones(this.value)">
+                    <option value="-1"></option>
+                    {{#Rotacion}}
+                        <option value="{{id}}">{{Nombre}}</option>
+                    {{/Rotacion}}
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Lugar de rotación<span style="color: red;">*</span></td>
+            <td colspan="3" id="TD_Institucion">
+                <select id="LugarRotacion" name="LugarRotacion">
+                    <option value="-1"></option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td style="width:15%;">Periodo</td>
+            <td style="width:20%; text-align: center;">{{Periodo}}</td>
+            <td style="width:15%;">Estado</td>
+            <td style="width:20%;text-align: center;">
+                <select id="estadorotacion" name="estadorotacion"/>
+                <option value="1">Activo</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Días opcionales:</td>
+            <td>
+                <input type="checkbox" id="dia1" name="dia1" value="1" {{dia1}} />Lunes<br/>
+                <input type="checkbox" id="dia2" name="dia2" value="2" {{dia2}} />Martes<br/>
+                <input type="checkbox" id="dia3" name="dia3" value="3" {{dia3}} />Miercoles<br/>
+                <input type="checkbox" id="dia4" name="dia4" value="4" {{dia4}} />Jueves<br/>
+                <input type="checkbox" id="dia5" name="dia5" value="5" {{dia5}} />Viernes<br/>
+                <input type="checkbox" id="dia6" name="dia6" value="6" {{dia6}} />Sabado<br/>
+                <input type="checkbox" id="dia7" name="dia7" value="7" {{dia7}} />Domingo<br/>
+                <input type="button" id="calculardiasopcionales" value="Calcular dias" onclick="CambioDiasSemana()"/>
+            </td>
+            <td style="width:15%;">Días:</td>
+            <td style="width:20%;text-align: center;">
+                <div id="Totaldias" name="Totaldias"></div>
+            </td>
+        </tr>
+        <tr>
+            <td>Jornada<span style="color: red;">*</span></td>
+            <td>
+                <select id="Jornada" name="Jornada" onchange="CalcularHoras()">
+                    <option value="-1"></option>
+                    {{#JornadaData}}
+                        <option value="{{id}}">{{Jornada}}</option>
+                    {{/JornadaData}}
+                </select>
+                <input type="text" id="horario" name="horario" readonly="true"/>
+            </td>
+            <td>Total Horas<span style="color: red;">*</span></td>
+            <td style="width:20%;text-align: center;">
+                <input id='TotalHoras' name='TotalHoras' value='{{TotalHoras}}' size="5" maxlength="5"
+                       style="text-align: center;"/>
+            </td>
+        </tr>
+        <tr>
+            <td>Materia:<span style="color: red;">*</span></td>
+            <td>{{MateriaName}}</td>
+            <td>Grupo</td>
+            <td>{{GrupoName}}</td>
+        </tr>
+        <tr>
+            <td>Especialidad<br/> o servicio</td>
+            <td>
+                {{#EspcialidaData}}
+                    <input type="checkbox" value="{{id}}" name="Especialidad[]"
+                           id="Especialidad{{numero}}">{{Especialidad}}<br/>
+                {{/EspcialidaData}}
+            </td>
+            <td>Docente a cargo o Coordinador:</td>
+            <td>
+                <input type="text" id="docentecargo" name="docentecargo" onkeypress="return val_texto(event)"/>
+            </td>
+        </tr>
+        <tr>
+            <td>Email:</td>
+            <td>
+                <input type="text" id="docenteemail" name="docenteemail" onkeypress="return val_email(event)"/>
+            </td>
+            <td>Telefono Cel:</td>
+            <td>
+                <input type="numb" id="docentecel" name="docentecel" onkeypress="return val_numero(event)"/>
+            </td>
+        </tr>
+    </table>
+    <center>
+        <table width="600">
+            <tr>
+                <td id="Boton">
+                    <input type="button" value="Enviar a Rotación" onclick="RotacionSubGrupo();"/>
+                </td>
+                <td style="text-align: right;">
+                    <input type="button" value="Regresar" onclick="RegresarsubGrupo();"/>
+                </td>
+            </tr>
+        </table>
+    </center>
+    <br/><br/>
+    <div style="text-align: center;" id="List"></div>
+</form>
+</body>
+<script src="../js/chosen.jquery.js" type="text/javascript"></script>
+<script src="../js/prism.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#fechaingreso").datepicker({
+            changeMonth: true,
+            changeYear: true,
+            showOn: "button",
+            buttonImage: "../../../../../css/themes/smoothness/images/calendar.gif",
+            buttonImageOnly: true,
+            dateFormat: "dd-mm-yy"
+        });
+        $("#fechaegreso").datepicker({
+            changeMonth: true,
+            changeYear: true,
+            showOn: "button",
+            buttonImage: "../../../../../css/themes/smoothness/images/calendar.gif",
+            buttonImageOnly: true,
+            dateFormat: "dd-mm-yy"
+        });
+        $('#ui-datepicker-div').css('display', 'none');
+    });
+    var config = {
+        '.chosen-select': {},
+        '.chosen-select-deselect': {allow_single_deselect: true},
+        '.chosen-select-no-single': {disable_search_threshold: 10},
+        '.chosen-select-no-results': {no_results_text: 'Oops, nothing found!'},
+        '.chosen-select-width': {width: "95%"}
+    }
+    for (var selector in config) {
+        $(selector).chosen(config[selector]);
+    }
+
+    function validarNumeros(e) { // 1
+        tecla = (document.all) ? e.keyCode : e.which; // 2
+        if (tecla == 8) return true; // backspace
+        if (tecla == 109) return true; // menos
+        if (tecla == 110) return true; // punto
+        if (tecla == 189) return true; // guion
+        if (e.ctrlKey && tecla == 86) {
+            return true
+        }
+        ; //Ctrl v
+        if (e.ctrlKey && tecla == 67) {
+            return true
+        }
+        ; //Ctrl c
+        if (e.ctrlKey && tecla == 88) {
+            return true
+        }
+        ; //Ctrl x
+        if (tecla >= 96 && tecla <= 105) {
+            return true;
+        } //numpad
+
+        patron = /[0-9]/; // patron
+
+        te = String.fromCharCode(tecla);
+        return patron.test(te); // prueba
+    }//function validarNumeros
+    function CambioDiasSemana() //calcular dias opcionales
+    {
+        var estado1 = $("#dia1").prop("checked");
+        var estado2 = $("#dia2").prop("checked");
+        var estado3 = $("#dia3").prop("checked");
+        var estado4 = $("#dia4").prop("checked");
+        var estado5 = $("#dia5").prop("checked");
+        var estado6 = $("#dia6").prop("checked");
+        var estado7 = $("#dia7").prop("checked");
+        var dia = [estado1, estado2, estado3, estado4, estado5, estado6, estado7];
+
+        var fechaInicial = $('#fechaingreso').val();
+        var fechaFinal = $('#fechaegreso').val();
+
+        $.ajax({//Ajax
+            type: 'POST',
+            url: '../../rotaciones/classSolicitudRotacion.php',
+            async: false,
+            dataType: 'json',
+            data: {Action_id: 'calculardias', fechaingreso: fechaInicial, fechaegreso: fechaFinal, dias: dia},
+            error: function (objeto, quepaso, otroobj) {
+                alert('Error de Conexión , Favor Vuelva a Intentar');
+            },
+            success: function (data) {
+                var html = "<input id='Totaldias' name='Totaldias' value='" + data + "' />"
+                $('#Totaldias').html(html);
+            }//data
+        });// AJAX
+    }
+</script>
+</html>

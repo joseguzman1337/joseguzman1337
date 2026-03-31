@@ -1,0 +1,13 @@
+Ambience Celsius aministration data
+Unexpected error! Restart instalation
+Directories configured successfully!
+Insert administrator data
+The system uses an user
+to access to administrator ambiance. Specufy a password for this user y <b> use this information </b> to autentificate in admintration ambiance
+Password for the new Celsius administrator account (user
+Confirm administrator password:
+Machine access name
+Administrator's surname
+Admintrator's name
+Administrator's Email
+Continue

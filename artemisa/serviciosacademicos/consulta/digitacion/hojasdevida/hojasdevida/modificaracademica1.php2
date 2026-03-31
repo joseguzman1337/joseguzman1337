@@ -1,0 +1,8 @@
+<?php require_once('../../../../Connections/conexion.php');session_start();
+
+ $fecha = $_POST['fgrado']; 
+ $base= "update historialacademico set  tituloobtenidohistorialacademico = '".$_POST['tituloobtenidohistorialacademico']."',institucionhistorialacademico ='".$_POST['institucionhistorialacademico']."',lugarhistorialacademico ='".$_POST['lugarhistorialacademico']."',fechagradohistorialacademico ='".$fecha."',codigotipogrado ='".$_POST['codigotipogrado']."' where  idhistorialacademico = '".$_POST['modificar']."'";
+ $sol=mysql_db_query($database_conexion,$base);
+ echo "<h5>Datos Modificados</h5>";
+ echo "<META HTTP-EQUIV='Refresh' CONTENT='0; URL=academica.php'>";
+?>

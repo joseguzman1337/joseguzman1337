@@ -1,0 +1,132 @@
+/*
+ * SmartTab plugin v2.0
+ * jQuery Tab Control Plugin
+ * 
+ * by Dipu Raj
+ * http://techlaboratory.net/smarttab
+ * 
+ * License 
+ * http://creativecommons.org/licenses/by-sa/3.0/  
+ */
+.stMain {
+  display:block;
+  margin:0;
+  padding:0;
+  color: #666666;
+  border: 0px solid #CCC;
+  font-family: "Segoe UI",Tahoma,arial,sans-serif;
+  width:1030px;
+}
+.stContainer {
+  display:block;
+  margin:0;
+  padding:0;
+  border: 1px solid #CCC; 
+  overflow:hidden;  
+  position: relative;
+  overflow-y: scroll;
+  margin-top: -9px; 
+  
+}
+.stMain div.tabContent { 
+  display:block;
+  position: relative;
+  margin:0;  
+  padding:2px;     
+  border: 0px solid #D4D4D4;    
+  background-color: #FFF;
+  text-align:left;
+}
+.stMain ul.tabAnchor {
+  display: inline-block;
+  list-style-type: none;
+  position:relative;
+  padding:0;
+  margin:0;    
+  padding-left: 0px;
+  clear: both;
+  margin-bottom: -1px;
+  z-index: 100;
+  
+}
+.stMain ul.tabAnchor li{ 
+  position: relative; 
+  margin: 0;
+  padding: 0;
+  float: left;
+}
+.stMain ul.tabAnchor li a { 
+  display:block;
+  margin:0;
+  margin-right: -1px;
+  padding:5px;  
+  height:50px;
+  width:195px;
+  color:#ffffff !important;
+  text-decoration: none;
+  outline-style:none;
+  border: 1px solid #D4D4D4;
+  background: #8CC63F;   
+  height: 45px;
+}
+
+.stMain ul.tabAnchor li a:hover {
+  color:#FFF;
+  background: #EA8511;
+}
+
+.stMain .stepNumber{
+  color: #ffffff;
+  position:relative;
+  float:left;
+  width:30px;
+  text-align: center;
+  padding:5px;
+  padding-top:0;
+  font: bold 38px Verdana, Arial, Helvetica, sans-serif;
+}
+
+.stMain ul.anchor li a .stepDesc{
+  position:relative;
+  display:block;
+  float:left;
+  text-align: left;
+  padding:5px;
+  font: bold 20px Verdana, Arial, Helvetica, sans-serif;
+}
+.stMain ul.anchor li a .stepDesc small{
+  font: normal 20px Verdana, Arial, Helvetica, sans-serif;
+}
+
+.stMain ul.tabAnchor li a.sel {
+  color:#fffff;
+  border-bottom-color: #FFF;
+  background: #EA8511;
+}
+.loader{
+  position: absolute;
+  left:48%;
+  top:40%;
+  display:block;
+  margin:0;
+  padding:5px; 
+  padding-top: 35px;
+  color:#ffffff;
+  text-decoration: none;
+  outline-style:none;
+  border: 1px solid #D4D4D4;
+  background: #f6f6f6 url(../images/loader.gif) no-repeat 10px 10px ;
+}
+a.stLinks { 
+  margin:0;
+  padding:5px;
+  color:#ffffff;
+  text-decoration: none;
+  outline-style:none;
+  border: 1px solid #D4D4D4;
+  background-color: #f6f6f6;
+ }
+a.stLinks:hover {
+  color:#FFF;
+  background-color: #00A7DB;
+}

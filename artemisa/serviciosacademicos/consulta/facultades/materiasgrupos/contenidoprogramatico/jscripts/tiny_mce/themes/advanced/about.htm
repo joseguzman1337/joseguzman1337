@@ -1,0 +1,204 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>{#advanced_dlg.about_title}</title>
+	<script type="text/javascript" src="../../tiny_mce_popup.js"></script>
+	<script type="text/javascript" src="../../utils/mctabs.js"></script>
+	<script type="text/javascript" src="js/about.js"></script>
+</head>
+<body id="about" style="display: none">
+		<div class="tabs">
+			<ul><!--
+				<li id="general_tab" class="current" aria-controls="general_panel"><span><a href="javascript:mcTabs.displayTab('general_tab','general_panel');" onmousedown="return false;">Información General</a></span></li>
+                                -->
+				<li id="help_tab" style="display:none" aria-hidden="true" aria-controls="help_panel"><span><a href="javascript:mcTabs.displayTab('help_tab','help_panel');" onmousedown="return false;">{#advanced_dlg.about_help}</a></span></li>
+				<li id="plugins_tab" aria-controls="plugins_panel"><span><a href="javascript:mcTabs.displayTab('plugins_tab','plugins_panel');" onmousedown="return false;">Contenido del Programa</a></span></li>
+                                <li id="plugins_tab2" aria-controls="plugins_panel2"><span><a href="javascript:mcTabs.displayTab('plugins_tab2','plugins_panel2');" onmousedown="return false;">Contenido del Programa2</a></span></li>
+			</ul>
+		</div>
+
+		<div class="panel_wrapper">
+		<!--	<div id="general_panel" class="panel current">
+				<h3>{#advanced_dlg.about_title}</h3>
+				<p>Version: <span id="version"></span> (<span id="date"></span>)</p>
+				<p>TinyMCE is a platform independent web based Javascript HTML WYSIWYG editor control released as Open Source under <a href="../../license.txt" target="_blank">LGPL</a>
+				by Moxiecode Systems AB. It has the ability to convert HTML TEXTAREA fields or other HTML elements to editor instances.</p>
+				<p>Copyright &copy; 2003-2008, <a href="http://www.moxiecode.com" target="_blank">Moxiecode Systems AB</a>, All rights reserved.</p>
+				<p>For more information about this software visit the <a href="http://tinymce.moxiecode.com" target="_blank">TinyMCE website</a>.</p>
+
+				<div id="buttoncontainer">
+					<a href="http://www.moxiecode.com" target="_blank"><img src="http://tinymce.moxiecode.com/images/gotmoxie.png" alt="Got Moxie?" border="0" /></a>
+				</div>
+			</div>
+                        -->
+			<div id="plugins_panel" class="panel current">
+				<div id="pluginscontainer">
+                                        <h3>1.Justificaci&oacute;n</h3>
+                                        <table style="width: 100%;" border="1" cellspacing="0">
+                                        <tbody>
+                                        <tr>
+                                        <td>
+                                        <p>Describa en general la tem&aacute;tica objeto de estudio y argumente por qu&eacute; su asignatura&nbsp; aporta al logro del&nbsp; proyecto educativo institucional y/o del programa. ( Esta campo deber&aacute; contener m&aacute;ximo 600 caracteres)</p>
+                                        </td>
+                                        </tr>
+                                        </tbody>
+                                        </table>
+                                        <h3>2.Contenidos Generales</h3>
+                                        <table style="width: 100%;" border="1" cellspacing="0">
+                                        <tbody>
+                                        <tr><td><p>Listado de r&oacute;tulos o de los principales conceptos o temas abordados en la asignatura <br />( Esta campo deber&aacute; contener m&aacute;ximo 800 caracteres)</p></td></tr>
+                                        </tbody>
+                                        </table>
+                                        <h3>3.Objetivos de Aprendizaje</h3>
+                                        <table style="width: 100%;" border="1" cellspacing="0">
+                                        <tbody>
+                                        <tr>
+                                        <td>
+                                        <p>Especifique los objetivos generales de aprendizaje de su asignatura ubic&aacute;ndolos en la dimensi&oacute;n del aprendizaje significativo donde se desarrollan. Se sugiere consultar los siguientes v&iacute;nculos: <a href="http://www.wcu.edu/WebFiles/PDFs/facultycenter_SignificantLearning.pdf">http://www.wcu.edu/WebFiles/PDFs/facultycenter_SignificantLearning.pdf </a>y <a href="http://www.desinglearning.org.">http://www.desinglearning.org.</a></p>
+                                        <p>Adicionalmente se ha dise&ntilde;ado un aula en el campus virtual en la cual encontrar&aacute; material de apoyo para el dise&ntilde;o de su curso, la direcci&oacute;n de ingreso es <a href="http://ebosque.unbosque.edu.co/moodle/course/view.php?id=1727">http://ebosque.unbosque.edu.co/moodle/course/view.php?id=1727</a></p>
+                                        <p>Los objetivos de aprendizaje propuestos deben cumplir con las siguientes condiciones:</p>
+                                        <ul>
+                                        <li>Describen qu&eacute; aprender&aacute;n o ser&aacute;n capaces de hacer los estudiantes en relaci&oacute;n con los temas al finalizar el curso. Por esa raz&oacute;n, deben escribirse en plural y en futuro.</li>
+                                        <li>Se refieren a acciones visibles y, por tanto, medibles de los estudiantes.</li>
+                                        <li>Son claros y comprensibles para los estudiantes y los profesores.</li>
+                                        <li>Tienen un nivel de generalidad y de complejidad adecuados para la asignatura &nbsp;</li>
+                                        <li>Tienen en cuenta la forma como se aprenden y se usan los contenidos estudiados en diferentes &aacute;reas del conocimiento.</li>
+                                        </ul>
+                                        <p><strong>(Escr&iacute;balos en&nbsp; la siguiente tabla,&nbsp; m&aacute;ximo dos objetivos por&nbsp; dimensi&oacute;n, cada uno con una extensi&oacute;n no mayor a&nbsp; 300 caracteres).</strong></p>
+                                        <table style="width: 100%;" border="1" cellspacing="0">
+                                        <tbody>
+                                        <tr>
+                                        <td width="30%"><p align="RIGHT"><strong>Dimensi&oacute;n de aprendizaje significativo</strong></p></td>
+                                        <td width="70%"><p><strong>Objetivos de aprendizaje</strong></p><p><strong>Los estudiantes</strong></p></td>
+                                        </tr>
+                                        <tr><td><p align="RIGHT">Conocimiento fundamental</p></td><td><p>&nbsp;</p></td></tr>
+                                        <tr><td><p align="RIGHT">Aplicaci&oacute;n</p></td><td><p>&nbsp;</p></td></tr>
+                                        <tr><td><p align="RIGHT">Integraci&oacute;n</p></td><td><p>&nbsp;</p></td></tr>
+                                        <tr><td><p align="RIGHT">Dimensi&oacute;n humana</p></td><td><p>&nbsp;</p></td></tr>
+                                        <tr><td><p align="RIGHT">Compromiso</p></td><td><p>&nbsp;</p></td></tr>
+                                        <tr><td><p align="RIGHT">Aprender a aprender</p></td><td><p>&nbsp;</p></td></tr>
+                                        </tbody>
+                                        </table>
+                                        </td>
+                                        </tr>
+                                        </tbody>
+                                        </table>
+				</div>
+			</div>
+
+                        <div id="plugins_panel2" class="panel">
+                                <div id="pluginscontainer">
+                                    <h3>4.Actividades de Aprendizaje</h3>
+                                    <table style="width: 100%;" border="1" cellspacing="0">
+                                    <tbody>
+                                    <tr>
+                                    <td>
+                                    <p><span>Escribas aqu&iacute; los actividades generales de aprendizaje, estas deben ser consistente con los principios pedag&oacute;gicos generales del aprendizaje significativo o seguir la secuencia sugerida en un m&eacute;todo de ense&ntilde;anza coherente con dichos principios y se caracterizan por:</span></p>
+                                    <ul>
+                                    <li>
+                                    <p><span>Describir qu&eacute; hacen los estudiantes en clase y fuera de ella para desarrollar progresivamente los objetivos de aprendizaje. Por ello, deben escribirse en plural y en presente. </span></p>
+                                    </li>
+                                    <li>
+                                    <p><span>Referirse a acciones visibles y, por tanto, medibles.</span></p>
+                                    </li>
+                                    <li>
+                                    <p><span>Indicar, seg&uacute;n el caso, si se trata de actividades individuales o grupales.</span></p>
+                                    </li>
+                                    <li>
+                                    <p><span>Preparar a los estudiantes para realizar las actividades o trabajos con los cuales se evaluar&aacute; y calificar&aacute; su aprendizaje.</span></p>
+                                    </li>
+                                    </ul>
+                                    <p><span>Especificaciones para el aula virtual</span></p>
+                                    <p><span>El aula virtual es una herramienta de apoyo a las actividades de aprendizaje centradas en el estudiante, lo cual le permitir&aacute; realizar procesos de comunicaci&oacute;n efectiva, de interrelaci&oacute;n, de generaci&oacute;n de conocimiento y de aplicaci&oacute;n de las tecnolog&iacute;as, las cuales est&aacute;n a la vanguardia para el dise&ntilde;o integrado de cursos. En este sentido su asignatura tendr&aacute; un aula virtual, en la cual se encontrar&aacute; informaci&oacute;n relacionada con el micro curr&iacute;culo y actividades que permitan al estudiante culminar con su proceso de manera efectiva.</span></p>
+                                    <p><span>El aula deber&aacute; contener como m&iacute;nimo lo siguiente:</span></p>
+                                    <ul>
+                                    <li>
+                                    <p><span>Formato Institucional del programa</span></p>
+                                    </li>
+                                    <li>
+                                    <p><span>Foro de comunicaci&oacute;n</span></p>
+                                    </li>
+                                    <li>
+                                    <p><span>Establecer el formato por semanas o sesiones</span></p>
+                                    </li>
+                                    <li>
+                                    <p><span>Documentos de soporte a cada uno de los temas como: archivos en pdf, Word,Excel, etc </span></p>
+                                    </li>
+                                    <li>
+                                    <p><span>Consulta de hiperv&iacute;nculos </span></p>
+                                    </li>
+                                    </ul>
+                                    <p><strong>( Este campo deber&aacute; contener como m&aacute;ximo 800 caracteres)</strong></p>
+                                    </td>
+                                    </tr>
+                                    </tbody>
+                                    </table>
+                                    <h3>5.Evaluaci&oacute;n y calificaci&oacute;n</h3>
+                                    <table style="width: 100%;" border="1" cellspacing="0">
+                                    <tbody>
+                                    <tr>
+                                    <td>
+                                    <p>Especifique las actividades que le permitir&aacute;n evaluar en qu&eacute; medida los estudiantes cumplen con los objetivos de aprendizaje de la asignatura y organ&iacute;celas por cortes acad&eacute;micos, indicando los correspondientes porcentajes.<br /><br />Las actividades de evaluaci&oacute;n propuestas deben:<br /><br />Ser coherentes con los objetivos de aprendizaje.<br /><br />Medir el progreso individual y si los resultados aseguran que se cumple de manera satisfactoria con objetivos de aprendizaje propuestos.<br /><br />Incluir diversas formas de evaluaci&oacute;n (individual/grupal; oral/escrita/audiovisual) seg&uacute;n las caracter&iacute;sticas de la asignatura y de las actividades de aprendizaje propuestas<br /><br />Promover pr&aacute;cticas de autoevaluaci&oacute;n y de evaluaci&oacute;n entre pares<br /><br />Especificar el porcentaje asignado de las actividades calificables.<br /><br />Asigne un porcentaje que puede estar entre el 5 y el 10% como m&iacute;nimo, en relaci&oacute;n con las actividades trabajadas en el aula con los estudiantes.</p>
+                                    <p>( Este campo deber&aacute; contener como m&aacute;ximo 2000 caracteres)</p>
+                                    </td>
+                                    </tr>
+                                    </tbody>
+                                    </table>
+                                    <h3>6.Cronograma</h3>
+                                    <table style="width: 100%;" border="1" cellspacing="0">
+                                    <tbody>
+                                    <tr>
+                                    <td>Organice las actividades independientes y presenciales de aprendizaje por cortes acad&eacute;micos o sesiones, seg&uacute;n las caracter&iacute;sticas de la asignatura y de las actividades de aprendizaje propuestas. Adem&aacute;s, indique el tema (contenido) en torno al cual se articula.</td>
+                                    </tr>
+                                    </tbody>
+                                    </table>
+
+                                    <table style="width: 100%;" border="1" cellspacing="0" cellpadding="1">
+                                    <tbody>
+                                    <tr>
+                                    <td bgcolor="#d9d9d9">
+                                    <p><strong>Sesi&oacute;n</strong></p>
+                                    </td>
+                                    <td bgcolor="#d9d9d9">
+                                    <p><strong>Actividades Independiente de Aprendizaje</strong></p>
+                                    </td>
+                                    <td bgcolor="#d9d9d9">
+                                    <p><strong>Actividades Presenciales de Aprendizaje</strong></p>
+                                    </td>
+                                    <td bgcolor="#d9d9d9">
+                                    <p><strong>Tema</strong></p>
+                                    </td>
+                                    </tr>
+                                    <tr><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td></tr>
+                                    <tr><td><p></p></td><td><p></p></td><td><p></p></td><td><p></p></td></tr>
+                                    </tbody>
+                                    </table>
+                                    <p><strong>(En este campo el m&aacute;ximo total de caracteres es de 6000)</strong></p>
+                                    <h3>7.Bibliograf&iacute;a B&aacute;sica y Complementaria</h3>
+                                    <table style="width: 100%;" border="1" cellspacing="0">
+                                    <tbody>
+                                    <tr>
+                                    <td>
+                                    <p>Incluya aqu&iacute; los textos b&aacute;sicos que espera abordar con los estudiantes durante el semestre. (Escr&iacute;balos seg&uacute;n la metodolog&iacute;a de presentaci&oacute;n adoptada por cada Facultad o programa. Ej. Harvard, Vancouver o APA)</p>
+                                    <p>Los libros deber&aacute;n ser actualizados en su contenido y de edici&oacute;n reciente. Es obligatorio incluir por lo menos dos texto en ingl&eacute;s y uno de literatura no anglosajona (Puede incluido alg&uacute;n Handbook; y libros dise&ntilde;ados para servir como textos por casas editoriales de prestigio). Es posible incluir alg&uacute;n libro en formato electr&oacute;nico. Todos los textos citados (en texto o electr&oacute;nicos) deben encontrarse disponibles en la biblioteca o justificar su compra de inmediato.</p>
+                                    <p>Incluya aqu&iacute; los otros textos, art&iacute;culos y documentos que complementan su asignatura</p>
+                                    <p><strong>(En este campo el n&uacute;mero m&aacute;ximo de caracteres es de 5000)</strong></p>
+                                    </td>
+                                    </tr>
+                                    </tbody>
+                                    </table>
+                                </div>
+                        </div>
+
+
+
+			<div id="help_panel" class="panel noscroll" style="overflow: visible;">
+				<div id="iframecontainer"></div>
+			</div>
+		</div>
+
+		<div class="mceActionPanel">
+			<input type="button" id="cancel" name="cancel" value="{#close}" onclick="tinyMCEPopup.close();" />
+		</div>
+</body>
+</html>

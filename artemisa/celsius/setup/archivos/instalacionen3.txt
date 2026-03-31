@@ -1,0 +1,8 @@
+MySQL users creation for database use.
+You must complete all fields to continue
+A new MySQL Database access account will be created
+Celsius username
+Celsius user password
+Confirm Celsius user password
+
+Continue

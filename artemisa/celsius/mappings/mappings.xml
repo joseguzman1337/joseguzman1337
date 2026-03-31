@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+<mappings> = <table>*
+<table> = @localName @remoteName <column>+
+<column> = @localName @remoteName
+-->
+<mappings>
+	<table localName="paises" remoteName="paises">
+		<column localName="Id" remoteName="id"/>
+		<column localName="Nombre" remoteName="nombre"/>
+		<column localName="Abreviatura" remoteName="iso3166"/>
+	</table>
+	<table localName="instituciones" remoteName="instituciones">
+		<column localName="Codigo" remoteName="id"/>
+		<column localName="Nombre" remoteName="nombre"/>
+		<column localName="Abreviatura" remoteName="abreviatura"/>
+		<column localName="Direccion" remoteName="direccion"/>
+		<column localName="Telefono" remoteName="telefono"/>
+		<column localName="Codigo_Pais" remoteName="id_pais"/>
+		<column localName="Sitio_Web" remoteName="sitio_web"/>
+		<column localName="Participa_Proyecto" remoteName="es_lib_link"/>
+	</table>
+	<table localName="dependencias" remoteName="dependencias">
+		<column localName="Id" remoteName="id"/>
+		<column localName="Codigo_Institucion" remoteName="id_institucion"/>
+		<column localName="Nombre" remoteName="nombre"/>
+		<column localName="Direccion" remoteName="direccion"/>
+		<column localName="Telefonos" remoteName="telefono"/>
+		<column localName="Hipervinculo1" remoteName="sitio_web1"/>
+		<column localName="Hipervinculo2" remoteName="sitio_web2"/>
+		<column localName="Hipervinculo3" remoteName="sitio_web3"/>
+		<column localName="Es_LibLink" remoteName="es_lib_link"/>
+	</table>
+	<table localName="unidades" remoteName="unidades">
+		<column localName="Id" remoteName="id"/>
+		<column localName="Codigo_Dependencia" remoteName="id_dependencia"/>
+		<column localName="Nombre" remoteName="nombre"/>
+		<column localName="Direccion" remoteName="direccion"/>
+		<column localName="Telefonos" remoteName="telefono"/>
+		<column localName="Hipervinculo1" remoteName="sitio_web1"/>
+		<column localName="Hipervinculo2" remoteName="sitio_web2"/>
+		<column localName="Hipervinculo3" remoteName="sitio_web3"/>
+	</table>
+
+	<table localName="instancias_celsius" remoteName="instancias_celsius">
+		<column localName="id" remoteName="id"/>
+		<column localName="email" remoteName="email"/>
+		<column localName="version" remoteName="id_version"/>
+		<column localName="sitio_web" remoteName="sitio_web"/>
+		<column localName="nt_habilitado" remoteName="nt_habilitado"/>
+		<column localName="id_institucion" remoteName="id_institucion"/>
+		<column localName="id_dependencia" remoteName="id_dependencia"/>
+		<column localName="id_unidad" remoteName="id_unidad"/>
+		<column localName="password" remoteName="password"/>
+	</table>
+</mappings>

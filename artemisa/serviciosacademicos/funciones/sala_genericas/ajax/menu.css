@@ -1,0 +1,32 @@
+#lista
+    {
+    float: left;
+    width: 60%;
+    }
+#lista
+    {
+    display: inline;
+	background-color: #AAFF00;
+    }
+#Boton
+    {
+    float: Right;
+    width: 20%;
+    margin-left: 0%;
+	background-color: #00d900;
+	background-color: #00d900;
+	font-family: Verdana, Arial, sans-serif;
+	font-size: 1.3em;
+	
+    }
+body
+	{
+	background-color: #91d900;
+	}
+h1
+	{
+    align: center;
+	font-size: 1.3em;
+	font-family: Verdana, Arial, sans-serif;
+	font-style: italic;
+	}

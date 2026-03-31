@@ -1,0 +1,86 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+<title>HTML 2 (F)PDF Project</title>
+
+<meta name=keywords content=1,2,3 />
+
+<link rel="stylesheet" type="text/css" href="ext1.css" />
+<link rel="stylesheet" type="text/css" href="ext2.css" />
+<style>
+.intparaclass
+{
+background: #0ff;
+border: thin solid black;
+font-size: large;
+color: gold;
+
+}
+#intid
+{
+color: rgb(0,0,255);
+text-align: center;
+text-decoration: underline;
+}
+.odd
+{
+font-family: symbol;
+direction: rtl;
+text-align: right;
+font-weight: bold;
+border: thin dotted #f00;
+
+width: 220px;
+background: #0f0;
+color: #00f;
+}
+</style>
+</head>
+<body>
+
+In this combo-test we should see CSS tags working. (plus SPAN,HR tags)<br />
+
+TEST BEGIN. <br />
+
+<p class="intparaclass">
+Inside a 'P' tag and <strong>using</strong> internal class - CSS - <font color=red>change color</font> unchange
+</p>
+<p id="extparaid">
+Inside a 'P' tag and using external file#1 id - CSS - A long long long
+ long long long long long long long long long long long long
+ long long long long text in order to test borders
+</p>
+<p id="extparaid2">
+Inside a 'P' tag and using external file#2 id - CSS
+
+</p>
+<p style="color:#e22;font-weight:bold;">
+Inside a 'P' tag and using inline CSS
+</p>
+
+<div id="intid">
+Testing DIV ID - internal CSS
+</div>
+This text belongs to no CSS!
+<div class="odd">
+abcdefghijklmnopqrstuvwxyz
+</div>
+<br />
+This text belongs to no CSS! SPAN+inline CSS:
+<SPAN style="FONT-SIZE: 16pt; COLOR: #d35831; FONT-FAMILY: Arial ;background:#bbb;">some <b><i>mixed</i></b> content </SPAN>. End of SPAN tag.
+
+
+<br>
+A simple HR
+<hr>
+Half-sized HR (use width=% preferably)
+<hr width=50%>
+IGNORE BR CLOSE TO THIS TEXT &lt;br&gt; <br>
+<hr align=right width=50% color=#00ff00>
+Text.
+<br>
+<br>
+END OF TEST.
+</body>
+</html>

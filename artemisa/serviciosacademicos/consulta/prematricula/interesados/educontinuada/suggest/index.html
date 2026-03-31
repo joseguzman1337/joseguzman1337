@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>AJAX Suggest and Autocomplete</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="suggest.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="suggest.js"></script>
+</head>
+<body>
+<noscript>
+Your browser does not support JavaScript!!
+</noscript>
+<div id="content" onclick="hideSuggestions();">
+<div id="message">Enter the first letters of your function:</div>
+<input type="text" name="keyword" id="keyword" maxlength="70"
+size="69" onkeyup = "handleKeyUp(event)" value="" />
+<div id="scroll">
+<div id="suggest">
+</div>
+</div>
+</div>
+</body>
+</html>

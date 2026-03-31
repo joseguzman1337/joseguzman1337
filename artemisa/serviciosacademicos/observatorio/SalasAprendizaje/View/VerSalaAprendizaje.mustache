@@ -1,0 +1,154 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">  
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>{{title}}</title>
+        <link rel="stylesheet" href="../../../css/demo_page.css" type="text/css" /> 
+        <link rel="stylesheet" href="../../../css/demo_table_jui.css" type="text/css" />
+        <link rel="stylesheet" href="../../../css/themes/smoothness/jquery-ui-1.8.4.custom.css" type="text/css" />
+        <link rel="stylesheet" href="../../../mgi/css/styleDatos.css" type="text/css" /> 
+		<script type="text/javascript" language="javascript" src="../../../mgi/js/jquery.js"></script>
+        <script type="text/javascript" language="javascript" src="../../../mgi/js/jquery.js"></script>
+        <script type="text/javascript" language="javascript" src="../../../mgi/js/jquery.dataTables.js"></script>
+        <script type="text/javascript" language="javascript" src="../../../mgi/js/jquery-ui-1.8.21.custom.min.js"></script>   
+        <script type="text/javascript" language="javascript" src="../../../mgi/js/jquery.fastLiveFilter.js"></script>  
+        <script type="text/javascript" language="javascript" src="../../../mgi/js/functions.js"></script>  
+        <script type="text/javascript" language="javascript" src="../../../mgi/js/functionsMonitoreo.js"></script>
+        <script type="text/javascript" language="javascript" src="../js/CrearSalaAprendizaje.js"></script>
+        <style>
+        .button{
+            background-color: #fff;
+            background-image: -moz-linear-gradient(0% 100% 90deg, #bbbbbb, #ffffff);
+            border: 1px solid #f1f1f1;
+            border-radius: 10px;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+            color: #444;
+            font-family: Helvetica,Arial,sans-serif;
+            font-weight: bold;
+            line-height: 1;
+            padding: 9px 17px;
+            text-shadow: 0 1px 1px rgba(255, 255, 255, 0.85);
+            cursor: pointer;
+        }
+        fieldset{
+            border: grey 1px solid; margin: 1%;padding: 1%;
+        }
+       </style>
+	<body class="body">
+      <form id="Example">  
+      <input type="hidden" id="action_ID" name="action_ID" value="Save" />
+        <fieldset style="width: 90%;margin-left:2%; margin-top: 2%;">
+            <legend><strong>Sala de Aprendizaje</strong></legend>
+            <table style="width: 100%;">
+                <tr>
+                    <td>
+                        <strong>Nombre:</strong>
+                    </td>
+                    <td>
+                        <strong>Periodo Académico:</strong>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        {{NombreSala}}
+                    </td>
+                    <td>
+                        {{Periodo}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>Departamento Encargado:</strong>
+                    </td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>
+                        {{Programa}}
+                    </td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td><strong>Justificación:</strong></td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td colspan="2" id="Justificacion"></td>
+                </tr>
+                <tr>
+                    <td><strong>Objetivos de Aprendizaje:</strong></td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td colspan="2" id="Objetivos"></td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <hr />
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <fieldset>
+                            <legend>Sesiones:</legend>
+                            <table border='1' style="width: 100%;" id="TableSessiones">
+                                <thead>
+                                    <tr style="background: #D5FFE6;">
+                                        <th>#</th>
+                                        <th>Competencias</th>
+                                        <th>Contenidos</th>
+                                        <th>Actividades</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {{#Sesion}}
+                                    <tr id="trNewSession0" style="background: #E5E4FF;">
+                                        <td style="text-align: center;"><strong>{{Num}}</strong></td>
+                                        <td style="text-align: center;">
+                                            {{Competencia}}
+                                        </td>
+                                        <td style="text-align: center;">
+                                            {{Contenido}}
+                                        </td>
+                                        <td style="text-align: center;">
+                                            {{Actividad}}
+                                        </td>
+                                    </tr>
+                                    {{/Sesion}}
+                                </tbody>
+                            </table>
+                        </fieldset>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <hr />
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Evaluación:</strong></td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td colspan="2" id="Evaluacion"></td>
+                </tr>
+                <tr>
+                    <td><strong>Bibliografia:</strong></td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td colspan="2" id="Bibliografia"></td>
+                </tr>
+                <tr>
+                    <td colspan="2">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                       <input type="button" class="button" onclick="Regresar()" value="Regresar" />
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+     </form> 
+	</body>
+</html>

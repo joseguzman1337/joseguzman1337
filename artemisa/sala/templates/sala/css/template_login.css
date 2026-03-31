@@ -1,0 +1,20 @@
+body.path-auth.path-auth-token{
+	background-attachment:fixed;
+	background-color: #140001;
+	background-image: url(../images/acceso.jpg);
+	background-size: 100%  auto;
+	background-position: center center;
+	background-repeat:no-repeat;
+}
+
+.login_div {
+    margin: 10% auto auto;
+    max-width: 345px;
+    background-color: rgba(255,255,255,0.7);
+}
+@media (max-width: 750px) {
+	body.path-auth.path-auth-token{
+		background-position: bottom center !important;
+		background-size: auto 100% !important;
+	}
+}

@@ -1,0 +1,47 @@
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+
+name: MobSF
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]  
+  schedule:
+    - cron: '23 10 * * 6'
+
+permissions:
+  contents: read
+
+jobs:
+  mobile-security:
+    permissions:
+      contents: read # for actions/checkout to fetch code
+      security-events: write # for github/codeql-action/upload-sarif to upload SARIF results
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@fa2e9d605c4eeb9fcad4c99c224cee0c6c7f3594 # v2.16.0
+        with:
+          egress-policy: audit
+
+      - uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5
+
+      - name: Setup python
+        uses: actions/setup-python@83679a892e2d95755f2dac6acb0bfd1e9ac5d548 # v6.1.0
+        with:
+          python-version: 3.14
+
+      - name: Run mobsfscan
+        uses: MobSF/mobsfscan@ec2927a8cfab6626a67f26b223be3aba52a34b70
+        with:
+          args: . --sarif --output results.sarif || true
+
+      - name: Upload mobsfscan report
+        uses: github/codeql-action/upload-sarif@38697555549f1db7851b81482ff19f1fa5c4fedc # v4.34.1
+        with:
+          sarif_file: results.sarif

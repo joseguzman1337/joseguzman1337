@@ -1,0 +1,40 @@
+ {
+    "rowCount" : 450000000,
+     "columns" : {
+        "c_phone" : {
+             "dataSize" : 6750000000,
+             "distinctValuesCount" : 450049407
+        },
+        "c_nationkey" : {
+             "distinctValuesCount" : 19,
+             "min" : 0,
+             "max" : 24
+        },
+        "c_custkey" : {
+             "distinctValuesCount" : 412697126,
+             "min" : 1,
+             "max" : 450000000
+        },
+        "c_name" : {
+             "dataSize" : 8100000000,
+             "distinctValuesCount" : 490782358
+        },
+        "c_acctbal" : {
+             "distinctValuesCount" : 806049,
+             "min" : -999.99,
+             "max" : 9999.99
+        },
+        "c_address" : {
+             "dataSize" : 11249934912,
+             "distinctValuesCount" : 215484394
+        },
+        "c_comment" : {
+             "dataSize" : 32624827583,
+             "distinctValuesCount" : 256255575
+        },
+        "c_mktsegment" : {
+             "dataSize" : 4049995460,
+             "distinctValuesCount" : 7
+        }
+    }
+}

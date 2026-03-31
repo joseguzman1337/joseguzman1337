@@ -1,0 +1,294 @@
+body{
+    width: 99.9% !important;
+    margin: auto !important;
+}
+a:hover{
+    cursor: pointer;    
+}
+.arrow {
+    width: 5px;
+    height: 5px;
+    background: transparent;
+    border-top: 1px solid #9d9d9d;
+    border-right: 1px solid #9d9d9d;
+    box-shadow: 0 0 0 #9d9d9d;
+    transition: all 200ms ease;
+    transform: translate3d(0,-50%,0) rotate(-226deg);	
+    margin: 9px;
+    float: right;
+    position: relative;
+}
+
+.arrowH3{
+    bottom: 3px;
+}
+
+.btn{
+    margin: 0px 3px;
+}
+
+.btn-default{
+    border-color: #7bc142 !important;
+    color: #7bc142 !important;
+    background-color: #f7f7f7 !important;
+}
+
+.btn-default:hover{
+    border-color: #7bc142 !important;
+    color: #fff !important;
+    background-color: #7bc142 !important;    
+}
+
+.btn-success{
+    background-color: #7bc142 !important;
+    border-color: #7bc142 !important;
+}
+
+.btn-success:hover{
+    background-color: #4f9912 !important;
+    border-color: #4f9912 !important;
+}
+
+/* C */
+.contentButtons{
+    background-color: #f7f7f7;
+    padding: 15px;
+    width: 100%;
+    margin: auto;
+    float: left;
+    margin-top: -10px;
+}
+
+/* D */
+.divItemsFooter{
+    margin: auto;
+    width: 90%;
+}
+
+.CargarMenuFactor{
+    padding:5px 20px !important;
+    margin-top: 5px;
+}
+
+
+.CargarMenuFactor.btn-success{
+    color: #fff !important;
+}
+
+/* E */
+.emergenteItem{
+    width: 88%;
+    background-color: #f7f7f7;
+    margin: auto;
+    position: relative;
+    display: none;
+}
+
+.emergenteItem>div {
+    margin: auto; 
+    padding: 20px 5%;
+}
+
+/* F */
+footer{
+    float:left;
+    width: 100%;
+    margin-top: 50px;
+}
+
+/* H */
+h3{
+    text-decoration: none;
+    color: #9d9d9d !important;
+    margin: 0px 20px;
+    font-size: 14px !important;    
+}
+
+.h3active{
+    color: #000 !important;
+    font-weight: bold;
+}
+
+/* I */
+.itemFooter{
+    display: inline-block;
+    color: #9d9d9d !important;
+    margin: 7px 14px;
+    font-size: 12px;
+}
+
+.itemFooterActive{
+    color: #000 !important;
+    font-weight: bold;
+}
+
+/* L */
+.logo{
+    float: left;
+    width: 100%;
+}
+
+/* M */
+main{
+    margin: auto;
+    float:left;
+    width: 100%;
+}
+
+.menuHeader{
+    float: left;
+}
+
+/* P */
+.puntoTexto{
+    font-size: 30px;
+}
+
+/* S */
+section{
+    margin: auto;
+    position: relative;
+}
+
+.subtituloFactor{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* T */
+.tituloFactor{
+    font-size: 31px;
+    font-weight: bold;
+    position: relative;
+}
+
+a.volver{
+    font-size: 10px;
+    position: absolute;
+    top: 8px;
+    margin-left: -70px;
+}
+
+.texto{
+    margin-top: 20px;
+}
+
+.texto p,
+.texto div#aspectos{
+    width: 60%;
+    margin: auto;
+}
+
+.texto div#aspectos p{
+    width: 80% !important;
+    margin: auto !important;
+}
+
+.texto div#aspectos h4{
+    font-size: 20px;
+    font-weight: bold;
+} 
+.texto div#aspectos ul.aspectos{
+    display: block;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    width: 100%;
+}
+
+.texto div#aspectos ul.aspectos li{
+    display: block;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+
+}
+
+.texto div#aspectos ul.aspectos li a{
+    display: block;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    border-bottom: solid 1px;
+    color: #000;
+    text-transform: uppercase;
+    font-size: 0.7em;
+    padding: 15px 0 5px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.texto div#aspectos ul.aspectos li a:hover,
+.texto div#aspectos ul.aspectos li a.active{
+    color: #7bc142 !important;    
+}
+
+
+.texto div#aspectos ul.aspectos li a .icono{
+    position: absolute;
+    right: 0;
+}
+.SubCargaInd{
+    position: relative;
+}
+
+.emergenteIndicador{
+    width: 98%;
+    background-color: #f7f7f7;
+    position: relative;
+}
+.emergenteIndicador h4{
+    margin-top: 0;
+    font-size: 0.86em !important;
+    padding-top: 15px;
+    margin-left: 19px;
+}
+.texto div#aspectos ul.aspectos li ul.indicadores{
+    list-style: disc;
+}
+.texto div#aspectos ul.aspectos li ul.indicadores li{
+    display: list-item;    
+}
+.texto div#aspectos ul.aspectos li ul.indicadores li a{
+    color: #333;
+    border-bottom: none;
+    font-weight: normal;
+    text-transform: none;
+    font-size: 0.8em;
+}
+
+.texto div#aspectos ul.aspectos li ul.indicadores li a:hover{
+    text-decoration: underline;
+}
+
+/* U */
+.underline{
+    border-bottom: 4px solid #7bc142;
+    padding-bottom: 10px;
+}
+
+#blanco .cajon{
+    padding: 20px;
+}
+
+#blanco .cajon h3{
+    margin: 0 0 15px;
+    font-weight: bolder;
+    font-size: 1.1em !important;
+}
+
+#blanco .cajon p{
+    text-indent: inherit !important;
+}
+
+#blanco .cajon a{
+    width: auto !important;
+}
+
+.analisisCaracteristica{
+    padding:5px 25px !important;
+    margin-top: 5px !important;
+}

@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_orden" value="name:numeroordenpago;datatype:int" />
+	<infoitem key="UD_ordenpago" value="name:numeroordenpago;datatype:int" />
+</info>

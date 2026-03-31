@@ -1,0 +1,96 @@
+/*
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package io.trino.server.ui;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.errorprone.annotations.Immutable;
+import com.google.inject.Inject;
+import io.airlift.node.NodeInfo;
+import io.airlift.units.Duration;
+import io.trino.server.security.ResourceSecurity;
+import io.trino.spi.NodeVersion;
+import jakarta.ws.rs.GET;
+import jakarta.ws.rs.Path;
+import jakarta.ws.rs.Produces;
+
+import static io.airlift.units.Duration.nanosSince;
+import static io.trino.server.security.ResourceSecurity.AccessType.WEB_UI;
+import static jakarta.ws.rs.core.MediaType.APPLICATION_JSON;
+import static java.util.Objects.requireNonNull;
+
+@Path("/ui/api/cluster")
+@ResourceSecurity(WEB_UI)
+public class ClusterResource
+{
+    private final NodeVersion version;
+    private final String environment;
+    private final long startTime = System.nanoTime();
+    private final boolean previewUiEnabled;
+
+    @Inject
+    public ClusterResource(NodeVersion nodeVersion, NodeInfo nodeInfo, WebUiConfig webUiConfig)
+    {
+        this.version = requireNonNull(nodeVersion, "nodeVersion is null");
+        this.environment = nodeInfo.getEnvironment();
+        this.previewUiEnabled = webUiConfig.isPreviewEnabled();
+    }
+
+    @GET
+    @Produces(APPLICATION_JSON)
+    public ClusterInfo getInfo()
+    {
+        return new ClusterInfo(version, environment, nanosSince(startTime), previewUiEnabled);
+    }
+
+    @Immutable
+    public static class ClusterInfo
+    {
+        private final NodeVersion nodeVersion;
+        private final String environment;
+        private final Duration uptime;
+        private final boolean previewUiEnabled;
+
+        public ClusterInfo(NodeVersion nodeVersion, String environment, Duration uptime, boolean previewUiEnabled)
+        {
+            this.nodeVersion = requireNonNull(nodeVersion, "nodeVersion is null");
+            this.environment = requireNonNull(environment, "environment is null");
+            this.uptime = requireNonNull(uptime, "uptime is null");
+            this.previewUiEnabled = previewUiEnabled;
+        }
+
+        @JsonProperty
+        public NodeVersion getNodeVersion()
+        {
+            return nodeVersion;
+        }
+
+        @JsonProperty
+        public String getEnvironment()
+        {
+            return environment;
+        }
+
+        @JsonProperty
+        public Duration getUptime()
+        {
+            return uptime;
+        }
+
+        @JsonProperty
+        public boolean isPreviewUiEnabled()
+        {
+            return previewUiEnabled;
+        }
+    }
+}

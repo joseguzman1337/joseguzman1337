@@ -1,0 +1,13 @@
+El siguiente paso es crear un usuario MySQL para poder utilizar la base de datos Celsius
+A continuación, se creará una nueva cuenta de acceso a la Base de Datos MySQL para acceder desde el ambiente Celsius
+Debe poseer una contraseña <font color=red> de usuario root de MySQL </font> para poder crear nuevas cuentas de usuarios de MySQL
+no confundir con el usuario root de Linux
+ y especificar una contraseña para la nueva cuenta de Celsius
+
+El nombre de usuario y la contraseña de la cuenta de ROOT de MySQL son obligatorios. Estos datos serán usados para crear los usuarios.
+Nombre de usuario de ROOT de MySQL:
+Contraseña de ROOT de MySQL:
+Nombre de usuario de Celsius
+Contraseña para el usuario de Celsius
+Confirmar contraseña de usuario de Celsius
+Continuar

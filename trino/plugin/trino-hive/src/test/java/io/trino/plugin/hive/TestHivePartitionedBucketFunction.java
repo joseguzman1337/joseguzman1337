@@ -1,0 +1,200 @@
+/*
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package io.trino.plugin.hive;
+
+import com.google.common.collect.HashMultimap;
+import com.google.common.collect.ImmutableList;
+import com.google.common.collect.Multimap;
+import io.trino.metastore.HiveType;
+import io.trino.spi.Page;
+import io.trino.spi.block.Block;
+import io.trino.spi.block.BlockBuilder;
+import io.trino.spi.connector.BucketFunction;
+import io.trino.spi.type.Type;
+import io.trino.spi.type.TypeOperators;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
+
+import static com.google.common.collect.ImmutableList.toImmutableList;
+import static io.trino.block.BlockAssertions.createLongRepeatBlock;
+import static io.trino.block.BlockAssertions.createLongsBlock;
+import static io.trino.metastore.HiveType.HIVE_LONG;
+import static io.trino.plugin.hive.util.HiveBucketing.BucketingVersion;
+import static io.trino.plugin.hive.util.HiveBucketing.BucketingVersion.BUCKETING_V1;
+import static io.trino.plugin.hive.util.HiveBucketing.BucketingVersion.BUCKETING_V2;
+import static io.trino.spi.type.BigintType.BIGINT;
+import static org.assertj.core.api.Assertions.assertThat;
+
+public class TestHivePartitionedBucketFunction
+{
+    static Stream<BucketingVersion> hiveBucketingVersion()
+    {
+        return Stream.of(BUCKETING_V1, BUCKETING_V2);
+    }
+
+    @ParameterizedTest
+    @MethodSource("hiveBucketingVersion")
+    public void testSinglePartition(BucketingVersion hiveBucketingVersion)
+    {
+        int numValues = 1024;
+        int numBuckets = 10;
+        Block bucketColumn = createLongSequenceBlockWithNull(numValues);
+        Page bucketedColumnPage = new Page(bucketColumn);
+        Block partitionColumn = createLongRepeatBlock(78758, numValues);
+        Page page = new Page(bucketColumn, partitionColumn);
+        BucketFunction hiveBucketFunction = bucketFunction(hiveBucketingVersion, numBuckets, ImmutableList.of(HIVE_LONG));
+        Multimap<Integer, Integer> bucketPositions = HashMultimap.create();
+
+        int[] buckets = new int[numValues];
+        hiveBucketFunction.getBuckets(bucketedColumnPage, 0, numValues, buckets);
+        for (int i = 0; i < numValues; i++) {
+            int hiveBucket = buckets[i];
+            // record list of positions for each hive bucket
+            bucketPositions.put(hiveBucket, i);
+        }
+
+        BucketFunction hivePartitionedBucketFunction = partitionedBucketFunction(hiveBucketingVersion, numBuckets, ImmutableList.of(HIVE_LONG), ImmutableList.of(BIGINT), 100);
+        // All positions of a bucket should hash to the same partitioned bucket
+        for (Entry<Integer, Collection<Integer>> entry : bucketPositions.asMap().entrySet()) {
+            assertBucketCount(hivePartitionedBucketFunction, page, entry.getValue(), 1);
+        }
+
+        assertBucketCount(
+                hivePartitionedBucketFunction,
+                page,
+                IntStream.range(0, numValues).boxed().collect(toImmutableList()),
+                numBuckets);
+    }
+
+    @ParameterizedTest
+    @MethodSource("hiveBucketingVersion")
+    public void testMultiplePartitions(BucketingVersion hiveBucketingVersion)
+    {
+        int numValues = 1024;
+        int numBuckets = 10;
+        Block bucketColumn = createLongSequenceBlockWithNull(numValues);
+        Page bucketedColumnPage = new Page(bucketColumn);
+        BucketFunction hiveBucketFunction = bucketFunction(hiveBucketingVersion, numBuckets, ImmutableList.of(HIVE_LONG));
+
+        int numPartitions = 8;
+        List<Long> partitionValues = new ArrayList<>();
+        for (int i = 0; i < numPartitions - 1; i++) {
+            partitionValues.addAll(Collections.nCopies(numValues / numPartitions, i * 348349L));
+        }
+        partitionValues.addAll(Collections.nCopies(numValues / numPartitions, null));
+        Block partitionColumn = createLongsBlock(partitionValues);
+        Page page = new Page(bucketColumn, partitionColumn);
+        Map<Long, HashMultimap<Integer, Integer>> partitionedBucketPositions = new HashMap<>();
+
+        int[] buckets = new int[numValues];
+        hiveBucketFunction.getBuckets(bucketedColumnPage, 0, numValues, buckets);
+        for (int i = 0; i < numValues; i++) {
+            int hiveBucket = buckets[i];
+            Long hivePartition = partitionValues.get(i);
+            // record list of positions for each combination of hive partition and bucket
+            partitionedBucketPositions.computeIfAbsent(hivePartition, _ -> HashMultimap.create())
+                    .put(hiveBucket, i);
+        }
+
+        BucketFunction hivePartitionedBucketFunction = partitionedBucketFunction(hiveBucketingVersion, numBuckets, ImmutableList.of(HIVE_LONG), ImmutableList.of(BIGINT), 4000);
+        // All positions of a hive partition and bucket should hash to the same partitioned bucket
+        for (Entry<Long, HashMultimap<Integer, Integer>> partitionEntry : partitionedBucketPositions.entrySet()) {
+            for (Entry<Integer, Collection<Integer>> entry : partitionEntry.getValue().asMap().entrySet()) {
+                assertBucketCount(hivePartitionedBucketFunction, page, entry.getValue(), 1);
+            }
+        }
+
+        assertBucketCount(
+                hivePartitionedBucketFunction,
+                page,
+                IntStream.range(0, numValues).boxed().collect(toImmutableList()),
+                numBuckets * numPartitions);
+    }
+
+    /**
+     * Make sure that hashes for single partitions are consecutive. This makes
+     * sure that single partition insert will be distributed across all worker nodes
+     * (when number of workers is less or equal to number of partition buckets) because
+     * workers are assigned to consecutive buckets in sequence.
+     */
+    @ParameterizedTest
+    @MethodSource("hiveBucketingVersion")
+    public void testConsecutiveBucketsWithinPartition(BucketingVersion hiveBucketingVersion)
+    {
+        BlockBuilder bucketColumn = BIGINT.createFixedSizeBlockBuilder(10);
+        BlockBuilder partitionColumn = BIGINT.createFixedSizeBlockBuilder(10);
+        for (int i = 0; i < 100; ++i) {
+            BIGINT.writeLong(bucketColumn, i);
+            BIGINT.writeLong(partitionColumn, 42);
+        }
+        Page page = new Page(bucketColumn.build(), partitionColumn.build());
+
+        BucketFunction hivePartitionedBucketFunction = partitionedBucketFunction(hiveBucketingVersion, 10, ImmutableList.of(HIVE_LONG), ImmutableList.of(BIGINT), 4000);
+        int[] buckets = new int[100];
+        hivePartitionedBucketFunction.getBuckets(page, 0, 100, buckets);
+
+        int minPosition = Arrays.stream(buckets).min().getAsInt();
+        int maxPosition = Arrays.stream(buckets).max().getAsInt();
+
+        // assert that every bucket number was generated
+        assertThat(maxPosition - minPosition + 1).isEqualTo(10);
+    }
+
+    private static void assertBucketCount(BucketFunction bucketFunction, Page page, Collection<Integer> positions, int bucketCount)
+    {
+        assertThat(positions.stream()
+                .map(position -> bucketFunction.getBucket(page, position))
+                .distinct()
+                .count()).isEqualTo(bucketCount);
+    }
+
+    private static Block createLongSequenceBlockWithNull(int numValues)
+    {
+        BlockBuilder builder = BIGINT.createFixedSizeBlockBuilder(numValues);
+        int start = 923402935;
+        int end = start + numValues - 1;
+        for (int i = start; i < end; i++) {
+            BIGINT.writeLong(builder, i);
+        }
+        builder.appendNull();
+        return builder.build();
+    }
+
+    private static BucketFunction partitionedBucketFunction(BucketingVersion hiveBucketingVersion, int hiveBucketCount, List<HiveType> hiveBucketTypes, List<Type> partitionColumnsTypes, int bucketCount)
+    {
+        return new HivePartitionedBucketFunction(
+                hiveBucketingVersion,
+                hiveBucketCount,
+                hiveBucketTypes,
+                partitionColumnsTypes,
+                new TypeOperators(),
+                bucketCount);
+    }
+
+    private static BucketFunction bucketFunction(BucketingVersion hiveBucketingVersion, int hiveBucketCount, List<HiveType> hiveBucketTypes)
+    {
+        return new HiveBucketFunction(hiveBucketingVersion, hiveBucketCount, hiveBucketTypes);
+    }
+}

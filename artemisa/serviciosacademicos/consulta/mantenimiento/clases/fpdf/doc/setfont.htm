@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8">
+<TITLE>SetFont</TITLE>
+<LINK TYPE="text/css" REL="stylesheet" HREF="../fpdf.css">
+</HEAD>
+<BODY>
+<H2>SetFont</H2>
+<TT>SetFont(<B>string</B> family [, <B>string</B> style [, <B>float</B> size]])</TT>
+<H4 CLASS='st'>Version</H4>
+1.0
+<H4 CLASS='st'>Descripción</H4>
+Establece la fuente usada para imprimir cadenas de carácteres. Es obligatorio invocar este método por lo menos una vez antes de imprimir texto o el documento resultante no será válido.<BR>
+La fuente puede ser una estándar o una adicionada via el método AddFont(). La fuentes estándar usan codificación cp1252 (Western Europe) de Windows.<BR>
+El método puede ser invocado antes que la primera página sea creada y es mantenido de página a página.<BR>
+Si sólo desea cambiar el tamaño de la fuente actual, es más simple invocar SetFontSize().<BR>
+<BR>
+<B>Nota:</B> Para las fuentes estándar, los archivos de métrica de fuente deben ser accesibles. Se buscan en este orden:
+<UL>
+<LI>El directorio especificado por la constante <TT>FPDF_FONTPATH</TT> (si es que ha sido definida)
+<LI>El directorio de fuentes incluido en el directorio que contiene fpdf.php (si es que existe)
+<LI>Cualquier directorio accesible mediante <TT>include()</TT>
+</UL>
+Ejemplo del primer casa (note la barra diagonal final):
+<DIV STYLE="background-color:#E0E0E0; padding:3px; margin-top:1.2em; margin-bottom:1.2em">
+<TT>
+define('FPDF_FONTPATH','/home/www/font/');<BR>
+require('fpdf.php');
+</TT>
+</DIV>
+Si el archivo correspondiente a la fuente requerida no es encuentra, se genera el error "Could not include
+font metric file".
+<H4 CLASS='st'>Parámetros</H4>
+<TT><U>family</U></TT>
+<BLOCKQUOTE>
+Familia de fuente. Puede ser un nombre definido por AddFont() o una de las familias estándar (no sensible a mayúsculas o minúsculas):
+<UL>
+<LI><TT>Courier</TT> (fixed-width)
+<LI><TT>Helvetica</TT> o <TT>Arial</TT> (sinónimo; sans serif)
+<LI><TT>Times</TT> (serif)
+<LI><TT>Symbol</TT> (symbolic)
+<LI><TT>ZapfDingbats</TT> (symbolic)
+</UL>
+Tambien es posible pasar un cadena vacia. En este caso, se mantiene la familia actual.
+</BLOCKQUOTE>
+<TT><U>style</U></TT>
+<BLOCKQUOTE>
+Estilo de fuente. Los valores posibles son (no sensible a mayúsculas o minúsculas):
+<UL>
+<LI>cadena vacia: regular
+<LI><TT>B</TT>: bold
+<LI><TT>I</TT>: italic
+<LI><TT>U</TT>: underline
+</UL>
+o cualquier combinación. El valor por defecto es regular.
+Los estilos Bold e italic no aplican para <TT>Symbol</TT> y <TT>ZapfDingbats</TT>.
+</BLOCKQUOTE>
+<TT><U>size</U></TT>
+<BLOCKQUOTE>
+Tamaño de fuente en puntos.
+<BR>
+El valor por defecto es el tamaño actual. Si ningún tamaño ha sido especificado desde el comienzo del documento, toma el valor de 12.
+</BLOCKQUOTE>
+<H4 CLASS='st'>Ejemplo</H4>
+<DIV STYLE="background-color:#E0E0E0; padding:3px; margin-top:1.2em; margin-bottom:1.2em">
+<TT>
+//Times regular 12<BR>
+$pdf-&gt;SetFont('Times');<BR>
+//Arial bold 14<BR>
+$pdf-&gt;SetFont('Arial','B',14);<BR>
+//elimina bold<BR>
+$pdf-&gt;SetFont('');<BR>
+//Times bold, italic y underlined 14<BR>
+$pdf-&gt;SetFont('Times','BIU');
+</TT>
+</DIV>
+<H4 CLASS='st'>Vea además</H4>
+<A HREF="addfont.htm">AddFont()</A>,
+<A HREF="setfontsize.htm">SetFontSize()</A>,
+<A HREF="cell.htm">Cell()</A>,
+<A HREF="multicell.htm">MultiCell()</A>,
+<A HREF="write.htm">Write()</A>.
+<HR STYLE="margin-top:1.5em">
+<DIV STYLE="text-align:center"><A HREF="index.htm">Inicio</A></DIV>
+</BODY>
+</HTML>

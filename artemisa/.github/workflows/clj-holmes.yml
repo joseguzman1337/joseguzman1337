@@ -1,0 +1,48 @@
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+
+name: clj-holmes
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    # The branches below must be a subset of the branches above
+    branches: [ master ]
+  schedule:
+    - cron: '19 22 * * 3'
+
+permissions:
+  contents: read
+  
+jobs:
+  clj-holmes:
+    name: Run clj-holmes scanning
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      security-events: write
+    steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@fa2e9d605c4eeb9fcad4c99c224cee0c6c7f3594 # v2.16.0
+        with:
+          egress-policy: audit
+
+      - name: Checkout code
+        uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5
+
+      - name: Scan code
+        uses: clj-holmes/clj-holmes-action@53daa4da4ff495cccf791e4ba4222a8317ddae9e
+        with:
+          rules-repository: 'git://org/private-rules-repo#master'
+          output-type: 'sarif'
+          output-file: 'clj-holmes-results.sarif'
+          fail-on-result: 'false'
+
+      - name: Upload analysis results to GitHub Security tab
+        uses: github/codeql-action/upload-sarif@38697555549f1db7851b81482ff19f1fa5c4fedc # v4.34.1
+        with:
+          sarif_file: ${{github.workspace}}/clj-holmes-results.sarif
+          ait-for-processing: true

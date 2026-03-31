@@ -1,0 +1,226 @@
+/************************************************************************************************************
+
+	DHTML Suite for Applications
+	(C) www.dhtmlgoodies.com, January 2007
+
+	CSS for the DHTMLSuite.window class
+	
+	
+	www.dhtmlgoodies.com
+	Alf Magne Kalleland
+
+************************************************************************************************************/
+
+.DHTMLSuite_window{	/* The bar that is parent of the menu strip */
+	background-color:#ECE9D8;
+	border:2px solid #5B68CD;
+	border-top:1px solid #3485eb;
+	width:330px;
+	height:200px;
+	overflow:hidden;
+	top:0px;
+	left:0px;
+	z-index:1000;
+	padding-right:0px;	
+}
+
+.DHTMLSuite_windowInnerDiv{	/* This div is the parent parent element of window elements such as tabs, content and status bar, i.e. the primary main parent element for a window */
+	position:relative;
+	background-color:#ECE9D8;
+	top:0px;
+	left:0px;
+	width:100%;
+	height:100%;
+	background-color:#ECE9D8;
+}
+
+.DHTMLSuite_windowTitleBar{	/* Title bar of window */
+	background-image:url(../images/window-theme-windows/window_titlebar.png);
+	background-repeat:repeat-x;
+	height:16px;
+	position:relative;	/* IMPORTANT */
+	
+	
+}
+.DHTMLSuite_windowTitleInTitleBar{	/* The title text in the title bar */
+	padding:1px;
+	padding-left:5px;
+	font-size:10px;
+	color:white;
+	font-weight:bold;
+	font-family:arial;
+}
+.DHTMLSuite_windowButtonDiv{	/* Div for the buttons in the title bar */
+	position:absolute;
+	right:1px;
+	top:0px;
+	width:40px;
+	cursor:default;
+}
+
+.DHTMLSuite_windowButtonDiv div{
+	float:right;
+	position:relative;
+}
+/* General button rules */
+.DHTMLSuite_windowMinimizeButton,.DHTMLSuite_windowCloseButton,.DHTMLSuite_windowMaximizeButton{
+	background-repeat:no-repeat;
+	background-position:center center;
+	padding:1px;
+	width:13px;
+	height:13px;
+
+}
+/* Close button */
+.DHTMLSuite_windowCloseButton{
+	background-image:url(../images/window-theme-windows/window-close.gif);
+}
+.DHTMLSuite_windowCloseButtonOver{
+	background-image:url(../images/window-theme-windows/window-close-over.gif);
+	cursor:default;
+}
+
+/* Minimize button */
+.DHTMLSuite_windowMinimizeButton{
+	background-image:url(../images/window-theme-windows/window-minimize.gif);
+}
+DIV.DHTMLSuite_windowMinimizeButton.DHTMLSuite_windowMinimizeButtonOver{
+	background-image:url(../images/window-theme-windows/window-minimize-over.gif);
+	cursor:default;
+}
+/* Minimize button */
+.DHTMLSuite_windowMaximizeButton{
+	background-image:url(../images/window-theme-windows/window-maximize.gif);
+}
+DIV.DHTMLSuite_windowMaximizeButton.DHTMLSuite_windowMaximizeButtonOver{
+	background-image:url(../images/window-theme-windows/window-maximize-over.gif);
+	cursor:default;
+}
+
+/* CSS for the tab row */
+
+.DHTMLSuite_windowTabRow{
+	background-color:#B2B2B2;
+	padding-top:0px;
+	height:16px;
+	border-top:1px solid #ACA899;
+	padding-left:5px;
+	position:relative;
+	width:1900px;
+	z-index:500;	/* IMPORTANT */
+
+}
+.DHTMLSuite_windowTabRow td{
+	text-overflow:ellipsis;
+	white-space:nowrap;
+	font-weight:bold;
+}
+.DHTMLSuite_windowATab{
+	float:left;	
+	background-position:bottom right;
+	background-repeat:no-repeat;
+	height:16px;
+	cursor:default;
+	font-size:10px;
+	line-height:15px;
+	font-family:arial;
+	overflow:hidden;
+}
+
+.DHTMLSuite_windowATabInnerDiv{
+	background-repeat:no-repeat;
+	background-position:bottom left;
+	height:15px;
+	position:relative;
+	z-index:10000;
+	padding-left:5px;
+	margin-right:19px;	/* Width of the right side image */
+	padding-right:4px;
+}
+
+.DHTMLSuite_windowActiveTabCell{	/* Active tab - td tag */
+	background-image:url('../images/window-theme-windows/tab-active-right.gif');	
+	position:relative;
+	bottom:-1px;
+}
+head:first-child+body .DHTMLSuite_windowActiveTabCell {	/* Transparent png for other browsers than IE6 */
+	background-image:url('../images/window-theme-windows/tab-active-right.png');	
+}
+
+
+.DHTMLSuite_windowInactiveTabCell{	/* Inactive tab, <td> tag */
+	background-image:url('../images/window-theme-windows/tab-inactive-right.gif');
+	position:relative;
+	color:#4B4B4B;
+	line-height:16px;	
+}
+
+head:first-child+body .DHTMLSuite_windowInactiveTabCell {	/* Transparent png for other browsers than IE6 */
+	background-image:url('../images/window-theme-windows/tab-inactive-right.png');
+}
+
+
+.DHTMLSuite_windowActiveTabCellContent{	/* Active tab - inner div */
+	background-image:url('../images/window-theme-windows/tab-active-left.gif');
+	height:14px; /* These three lines are added in order to make the text of active tab appear on line with text of inactive tabs */
+	line-height:14px;	
+	padding-bottom:2px;
+	padding-top:1px;
+}
+head:first-child+body .DHTMLSuite_windowActiveTabCellContent {	/* Transparent png for other browsers than IE6 */
+	background-image:url('../images/window-theme-windows/tab-active-left.png');
+	padding-top:0px;
+}
+head:first-child+body .DHTMLSuite_windowActiveTabCellContent {	/* Transparent png for other browsers than IE6 */
+	background-image:url('../images/window-theme-windows/tab-active-left.png');
+}
+
+
+.DHTMLSuite_windowInactiveTabCellContent{
+	background-image:url('../images/window-theme-windows/tab-inactive-left.gif');
+	padding-bottom:1px;
+}
+
+head:first-child+body .DHTMLSuite_windowInactiveTabCellContent {	/* Transparent png for other browsers than IE6 */
+	background-image:url('../images/window-theme-windows/tab-inactive-left.png');
+}
+
+
+.DHTMLSuite_windowContent{
+	overflow:auto;
+	background-color:#ECE9D8;
+	margin-left:0px;
+	margin-right:0px;
+	border-top:1px solid #FFF;
+	padding-bottom:1px;
+	position:relative;
+	font-size:0.9em;
+}
+
+.DHTMLSuite_windowContent .DHTMLSuite_windowContentInner{	/* Div for each of the tab content divs */
+	padding:1px;
+}
+/* Start css for window status bar */
+.DHTMLSuite_windowStatusBar{
+	height:14px;
+	border-top:1px solid #ACA899;
+	background-color:#ECE9D8;
+	position:relative;
+	overflow:hidden;
+}
+.DHTMLSuite_windowStatusBarText{	/* Text inside status bar */
+	font-size:11px;
+	line-height:13px;
+	padding:1px;
+}
+
+.DHTMLSuite_windowResizeHandle{
+	background-image:url('../images/window-theme-windows/resize-handle-bottom-right.gif');
+	background-repeat:no-repeat;
+	position:absolute;
+	bottom:1px;
+	right:1px;
+	width:14px;
+	height:14px;
+	border-left:1px solid #ACA899;
+}

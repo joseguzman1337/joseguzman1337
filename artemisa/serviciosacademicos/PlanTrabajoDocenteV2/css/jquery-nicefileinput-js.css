@@ -1,0 +1,82 @@
+.examples-list dt {
+  display: list-item;
+  list-style: inside square;
+  border-bottom: dotted #cbc2b7 1px;
+  padding: 5px 0;
+}
+.examples-list dd {
+  padding: 10px 0;
+}
+.examples-list dd p {
+  padding: 15px;
+  background: #f4f3f0;
+  margin: 0;
+  border-radius: 5px;
+}
+/*
+.NFI-wrapper {}
+.NFI-button {}
+.NFI-button:hover {}
+.NFI-filename {}
+.NFI-current {}
+*/
+.nice {
+  border: solid #000 1px;
+  background: #fff;
+  font-size: 12px;
+  display: block;
+  width: 100%;
+  max-width: 360px;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 0 0 2px #fff;
+}
+.nice:hover {
+  border: solid #000 1px;
+}
+.nice .NFI-button {
+  height: 20px;
+  line-height: 20px;
+  background: #c1b8b8;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
+  color: #fff;
+  width: 30%;
+  font-weight: 700;
+}
+.nice .NFI-button:hover {
+  background: #069;
+}
+.nice .NFI-filename {
+  width: 70%;
+  height: 20px;
+  margin: 0;
+  padding: 0;
+  display: block;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  border: none;
+}
+.test {
+  border: solid #ffa34f 1px;
+  box-shadow: 0 0 0 1px #fff;
+}
+.test:hover {
+  border: solid #830 1px;
+}
+.test .NFI-button {
+  background-color: #ffa34f;
+  color: #830;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+.test .NFI-button:hover {
+  background: #830;
+  color: #fff;
+  text-shadow: none;
+}
+.test .NFI-filename {
+  border: solid #eee 1px;
+  color: #777;
+}

@@ -1,0 +1,6 @@
+<b>Log Item</b> 
+
+<span style='background:red'>Ya existen ítems asociados a la cuenta operacion principal y parcial correspondiente a la Fila No 1, si desea modificar el ítem asociado comuníquese con el área de tecnología.</span>
+
+<span style='background:red'> Campos vacíos en la Fila No 2</span> 
+

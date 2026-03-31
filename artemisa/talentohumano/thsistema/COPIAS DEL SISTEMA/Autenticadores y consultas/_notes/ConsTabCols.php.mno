@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_Colaboradores" value="name:IdColab;datatype:int,name:NombCol;datatype:string,name:CarCol;datatype:string,name:FeInCol;datatype:date,name:FeReCol;datatype:date,name:CodCol;datatype:int,name:ContCol;datatype:string,name:DepCol;datatype:string,name:TodCampos;datatype:string" />
+</info>

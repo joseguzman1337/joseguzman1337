@@ -1,0 +1,32 @@
+{
+  "DescripcionDocumento" : "En este archivo se almacenan todas las query's usadas para las consultas que se realizan sobre el modulo Formulas de liquidacion / Rotaciones",
+  "sentencias": {
+
+    "sentencia_demo" : {
+      "sql" : "SELECT columns FROM Tabla WHERE columna= '%s' AND columna2 = %s ",
+      "descripcion" : "Texto alusivo al uso de la sentencia",
+      "argsEntrada" : {
+        "columna" : "argumento de validación uno debe ser una fecha",
+        "columna2" : "argumento de validación dos debe ser numerico",
+        "arg-n" : "descripción caracter de entrada para la sentencia"
+      },
+      "archivos" : {
+        "archivo_1" : "path/file.php",
+        "archivo_n" : "path/file.php"
+      }
+    },
+
+    "sentencia_01" : {
+      "sql" : "SELECT t0.codigoestudiante,t1.codigocarrera,t1.nombrecarrera,t2.itemcarreraconceptopeople, t2.nombrecarreraconceptopeople,t2.codigoconcepto FROM estudiante t0 INNER JOIN carrera t1 on t0.codigocarrera = t1.codigocarrera or t1.codigocarrera = 1 INNER JOIN carreraconceptopeople t2 on t1.codigocarrera = t2.codigocarrera AND t2.codigoconcepto = '%s' WHERE  t0.codigoestudiante = %s order by codigoconcepto desc",
+      "descripcion" : "Busqueda de vinculación entre carrera y concepto people",
+      "argsEntrada" : {
+        "codigoconcepto" : "PK de la entidad carrera",
+        "codigoestudiante" : " PK de la entidad estudiante"
+      },
+      "archivos" : {
+        "archivo_1" : "serviciosacademicos/consulta/ordenpagovarias/verificarConceptoPorPrograma.php"
+      }
+    }
+
+  }
+}

@@ -1,0 +1,429 @@
+/* 
+    Document   : style
+    Created on : 26/09/2012, 10:34:54 AM
+    Author     : proyecto_mgi_cp
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+body { 
+   padding: 20px 40px 0px 40px;
+}
+
+h1 {
+	/*18px via YUI Fonts CSS foundation*/
+	font-size:3em;  
+}
+h2 {
+	/*16px via YUI Fonts CSS foundation*/
+	font-size:2em; 
+}
+h3 {
+	/*14px via YUI Fonts CSS foundation*/
+	font-size:108%;  
+}
+h1,h2,h3 {
+	/* top & bottom margin based on font size */
+	margin:0.7em 0 0.5em;
+}
+h1,h2,h3,h4,h5,h6,strong {
+	/*bringing boldness back to headers and the strong element*/
+	font-weight:bold; 
+}
+abbr,acronym {
+	/*indicating to users that more info is available */
+	border-bottom:1px dotted #000;
+	cursor:help;
+} 
+em {
+	/*bringing italics back to the em element*/
+	font-style:italic;
+}
+del {
+	text-decoration:line-through;
+}
+blockquote,ul,ol,dl {
+	/*giving blockquotes and lists room to breath*/
+	margin:1em;
+}
+ol,ul,dl {
+	/*bringing lists on to the page with breathing room */
+	margin-left:2em;
+}
+ol {
+	/*giving OL's LIs generated numbers*/
+	list-style: decimal outside;	
+}
+ul {
+	/*giving UL's LIs generated disc markers*/
+	list-style: disc outside;
+}
+dl dd {
+	/*giving UL's LIs generated numbers*/
+	margin-left:1em;
+}
+th,td {
+	/*borders and padding to make the table readable*/
+	border:1px solid #000;
+	padding:.5em;
+}
+th {
+	/*distinguishing table headers from data cells*/
+	font-weight:bold;
+	text-align:center;
+}
+caption {
+	/*coordinated margin to match cell's padding*/
+	margin-bottom:.5em;
+	/*centered so it doesn't blend in to other content*/
+	text-align:center;
+}
+p,fieldset,table,pre {
+	/*so things don't run into each other*/
+	margin-bottom:1em;
+}
+
+/**********************************************************
+    MENÚ PRINCIPAL
+**********************************************************/
+
+#menuPrincipal ul
+{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+} 
+
+#menuPrincipal ul {
+list-style-type:none;
+width:auto;
+position:relative;
+display:block;
+height:33px;
+font-size:1em;
+background: #D1D1D1 repeat-x top left;
+font-family:Verdana,Helvetica,Arial,sans-serif;
+border:1px solid #CCC;
+margin:0;
+padding:0;
+}
+
+#menuPrincipal ul.littleSmaller {
+font-size:0.98em;
+}
+
+#menuPrincipal li {
+display:block;
+float:left;
+margin:0;
+padding:0;
+}
+
+#menuPrincipal li a {
+float:left;
+color:#555;
+text-decoration:none;
+height:24px;
+padding:6px 15px 0;
+font-weight:normal;
+}
+
+#menuPrincipal li a:hover, li.active {
+/*color:#7AB300;*/
+color:#FFF;
+text-decoration:none;
+}
+
+li.active {
+background-color: #8AB200;
+height:100%;
+}
+
+#menuPrincipal li.active a {
+color:#FFF;
+font-weight:bold;
+}
+
+/*************************************
+  FORMS
+**************************************/
+
+span.mandatory{
+  color:red; 
+  font-size:9px;
+  position:relative;
+  top:-5px;
+}
+
+div#contenido{
+    margin: 0 20px;
+}
+
+/* 12-column Grid (thanks for Fluid 960 Grid System) */
+.grid-1-12 {width: 5.333%;}
+.grid-2-12 {width: 14.666%;}
+.grid-3-12 {width: 22%;}
+.grid-4-12 {width: 30.333%;}
+.grid-5-12 {width: 38.666%;}
+.grid-6-12 {width: 47%;}
+.grid-7-12 {width: 55.333%;}
+.grid-8-12 {width: 63.666%;}
+.grid-9-12 {width: 72%;}
+.grid-10-12 {width: 80.333%;}
+.grid-11-12 {width: 88.666%;}
+.grid-12-12 {width: 97%;}
+
+form input[type="text"], form input[type="password"], form input[type="file"], form textarea, form select{
+	vertical-align: middle;
+	line-height: 1.1em;
+	padding:3px;
+        font-size: 0.9em;
+        border-color: #ccc;
+	border-style: solid;
+	border-width: 1px;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+        display: block;
+        float:left;
+        margin-left:15px;
+        clear:right;
+        margin-bottom: 20px;
+}
+form textarea {height: 10em;}
+form select {padding:3px;height:2em;}
+
+/* form button  */
+form input[type="submit"], form input[type="button"], form input[type="reset"] {
+  font-size: 14px;
+  padding: 8px 19px 9px;
+  cursor: pointer;
+  text-align: center;
+  display:inline-block;
+  /*border:1px solid #D4D4D4; */ 
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -khtml-border-radius: 10px;
+   border-radius: 10px;
+   -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+  -moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+  box-shadow: 0 1px 2px rgba(0,0,0,.2);
+  background: #5D7D0E;
+   text-shadow: 0 1px 1px rgba(0,0,0,.3);
+    background:-moz-linear-gradient(center top , #7DB72F, #4E7D0E) repeat scroll 0 0 transparent; 
+  background: -webkit-gradient(linear, left top, left bottom, from(#7DB72F), to(#4E7D0E));
+   /*filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#7DB72F', endColorstr='#4E7D0E');*/
+   border: 1px solid #538312;
+   color: #E8F0DE;
+}
+
+form button.ui-button{
+    padding: 0px 14px 0px;
+  font-size: 12px;
+  cursor: pointer;
+  text-align: center;
+  display:inline-block;
+  /*border:1px solid #D4D4D4; */ 
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -khtml-border-radius: 10px;
+   border-radius: 10px;
+   -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+  -moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+  box-shadow: 0 1px 2px rgba(0,0,0,.2);
+  background: #5D7D0E;
+   text-shadow: 0 1px 1px rgba(0,0,0,.3);
+    background:-moz-linear-gradient(center top , #7DB72F, #4E7D0E) repeat scroll 0 0 transparent; 
+  background: -webkit-gradient(linear, left top, left bottom, from(#7DB72F), to(#4E7D0E));
+   /*filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#7DB72F', endColorstr='#4E7D0E');*/
+   border: 1px solid #538312;
+   color: #E8F0DE;
+   margin-left: 10px;
+}
+
+form fieldset input[type="checkbox"]{
+        border-color: #ccc;
+	border-style: solid;
+	border-width: 1px;  
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+        margin-left: 40px;
+        line-height: 1.1em;
+}
+
+form a.cancel{
+    color: #DA0000;
+    font-weight: bold;
+    text-decoration: underline;
+    font-size: 14px;
+    letter-spacing: 0.05em;
+}
+
+form input[type="submit"].first, form input[type="button"].first, form input[type="reset"].first {
+   margin-left: 16.4%;    
+}
+
+input[type="text"]:focus, textarea:focus{
+    border-color: #8ABC00;
+}
+
+input[type="submit"]:active, input[type="button"]:active{
+    position: relative;
+    top: 1px;
+}
+
+input[type="button"]:focus, input[type="submit"]:focus { 
+    outline: none; 
+}
+
+label{
+    display:block;
+    float:left;
+    clear:left;
+    padding:3px;
+    text-align: right;
+}
+
+legend {
+    color: #2B2B2B;
+    font-size: 1.28em;
+    font-weight: normal;
+    line-height: 1.2em;
+    padding: 0 5px;
+}
+
+fieldset{
+    border: 1px solid #D4D4D4;
+    padding: 1.2em 0;
+    position: relative;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -khtml-border-radius: 5px;
+   border-radius: 5px;
+}
+
+fieldset.noBorder{
+    border: 0;
+    padding: 0;
+}
+
+fieldset p{
+    padding-top:3px;
+}
+
+form input[type="text"].error, form textarea.error, form select.error {
+    /*background-color: #ffc;*/
+    border: 1px solid #c00;
+}
+
+div.msg-error{
+    background: url("../images/form-ic-error.png") no-repeat scroll 12px 12px #FAD0D0;
+    border-color: #F6ABAB;
+}
+
+div.msg-info, div.msg-warning, div.msg-error, div.msg-success{
+    border-radius: 4px 4px 4px 4px;
+    color: #2B2B2B;
+    border: 1px solid #CCCCCC;
+    clear: both;
+    display: block;
+    height: auto;
+    margin: 0 0 0.8em;
+    padding: 10px 20px 5px 38px;
+}
+
+div.msg-info p, div.msg-warning p, div.msg-error p, div.msg-success p{
+    line-height: 1.1em;
+    margin: 0 0 0.3em;
+    padding: 0;
+    color: #2B2B2B;
+    font-weight: bold;
+}
+
+.ui-autocomplete {
+        max-height: 170px;
+        overflow-y: auto;
+        /* prevent horizontal scrollbar */
+        overflow-x: hidden;
+    }
+    /* IE 6 doesn't support max-height
+     * we use height instead, but this forces the menu to always be this tall
+     */
+    * html .ui-autocomplete {
+        height: 170px;
+    }
+
+/***********************************************************
+ VISTAS DE LISTAS
+************************************************************/
+
+div#container th, div#container td{
+    border: 0;
+}
+
+#example_filter label{
+    float:right;
+    width:100%;
+}
+
+#example_filter label input{
+    width:40%;
+}
+
+div#container table .column_fecha, div#contenidoSecundario table .column_fecha, div#contenidoSecundario table .column_center,
+div#container table .column_center{
+    text-align:center;
+}
+
+/***********************************************************
+ VISTAS DE DETALLE
+************************************************************/
+
+#contenido table.detalle{
+    width: 100%;
+}
+
+#contenido table.detalle th{
+    text-align:right;
+    background-color: #EEEEEE;
+}
+
+/***********************************************************
+TIPOS DE ALERTAS
+************************************************************/
+
+div#menuEditor{
+    clear:right; 
+    float:left;
+}
+
+.nicEdit-panelContain, .nicEdit-main{
+    float:left;
+    
+}
+
+.nicEdit-main{
+    line-height: 1.1em;
+    margin-bottom: 20px;
+    margin-left: 15px;
+    
+}
+
+.vacio{
+    clear:both;
+}
+
+.hidden, form button.hidden{
+    display:none;
+}
+
+/***********************************************************
+DIALOG CALENDAR
+************************************************************/
+
+body.dialog{
+    padding: 20px 0 0;
+}

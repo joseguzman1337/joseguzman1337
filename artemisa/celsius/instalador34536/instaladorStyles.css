@@ -1,0 +1,64 @@
+body {
+			background-color: #e4e4e4;
+			background-image: url(../images/instalador/bg4.gif);
+		}
+.info {
+	color: #000000;
+	font-weight: normal;
+	margin: 0px;
+	padding: 0px 0px 0px 45px;
+	vertical-align: middle;
+}
+
+.info-icon {
+	background-image: url(../images/instalador/infomsg.png);
+	background-position: left center;
+	background-repeat: no-repeat;
+	min-height: 32px;
+}
+
+.success {
+	color: #000000;
+	font-weight: normal;
+	margin: 0px;
+	padding: 0px 0px 0px 45px;
+	vertical-align: middle;
+}
+
+
+.success-icon {
+	background-image: url(../images/instalador/successmsg.png);
+	background-position: left center;
+	background-repeat: no-repeat;
+	min-height: 32px;
+}
+
+.error {
+	color: #E42323;
+	margin: 0px;
+	padding: 0px 0px 0px 45px;
+	vertical-align: middle;
+}
+
+.error-icon {
+	background-image: url(../images/instalador/errormsg.png);
+	background-position: left center;
+	background-repeat: no-repeat;
+	min-height: 32px;
+}
+.usermsg {
+	background-color: #FFFFFF;
+	border:1px solid #DEECF3;
+	font-size:13px;
+	font-weight:bold;
+	margin:5px 0px;
+	padding:10px;
+}
+
+/*
+<div class="errormsg">
+	<div class="error-icon">
+		<p class="error"></p>
+	</div>
+</div>
+*/

@@ -1,0 +1,29 @@
+.textoResaltadoTabla {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 13px;
+
+	color: #f38a01;
+}
+.textoNormalTabla {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #4c4c4c;
+}
+
+.tdResaltado {
+	font-weight: bold;
+	color:#000099;
+	background-color: #e3e5d5;
+}
+.tdOscurecido {
+	background-color: #e3e5d5;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	font-size: 12px;
+	color: #f38a01;
+
+}
+.textoSubrayado {
+	color: #0000FF;
+	text-decoration: underline;
+}

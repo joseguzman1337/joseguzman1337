@@ -1,0 +1,201 @@
+<div id="container"> 
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>{{title}}</title>
+        <link rel="stylesheet" href="../../../css/demo_page.css" type="text/css" /> 
+        <link rel="stylesheet" href="../../../css/demo_table_jui.css" type="text/css" />
+        <link rel="stylesheet" href="../../../css/themes/smoothness/jquery-ui-1.8.4.custom.css" type="text/css" />
+        <link rel="stylesheet" href="../../../mgi/css/styleDatos.css" type="text/css" /> 
+		<script type="text/javascript" language="javascript" src="../../../mgi/js/jquery.js"></script>
+        <script type="text/javascript" language="javascript" src="../../../mgi/js/jquery.js"></script>
+        <script type="text/javascript" language="javascript" src="../../../mgi/js/jquery.dataTables.js"></script>
+        <script type="text/javascript" language="javascript" src="../../../mgi/js/jquery-ui-1.8.21.custom.min.js"></script>   
+        <script type="text/javascript" language="javascript" src="../../../mgi/js/jquery.fastLiveFilter.js"></script>  
+        <script type="text/javascript" language="javascript" src="../../../mgi/js/functions.js"></script>  
+        <script type="text/javascript" language="javascript" src="../../../mgi/js/functionsMonitoreo.js"></script>
+        <script type="text/javascript" language="javascript" src="../js/CrearSalaAprendizaje.js"></script>
+        <script type="text/javascript" src="../nicEdit/nicEdit.js"></script>
+        <script type="text/javascript">
+            	bkLib.onDomLoaded(function() { 
+            	   //nicEditors.allTextAreas()
+                  new nicEditor({ fullPanel: true }).panelInstance('area1');                  
+                  new nicEditor({ fullPanel: true }).panelInstance('area2');
+                  new nicEditor({ fullPanel: true }).panelInstance('area3');
+                  new nicEditor({ fullPanel: true }).panelInstance('area4');
+             });                
+       </script>
+       <style>
+        .button{
+            background-color: #fff;
+            background-image: -moz-linear-gradient(0% 100% 90deg, #bbbbbb, #ffffff);
+            border: 1px solid #f1f1f1;
+            border-radius: 10px;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+            color: #444;
+            font-family: Helvetica,Arial,sans-serif;
+            font-weight: bold;
+            line-height: 1;
+            padding: 9px 17px;
+            text-shadow: 0 1px 1px rgba(255, 255, 255, 0.85);
+            cursor: pointer;
+        }
+        fieldset{
+            border: grey 1px solid; margin: 1%;padding: 1%;
+        }
+       </style>
+	<body class="body">
+      <div>{{baner}}</div>
+      <form id="Example">  
+      <input type="hidden" id="action_ID" name="action_ID" value="Save" />
+        <fieldset style="width: 90%;margin-left:2%; margin-top: 2%;">
+            <legend><strong>Creación de Salas de Aprendizaje</strong></legend>
+            <table style="width: 100%;">
+                <tr>
+                    <td>
+                        <strong>Nombre<span style="color: red;">*</span></strong>
+                    </td>
+                    <td>
+                        <strong>Periodo Académico<span style="color: red;">*</span></strong>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" id="NombreSala" name="NombreSala" size="70" autocomplete="off" />
+                    </td>
+                    <td>
+                        <select id="Periodo" name="Periodo">
+                            <option value="-1"></option>
+                            {{#Periodo}}
+                            <option value="{{CodigoPeriodo}}">{{NamePeriodo}}</option>
+                            {{/Periodo}}
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>Departamento Encargado<span style="color: red;">*</span></strong>
+                    </td>
+                    <td><strong>Competencias<span style="color: red;">*</span></strong></td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" autocomplete="off"  id="Encargado" name="Encargado" style="text-align:center;width:90%;" size="70" onkeypress="AutoCompletarResponsable()" onclick="FormatBoxAuto()"  /><input type="hidden" id="Encargado_id" name="Encargado_id" />
+                    </td>
+                    <td>
+                    <select id="CompetenciasInicial" name="CompetenciasInicial">
+                        <option value="-1"></option>
+                        {{#Competencia}}
+                        <option value="{{id}}">{{Nombre}}</option>
+                        {{/Competencia}}    
+                    </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Justificación<span style="color: red;">*</span></strong></td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <textarea name="area1" id="area1" cols="40" style="width: 100%; height: 30%;"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Objetivos de Aprendizaje<span style="color: red;">*</span></strong></td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <textarea name="area2" id="area2" cols="40" style="width: 100%; height: 30%;"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <hr />
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <fieldset>
+                            <legend>Sesiones<span style="color: red;">*</span></legend>
+                            <table border='1' style="width: 100%;" id="TableSessiones">
+                                <thead>
+                                    <tr style="background: #D5FFE6;">
+                                        <th>#</th>
+                                        <th>Competencias</th>
+                                        <th>Contenidos</th>
+                                        <th>Actividades</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr id="trNewSession0" style="background: #E5E4FF;">
+                                        <td style="text-align: center;"><strong>1</strong></td>
+                                        <td style="text-align: center;">
+                                            <input type="text" id="Competencia_0" name="Competencia[]" size="70" />
+                                        </td>
+                                        <td style="text-align: center;">
+                                            <input type="text" id="Contenido_0" name="Contenido[]" size="70" />
+                                        </td>
+                                        <td style="text-align: center;">
+                                            <input type="text" id="Actividad_0" name="Actividad[]" size="70" />
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <input type="hidden" id="numIndices" name="numIndices" value="0" />
+                            <input type="button" class="button" style="color: green;font-size: 15px;" value="+" onclick="AddTr()" title="Adicionar" />
+                            <input type="button" class="button" style="color: red;font-size: 15px;" value="-" onclick="DeleteTr()" title="Eliminar" />
+                        </fieldset>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <hr />
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Evaluación<span style="color: red;">*</span></strong></td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <textarea name="area3" id="area3" cols="40" style="width: 100%; height: 30%;"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Bibliografia<span style="color: red;">*</span></strong></td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <textarea name="area4" id="area4" cols="40" style="width: 100%; height: 30%;"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <table style="width: 100%;">
+                            <tr>
+                                <td colspan="3">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    <!--<input type="button" class="button" onclick="SaveInfo()" value="Guardar" />-->
+                                    <button type="button" class="button" onclick="SaveInfo()" title="Guardar">Guardar&nbsp;&nbsp;<img src="../../../mgi/images/Save_reg.png" width="20" /></button>
+                                </th>
+                                <th>
+                                    <input type="button" class="button" onclick="LimpiarFormulario()" value="Limpiar" />
+                                </th>
+                                <th>
+                                    <input type="button" class="button" onclick="Regresar()" value="Regresar" />
+                                </th>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+     </form> 
+	</body>
+</html>
+</div> 

@@ -1,0 +1,89 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<!--<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">-->
+		<title>{{title}}</title>
+		<link rel="stylesheet" type="text/css" href="../../css/cssreset-min.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/normalize.css" />
+		<link rel="stylesheet" type="text/css" href="../../../css/demo_page.css" />
+		<link rel="stylesheet" type="text/css" href="../../../css/demo_table_jui.css" />
+		<link rel="stylesheet" type="text/css" href="../../../css/themes/smoothness/jquery-ui-1.8.4.custom.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/emergenteMGI.css" />     
+		<script type="text/javascript" language="javascript" src="../../js/jquery.js"></script>
+        <script type="text/javascript" language="javascript" src="../../js/jquery.validate.min.js"></script>
+		<script type="text/javascript" language="javascript" src="../../js/jquery.dataTables.js"></script>
+		<script type="text/javascript" language="javascript" src="../../js/jquery-ui-1.8.21.custom.min.js"></script>
+		<!--<script type="text/javascript" language="javascript" src="js/jquery-ui.js"></script>-->
+		<script type="text/javascript" language="javascript" src="../../js/nicEdit.js"></script>
+		<script type="text/javascript" language="javascript" src="../../js/functions.js"></script>
+		<script type="text/javascript" language="javascript" src="../../js/ajax.js"></script>
+		<script type="text/javascript" language="javascript" src="../../js/funcionesFactores.js"></script>
+		
+	</head>
+	<body class="body">
+	<form name="forma" id="forma" action="" method="post" enctype="multipart/form-data">
+                <input type="hidden"  name="idsiq_factor" value="{{idsiq_factor}}">
+                <input type="hidden"  name="idsiq_estructuradocumento" value="{{idsiq_estructuradocumento}}">
+			<div id="pageContainer">
+				<fieldset>
+				<legend>&nbsp;Procesos de autoevaluación<br>&nbsp;{{nombre}}&nbsp;</legend>  
+				
+						{{# tienePermisos }}
+							<input type="button" name="accion" value="Nuevo proceso" onclick="location.href='emergente.php?idsiq_estructuradocumento={{idsiq_estructuradocumento}}&idsiq_factor={{idsiq_factor}}&tp=np'"><br><br>
+						{{/ tienePermisos }}
+					<div>
+					
+						<div id="DivIndicadores">
+							<div id="pageContainer">
+								<table width="100%" cellspacing="0" cellpadding="0" border="0" align="center">
+										<thead>
+											<tr>
+												<td width="20%" align="center"><strong>Proceso</strong></td>
+												<td width="50%" align="center"><strong>Descripción</strong></td>
+												<td width="20%" align="center"><strong>Fecha creación</strong></td>
+												<td width="10%" align="center"><strong>Opción</strong></td>
+											</tr>
+										</thead>
+									<tbody>								
+										{{# procesos }}
+										<tr class="{{# class_even }}{{variable}}{{/ class_even }}">				
+												<td width="20%">{{nombre}}</td>
+												<td width="50%">{{descripcion}}</td>
+												<td width="20%" align="center">{{fecha_creacion}}</td>
+												<td width="10%" align="center">
+													<a href="emergente.php?idsiq_estructuradocumento={{idsiq_estructuradocumento}}&idsiq_factor={{idsiq_factor}}&idsiq_factorautoevaluacion={{idsiq_factorautoevaluacion}}&tp=va"><img src="../../images/eye.png" width="30" title="Ver adjuntos" alt="Ver adjuntos"></a>
+													{{# tienePermisos }}
+														<a href="emergente.php?idsiq_estructuradocumento={{idsiq_estructuradocumento}}&idsiq_factor={{idsiq_factor}}&idsiq_documento={{idsiq_documento}}&tp=aa"><img src="../../images/add.gif" width="20" title="Adjuntar archivo" alt="Adjuntar archivo"></a>
+														<a href="javascript:void(0)" onclick="inactivarProceso('{{idsiq_factorautoevaluacion}}','{{idsiq_factor}}','pa');"><img src="../../images/Close_Box_Red.png" width="20" title="Eliminar proceso" alt="Eliminar proceso"></a>
+													{{/ tienePermisos }}
+												</td>
+										</tr>
+										{{/ procesos }}
+									</tbody>
+								</table>
+							</div>
+						</div>
+						
+						<br>
+						<center>
+							<input type="button"  name="accion" value="Cerrar" onclick="window.close()" >
+						</center>
+					</div>
+				
+				</fieldset>
+			</div>
+			<input type="hidden"  name="tp" value="{{tp}}">
+		</form>		
+		<script type="text/javascript">
+							
+			jQuery(function() { 					
+					{{# guardar }}
+						alert("La información se guardó correctamente.");
+					{{/ guardar }}
+								
+					$('#forma').validate();
+			})
+		</script>
+	</body>
+</html>

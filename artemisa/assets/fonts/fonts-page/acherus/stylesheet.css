@@ -1,0 +1,42 @@
+/*
+ * Web Fonts from fontspring.com
+ *
+ * All OpenType features and all extended glyphs have been removed.
+ * Fully installable fonts can be purchased at http://www.fontspring.com
+ *
+ * The fonts included in this stylesheet are subject to the End User License you purchased
+ * from Fontspring. The fonts are protected under domestic and international trademark and 
+ * copyright law. You are prohibited from modifying, reverse engineering, duplicating, or
+ * distributing this font software.
+ *
+ * (c) 2010-2016 Fontspring
+ *
+ *
+ *
+ *
+ * The fonts included are copyrighted by the vendor listed below.
+ *
+ * Vendor:      Horizon Type
+ * License URL: https://www.fontspring.com/licenses/horizon-type/webfont
+ *
+ *
+ */
+
+@font-face {
+    font-family: 'acherus_grotesqueblack';
+    src: url('acherus_grotesque_-_black-webfont.eot');
+    src: url('acherus_grotesque_-_black-webfont.eot?#iefix') format('embedded-opentype'),
+         url('acherus_grotesque_-_black-webfont.woff2') format('woff2'),
+         url('acherus_grotesque_-_black-webfont.woff') format('woff'),
+         url('acherus_grotesque_-_black-webfont.ttf') format('truetype'),
+         url('acherus_grotesque_-_black-webfont.svg#acherus_grotesqueblack') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+h1
+{
+	 font-family: 'acherus_grotesqueblack';
+}
+

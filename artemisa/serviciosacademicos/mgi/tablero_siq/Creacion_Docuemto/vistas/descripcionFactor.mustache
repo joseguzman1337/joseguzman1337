@@ -1,0 +1,134 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<!--<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">-->
+		<title>{{title}}</title>
+		<link rel="stylesheet" type="text/css" href="../../css/cssreset-min.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/normalize.css" />
+		<link rel="stylesheet" type="text/css" href="../../../css/demo_page.css" />
+		<link rel="stylesheet" type="text/css" href="../../../css/demo_table_jui.css" />
+		<link rel="stylesheet" type="text/css" href="../../../css/themes/smoothness/jquery-ui-1.8.4.custom.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/emergenteMGI.css" />     
+		<script type="text/javascript" language="javascript" src="../../js/jquery.js"></script>
+        <script type="text/javascript" language="javascript" src="../../js/jquery.validate.min.js"></script>
+		<script type="text/javascript" language="javascript" src="../../js/jquery.dataTables.js"></script>
+		<script type="text/javascript" language="javascript" src="../../js/jquery-ui-1.8.21.custom.min.js"></script>
+		<!--<script type="text/javascript" language="javascript" src="js/jquery-ui.js"></script>-->
+		<script type="text/javascript" language="javascript" src="../../js/nicEdit.js"></script>
+		<script type="text/javascript" language="javascript" src="../../js/functions.js"></script>
+		<script type="text/javascript" language="javascript" src="../../js/ajax.js"></script>
+		
+	</head>
+	<body class="body">
+	<form name="forma" id="forma" action="" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="idsiq_estructuradocumento" value="{{idsiq_estructuradocumento}}">
+			<div id="pageContainer">
+				<fieldset>
+				<legend>&nbsp;Descripción general<br>&nbsp;{{nombreFactor}}&nbsp;</legend>  
+					<div>
+					
+						<div id="DivIndicadores">
+							<div id="pageContainer">
+								<input type="hidden"  name="idsiq_factor" value="{{idsiq_factor}}">
+								<input type="hidden"  name="idsiq_factorinformaciongeneral" value="{{idsiq_factorinformaciongeneral}}">
+								<table width="100%" cellspacing="0" cellpadding="0" border="0" align="center">
+									<tbody>
+										<tr>												
+											<td class="titulo"><strong>Descripción general</strong></td>
+											<td class="contenido">
+												<div id="menuEditorDescripcionCaracteristica" style="width: 540px;"></div>
+												<textarea class="required" rows="6" name="resumen" id="resumenCaracteristica">{{resumen}}</textarea>
+											</td>
+										</tr>
+                                                                            
+                                                                                <tr>												
+											<td class="titulo"><strong>Oportunidad de mejora</strong></td>
+											<td>
+												<div id="style="width: 540px;"><br>
+                                                                                                    <table border="1" width= 540px;>
+                                                                                                        <tr>
+                                                                                                            <td>Nombre</td>
+                                                                                                            <td>Valoración</td>
+                                                                                                            {{# tienePermisos }}<td>Acciones</td>{{/ tienePermisos }}
+                                                                                                        </tr> 
+                                                                                                         {{#oportunidadMejora}}     
+                                                                                                         <tr>
+                                                                                                            <td>{{nombre}}</td>
+                                                                                                            <td>{{avance}}</td>
+                                                                                                            {{# tienePermisos }}<td><a href="verOportunidad.php?id={{idsiq_oportunidad}}&idsiq_estructuradocumento={{idsiq_estructuradocumento}}&idsiq_factor={{idsiq_factor}}&tp={{tp}}">Editar Avance</a></td>{{/ tienePermisos }}
+                                                                                                        </tr>
+                                                                                                          {{/oportunidadMejora}}  
+                                                                                                    </table>
+                                                                                                 </div><br>
+											</td>
+										</tr>        
+                                                                                   <tr>												
+											<td class="titulo"><strong>Oportunidad de consolidadción</strong></td>
+											<td>
+												<div id="style="width: 540px;"><br>
+                                                                                                    <table border="1" width= 540px;>
+                                                                                                        <tr>
+                                                                                                            <td>Nombre</td>
+                                                                                                            <td>Valoración</td>
+                                                                                                            {{# tienePermisos }}<td>Acciones</td>{{/ tienePermisos }}
+                                                                                                        </tr>
+                                                                                                         {{#oportunidadConsolidacion}}      
+                                                                                                        <tr>
+                                                                                                            <td>{{nombre}}</td>
+                                                                                                            <td>{{avance}}</td>
+                                                                                                           {{# tienePermisos }} <td><a href="verOportunidad.php?id={{idsiq_oportunidad}}&idsiq_estructuradocumento={{idsiq_estructuradocumento}}&idsiq_factor={{idsiq_factor}}&tp={{tp}}">Editar avance</a></td>{{/ tienePermisos }}
+                                                                                                        </tr>
+                                                                                                         {{/oportunidadConsolidacion}}     
+                                                                                                    </table>     
+                                                                                                 </div><br>
+											</td>
+										</tr>         
+                                                                            	<tr>
+											<td class="titulo"><strong>Plan de desarrollo y mejora</strong></td>
+											<td class="contenido">
+												<div id="menuEditorPlanDesarrollo" style="width: 540px;"></div>
+												<textarea class="required" rows="6" name="plan_desarrollo" id="plan_desarrollo">{{plan_desarrollo}}</textarea>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+						
+						<br>
+						<center>
+						{{# tienePermisos }}
+							<input type="submit"  name="accion" value="Guardar" style="">
+						{{/ tienePermisos }}
+						<input type="button"  name="accion" value="Cerrar" onclick="window.close()">
+						</center>
+					</div>
+				
+				</fieldset>
+			</div>
+			<input type="hidden"  name="tp" value="{{tp}}">
+		</form>
+	
+						
+						<script type="text/javascript">			
+							 //<![CDATA[
+							bkLib.onDomLoaded(function() {
+									 var myNicEditor = new nicEditor({fullPanel : true,iconsPath : '../../images/nicEditorIcons.gif'});
+									myNicEditor.setPanel('menuEditorDescripcionCaracteristica');
+									myNicEditor.addInstance('resumenCaracteristica');    
+									myNicEditor.setPanel('menuEditorPlanDesarrollo');
+									myNicEditor.addInstance('plan_desarrollo');    
+							});
+							
+							jQuery(function() { 					
+								{{# guardar }}
+									alert("La información se guardó correctamente.");
+								{{/ guardar }}
+								
+								$('#forma').validate();
+							})
+						</script>
+		
+	</body>
+</html>

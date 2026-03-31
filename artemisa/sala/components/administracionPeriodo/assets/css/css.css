@@ -1,0 +1,65 @@
+input#nombre{
+    text-transform: uppercase !important;
+}
+.navbar-default .navbar-brand{
+    color: #97c664;
+    background-color: 97c664 !important;
+}
+
+.navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
+    color: #97c664;
+    background-color: 97c664 !important;
+}
+    
+.navbar-default .navbar-brand, .navbar-default .navbar-brand:focus {
+    color: #ffffff;
+    background-color: #97c664;
+}  
+    
+.navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
+    color: #ffffff;
+    background-color: #97c664;
+}
+
+.navbar-default {  
+    background-color: #97c664; 
+ }
+
+ .navbar-default .navbar-nav > li > a{
+     color: #ffffff;
+     
+ }
+
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+    color: #ffffff;
+    background-color: #97c664;
+}
+
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+    color: #ffffff;
+    background-color: #97c664;
+}
+
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+    color: #ffffff;
+    background-color: #74b230;
+}
+
+.navbar-default .navbar-nav > li {
+    color: #ffffff;
+    background-color: #97c664; 
+   
+}
+
+
+.dropdown-menu > li > a:hover {
+    background-color: #97c664;
+    color: #ffffff;
+
+}
+
+div.bars.pull-left{
+    width: 65% !important;
+}
+
+/**/

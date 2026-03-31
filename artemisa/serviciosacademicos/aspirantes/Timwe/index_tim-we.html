@@ -1,0 +1,126 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Universidad El Bosque</title>
+<link rel="icon" type="image/ico" href="favicon.ico" />
+<link rel="stylesheet" type="text/css" href="scripts/oferta.css" />
+<script type="text/javascript" src="scripts/jquery-1.2.2.pack.js"></script>
+<script type="text/javascript" src="scripts/animatedcollapse.js"></script>
+<script type="text/javascript">
+	animatedcollapse.addDiv('encabezado')
+	animatedcollapse.addDiv('primero', 'persist=0,hide=1,speed=400,group=gruponivel1')			<!-- Pregrado -->			
+	animatedcollapse.addDiv('segundo', 'persist=0,hide=1,speed=400,group=gruponivel1')			<!-- Postgrado -->		
+	animatedcollapse.addDiv('tercero', 'persist=0,hide=1,speed=400,group=gruponivel1')			<!-- Educación Continuada -->		
+	animatedcollapse.addDiv('cuarto', 'persist=0,hide=1,speed=400,group=gruponivel1')			<!-- Curso Básico Preuniversitario -->	
+	animatedcollapse.addDiv('quinto', 'persist=0,hide=1,speed=400,group=gruponivel1')			<!-- Curso Pre-ICFES -->	
+	animatedcollapse.addDiv('sexto', 'persist=0,hide=1,speed=400,group=gruponivel1')			<!-- Colegio Bilingüe -->	
+	animatedcollapse.addDiv('septimo', 'persist=0,hide=1,speed=400,group=gruponivel1')			<!-- Idiomas -->
+	animatedcollapse.init()
+</script>
+<style type="text/css">
+html, body					{ height: 100%; width: 100%; margin: 0; padding: 0; }
+#central					{ width: 100%; height: 100%; position: absolute; top: 0; left: 0; overflow: auto; background:url(imagenes/temp.jpg) no-repeat top; }
+#formulario					{ width: 100%; height: 100%; margin: 0; padding: 0; list-style-type: none; text-align: left; overflow: hidden; }
+#lightbox					{ width: 100%; height: 100%; position: relative; background:url(imagenes/vm_lightbox.png) }
+#cerrado					{ width: 100%; height: 100%; position: relative; background-color: transparent; z-index: -1; }
+.cerrar						{ background:url(imagenes/vm_cerrar.png); background-position:0 0; top:5px; right:5px; position:absolute; display:block; width:21px; height:21px; text-decoration:none; }
+.cerrar:hover				{ background:url(imagenes/vm_cerrar.png); background-position:21px 0; }
+.vm_campo					{ position:relative; width:323px; height:25px; margin:2px 0; vertical-align:middle; padding:5px 0 0 10px; left:0; border:none; color:#596221; background:url(imagenes/mw_campo.gif) repeat-x #eaebdb; }
+select						{ position:relative; width:333px; height:30px; margin:2px 0; padding:5px 0 0 7px; left:0; border:none; color:#596221; background:url(imagenes/mw_campo.gif) repeat-x #eaebdb; }
+.vm_boton					{ width:160px; height:21px; margin:10px; padding-right:24px; font-weight:bold; text-align:right; border:none; background:url(imagenes/vm_enviar.png); }
+.vm_boton:hover				{ color:#FFF; background:url(imagenes/vm_enviar.png); background-position:0 21px; }
+/*input:focus				{ color:#B5B5A6; }*/
+#vm_superior_izquierda		{ display:block; float:left; width:16px; height:11px; background:url(imagenes/vm_borde_esquinas.png); background-position:0 0; }
+#vm_superior				{ display:block; width:auto; height:11px; margin:0 16px; background:url(imagenes/vm_superior.png) repeat-x; }
+#vm_superior_derecha		{ display:block; width:16px; height:11px; position:absolute; top:0; right:0; background:url(imagenes/vm_borde_esquinas.png); background-position:16px 0px; }
+#vm_izquierda				{ display:block; width:16px; height:100%; position:absolute; left:0; background:url(imagenes/vm_izquierda.png) repeat-y; }
+#vm_central					{ display:block; width:auto; height:100%; position:relative; margin:0 16px; background:#FFF; }
+#vm_contenido				{ width:333px; margin:0 15px; background:#F1F2E7 }
+#vm_derecha					{ display:block; width:16px; height:100%; position:absolute; top:11px; right:0; background:url(imagenes/vm_derecha.png) repeat-y; }
+#vm_inferior_izquierda		{ display:block; float:left; width:16px; height:19px; background:url(imagenes/vm_borde_esquinas.png); background-position:0 19px; }
+#vm_inferior				{ display:block; width:auto; height:19px; position:relative; margin:0px 16px; background:url(imagenes/vm_inferior.png) repeat-x; }
+#vm_inferior_derecha		{ display:block; width:16px; height:19px; position:absolute; right:0; bottom:-30px; background:url(imagenes/vm_borde_esquinas.png); background-position:16px 19px; }
+#vm_encabezado				{ width:auto; padding-bottom:35px; min-height:50px; background:url(imagenes/vm_degradado_inferior.png) repeat-x bottom #97BE0D; }
+#vm_degradado				{ width:auto; height:15px; background:url(imagenes/vm_degradado_superior.png) repeat-x top; }
+</style>
+<!--[if IE]>
+    <style type="text/css">
+    html {
+    overflow-y: auto;}
+
+    #formulario {
+    position: relative;}
+    
+    </style>
+    <![endif]-->
+</head>
+<body>
+
+<div id="central">
+</div>
+<div id="formulario">
+  <div id="lightbox">
+    <!--[if IE]>
+        <div class="ie-bg"></div>
+        <![endif]-->
+	<div id="campana" style="position:absolute; width:395px; height:305px; left:50%; top:50px; margin-left:-190px;">    
+			<span id="vm_superior_izquierda"></span>
+			<span id="vm_superior"></span>
+			<span id="vm_superior_derecha"></span>
+			<span id="vm_izquierda"></span>
+			<div id="vm_central">
+	        	<div id="vm_encabezado"><a href="#cerrado" class="cerrar" title="cerrar ventana"></a>
+	            <div id="vm_degradado"></div>
+                <div style="margin:0 35px 0 15px;">Para nosotros es muy importante conocer sus intereses. Por favor registre sus datos.</div> 
+	            </div>
+                <div id="vm_contenido">
+                <form action="mailto:kayograco@unbosque.edu.co" method="post" style="width:331px; margin:0; padding:0; margin-top:5px; text-align:right;">
+                <input type="text" class="vm_campo" name="Nombres y apellidos" value="Nombres y apellidos" onfocus="this.value=''" onblur="if(this.value == ''){this.value='Nombres y apellidos';}" />
+                <input type="text" class="vm_campo" name="Correo" value="Correo electr&oacute;nico" onfocus="this.value=''" onblur="if(this.value == ''){this.value='Correo electr&oacute;nico';}" />
+                <input type="text" class="vm_campo" name="Movil" value="M&oacute;vil" onfocus="this.value=''" onblur="if(this.value == ''){this.value='Mobil';}" />
+                <select name="lista_desplegable">
+                	<option selected="selected">Me interesa el programa de:
+                    </option>
+                	<optgroup label="Artes y Dise&ntilde;o">
+                		<option>Arte Dram&aacute;tico</option>
+                		<option>Artes Pl&aacute;sticas</option>
+                		<option>Dise&ntilde;o Industrial</option>
+                		<option>Formaci&oacute;n Musical</option>
+                    </optgroup>
+                	<optgroup label="Ciencias Naturales y de la Salud">
+                		<option>Biolog&iacute;a</option>
+                		<option>Enfermer&iacute;a</option>
+                		<option>Instrumentaci&oacute;n Quir&uacute;rgica</option>
+                		<option>Medicina</option>
+                		<option>Odontolog&iacute;a</option>
+                		<option>Optometr&iacute;a</option>
+                		<option>Psicolog&iacute;a</option>
+                    </optgroup>
+                	<optgroup label="Ciencias Sociales y Humanidades">
+                		<option>Filosof&iacute;a</option>
+                		<option>Lic. en Educaci&oacute;n Bilingue con &Eacute;nfasis en la Ense&ntilde;anza del Ingl&eacute;s</option>
+                		<option>Licenciatura en Pedagog&iacute;a Infantil</option>
+                    </optgroup>
+                	<optgroup label="Administraci&oacute;n e Ingenier&iacute;as">
+                		<option>Administraci&oacute;n de Empresas</option>
+                		<option>Ingenier&iacute;a Ambiental</option>
+                		<option>Ingenier&iacute;a Electr&oacute;nica</option>
+                		<option>Ingenier&iacute;a Industrial</option>
+                		<option>Ingenier&iacute;a de Sistemas</option>
+                    </optgroup>
+                </select>
+                <input type="submit" class="vm_boton" value="Enviar y continuar" />
+                </form>
+                </div><span style="display:block; margin:5px 15px; font-size:0.7em; font-style:italic; color:#A4AF92">Sus datos son confidenciales y de uso exclusivo de la Universidad.</span>
+	        </div>
+			<span id="vm_derecha"></span>
+			<span id="vm_inferior_izquierda"></span>
+			<span id="vm_inferior"></span>
+			<span id="vm_inferior_derecha"></span>
+	</div>
+  </div>
+  <div id="cerrado"></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,874 @@
+/*
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package io.trino.operator;
+
+import com.google.common.annotations.VisibleForTesting;
+import com.google.common.cache.CacheBuilder;
+import com.google.common.cache.CacheLoader;
+import com.google.common.cache.LoadingCache;
+import com.google.common.collect.ImmutableList;
+import com.google.common.collect.Lists;
+import com.google.inject.Inject;
+import io.airlift.bytecode.BytecodeBlock;
+import io.airlift.bytecode.ClassDefinition;
+import io.airlift.bytecode.DynamicClassLoader;
+import io.airlift.bytecode.FieldDefinition;
+import io.airlift.bytecode.MethodDefinition;
+import io.airlift.bytecode.Parameter;
+import io.airlift.bytecode.Scope;
+import io.airlift.bytecode.Variable;
+import io.airlift.bytecode.control.IfStatement;
+import io.airlift.bytecode.expression.BytecodeExpression;
+import io.trino.annotation.UsedByGeneratedCode;
+import io.trino.cache.CacheStatsMBean;
+import io.trino.operator.scalar.CombineHashFunction;
+import io.trino.spi.block.Block;
+import io.trino.spi.block.BlockBuilder;
+import io.trino.spi.type.Type;
+import io.trino.spi.type.TypeOperators;
+import io.trino.sql.gen.CallSiteBinder;
+import org.weakref.jmx.Managed;
+import org.weakref.jmx.Nested;
+
+import java.lang.invoke.MethodHandle;
+import java.util.ArrayList;
+import java.util.List;
+
+import static com.google.common.base.Preconditions.checkArgument;
+import static com.google.common.collect.Iterables.getOnlyElement;
+import static io.airlift.bytecode.Access.FINAL;
+import static io.airlift.bytecode.Access.PRIVATE;
+import static io.airlift.bytecode.Access.PUBLIC;
+import static io.airlift.bytecode.Access.STATIC;
+import static io.airlift.bytecode.Access.a;
+import static io.airlift.bytecode.Parameter.arg;
+import static io.airlift.bytecode.ParameterizedType.type;
+import static io.airlift.bytecode.expression.BytecodeExpressions.add;
+import static io.airlift.bytecode.expression.BytecodeExpressions.constantBoolean;
+import static io.airlift.bytecode.expression.BytecodeExpressions.constantFalse;
+import static io.airlift.bytecode.expression.BytecodeExpressions.constantInt;
+import static io.airlift.bytecode.expression.BytecodeExpressions.constantLong;
+import static io.airlift.bytecode.expression.BytecodeExpressions.constantNull;
+import static io.airlift.bytecode.expression.BytecodeExpressions.constantTrue;
+import static io.airlift.bytecode.expression.BytecodeExpressions.inlineIf;
+import static io.airlift.bytecode.expression.BytecodeExpressions.invokeDynamic;
+import static io.airlift.bytecode.expression.BytecodeExpressions.invokeStatic;
+import static io.airlift.bytecode.expression.BytecodeExpressions.lessThan;
+import static io.airlift.bytecode.expression.BytecodeExpressions.newInstance;
+import static io.airlift.bytecode.expression.BytecodeExpressions.not;
+import static io.airlift.bytecode.expression.BytecodeExpressions.notEqual;
+import static io.trino.cache.SafeCaches.buildNonEvictableCache;
+import static io.trino.operator.HashGenerator.INITIAL_HASH_VALUE;
+import static io.trino.operator.InterpretedHashGenerator.createPagePrefixHashGenerator;
+import static io.trino.spi.function.InvocationConvention.InvocationArgumentConvention.BLOCK_POSITION_NOT_NULL;
+import static io.trino.spi.function.InvocationConvention.InvocationArgumentConvention.FLAT;
+import static io.trino.spi.function.InvocationConvention.InvocationReturnConvention.BLOCK_BUILDER;
+import static io.trino.spi.function.InvocationConvention.InvocationReturnConvention.FAIL_ON_NULL;
+import static io.trino.spi.function.InvocationConvention.InvocationReturnConvention.FLAT_RETURN;
+import static io.trino.spi.function.InvocationConvention.simpleConvention;
+import static io.trino.spi.type.TypeUtils.NULL_HASH_CODE;
+import static io.trino.sql.gen.Bootstrap.BOOTSTRAP_METHOD;
+import static io.trino.sql.gen.BytecodeUtils.loadConstant;
+import static io.trino.sql.gen.SqlTypeBytecodeExpression.constantType;
+import static io.trino.util.CompilerUtils.defineClass;
+import static io.trino.util.CompilerUtils.makeClassName;
+import static java.util.Objects.requireNonNull;
+
+public final class FlatHashStrategyCompiler
+{
+    @VisibleForTesting
+    static final int COLUMNS_PER_CHUNK = 500;
+
+    private final LoadingCache<List<Type>, FlatHashStrategy> flatHashStrategies;
+    private final NullSafeHashCompiler nullSafeHashCompiler;
+
+    @Inject
+    public FlatHashStrategyCompiler(TypeOperators typeOperators, NullSafeHashCompiler nullSafeHashCompiler)
+    {
+        this.nullSafeHashCompiler = requireNonNull(nullSafeHashCompiler, "nullSafeHashCompiler is null");
+        this.flatHashStrategies = buildNonEvictableCache(
+                CacheBuilder.newBuilder()
+                        .recordStats()
+                        .maximumSize(1000),
+                CacheLoader.from(key -> compileFlatHashStrategy(key, typeOperators)));
+    }
+
+    public FlatHashStrategy getFlatHashStrategy(List<Type> types)
+    {
+        return flatHashStrategies.getUnchecked(ImmutableList.copyOf(types));
+    }
+
+    public InterpretedHashGenerator getInterpretedHashGenerator(List<Type> types)
+    {
+        return createPagePrefixHashGenerator(types, nullSafeHashCompiler);
+    }
+
+    @Managed
+    @Nested
+    public CacheStatsMBean getFlatHashStrategiesStats()
+    {
+        return new CacheStatsMBean(flatHashStrategies);
+    }
+
+    @VisibleForTesting
+    public static FlatHashStrategy compileFlatHashStrategy(List<Type> types, TypeOperators typeOperators)
+    {
+        List<KeyField> keyFields = new ArrayList<>();
+        int fixedOffset = 0;
+        for (int i = 0; i < types.size(); i++) {
+            Type type = types.get(i);
+            keyFields.add(new KeyField(
+                    i,
+                    type,
+                    fixedOffset,
+                    fixedOffset + 1,
+                    typeOperators.getReadValueOperator(type, simpleConvention(BLOCK_BUILDER, FLAT)),
+                    typeOperators.getReadValueOperator(type, simpleConvention(FLAT_RETURN, BLOCK_POSITION_NOT_NULL)),
+                    typeOperators.getIdenticalOperator(type, simpleConvention(FAIL_ON_NULL, FLAT, BLOCK_POSITION_NOT_NULL)),
+                    typeOperators.getHashCodeOperator(type, simpleConvention(FAIL_ON_NULL, FLAT)),
+                    typeOperators.getHashCodeOperator(type, simpleConvention(FAIL_ON_NULL, BLOCK_POSITION_NOT_NULL))));
+            fixedOffset += 1 + type.getFlatFixedSize();
+        }
+
+        CallSiteBinder callSiteBinder = new CallSiteBinder();
+        List<ChunkClass> chunkClasses = new ArrayList<>();
+        int chunkNumber = 0;
+        // generate a separate class for each chunk of 500 types to avoid hitting the JVM method size and constant pool limits
+        boolean singleChunkClass = keyFields.size() <= COLUMNS_PER_CHUNK;
+        for (List<KeyField> chunk : Lists.partition(keyFields, COLUMNS_PER_CHUNK)) {
+            chunkClasses.add(compileFlatHashStrategyChunk(callSiteBinder, chunk, chunkNumber, singleChunkClass));
+            chunkNumber++;
+        }
+
+        ClassDefinition definition = new ClassDefinition(
+                a(PUBLIC, FINAL),
+                makeClassName("FlatHashStrategy"),
+                type(Object.class),
+                type(FlatHashStrategy.class));
+
+        // the 'types' field is not used, but it makes debugging easier
+        // this is an instance field because a static field doesn't seem to show up in the IntelliJ debugger
+        FieldDefinition typesField = definition.declareField(a(PRIVATE, FINAL), "types", type(List.class, Type.class));
+        MethodDefinition constructor = definition.declareConstructor(a(PUBLIC));
+        constructor
+                .getBody()
+                .append(constructor.getThis())
+                .invokeConstructor(Object.class)
+                .append(constructor.getThis().setField(typesField, loadConstant(callSiteBinder, ImmutableList.copyOf(types), List.class)))
+                .ret();
+
+        boolean anyVariableWidth = (int) types.stream().filter(Type::isFlatVariableWidth).count() > 0;
+        definition.declareMethod(a(PUBLIC), "isAnyVariableWidth", type(boolean.class)).getBody()
+                .append(constantBoolean(anyVariableWidth).ret());
+
+        definition.declareMethod(a(PUBLIC), "getTotalFlatFixedLength", type(int.class)).getBody()
+                .append(constantInt(fixedOffset).ret());
+
+        generateGetTotalVariableWidth(definition, chunkClasses);
+
+        generateReadFlat(definition, chunkClasses);
+        generateWriteFlat(definition, chunkClasses);
+        generateIdenticalMethod(definition, chunkClasses);
+        generateHashBlock(definition, chunkClasses);
+        generateHashFlat(definition, chunkClasses, singleChunkClass);
+
+        try {
+            DynamicClassLoader classLoader = new DynamicClassLoader(FlatHashStrategyCompiler.class.getClassLoader(), callSiteBinder.getBindings());
+            for (ChunkClass chunkClass : chunkClasses) {
+                defineClass(chunkClass.definition(), Object.class, classLoader);
+            }
+            return defineClass(definition, FlatHashStrategy.class, classLoader)
+                    .getConstructor()
+                    .newInstance();
+        }
+        catch (ReflectiveOperationException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private static ChunkClass compileFlatHashStrategyChunk(CallSiteBinder callSiteBinder, List<KeyField> keyFields, int chunkNumber, boolean singleChunkClass)
+    {
+        ClassDefinition definition = new ClassDefinition(
+                a(PUBLIC, FINAL),
+                makeClassName("FlatHashStrategyChunk$" + chunkNumber),
+                type(Object.class),
+                type(FlatHashStrategy.class));
+
+        definition.declareDefaultConstructor(a(PRIVATE));
+
+        MethodDefinition getTotalVariableWidthChunk = generateGetTotalVariableWidthChunk(definition, keyFields, callSiteBinder);
+        MethodDefinition readFlatChunk = generateReadFlatChunk(definition, keyFields, callSiteBinder);
+        MethodDefinition writeFlatChunk = generateWriteFlatChunk(definition, keyFields, callSiteBinder);
+        MethodDefinition identicalChunkMethod = generateIdenticalChunkMethod(definition, keyFields, callSiteBinder);
+        MethodDefinition hashBlockChunk = generateHashBlockChunk(definition, keyFields, callSiteBinder);
+        MethodDefinition hashFlatChunk;
+        if (singleChunkClass) {
+            hashFlatChunk = generateHashFlatSingleChunk(definition, keyFields, callSiteBinder);
+        }
+        else {
+            hashFlatChunk = generateHashFlatMultiChunk(definition, keyFields, callSiteBinder);
+        }
+
+        return new ChunkClass(
+                definition,
+                getTotalVariableWidthChunk,
+                readFlatChunk,
+                writeFlatChunk,
+                identicalChunkMethod,
+                hashBlockChunk,
+                hashFlatChunk);
+    }
+
+    private static void generateGetTotalVariableWidth(ClassDefinition definition, List<ChunkClass> chunkClasses)
+    {
+        Parameter blocks = arg("blocks", type(Block[].class));
+        Parameter position = arg("position", type(int.class));
+        MethodDefinition methodDefinition = definition.declareMethod(
+                a(PUBLIC),
+                "getTotalVariableWidth",
+                type(int.class),
+                blocks,
+                position);
+        BytecodeBlock body = methodDefinition.getBody();
+
+        Scope scope = methodDefinition.getScope();
+        Variable variableWidth = scope.declareVariable("variableWidth", body, constantLong(0));
+        for (ChunkClass chunkClass : chunkClasses) {
+            body.append(variableWidth.set(add(variableWidth, invokeStatic(chunkClass.getTotalVariableWidth(), blocks, position))));
+        }
+        body.append(invokeStatic(Math.class, "toIntExact", int.class, variableWidth).ret());
+    }
+
+    private static MethodDefinition generateGetTotalVariableWidthChunk(ClassDefinition definition, List<KeyField> keyFields, CallSiteBinder callSiteBinder)
+    {
+        Parameter blocks = arg("blocks", type(Block[].class));
+        Parameter position = arg("position", type(int.class));
+        MethodDefinition methodDefinition = definition.declareMethod(
+                a(PUBLIC, STATIC),
+                "getTotalVariableWidth",
+                type(long.class),
+                blocks,
+                position);
+        BytecodeBlock body = methodDefinition.getBody();
+
+        Scope scope = methodDefinition.getScope();
+        Variable variableWidth = scope.declareVariable("variableWidth", body, constantLong(0));
+
+        for (KeyField keyField : keyFields) {
+            Type type = keyField.type();
+            if (type.isFlatVariableWidth()) {
+                body.append(new IfStatement()
+                        .condition(not(blocks.getElement(keyField.index()).invoke("isNull", boolean.class, position)))
+                        .ifTrue(variableWidth.set(add(
+                                variableWidth,
+                                constantType(callSiteBinder, type).invoke("getFlatVariableWidthSize", int.class, blocks.getElement(keyField.index()), position).cast(long.class)))));
+            }
+        }
+        body.append(variableWidth.ret());
+        return methodDefinition;
+    }
+
+    private static void generateReadFlat(ClassDefinition definition, List<ChunkClass> chunkClasses)
+    {
+        Parameter fixedChunk = arg("fixedChunk", type(byte[].class));
+        Parameter fixedOffset = arg("fixedOffset", type(int.class));
+        Parameter variableChunk = arg("variableChunk", type(byte[].class));
+        Parameter variableOffset = arg("variableOffset", type(int.class));
+        Parameter blockBuilders = arg("blockBuilders", type(BlockBuilder[].class));
+        MethodDefinition methodDefinition = definition.declareMethod(
+                a(PUBLIC),
+                "readFlat",
+                type(void.class),
+                fixedChunk,
+                fixedOffset,
+                variableChunk,
+                variableOffset,
+                blockBuilders);
+        BytecodeBlock body = methodDefinition.getBody();
+        for (ChunkClass chunkClass : chunkClasses) {
+            body.append(variableOffset.set(invokeStatic(chunkClass.readFlatChunk(), fixedChunk, fixedOffset, variableChunk, variableOffset, blockBuilders)));
+        }
+        body.ret();
+    }
+
+    private static MethodDefinition generateReadFlatChunk(ClassDefinition definition, List<KeyField> keyFields, CallSiteBinder callSiteBinder)
+    {
+        Parameter fixedChunk = arg("fixedChunk", type(byte[].class));
+        Parameter fixedOffset = arg("fixedOffset", type(int.class));
+        Parameter variableChunk = arg("variableChunk", type(byte[].class));
+        Parameter variableOffset = arg("variableOffset", type(int.class));
+        Parameter blockBuilders = arg("blockBuilders", type(BlockBuilder[].class));
+        MethodDefinition methodDefinition = definition.declareMethod(
+                a(PUBLIC, STATIC),
+                "readFlat",
+                type(int.class),
+                fixedChunk,
+                fixedOffset,
+                variableChunk,
+                variableOffset,
+                blockBuilders);
+        BytecodeBlock body = methodDefinition.getBody();
+
+        for (KeyField keyField : keyFields) {
+            BytecodeBlock readNonNull = new BytecodeBlock()
+                    .append(invokeDynamic(
+                            BOOTSTRAP_METHOD,
+                            ImmutableList.of(callSiteBinder.bind(keyField.readFlatMethod()).getBindingId()),
+                            "readFlat",
+                            void.class,
+                            fixedChunk,
+                            add(fixedOffset, constantInt(keyField.fieldFixedOffset())),
+                            variableChunk,
+                            variableOffset,
+                            blockBuilders.getElement(keyField.index())));
+            if (keyField.type().isFlatVariableWidth()) {
+                // variableOffset += type.getFlatVariableWidthLength(fixedChunk, fixedOffset + fieldFixedOffset);
+                readNonNull.append(variableOffset.set(add(
+                        variableOffset,
+                        constantType(callSiteBinder, keyField.type()).invoke(
+                                "getFlatVariableWidthLength",
+                                int.class,
+                                fixedChunk,
+                                add(fixedOffset, constantInt(keyField.fieldFixedOffset()))))));
+            }
+            body.append(new IfStatement()
+                    .condition(notEqual(fixedChunk.getElement(add(fixedOffset, constantInt(keyField.fieldIsNullOffset()))).cast(int.class), constantInt(0)))
+                    .ifTrue(blockBuilders.getElement(keyField.index()).invoke("appendNull", BlockBuilder.class).pop())
+                    .ifFalse(readNonNull));
+        }
+        body.append(variableOffset.ret());
+        return methodDefinition;
+    }
+
+    private static void generateWriteFlat(ClassDefinition definition, List<ChunkClass> chunkClasses)
+    {
+        Parameter blocks = arg("blocks", type(Block[].class));
+        Parameter position = arg("position", type(int.class));
+        Parameter fixedChunk = arg("fixedChunk", type(byte[].class));
+        Parameter fixedOffset = arg("fixedOffset", type(int.class));
+        Parameter variableChunk = arg("variableChunk", type(byte[].class));
+        Parameter variableOffset = arg("variableOffset", type(int.class));
+        MethodDefinition methodDefinition = definition.declareMethod(
+                a(PUBLIC),
+                "writeFlat",
+                type(void.class),
+                blocks,
+                position,
+                fixedChunk,
+                fixedOffset,
+                variableChunk,
+                variableOffset);
+        BytecodeBlock body = methodDefinition.getBody();
+        for (ChunkClass chunkClass : chunkClasses) {
+            body.append(variableOffset.set(invokeStatic(chunkClass.writeFlatChunk(), blocks, position, fixedChunk, fixedOffset, variableChunk, variableOffset)));
+        }
+        body.ret();
+    }
+
+    private static MethodDefinition generateWriteFlatChunk(ClassDefinition definition, List<KeyField> keyFields, CallSiteBinder callSiteBinder)
+    {
+        Parameter blocks = arg("blocks", type(Block[].class));
+        Parameter position = arg("position", type(int.class));
+        Parameter fixedChunk = arg("fixedChunk", type(byte[].class));
+        Parameter fixedOffset = arg("fixedOffset", type(int.class));
+        Parameter variableChunk = arg("variableChunk", type(byte[].class));
+        Parameter variableOffset = arg("variableOffset", type(int.class));
+        MethodDefinition methodDefinition = definition.declareMethod(
+                a(PUBLIC, STATIC),
+                "writeFlat",
+                type(int.class),
+                blocks,
+                position,
+                fixedChunk,
+                fixedOffset,
+                variableChunk,
+                variableOffset);
+        BytecodeBlock body = methodDefinition.getBody();
+        for (KeyField keyField : keyFields) {
+            BytecodeBlock writeNonNullFlat = new BytecodeBlock()
+                    .append(invokeDynamic(
+                            BOOTSTRAP_METHOD,
+                            ImmutableList.of(callSiteBinder.bind(keyField.writeFlatMethod()).getBindingId()),
+                            "writeFlat",
+                            void.class,
+                            blocks.getElement(keyField.index()),
+                            position,
+                            fixedChunk,
+                            add(fixedOffset, constantInt(keyField.fieldFixedOffset())),
+                            variableChunk,
+                            variableOffset));
+            if (keyField.type().isFlatVariableWidth()) {
+                // variableOffset += type.getFlatVariableWidthLength(fixedChunk, fixedOffset + fieldFixedOffset);
+                writeNonNullFlat.append(variableOffset.set(add(variableOffset, constantType(callSiteBinder, keyField.type()).invoke(
+                        "getFlatVariableWidthLength",
+                        int.class,
+                        fixedChunk,
+                        add(fixedOffset, constantInt(keyField.fieldFixedOffset()))))));
+            }
+            body.append(new IfStatement()
+                    .condition(blocks.getElement(keyField.index()).invoke("isNull", boolean.class, position))
+                    .ifTrue(fixedChunk.setElement(add(fixedOffset, constantInt(keyField.fieldIsNullOffset())), constantInt(1).cast(byte.class)))
+                    .ifFalse(writeNonNullFlat));
+        }
+        body.append(variableOffset.ret());
+        return methodDefinition;
+    }
+
+    private static void generateIdenticalMethod(ClassDefinition definition, List<ChunkClass> chunkClasses)
+    {
+        Parameter leftFixedChunk = arg("leftFixedChunk", type(byte[].class));
+        Parameter leftFixedOffset = arg("leftFixedOffset", type(int.class));
+        Parameter leftVariableChunk = arg("leftVariableChunk", type(byte[].class));
+        Parameter leftVariableChunkOffset = arg("leftVariableChunkOffset", type(int.class));
+        Parameter rightBlocks = arg("rightBlocks", type(Block[].class));
+        Parameter rightPosition = arg("rightPosition", type(int.class));
+        MethodDefinition methodDefinition = definition.declareMethod(
+                a(PUBLIC),
+                "valueIdentical",
+                type(boolean.class),
+                leftFixedChunk,
+                leftFixedOffset,
+                leftVariableChunk,
+                leftVariableChunkOffset,
+                rightBlocks,
+                rightPosition);
+        BytecodeBlock body = methodDefinition.getBody();
+        // leftVariableChunkOffset = FlatHashStrategyCompiler.checkVariableWidthOffsetArgument(leftVariableChunkOffset)
+        body.append(leftVariableChunkOffset.set(invokeStatic(FlatHashStrategyCompiler.class, "checkVariableWidthOffsetArgument", int.class, leftVariableChunkOffset)));
+        for (ChunkClass chunkClass : chunkClasses) {
+            // leftVariableChunkOffset = Chunk.valueIdentical(leftFixedChunk, leftFixedOffset, leftVariableChunk, leftVariableChunkOffset, rightBlocks, rightPosition);
+            body.append(leftVariableChunkOffset.set(invokeStatic(chunkClass.identicalMethodChunk(), leftFixedChunk, leftFixedOffset, leftVariableChunk, leftVariableChunkOffset, rightBlocks, rightPosition)));
+            // if (leftVariableChunkOffset < 0) {
+            //    return false;
+            // }
+            body.append(new IfStatement()
+                    .condition(lessThan(leftVariableChunkOffset, constantInt(0)))
+                    .ifTrue(constantFalse().ret()));
+        }
+        body.append(constantTrue().ret());
+    }
+
+    private static MethodDefinition generateIdenticalChunkMethod(ClassDefinition definition, List<KeyField> keyFields, CallSiteBinder callSiteBinder)
+    {
+        Parameter leftFixedChunk = arg("leftFixedChunk", type(byte[].class));
+        Parameter leftFixedOffset = arg("leftFixedOffset", type(int.class));
+        Parameter leftVariableChunk = arg("leftVariableChunk", type(byte[].class));
+        Parameter leftVariableChunkOffset = arg("leftVariableChunkOffset", type(int.class));
+        Parameter rightBlocks = arg("rightBlocks", type(Block[].class));
+        Parameter rightPosition = arg("rightPosition", type(int.class));
+        MethodDefinition methodDefinition = definition.declareMethod(
+                a(PUBLIC, STATIC),
+                "valueIdentical",
+                type(int.class),
+                leftFixedChunk,
+                leftFixedOffset,
+                leftVariableChunk,
+                leftVariableChunkOffset,
+                rightBlocks,
+                rightPosition);
+        BytecodeBlock body = methodDefinition.getBody();
+        // leftVariableChunkOffset = FlatHashStrategyCompiler.checkVariableWidthOffsetArgument(leftVariableChunkOffset)
+        body.append(leftVariableChunkOffset.set(invokeStatic(FlatHashStrategyCompiler.class, "checkVariableWidthOffsetArgument", int.class, leftVariableChunkOffset)));
+
+        for (KeyField keyField : keyFields) {
+            // variable width identical methods take leftVariableChunk and leftVariableChunkOffset arguments, while
+            // fixed width types omit those arguments entirely. Variable width methods return -1 for false, otherwise
+            // they return the current variableWidthOffset which will be >= 0
+            if (keyField.type().isFlatVariableWidth()) {
+                MethodDefinition identicalMethod = generateVariableWidthIdenticalMethod(definition, keyField, callSiteBinder);
+                // leftVariableChunkOffset = identicalMethod(leftFixedChunk, leftFixedOffset, leftVariableChunk, leftVariableChunkOffset, rightBlocks[index], rightPosition)
+                body.append(leftVariableChunkOffset.set(invokeStatic(identicalMethod, leftFixedChunk, leftFixedOffset, leftVariableChunk, leftVariableChunkOffset, rightBlocks.getElement(keyField.index()), rightPosition)));
+                // if (leftVariableChunkOffset < 0) {
+                //    return -1;
+                // }
+                body.append(new IfStatement()
+                        .condition(lessThan(leftVariableChunkOffset, constantInt(0)))
+                        .ifTrue(constantInt(-1).ret()));
+            }
+            else {
+                MethodDefinition identicalMethod = generateFixedWidthIdenticalMethod(definition, keyField, callSiteBinder);
+                // if (!identicalMethod(leftFixedChunk, leftFixedOffset, rightBlocks[index], rightPosition)) {
+                //   return -1;
+                // }
+                body.append(new IfStatement()
+                        .condition(invokeStatic(identicalMethod, leftFixedChunk, leftFixedOffset, rightBlocks.getElement(keyField.index()), rightPosition))
+                        .ifFalse(constantInt(-1).ret()));
+            }
+        }
+        body.append(leftVariableChunkOffset.ret());
+        return methodDefinition;
+    }
+
+    private static MethodDefinition generateFixedWidthIdenticalMethod(ClassDefinition definition, KeyField keyField, CallSiteBinder callSiteBinder)
+    {
+        checkArgument(!keyField.type().isFlatVariableWidth(), "type is not fixed width");
+
+        Parameter leftFixedChunk = arg("leftFixedChunk", type(byte[].class));
+        Parameter leftFixedOffset = arg("leftFixedOffset", type(int.class));
+        Parameter rightBlock = arg("rightBlock", type(Block.class));
+        Parameter rightPosition = arg("rightPosition", type(int.class));
+        MethodDefinition methodDefinition = definition.declareMethod(
+                a(PUBLIC, STATIC),
+                "valueIdentical" + keyField.index(),
+                type(boolean.class),
+                leftFixedChunk,
+                leftFixedOffset,
+                rightBlock,
+                rightPosition);
+        BytecodeBlock body = methodDefinition.getBody();
+        Scope scope = methodDefinition.getScope();
+
+        Variable leftIsNull = scope.declareVariable("leftIsNull", body, notEqual(leftFixedChunk.getElement(add(leftFixedOffset, constantInt(keyField.fieldIsNullOffset()))).cast(int.class), constantInt(0)));
+        Variable rightIsNull = scope.declareVariable("rightIsNull", body, rightBlock.invoke("isNull", boolean.class, rightPosition));
+
+        // if (leftIsNull) {
+        //     return rightIsNull;
+        // }
+        body.append(new IfStatement()
+                .condition(leftIsNull)
+                .ifTrue(rightIsNull.ret()));
+
+        // if (rightIsNull) {
+        //     return false;
+        // }
+        body.append(new IfStatement()
+                .condition(rightIsNull)
+                .ifTrue(constantFalse().ret()));
+
+        body.append(invokeDynamic(
+                BOOTSTRAP_METHOD,
+                ImmutableList.of(callSiteBinder.bind(keyField.identicalFlatBlockMethod()).getBindingId()),
+                "identical",
+                boolean.class,
+                leftFixedChunk,
+                add(leftFixedOffset, constantInt(keyField.fieldFixedOffset())),
+                constantNull(byte[].class),
+                constantInt(0),
+                rightBlock,
+                rightPosition)
+                .ret());
+        return methodDefinition;
+    }
+
+    private static MethodDefinition generateVariableWidthIdenticalMethod(ClassDefinition definition, KeyField keyField, CallSiteBinder callSiteBinder)
+    {
+        checkArgument(keyField.type().isFlatVariableWidth(), "type is not variable width");
+
+        Parameter leftFixedChunk = arg("leftFixedChunk", type(byte[].class));
+        Parameter leftFixedOffset = arg("leftFixedOffset", type(int.class));
+        Parameter leftVariableChunk = arg("leftVariableChunk", type(byte[].class));
+        Parameter leftVariableChunkOffset = arg("leftVariableChunkOffset", type(int.class));
+        Parameter rightBlock = arg("rightBlock", type(Block.class));
+        Parameter rightPosition = arg("rightPosition", type(int.class));
+        MethodDefinition methodDefinition = definition.declareMethod(
+                a(PUBLIC, STATIC),
+                "valueIdentical" + keyField.index(),
+                type(int.class),
+                leftFixedChunk,
+                leftFixedOffset,
+                leftVariableChunk,
+                leftVariableChunkOffset,
+                rightBlock,
+                rightPosition);
+        BytecodeBlock body = methodDefinition.getBody();
+        Scope scope = methodDefinition.getScope();
+
+        Variable leftIsNull = scope.declareVariable("leftIsNull", body, notEqual(leftFixedChunk.getElement(add(leftFixedOffset, constantInt(keyField.fieldIsNullOffset()))).cast(int.class), constantInt(0)));
+        Variable rightIsNull = scope.declareVariable("rightIsNull", body, rightBlock.invoke("isNull", boolean.class, rightPosition));
+
+        // if (leftIsNull) {
+        //    return rightIsNull ? leftVariableChunkOffset : -1;
+        // }
+        body.append(new IfStatement()
+                .condition(leftIsNull)
+                .ifTrue(inlineIf(rightIsNull, leftVariableChunkOffset, constantInt(-1)).ret()));
+
+        // if (rightIsNull) {
+        //     return -1;
+        // }
+        body.append(new IfStatement()
+                .condition(rightIsNull)
+                .ifTrue(constantInt(-1).ret()));
+
+        // if (identical(leftFixedChunk, leftFixedOffset + fieldFixedOffset, leftVariableChunk, leftVariableOffset, rightBlock, rightPosition)) {
+        //   return leftVariableOffset + type.getFlatVariableWidthLength(leftFixedChunk, leftFixedOffset + fieldFixedOffset);
+        // }
+        // else {
+        //   return -1;
+        // }
+        body.append(new IfStatement().condition(invokeDynamic(
+                BOOTSTRAP_METHOD,
+                ImmutableList.of(callSiteBinder.bind(keyField.identicalFlatBlockMethod()).getBindingId()),
+                "identical",
+                boolean.class,
+                leftFixedChunk,
+                add(leftFixedOffset, constantInt(keyField.fieldFixedOffset())),
+                leftVariableChunk,
+                leftVariableChunkOffset,
+                rightBlock,
+                rightPosition))
+                        .ifTrue(add(leftVariableChunkOffset, constantType(callSiteBinder, keyField.type()).invoke(
+                                "getFlatVariableWidthLength",
+                                int.class,
+                                leftFixedChunk,
+                                add(leftFixedOffset, constantInt(keyField.fieldFixedOffset())))).ret())
+                        .ifFalse(constantInt(-1).ret()));
+        return methodDefinition;
+    }
+
+    private static void generateHashBlock(ClassDefinition definition, List<ChunkClass> chunkClasses)
+    {
+        Parameter blocks = arg("blocks", type(Block[].class));
+        Parameter position = arg("position", type(int.class));
+        MethodDefinition methodDefinition = definition.declareMethod(
+                a(PUBLIC),
+                "hash",
+                type(long.class),
+                blocks,
+                position);
+        BytecodeBlock body = methodDefinition.getBody();
+
+        Scope scope = methodDefinition.getScope();
+        Variable result = scope.declareVariable("result", body, constantLong(INITIAL_HASH_VALUE));
+        for (ChunkClass chunkClass : chunkClasses) {
+            body.append(result.set(invokeStatic(chunkClass.hashBlockChunk(), blocks, position, result)));
+        }
+        body.append(result.ret());
+    }
+
+    private static MethodDefinition generateHashBlockChunk(ClassDefinition definition, List<KeyField> keyFields, CallSiteBinder callSiteBinder)
+    {
+        Parameter blocks = arg("blocks", type(Block[].class));
+        Parameter position = arg("position", type(int.class));
+        Parameter seed = arg("seed", type(long.class));
+        MethodDefinition methodDefinition = definition.declareMethod(
+                a(PUBLIC, STATIC),
+                "hashBlocks",
+                type(long.class),
+                blocks,
+                position,
+                seed);
+        BytecodeBlock body = methodDefinition.getBody();
+
+        Scope scope = methodDefinition.getScope();
+        Variable result = scope.declareVariable("result", body, seed);
+        Variable hash = scope.declareVariable(long.class, "hash");
+        Variable block = scope.declareVariable(Block.class, "block");
+
+        for (KeyField keyField : keyFields) {
+            body.append(block.set(blocks.getElement(keyField.index())));
+            body.append(new IfStatement()
+                    .condition(block.invoke("isNull", boolean.class, position))
+                    .ifTrue(hash.set(constantLong(NULL_HASH_CODE)))
+                    .ifFalse(hash.set(invokeDynamic(
+                            BOOTSTRAP_METHOD,
+                            ImmutableList.of(callSiteBinder.bind(keyField.hashBlockMethod()).getBindingId()),
+                            "hash",
+                            long.class,
+                            block,
+                            position))));
+            body.append(result.set(invokeStatic(CombineHashFunction.class, "getHash", long.class, result, hash)));
+        }
+        body.append(result.ret());
+        return methodDefinition;
+    }
+
+    private static void generateHashFlat(ClassDefinition definition, List<ChunkClass> chunkClasses, boolean singleChunkClass)
+    {
+        Parameter fixedChunk = arg("fixedChunk", type(byte[].class));
+        Parameter fixedOffset = arg("fixedOffset", type(int.class));
+        Parameter variableChunk = arg("variableChunk", type(byte[].class));
+        Parameter variableChunkOffset = arg("variableChunkOffset", type(int.class));
+        MethodDefinition methodDefinition = definition.declareMethod(
+                a(PUBLIC),
+                "hash",
+                type(long.class),
+                fixedChunk,
+                fixedOffset,
+                variableChunk,
+                variableChunkOffset);
+        BytecodeBlock body = methodDefinition.getBody();
+
+        if (singleChunkClass) {
+            ChunkClass chunkClass = getOnlyElement(chunkClasses);
+            // single chunk implementation takes variableChunkOffset directly
+            body.append(invokeStatic(chunkClass.hashFlatChunk(), fixedChunk, fixedOffset, variableChunk, variableChunkOffset, constantLong(INITIAL_HASH_VALUE)).ret());
+        }
+        else {
+            // multi chunk implementation must pass variableChunkOffset as a MutableVariableWidthOffset to propagate the
+            // value between chunk class method calls
+            Scope scope = methodDefinition.getScope();
+            Variable result = scope.declareVariable("result", body, constantLong(INITIAL_HASH_VALUE));
+            Variable mutableVariableWidthOffset = scope.declareVariable("mutableOffset", body, newInstance(MutableVariableWidthOffset.class, variableChunkOffset));
+            for (ChunkClass chunkClass : chunkClasses) {
+                body.append(result.set(invokeStatic(chunkClass.hashFlatChunk(), fixedChunk, fixedOffset, variableChunk, mutableVariableWidthOffset, result)));
+            }
+            body.append(result.ret());
+        }
+    }
+
+    private static MethodDefinition generateHashFlatSingleChunk(ClassDefinition definition, List<KeyField> keyFields, CallSiteBinder callSiteBinder)
+    {
+        Parameter fixedChunk = arg("fixedChunk", type(byte[].class));
+        Parameter fixedOffset = arg("fixedOffset", type(int.class));
+        Parameter variableChunk = arg("variableChunk", type(byte[].class));
+        Parameter variableChunkOffset = arg("variableChunkOffset", type(int.class));
+        Parameter seed = arg("seed", type(long.class));
+        MethodDefinition methodDefinition = definition.declareMethod(
+                a(PUBLIC, STATIC),
+                "hashFlat",
+                type(long.class),
+                fixedChunk,
+                fixedOffset,
+                variableChunk,
+                variableChunkOffset,
+                seed);
+        BytecodeBlock body = methodDefinition.getBody();
+
+        Scope scope = methodDefinition.getScope();
+        Variable result = scope.declareVariable("result", body, seed);
+        Variable hash = scope.declareVariable(long.class, "hash");
+
+        for (KeyField keyField : keyFields) {
+            BytecodeBlock hashNonNull = new BytecodeBlock().append(hash.set(invokeDynamic(
+                    BOOTSTRAP_METHOD,
+                    ImmutableList.of(callSiteBinder.bind(keyField.hashFlatMethod()).getBindingId()),
+                    "hash",
+                    long.class,
+                    fixedChunk,
+                    add(fixedOffset, constantInt(keyField.fieldFixedOffset())),
+                    variableChunk,
+                    variableChunkOffset)));
+            if (keyField.type().isFlatVariableWidth()) {
+                // variableChunkOffset += type.getFlatVariableWidthLength(fixedChunk, fixedOffset + fieldFixedOffset);
+                hashNonNull.append(
+                        variableChunkOffset.set(add(variableChunkOffset, constantType(callSiteBinder, keyField.type()).invoke(
+                                "getFlatVariableWidthLength",
+                                int.class,
+                                fixedChunk,
+                                add(fixedOffset, constantInt(keyField.fieldFixedOffset()))))));
+            }
+            body.append(new IfStatement()
+                    .condition(notEqual(fixedChunk.getElement(add(fixedOffset, constantInt(keyField.fieldIsNullOffset()))).cast(int.class), constantInt(0)))
+                    .ifTrue(hash.set(constantLong(NULL_HASH_CODE)))
+                    .ifFalse(hashNonNull));
+            body.append(result.set(invokeStatic(CombineHashFunction.class, "getHash", long.class, result, hash)));
+        }
+        body.append(result.ret());
+        return methodDefinition;
+    }
+
+    private static MethodDefinition generateHashFlatMultiChunk(ClassDefinition definition, List<KeyField> keyFields, CallSiteBinder callSiteBinder)
+    {
+        Parameter fixedChunk = arg("fixedChunk", type(byte[].class));
+        Parameter fixedOffset = arg("fixedOffset", type(int.class));
+        Parameter variableChunk = arg("variableChunk", type(byte[].class));
+        Parameter mutableVariableChunkOffset = arg("mutableVariableChunkOffset", type(MutableVariableWidthOffset.class));
+        Parameter seed = arg("seed", type(long.class));
+        MethodDefinition methodDefinition = definition.declareMethod(
+                a(PUBLIC, STATIC),
+                "hashFlat",
+                type(long.class),
+                fixedChunk,
+                fixedOffset,
+                variableChunk,
+                mutableVariableChunkOffset,
+                seed);
+        BytecodeBlock body = methodDefinition.getBody();
+
+        Scope scope = methodDefinition.getScope();
+        Variable result = scope.declareVariable("result", body, seed);
+        Variable hash = scope.declareVariable(long.class, "hash");
+
+        for (KeyField keyField : keyFields) {
+            BytecodeExpression variableWidthOffset;
+            if (keyField.type().isFlatVariableWidth()) {
+                // mutableVariableChunkOffset.getAndAdd(type.getFlatVariableWidthLength(fixedChunk, fixedOffset + fieldFixedOffset))
+                variableWidthOffset = mutableVariableChunkOffset.invoke(
+                        "getAndAdd",
+                        int.class,
+                        constantType(callSiteBinder, keyField.type()).invoke(
+                                "getFlatVariableWidthLength",
+                                int.class,
+                                fixedChunk,
+                                add(fixedOffset, constantInt(keyField.fieldFixedOffset()))));
+            }
+            else {
+                variableWidthOffset = constantInt(0);
+            }
+            body.append(new IfStatement()
+                    .condition(notEqual(fixedChunk.getElement(add(fixedOffset, constantInt(keyField.fieldIsNullOffset()))).cast(int.class), constantInt(0)))
+                    .ifTrue(hash.set(constantLong(NULL_HASH_CODE)))
+                    .ifFalse(hash.set(invokeDynamic(
+                            BOOTSTRAP_METHOD,
+                            ImmutableList.of(callSiteBinder.bind(keyField.hashFlatMethod()).getBindingId()),
+                            "hash",
+                            long.class,
+                            fixedChunk,
+                            add(fixedOffset, constantInt(keyField.fieldFixedOffset())),
+                            variableChunk,
+                            variableWidthOffset))));
+            body.append(result.set(invokeStatic(CombineHashFunction.class, "getHash", long.class, result, hash)));
+        }
+        body.append(result.ret());
+        return methodDefinition;
+    }
+
+    @UsedByGeneratedCode
+    public static final class MutableVariableWidthOffset
+    {
+        private int offset;
+
+        public MutableVariableWidthOffset(int offset)
+        {
+            this.offset = offset;
+        }
+
+        public int getAndAdd(int length)
+        {
+            int offset = this.offset;
+            this.offset += length;
+            return offset;
+        }
+    }
+
+    @UsedByGeneratedCode
+    public static int checkVariableWidthOffsetArgument(int variableWidthOffset)
+    {
+        if (variableWidthOffset < 0) {
+            throw new IllegalStateException("variableWidthOffset must be >= 0, found: " + variableWidthOffset);
+        }
+        return variableWidthOffset;
+    }
+
+    private record KeyField(
+            int index,
+            Type type,
+            int fieldIsNullOffset,
+            int fieldFixedOffset,
+            MethodHandle readFlatMethod,
+            MethodHandle writeFlatMethod,
+            MethodHandle identicalFlatBlockMethod,
+            MethodHandle hashFlatMethod,
+            MethodHandle hashBlockMethod) {}
+
+    private record ChunkClass(
+            ClassDefinition definition,
+            MethodDefinition getTotalVariableWidth,
+            MethodDefinition readFlatChunk,
+            MethodDefinition writeFlatChunk,
+            MethodDefinition identicalMethodChunk,
+            MethodDefinition hashBlockChunk,
+            MethodDefinition hashFlatChunk) {}
+}

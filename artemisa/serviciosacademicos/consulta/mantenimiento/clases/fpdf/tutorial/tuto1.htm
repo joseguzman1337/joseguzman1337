@@ -1,0 +1,96 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8">
+<TITLE>Ejemplo básico</TITLE>
+<LINK TYPE="text/css" REL="stylesheet" HREF="../fpdf.css">
+</HEAD>
+<BODY>
+<H2>Ejemplo básico</H2>
+Comencemos con el clásico ejemplo:
+<BR>
+<BR>
+<TABLE WIDTH="100%" STYLE="color:#4040C0; border-style:ridge" BORDERCOLORLIGHT="#B0B0E0" BORDERCOLORDARK="#000000" BORDER="2" CELLPADDING=6 CELLSPACING=0 BGCOLOR="#F0F5FF"><TR><TD style="border-width:0px">
+<NOBR><code><font color="#000000">
+&lt;?php<br><font class="kw">require(</font><font class="str">'fpdf.php'</font><font class="kw">);<br><br></font>$pdf<font class="kw">=new </font>FPDF<font class="kw">();<br></font>$pdf<font class="kw">-&gt;</font>AddPage<font class="kw">();<br></font>$pdf<font class="kw">-&gt;</font>SetFont<font class="kw">(</font><font class="str">'Arial'</font><font class="kw">,</font><font class="str">'B'</font><font class="kw">,</font>16<font class="kw">);<br></font>$pdf<font class="kw">-&gt;</font>Cell<font class="kw">(</font>40<font class="kw">,</font>10<font class="kw">,</font><font class="str">'¡Hola, Mundo!'</font><font class="kw">);<br></font>$pdf<font class="kw">-&gt;</font>Output<font class="kw">();<br></font>?&gt;
+</font>
+</code></NOBR></TD></TR></TABLE><P></P>
+<SCRIPT>
+<!--
+if(document.location.href.indexOf('http:')==0)
+{
+document.write("<P CLASS='demo'><A HREF='tuto1.php' TARGET='_blank' CLASS='demo'>[Demo]</A></P>");
+}
+//-->
+</SCRIPT>
+Después de incluir el fichero de la clase, creamos el objeto FDPF.
+El constructor <A HREF='../doc/fpdf.htm'>FPDF()</A> se usa aquí con sus valores por defecto: las páginas son de tamaño
+a4 alargado y la unidad de medida es el milímetro. Se podría haber declarado explícitamente
+con:
+<BR>
+<BR>
+<TABLE WIDTH="100%" STYLE="color:#4040C0; border-style:ridge" BORDERCOLORLIGHT="#B0B0E0" BORDERCOLORDARK="#000000" BORDER="2" CELLPADDING=6 CELLSPACING=0 BGCOLOR="#F0F5FF"><TR><TD style="border-width:0px">
+<NOBR><code><font color="#000000">
+$pdf<font class="kw">=new </font>FPDF<font class="kw">(</font><font class="str">'P'</font><font class="kw">,</font><font class="str">'mm'</font><font class="kw">,</font><font class="str">'A4'</font><font class="kw">);</font><br>
+</font>
+</code></NOBR></TD></TR></TABLE><P></P>
+Es posible usar el formato apaisado(<TT>L</TT>), otros formatos de página (como <TT>Carta</TT> y
+<TT>Legal</TT>) y otras unidades de medida (<TT>pt</TT>, <TT>cm</TT>, <TT>in</TT>).
+<BR>
+<BR>
+Por el momento no hemos creado ninguna página, así que
+añadiremos una con <A HREF='../doc/addpage.htm'>AddPage()</A>. El origen de coordenadas está en la esquina superior izquierda
+y la posición actual está por defecto situada a 1 cm de los bordes; los márgenes pueden cambiarse
+con <A HREF='../doc/setmargins.htm'>SetMargins()</A>.
+<BR>
+<BR>
+Antes de que podamos imprimir texto, es obligatorio escoger una fuente con <A HREF='../doc/setfont.htm'>SetFont()</A>, si no, el
+documento no será válido. Escogemos Arial en negrita de tamaño 16:
+<BR>
+<BR>
+<TABLE WIDTH="100%" STYLE="color:#4040C0; border-style:ridge" BORDERCOLORLIGHT="#B0B0E0" BORDERCOLORDARK="#000000" BORDER="2" CELLPADDING=6 CELLSPACING=0 BGCOLOR="#F0F5FF"><TR><TD style="border-width:0px">
+<NOBR><code><font color="#000000">
+$pdf<font class="kw">-&gt;</font>SetFont<font class="kw">(</font><font class="str">'Arial'</font><font class="kw">,</font><font class="str">'B'</font><font class="kw">,</font>16<font class="kw">);</font><br>
+</font>
+</code></NOBR></TD></TR></TABLE><P></P>
+Podríamos haber especificado itálica con I, subrayado con U o normal con una cadena vacía (o
+cualquier combinación de las anteriores). Observe que el tamaño de la fuente se detemina en puntos,
+no en milímetros (ni en cualquier otra unidad establecida por el usuario); es la única excepción.
+Las otras fuentes incorporadas son Times, Courier, Symbol y ZapfDingbats.
+<BR>
+<BR>
+Ahora podemos imprimir una celda con <A HREF='../doc/cell.htm'>Cell()</A>. Una celda es una superficie rectangular, con
+borde si se quiere, que contiene texto. Se imprime en la posición actual. Especificamos sus
+dimensiones, el texto (centrado o alineado), si queremos dibujar o no los bordes, y dónde se
+ubicará la posición actual después de imprimir la celda (a la derecha, debajo o al principio de la
+siguiente línea). Para añadir el borde, deberemos hacer esto:
+<BR>
+<BR>
+<TABLE WIDTH="100%" STYLE="color:#4040C0; border-style:ridge" BORDERCOLORLIGHT="#B0B0E0" BORDERCOLORDARK="#000000" BORDER="2" CELLPADDING=6 CELLSPACING=0 BGCOLOR="#F0F5FF"><TR><TD style="border-width:0px">
+<NOBR><code><font color="#000000">
+$pdf<font class="kw">-&gt;</font>Cell<font class="kw">(</font>40<font class="kw">,</font>10<font class="kw">,</font><font class="str">'¡Hola, Mundo!'</font><font class="kw">,</font>1<font class="kw">);</font><br>
+</font>
+</code></NOBR></TD></TR></TABLE><P></P>
+Para añadir una nueva celda a continuación, con el texto centrado e ir a la siguiente línea,
+escribiremos:
+<BR>
+<BR>
+<TABLE WIDTH="100%" STYLE="color:#4040C0; border-style:ridge" BORDERCOLORLIGHT="#B0B0E0" BORDERCOLORDARK="#000000" BORDER="2" CELLPADDING=6 CELLSPACING=0 BGCOLOR="#F0F5FF"><TR><TD style="border-width:0px">
+<NOBR><code><font color="#000000">
+$pdf<font class="kw">-&gt;</font>Cell<font class="kw">(</font>60<font class="kw">,</font>10<font class="kw">,</font><font class="str">'Hecho con FPDF.'</font><font class="kw">,</font>0<font class="kw">,</font>1<font class="kw">,</font><font class="str">'C'</font><font class="kw">);</font><br>
+</font>
+</code></NOBR></TD></TR></TABLE><P></P>
+Nota: el salto de línea puede provocarse también mediante <A HREF='../doc/ln.htm'>Ln()</A>.
+Este método le permite especificar además la altura del salto.
+<BR>
+<BR>
+Finalmente, el documento se cierra y se envía al navegador con <A HREF='../doc/output.htm'>Output()</A>.
+También podríamos haberlo guardado en un fichero pasando como parámetro el nombre
+del archivo.
+<BR>
+<BR>
+Cuidado: en caso de que el PDF se envíe al navegador, nada más debe enviarse, ni antes
+ni después (el más mínimo espacio en blanco o retorno de carro también cuenta). Si se envía
+algún dato antes, obtendrá el mensaje de error: "Some data has already been output to browser, can't send PDF file".
+Si se envía después, su navegador puede que muestre únicamente una página en blanco.
+</BODY>
+</HTML>

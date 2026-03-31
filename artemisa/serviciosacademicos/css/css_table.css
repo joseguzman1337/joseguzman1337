@@ -1,0 +1,80 @@
+/* 
+	Grey Suits you Sir. Please host the images on your own server.
+	written by Stuart Colville http://www.muffinresearch.co.uk
+*/
+
+table,td
+{
+	border               : 1px solid #CCC;
+	border-collapse      : collapse;
+  font                 : normal/2 "Tahoma", "Bitstream Vera Sans", Verdana, Helvetica, sans-serif;
+}
+table
+{
+	border                :none;
+	border                :1px solid #CCC;
+}
+thead th,
+tbody th
+{
+	background            : #FFF url(http://www.muffinresearch.co.uk/lab/tableshow/th_bck.gif) repeat-x;
+  color                 : #666;  
+	padding               : 5px 10px;
+  border-left           : 1px solid #CCC;
+}
+tbody th
+{
+  background            : #fafafb;
+  border-top            : 1px solid #CCC;
+  text-align            : left;
+  font-weight           : normal;
+}
+tbody tr td
+{
+	padding               : 5px 10px;
+  color                 : #666;
+}
+tbody tr:hover
+{
+  background            : #FFF url(http://muffinresearch.co.uk/code/xhtmlandcss/tableshow/tr_bck.gif) repeat;
+}
+
+tbody tr:hover td
+{
+  color                 : #454545;
+}
+tfoot td,
+tfoot th
+{
+  border-left           : none;
+  border-top            : 1px solid #CCC;
+	padding               : 4px;
+  background            : #FFF url(http://www.muffinresearch.co.uk/lab/tableshow/foot_bck.gif) repeat;
+  color                 : #666;
+}
+caption
+{
+	background: none repeat scroll 0 0 transparent;
+	color: #333333;
+	font-size: 1.4em;
+	font-weight: bold;
+	padding: 0 0 0.5em;
+	text-align: left;
+}
+table a:link
+{
+	color                 : #666;
+}
+table a:visited
+{
+	color                 : #666;
+}
+table a:hover
+{
+	color                 : #003366;
+	text-decoration       : none;
+}
+table a:active
+{
+	color                 : #003366;
+}

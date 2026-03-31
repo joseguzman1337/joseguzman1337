@@ -1,0 +1,31 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>{{title}}</title>
+		<link rel="stylesheet" type="text/css" href="../../mgi/css/cssreset-min.css" />
+		<link rel="stylesheet" type="text/css" href="../../mgi/css/normalize.css" />		
+	</head>
+	<body class="body">
+        <br /><br />
+        <br />
+        <fieldset style="text-align: center;width: 60%; margin-left: 20%;">
+        <legend>{{Label}}</legend>
+        <form action="CargarArchivoPazySalvo.php" method="post" enctype="multipart/form-data" name="Principal">
+        <input type="hidden" id="action_ID" name="action_ID" value="SaVePaZ_Y_Salvo" />
+            <table>
+                <tr>
+                    <td>
+                        <input type="file" id="file" name="file" height="80px"  size="50"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="submit" id="Save" name="Save" value="Cargar Archivo"  />
+                    </td>
+                </tr>
+            </table>
+        </form>
+        </fieldset>
+	</body>
+</html>

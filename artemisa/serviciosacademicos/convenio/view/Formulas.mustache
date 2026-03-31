@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+        <link rel="stylesheet" href="../../css/themes/smoothness/jquery-ui-1.8.4.custom.css" type="text/css" />
+		<link media="screen, projection" type="text/css" href="./../css/style.css" rel="stylesheet"> 
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>{{title}}</title>
+         <style type="text/css" title="currentStyle">
+                  @import "../../consulta/estadisticas/riesgos/data/media/css/demo_page.css";
+                @import "../../consulta/estadisticas/riesgos/data/media/css/demo_table_jui.css";
+                @import "../../consulta/estadisticas/riesgos/data/media/css/ColVis.css";
+                @import "../../consulta/estadisticas/riesgos/data/media/css/TableTools.css";
+                @import "../../consulta/estadisticas/riesgos/data/media/css/jquery.modal.css";
+        </style>
+        <link type="text/css" href="../../educacionContinuada/css/normalize.css" rel="stylesheet">
+		<link media="screen, projection" type="text/css" href="../../educacionContinuada/css/style.css" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="../../css/themes/smoothness/jquery-ui-1.8.4.custom.css" />
+		<script type="text/javascript" language="javascript" src="../../js/jquery.js"></script>
+		<script type="text/javascript" language="javascript" src="../../js/jquery-ui-1.8.21.custom.min.js"></script>
+        <script type="text/javascript" language="javascript" src="../../js/jquery.dataTables.js"></script>
+        <script type="text/javascript" language="javascript" src="../../consulta/estadisticas/riesgos/data/media/js/jquery.dataTables.js"></script>
+        <script type="text/javascript" language="javascript">
+        /****************************************************************/
+        	$(document).ready( function () {
+        			
+        			oTable = $('#example').dataTable({
+                                    "sDom": '<"H"Cfrltip>',
+                                    "bJQueryUI": true,
+                                    "bPaginate": true,
+                                    "sPaginationType": "full_numbers",
+                                    "oColVis": {
+                                          "buttonText": "Ver/Ocultar Columnas",
+                                           "aiExclude": [ 0 ]
+                                    }
+                                });
+                                var oTableTools = new TableTools( oTable, {
+        					"buttons": [
+        						"copy",
+        						"csv",
+        						"xls",
+        						"pdf",
+        						{ "type": "print", "buttonText": "Imprimir" }
+        					]
+        		         });
+                        $('#demo').before( oTableTools.dom.container );
+        		} );
+        	/**************************************************************/
+        </script>		
+	</head>
+	<body class="body">
+        <div id="container">
+            <center><h1><font face="sans-serif">{{title}}</font></h1></center>
+        </div>
+        <div id="demo">
+            <table cellpadding="0" cellspacing="0" border="1" class="display" id="example">
+                <thead>
+                    <tr>
+                        <td>
+                            Tipo Modalidad
+                        </td>
+                        <td>
+                            Programa
+                        </td>
+                        <td>
+                            Entidad de salud
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#programas}}
+                    <tr>
+                        <td>{{nombremodalidadacademica}}</td>
+                        <td>{{nombrecarrera}}</td>
+                        <td>
+                            <form action="../Controller/Formulasliquidacion.php" method="post">
+                                <input type="hidden" name="Accion" id="Accion" value="instituciones" />
+                                <input type="hidden" name="codigocarrera" id="codigocarrera" value="{{codigocarrera}}" />
+                                <input type="image" src="../../mgi/images/file_search.png" width="20"/>
+                                <a
+                                    href="./Formulasliquidacion_v2.php?idcarrera={{codigocarrera}}&vista=liquidacionesCarrera"
+                                    width="20">
+                                <img src="../../mgi/images/file_search.png" width="20" alt="">Demo
+                                </a>
+                            </form>
+                        </td>
+                    </tr>
+                    {{/programas}}
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>

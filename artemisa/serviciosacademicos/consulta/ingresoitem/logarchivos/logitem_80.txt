@@ -1,0 +1,4 @@
+<b>Log Item</b> 
+
+<span style='background:red'>El código centro de beneficio en la Fila No 1 NO existe en SALA verifique o comuníquese con Tecnología.</span>
+

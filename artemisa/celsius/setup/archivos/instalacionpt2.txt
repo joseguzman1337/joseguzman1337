@@ -1,0 +1,13 @@
+En esta fase crea los usuarios de MySQL para poder utilizar Celsius
+Sera creada una cuenta de acesso a la base de dados do MySQL para usarla en el ambiente Celsius
+Para crear una cuentas sera necesario poseer una contraseña de <font color=red>la cuenta de ROOT de MySQL
+No confundir con la cuenta de Linux
+e especificar una contraseña para esta cuenta de
+celsius
+El login y la contraseña de la cuenta de ROOT de MySQL seran necesarios .Seran usados para crear los usuarios.
+Login de usuario de ROOT de MySQL:
+Contraseña do usuario de ROOT do MySQL:
+Nombre de usuario de
+Contraseña para el usuario de
+Confirmar contraseña de usuario de 
+Continuarre de usuario de Celsius

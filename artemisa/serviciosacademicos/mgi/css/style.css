@@ -1,0 +1,69 @@
+/* 
+    Document   : style
+    Created on : 26/09/2012, 10:34:54 AM
+    Author     : proyecto_mgi_cp
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+.first{
+	padding: 0px 14px 0px;
+	 padding: 0px 14px 0px;
+  font-size: 20px;
+  cursor: pointer;
+  text-align: center;
+  display:inline-block;
+  /*border:1px solid #D4D4D4; */ 
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -khtml-border-radius: 10px;
+   border-radius: 10px;
+   -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+  -moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+  box-shadow: 0 1px 2px rgba(0,0,0,.2);
+  background: #5D7D0E;
+   text-shadow: 0 1px 1px rgba(0,0,0,.3);
+    background:-moz-linear-gradient(center top , #7DB72F, #4E7D0E) repeat scroll 0 0 transparent; 
+  background: -webkit-gradient(linear, left top, left bottom, from(#7DB72F), to(#4E7D0E));
+   /*filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#7DB72F', endColorstr='#4E7D0E');*/
+   border: 1px solid #538312;
+   color: #E8F0DE;
+   margin-left: 10px;
+  
+   
+   
+	}
+
+ fieldset {
+				-webkit-border-radius: 8px;
+				-moz-border-radius: 8px;
+				border-radius: 8px;
+				border-color:#CCC;
+				border-style: solid;
+				border-width: 1px;
+				
+				}
+				legend {
+				color: #000; 
+				font-size:14px;
+				font-weight: bold;
+				letter-spacing:-1px;
+				padding-bottom:20px;
+				padding-top:8px;
+				text-transform:capitalize;
+				}
+				.Text th .Text td{ 
+				
+				font-family:"Times New Roman", Times, serif;
+				border:0px solid #000;
+					padding:.5em;
+					}
+				.cajas{
+					border-color:#CCC;
+					background-color:#FFF; 
+					
+					}
+				.Border{
+					border:0px solid #000;
+					padding:.5em;
+					}

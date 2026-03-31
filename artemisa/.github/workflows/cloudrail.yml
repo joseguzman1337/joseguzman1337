@@ -1,0 +1,66 @@
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+
+name: Cloudrail
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]  
+  schedule:
+    - cron: '23 0 * * 0'
+
+permissions:
+  contents: read
+
+jobs:
+  cloudrail:
+    name: Run Indeni Cloudrail on Terraform code with SARIF output
+    runs-on: ubuntu-latest
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
+
+    steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@fa2e9d605c4eeb9fcad4c99c224cee0c6c7f3594 # v2.16.0
+        with:
+          egress-policy: audit
+
+      - name: Clone repo
+        uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5
+
+      # For Terraform, Cloudrail requires the plan as input. So we generate it using 
+      # the Terraform core binary.
+      - uses: hashicorp/setup-terraform@5e8dbf3c6d9deaf4193ca7a8fb23f2ac83bb6c85 # v4.0.0
+        with:
+          terraform_version: v0.13.2
+
+      - run: terraform init
+
+      - run: terraform plan -out=plan.out
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
+      # Confirm we have the plan file
+      - run: stat plan.out
+
+      - name: Run Cloudrail
+        uses: indeni/cloudrail-run-ga@02a2f6cfc9aa97d390862f6672ecab8de813ddc2
+        with:
+          tf-plan-file: plan.out # This was created in a "terraform plan" step
+          cloudrail-api-key: ${{ secrets.CLOUDRAIL_API_KEY }} # This requires registration to Indeni Cloudrail's SaaS at https://web.cloudrail.app
+          cloud-account-id: # Leave this empty for Static Analaysis, or provide an account ID for Dynamic Analysis, see instructions in Cloudrail SaaS
+
+      - name: Upload SARIF file
+        uses: github/codeql-action/upload-sarif@38697555549f1db7851b81482ff19f1fa5c4fedc # v4.34.1
+        # Remember that if issues are found, Cloudrail return non-zero exit code, so the if: always()
+        # is needed to ensure the SARIF file is uploaded
+        if: always() 
+        with:
+          sarif_file: cloudrail_results.sarif

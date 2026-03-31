@@ -1,0 +1,57 @@
+.dhtmlwindow{
+	position: absolute;
+	border: 1px solid #CCCCCC;
+	visibility: hidden;
+	background-color: white;
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;
+
+}
+
+
+.drag-handle .drag-controls{ /*CSS for controls (min, close etc) within Drag Handle*/
+position: absolute;
+right: 1px;
+top: 2px;
+cursor: hand;
+cursor: pointer;
+
+}
+
+* html .drag-handle{ /*IE6 and below CSS hack. Width must be set to 100% in order for opaque title bar to render*/
+width: 100%;
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;
+
+}
+
+
+.drag-contentarea{ /*CSS for Content Display Area div*/
+border-top: 1px solid brown;
+background-color: white;
+color: black;
+height: 150px;
+padding: 2px;
+overflow: auto;
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;
+
+}
+
+.drag-statusarea{ /*CSS for Status Bar div (includes resizearea)*/
+border-top: 1px solid gray;
+background-color: #F8F8F8;
+height: 13px; /*height of resize image*/
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;
+
+}
+
+
+.drag-resizearea{ /*CSS for Resize Area itself*/
+float: right;
+width: 13px; /*width of resize image*/
+height: 13px; /*height of resize image*/
+cursor: nw-resize;
+font-size: 0;
+}

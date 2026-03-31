@@ -1,0 +1,94 @@
+body {
+  font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+  font-size: x-small;
+  background-color: #FFFFFF;
+  color: #000000;
+}
+
+table, tr, td, th {
+  font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+  font-size: x-small;
+  align: center;
+}
+
+.bordered_table {
+  font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+  font-size: x-small;
+  align: center;
+  border-color: #bdbdbd;
+  border-style: solid;
+  border-top-width: 1;
+  border-bottom-width: 1;
+  border-right-width: 1;
+  border-left-width: 1;
+  background-color: #FFFFFF;
+}
+
+.grayboxheader {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  color: #000000;
+  text-align: center;
+}
+
+.whitebox {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: x-small;
+  color: #000000;
+  background-color: #FFFFFF;  
+}
+
+.indented_cell {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  margin-left: 14px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.copyright {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: xx-small;
+  color: #000000;
+  text-align: center;
+}
+
+.example {font-size:small; font-style:normal; font-weight:normal;}
+.message {color:blue; font-weight:bold; text-align:center}
+//.error {color:#FF9900; font-weight:bold; text-align:center}
+
+
+.grayboxfont {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 10px;
+  font-weight: normal;
+  color: #FFFFFF;
+}
+
+.question {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 10px;
+  font-weight: normal;
+  color: #262C4C;
+}
+
+.percentage {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 10px;
+  font-weight: normal;
+  color: #000000;
+}
+
+.error {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: x-small;
+  font-weight: bold;
+  text-align: center;
+  color: #CB0404;
+}
+.errormarca {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: x-small;
+  font-weight: bold;
+  text-align: center;
+  color: #FF9933;
+}

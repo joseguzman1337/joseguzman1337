@@ -1,0 +1,3 @@
+DROP TRIGGER sala.trigger_logdocumentograduado_update;
+DROP TRIGGER sala.trigger_logdocumentograduado_insert;
+DROP TRIGGER sala.trigger_logdocumentograduado_delete;

@@ -1,0 +1,820 @@
+{# PLANTILLAS BASE #}
+{% extends 'plantillas/Nifty/plantillaAdaptada_v1.html.twig' %}
+
+{% set fechaCreacion = date() %}
+
+{# url a la pagina de proceso ej. http://dominio/serviciosacademicos/convenio/Controller/Formulasliquidacion_v2.php #}
+{% set urlModuloGral = __Dominio ~ "/" ~ urlModulo %}
+
+{# Titulo de la pagina #}
+{% block title %} Formulas Liquidación {% endblock %}
+
+
+{# Segmento de bloque para cargue de hojas de estilo / scripts / links / ... #}
+{% block head %}
+    {{ parent() }}
+
+    <!-- Cargue de contenido pagina CSS / JS / ...-->
+
+    <style>
+        .panel-group.accordion .panel-title a {
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .btnCancelarCrearFormula:focus{
+            color: #f44336 !important;
+            border-color: #f44336 !important;
+        }
+
+        .contenedorFX {
+            /*display: inline;*/
+            background-image: url("{{ __urlAsset }}/img/fx.png");
+            background-repeat: no-repeat;
+            background-size: 20px 20px;
+            margin-left: 6px;
+            border-radius: 3px;
+            padding-left: 26px;
+            text-align: justify;
+            padding-right: 5px;
+            min-height: 20px;
+        }
+
+        .item-campo:hover::after, .item-operador:hover::after{
+            content: ' >> Agregar';
+            float: right;
+        }
+
+        .contenedorPizarraFormula .label {
+            margin-left: 1px;
+            margin-top: 3px;
+        }
+
+        .contenedorPizarraFormula{
+            border: 1px solid #e9e9e9;
+            border-radius: 5px;
+            padding: 4px;
+            min-height: 170px;
+        }
+
+    </style>
+
+{% endblock %}
+
+{#  Contenido de pagina #}
+{% block contentPage %}
+
+    <div id="page-title">
+        <h1 class="page-header text-overflow">
+            Entidades de salud<small>
+            <i class="fa fa-chevron-right" style="margin-right: -9px;"></i>
+            <i class="fa fa-chevron-right"></i> {{ programa }} </small>
+        </h1>
+        <br>
+        <!--Searchbox-->
+        <div class="searchbox">
+            <div class="input-group custom-search-form">
+                <input type="text" class="form-control" placeholder="Buscar entidad de salud..." id="inputBusquedaEntidad">
+                <span class="input-group-btn">
+					<button class="text-muted" type="button" id="btnBusquedaEntidad"><i class="fa fa-search"></i></button>
+				</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <div class="panel-group accordion" id="accordion">
+                {% for registro in formulas %}
+                    <div class="panel panel-bordered-primary panelEntidad" data-entidad="{{ registro.nombreInstitucion }}">
+                    <!--Accordion title-->
+                    <div class="panel-heading">
+                        <div class="panel-control" style="margin-top: 8px;">
+                            <ul class="pager pager-rounded">
+                                <li><a href="#" class="btnCrearFormula" data-contenedor="rowEntidad_{{ registro.ConvenioId }}">Crear Formula</a></li>
+                                <li><a data-parent="#accordion" data-toggle="collapse" href="#collapse_{{ registro.ConvenioId }}"><i class="fa fa-chevron-down"></i></a></li>
+                            </ul>
+                        </div>
+                        <h2 class="panel-title">
+                            <a data-parent="#accordion" data-toggle="collapse" href="#collapse_{{ registro.ConvenioId }}" class="enlaceEntidad">{{ registro.nombreInstitucion }}</a>
+                        </h2>
+                    </div>
+
+                    <!--Accordion content-->
+                    <div class="panel-collapse collapse" id="collapse_{{ registro.ConvenioId }}">
+                        <div class="panel-body">
+                            <div class="row" id="rowEntidad_{{ registro.ConvenioId }}">
+
+                                <div class="col-md-12 colTablaFormulas">
+                                    <table class="table">
+                                        <thead>
+                                        <tr>
+                                            <th class="text-center" width="5%">#</th>
+                                            <th>Formula</th>
+                                            <th width="20%">Fecha vigencia</th>
+                                            <th width="15%">Fecha creación</th>
+                                        </tr>
+                                        </thead>
+
+                                        <tbody>
+                                        {% set cotandor = 0 %}
+                                        {% for formula in registro.formulas %}
+                                            {% set contador = contador + 1 %}
+                                            {%  set checkedLid = (formula.estadoLiquidacion == 100) ? "checked" : "" %}
+                                            <tr>
+                                                <td class="text-center">{{ contador }}</td>
+                                                <td>
+                                                    <div class="well" style="border-radius: 4px; padding: 7px; margin-bottom: 12px; min-height: 34px;">
+
+                                                        <div>
+                                                            {{ formula.formulaVista | raw}}
+                                                        </div>
+
+                                                        <div class="pull-right">
+                                                            <button
+                                                                    class="btn btn-xs btn-rounded btn-default btnEditarFormula"
+                                                                    data-formula="{{ formula.formula }}"
+                                                                    data-formulav="{{ formula.formulaVista }}"
+                                                                    data-idformula="{{ formula.FormulaLiquidacionId }}"
+                                                                    data-vigenciaini="{{ formula.FechaInicioVigencia }}"
+                                                                    data-vigenciafin="{{ formula.FechaFinVigencia }}"
+                                                                    data-fechacrea = "{{ formula.FechaCreacion }}"
+                                                            >Editar</button>
+                                                            {#<button class="btn btn-xs btn-rounded btn-default">Clonar</button>#}
+                                                            <input type="checkbox" class="formula-switch" {{ checkedLid }} value="{{ formula.FormulaLiquidacionId }}"/>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    {{ formula.FechaInicioVigencia }}
+                                                    <i class="fa fa-arrows-h"></i>
+                                                    {{ formula.FechaFinVigencia }}
+                                                </td>
+                                                <td>
+                                                    {{ formula.FechaCreacion }}
+                                                </td>
+                                            </tr>
+                                        {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <div class="col-md-12 colFormFormulas" style="display: none">
+                                    <form class="form-horizontal formulario-F-Liquidacion" action="{{ urlModuloGral }}?idCarrera={{ idCarrera }}&idConvenio={{ registro.ConvenioId }}" method="POST">
+
+                                        <div class="well well well-sm">
+                                            <div class="formula contenedorFX">
+                                                Con ayuda de la pizarra cree el esquema de la formula a guardar!
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <div id="rangoVigencia" title="Vigencia de la formula">
+                                                <div class="input-daterange input-group" id="datepicker">
+                                                    <input type="text" class="form-control input-vigencia-ini" name="vigencia[inicio]" placeholder="yyyy-mm-dd" required>
+                                                    <span class="input-group-addon">Hasta</span>
+                                                    <input type="text" class="form-control input-vigencia-fin" name="vigencia[fin]" placeholder="yyyy-mm-dd" required>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <input type="text" class="form-control input-fecha-crea" placeholder="Fecha creación" value="{{ "now"|date("Y-m-d H:i:s") }}" readonly title="Fecha creación" name="fechaCreacion">
+                                        </div>
+
+                                        <div class="col-md-4 mar-btm">
+                                            <button class="btn btn-default btn-rounded btn-labeled fa fa-exclamation btnValidarFormula " type="button">Validar formula</button>
+                                            <button class="btn btn-primary btn-rounded btn-labeled fa fa-save btnGuardarFormula" disabled type="submit">Guardar</button>
+                                        </div>
+
+                                        <div class="col-md-4 contenedorElementosFormula">
+
+                                            <div class="list-group" style="max-height: 172px;overflow-y: auto;">
+                                                <a class="list-group-item  list-item-sm active" href="javaScript:void(0)">
+                                                    <div class="input-group mar-btm" style="margin-bottom: 1px !important;">
+                                                        <input type="text" placeholder="Campo ..." class="form-control" style="border-radius: 17px;" onkeyup="objFormulas.filtrarCampos(this)">
+                                                        <span class="input-group-btn">
+                                                            <button class="btn" type="button" onclick="$(this).parent().prev().val('').keyup()"><i class="fa fa-close"></i></button>
+                                                        </span>
+                                                    </div>
+                                                </a>
+                                                {% for key, campo in camposFormula %}
+                                                    <a
+                                                            class="list-group-item list-item-sm item-campo"
+                                                            href="javaScript:void(0)"
+                                                            data-campodigitar = "{{ (key in camposFormulaDigitar) ? 'si' : 'no' }}"
+                                                            data-idcampo="{{ key }}"
+                                                            data-campo="{{ campo }}"
+                                                            data-idconvenio = "{{ registro.ConvenioId }}"
+                                                            data-tipo="campoFormula">{{ campo }}
+                                                    </a>
+                                                {% endfor %}
+                                            </div>
+
+                                            <div class="list-group">
+                                                <a class="list-group-item  list-item-sm active" href="javaScript:void(0)">Operadores</a>
+                                                {% for key, operador in operadores %}
+                                                    <a
+                                                            class="list-group-item list-item-sm item-operador"
+                                                            href="javaScript:void(0)"
+                                                            data-idcampo="{{ key }}"
+                                                            data-campo="{{ operador }}"
+                                                            data-idconvenio = "{{ registro.ConvenioId }}"
+                                                            data-tipo="operadorFormula">
+                                                        {% include 'modulos/convenios/parciales/operadores.html.twig' %}
+                                                    </a>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-8 contenedorPizarraFormula">
+
+                                        </div>
+
+                                        <!--Campos Adicionales -->
+                                        <input type="hidden" name="esquemaFormula" class="input-esquemaFormulario">
+                                        <input type="hidden" name="procesoFormula" class="input-procesoFormulario" value="crearFormulaParaConvenio">
+                                        <input type="hidden" name="idCarrera" value="{{ idCarrera }}">
+                                        <input type="hidden" name="idConvenio" value="{{ registro.ConvenioId }}">
+                                        <input type="hidden" name="idFormula" class="input-idFormula">
+
+                                    </form>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+
+                {% endfor %}
+            </div>
+        </div>
+
+    </div>
+
+{% endblock %}
+
+{# javaScript's de  modulo #}
+{% block scriptsModulo %}
+
+    <script>
+
+        var ClassFormulasLiquidacion = function(){
+            // Esquema de la formula para almacenar
+            this.esquemaFormula = {};
+
+            this.fechaActual = '{{ "now"|date("Y-m-d H:i:s") }}'
+
+        };
+
+        ClassFormulasLiquidacion.prototype = {
+
+            // Filtrar entidades por razón social
+            busquedaEntidadSalud : function(element){
+
+                var campoBusqueda = $(element);
+
+                // Si el que acciona el evento es el boton de busqueda
+                if($(element).prop('nodeName') == 'BUTTON')
+                    campoBusqueda = $('#inputBusquedaEntidad');
+
+                // Se ocultan todas la entidades de salud
+                $('.panelEntidad').hide();
+
+                // Filtrado de entidades que cumplan con el criterio de busqueda y posterior visualización
+                $('div.panelEntidad').filter(function(index){
+
+                    entidad = ($(this).data('entidad')).toLowerCase();
+                    textoDeFiltro = ($(campoBusqueda).val()).toLocaleLowerCase();
+
+                    return entidad.includes(textoDeFiltro);
+
+                }).show();
+
+                // Si no se escribe ninguna entidad de salud
+                if($(campoBusqueda).val() == "")
+                    $('div.panelEntidad').show();
+
+            },
+
+            // Despligue del formulario Creación formula
+            formularioCrea : function(botonCrear){
+
+                var auxBotonCrear = botonCrear;
+                this.limpiarEsquemaFormula();
+
+                divContenedor = $('#' + $(auxBotonCrear).data('contenedor'));
+
+                if($(divContenedor).parents().eq(1).hasClass('in') == false){
+                    $(divContenedor).parents().eq(2).children().first().find('a.enlaceEntidad').click();
+                }
+
+                if($(divContenedor).children().eq(0).is(':visible'))
+                {
+                    // Ocultar contenedor de tabla y despliegue de formulario creación
+                    $(divContenedor).children().eq(0).slideUp("fast", function(){
+
+                        $(auxBotonCrear).addClass('btnCancelarCrearFormula').text('Cancelar');
+                        $(this).next().slideDown();
+
+                    });
+
+                }
+                else{
+                    // Ocultar contenedor de formulario y despligue de tabla
+                    $(divContenedor).children().eq(1).slideUp("fast", function(){
+
+                        $(auxBotonCrear).removeClass('btnCancelarCrearFormula').text('Crear Formula');
+                        $(this).prev().slideDown();
+
+                    });
+
+                }
+
+                // Re asignar valor de proceso a realizar
+                $('.input-procesoFormulario').val('crearFormulaParaConvenio');
+                $('.input-vigencia-ini').val('');
+                $('.input-vigencia-fin').val('');
+                $('.input-fecha-crea').val(this.fechaActual);
+            },
+
+            // Filtrado de campos
+            filtrarCampos : function(input){
+
+                var campoCoincidencia = input;
+
+                if ($(input).val() == "")
+                    $(input).closest('.list-group-item').siblings().show();
+                else
+                    $(input).closest('.list-group-item').siblings().each(function(index, item){
+
+                        campo = ($(this).data('campo')).toLowerCase();
+                        palabraBusqueda = ($(campoCoincidencia).val()).toLowerCase();
+
+                        if( (campo).includes(palabraBusqueda) == false)
+                            $(item).hide();
+                        else
+                            $(item).show();
+                    });
+
+            },
+
+            // Agregar elemento a formula
+            agregarElemento : function(elemento){
+
+                tipoElemento = $(elemento).data('tipo');
+                idConvenio = $(elemento).data('idconvenio');
+                idElemento = $(elemento).data('idcampo');
+                elemText = $(elemento).data('campo');
+                pizarra = $(elemento).closest('.colFormFormulas').find('.contenedorPizarraFormula');
+
+
+                llavesEsquema =  Object.keys(this.esquemaFormula);
+                cantidadLLaves = llavesEsquema.length;
+                llaveAcomparar = (llavesEsquema[(cantidadLLaves - 1)] != undefined) ? llavesEsquema[cantidadLLaves - 1] : "";
+
+                // Deshabilitar el boton de guardar
+                this.deshabilitarGuardado();
+
+                // Si se esta agregando un campo
+                if (tipoElemento == 'campoFormula')
+                {
+                    // Validar que no anteceda un campo
+                    if (llaveAcomparar.includes('campo_') == false)
+                    {
+
+                        // Si es un campo de digitar
+                        if ($(elemento).data('campodigitar') == 'si')
+                        {
+                            vlrCampo = prompt("Dato a insertar!", "");
+
+                            // Validar que sea un número
+                            if(isNaN(vlrCampo) || vlrCampo == '')
+                            {
+                                this.generarAlerta('Solo valores numéricos');
+                                return 0;
+                            }
+                            else if (vlrCampo == null)
+                            {
+                                return 0;
+                            }
+
+                            idElemento += '-' + vlrCampo;
+                            elemText += ' (' + vlrCampo + ')';
+                        }
+
+                        llave = 'campo_' + cantidadLLaves;
+                        this.dibujaElementoEnPizarra(pizarra, idElemento, '', llave, elemText);
+
+                    }
+                    else{
+                        this.generarAlerta('Se esperaba un operador');
+                    }
+
+                }
+                // Si se esta agregando un operador
+                else if(tipoElemento == 'operadorFormula')
+                {
+                    // Validar que el primer elemento a ser agregado sea un campo
+                    if (cantidadLLaves >= 1)
+                    {
+                        // Validar que no anteceda un operador
+                        if (llaveAcomparar.includes('operador_') == false)
+                        {
+                            llave = 'operador_' + cantidadLLaves;
+                            this.dibujaElementoEnPizarra(pizarra, idElemento, 'badge-info', llave, elemText);
+
+                        }
+                        else{
+                            this.generarAlerta('Se esperaba un campo');
+                        }
+
+                    }
+                    else{
+                        this.generarAlerta('Debe ingresar un campo al iniciar la formula');
+                    }
+
+
+                }
+
+
+            },
+
+            // Limpiar esquema principal de la formula que se esta diseñando
+            limpiarEsquemaFormula : function(){
+
+                this.esquemaFormula = {};
+                $('.contenedorPizarraFormula').html('');
+                this.deshabilitarGuardado();
+                $('.input-idFormula').val('');
+
+            },
+
+            // Eliminar elemento a formula
+            eliminarElemento : function(elemento){
+
+                llavesEsquema =  Object.keys(this.esquemaFormula);
+                ultimoElemento = llavesEsquema.pop();
+
+                if (ultimoElemento == $(elemento).data('llave'))
+                {
+                    $(elemento).remove();
+                    delete this.esquemaFormula[ultimoElemento];
+                }
+                else
+                    this.generarAlerta('Solo se puede eliminar el ultimo elemento');
+
+                this.deshabilitarGuardado();
+            },
+
+            // Validar formula
+            validarFormula: function(boton){
+
+                var btnValidaFormula = boton;
+                this.deshabilitarGuardado();
+                formula = {'proceso' : 'validarFormula', 'esquemaFormula' : this.esquemaFormula};
+
+                $.ajax({
+
+                    type : 'GET',
+                    data : formula,
+                    url : '{{ urlModuloGral }}',
+                    success : function(response){
+
+                        if (response.valida)
+                        {
+                            $(btnValidaFormula).next().attr('disabled', false);
+                            objFormulas.generarAlerta('Formula correcta', 'success');
+
+                        }
+                        else{
+                            $(btnValidaFormula).next().attr('disabled', true);
+                            objFormulas.generarAlerta('Error en la formula planteada');
+                        }
+
+                    },
+                    error : function(){
+                        objFormulas.deshabilitarGuardado();
+                        objFormulas.generarAlerta('Error al analizar la formula vuelva a intentarlo', 'danger');
+                    },
+
+                });
+
+
+            },
+
+            //deshabilitar Envio de formulario
+            deshabilitarGuardado: function(btn = null){
+
+                if (btn == null)
+                    $('.btnGuardarFormula').attr('disabled', true);
+                else
+                    $(btn).attr('disabled', true);
+
+                $('.input-esquemaFormulario').val('');
+
+            },
+
+            // Generar creacion de formula
+            guardarFormula : function(formulario){
+
+                if (this.validarRangoFechas(formulario))
+                {
+                    $(formulario).find('input[name="esquemaFormula"]').val(JSON.stringify(this.esquemaFormula));
+                    return true;
+                }
+                else
+                    return false;
+
+            },
+
+            // Validar rango de fechas
+            validarRangoFechas : function(formulario){
+
+
+                f_desde = $(formulario).find('input[name^="vigencia"]').eq(0).val();
+                f_hasta = $(formulario).find('input[name^="vigencia"]').eq(1).val();
+                idConvenio = $(formulario).find('input[name="idConvenio"]').val();
+                idCarrera = $(formulario).find('input[name="idCarrera"]').val();
+                idFormula = $(formulario).find('input[name="idFormula"]').val();
+
+                dataSend = {
+                    procesoFormula : 'validarRangoFechas',
+                    'vigencia[inicio]' : f_desde,
+                    'vigencia[fin]' : f_hasta,
+                    idConvenio : idConvenio,
+                    idCarrera : idCarrera,
+                    idFormula : idFormula
+                };
+
+                var rangoFechasValida = false;
+
+
+                $.ajax({
+
+                    method: 'POST',
+                    async: false,
+                    url: '{{ urlModuloGral }}',
+                    data: dataSend,
+                    success : function (respuesta) {
+
+                        if (respuesta.respuesta == 'Rango no asignado')
+                        {
+                            rangoFechasValida = true;
+                        }
+                        else if(respuesta.errores != undefined)
+                        {
+                            rangoFechasValida = false;
+                            objFormulas.generarAlerta(respuesta.errores['vigencia.formato']);
+                        }
+                        else{
+                            rangoFechasValida = false;
+                            objFormulas.generarAlerta('Rango de fecha ya asignado para una formula de este convenio');
+                        }
+
+                    },
+                    error : function(){
+                        rangoFechasValida = false;
+                        objFormulas.generarAlerta('Error al validar rango de fecha vigencia vuelva a intentarlo', 'danger');
+                    },
+
+                });
+
+                return rangoFechasValida;
+
+            },
+
+            // Cambiar estado formula
+            actualizarEstadoFormula : function(elemento){
+
+                estado = 200;
+                idFormula = $(elemento).val();
+                label = 'Desactivada';
+
+                if ($(elemento).is(':checked'))
+                {
+                    estado = 100;
+                    label = 'Activada';
+                    var estadoCheck = true;
+
+                }
+
+                $.ajax({
+
+                    type : 'POST',
+                    data : {procesoFormula : 'actualizarEstadoFormula', estado : estado},
+                    url : '{{ urlModuloGral }}?idFormula=' + idFormula,
+                    success : function(response){
+
+                        if (response.estadoActualizado){
+                            objFormulas.generarAlerta('Formula '+ label, 'success');
+                        }
+                        else{
+                            objFormulas.generarAlerta('No se realizo el cambio de estado');
+                        }
+                    },
+                    error : function(){
+                        objFormulas.generarAlerta('Error al cambiar el estado de la formula', 'danger');
+                    },
+
+                });
+
+            },
+
+            //formulario edición formula
+            formularioEdita : function(btnEditar){
+
+                // Datos de la formula
+                idFormula = $(btnEditar).data('idformula');
+                formula = $(btnEditar).data('formula');
+                formulaVista = $(btnEditar).data('formulav');
+                esquemaFormula = $(btnEditar).data('formula');
+                vigenciaInicio = $(btnEditar).data('vigenciaini');
+                vigenciaFin = $(btnEditar).data('vigenciafin');
+                fechaCreacion = $(btnEditar).data('vigenciafin');
+
+                // Contenedor principal de la entidad de salud
+                var panelPP = $(btnEditar).closest('.panelEntidad');
+
+                // Click boton crear formula para ejecutar despligue de formulario
+                $(panelPP).find('.btnCrearFormula').click();
+
+                // Re asignación de valores de acuerdo a la formula a editar
+                $(panelPP).find('.contenedorFX').html(formulaVista);
+                $(panelPP).find('input[name^="vigencia"]').eq(0).val(vigenciaInicio);
+                $(panelPP).find('input[name^="vigencia"]').eq(1).val(vigenciaFin);
+                $(panelPP).find('input[name="fechaCreacion"]').val(fechaCreacion);
+                $(panelPP).find('input[name="procesoFormula"]').val('editarFormulaParaConvenio');
+                $(panelPP).find('input[name="idFormula"]').val(idFormula);
+
+                // Almacena en arreglo esquema de formula almacenado en BD
+                segmentosFormula = esquemaFormula.split(",");
+
+
+                // Recorre esquema para pintar en la pizarra
+                $.each(segmentosFormula, function(key, elemento){
+
+                    var auxIdCampoForm = elemento;
+
+                    // Tendra contenido si es un campo de digitación
+                    complemento = '';
+
+                    // Tipo de badge que se va a pintar en la pizarra (gris para campo | azul para operador)
+                    badge = '';
+
+                    // LLave a ser usada en cada posición del atributo de esta clase esquemaFormula
+                    llave = '';
+
+                    // Sera el contenido a almacenar en cada elemento del atributo de esta clase esquemaFormula
+                    idElemento = elemento;
+
+                    // Pizarra en la que se cargaran cada segmento de la formula
+                    pizarra = $(panelPP).find('.contenedorPizarraFormula');
+
+                    // Si es Campo
+                    if(key % 2 == 0)
+                    {
+
+                        llave = 'campo_' + key;
+
+                        // Es Verdadero si no es numero, es decir, cuando es campo de digitar
+                        if( isNaN(elemento))
+                        {
+                            subSegmentos = elemento.split("-");
+                            auxIdCampoForm = subSegmentos[0];
+                            complemento += ' (' + subSegmentos[1] + ')';
+                        }
+
+                        campo = $(panelPP).find('.item-campo').filter(function(){
+                            return $(this).data('idcampo') == auxIdCampoForm;
+                        });
+
+                        textoCampo = $(campo).data('campo') + complemento;
+
+                    }
+                    // Si es Operador
+                    else{
+                        badge = 'badge-info';
+                        llave = 'operador_' + key;
+
+                        operador = $(panelPP).find('.item-operador').filter(function(){
+                            return $(this).data('idcampo') == auxIdCampoForm;
+                        });
+
+                        textoCampo = $(operador).data('campo');
+
+                    }
+
+
+                    objFormulas.dibujaElementoEnPizarra(pizarra, idElemento, badge, llave, textoCampo);
+
+                })
+
+            },
+
+            // Dibujar elemento en pizarra
+            dibujaElementoEnPizarra : function(pizarra, idElemento,badge, llave, elemText){
+
+                this.esquemaFormula[llave] = idElemento;
+
+                $(pizarra)
+                    .append(
+                        '<div ' +
+                        'class="badge '+ badge +' elementoFormula" ' +
+                        'style="margin-top: 5px;" ' +
+                        'data-llave="'+llave+'" ' +
+                        'title="Click para eliminar">'+elemText+'</div> ');
+
+            },
+
+            // Alertas
+            generarAlerta : function(msg, tipo = 'warning'){
+
+                if (tipo == 'warning')
+                    msg += " <i class='fa fa-warning'></i>";
+
+                $.niftyNoty({
+                    type: tipo,
+                    container : "floating",
+                    message : msg,
+                    closeBtn : false,
+                    timer : 4000
+                });
+            }
+        };
+
+        var objFormulas = new ClassFormulasLiquidacion();
+
+        $(document).ready(function(){
+
+            /*Busqueda de entidad en listado*/
+            $('#btnBusquedaEntidad').click(function(){
+                objFormulas.busquedaEntidadSalud($(this));
+            });
+
+            $('#inputBusquedaEntidad').keyup(function(){
+                objFormulas.busquedaEntidadSalud($(this));
+            });
+
+            // Despliegue formulario de creacion
+            $('.btnCrearFormula').click(function(){
+
+                objFormulas.formularioCrea($(this));
+
+            });
+
+            // Acción para agregar elemento a la formula
+            $('.item-campo, .item-operador').click(function () {
+                objFormulas.agregarElemento($(this));
+            });
+
+            // Acción para eliminar elemento de formula
+            $('body').on("click", 'div.elementoFormula', function(){
+                objFormulas.eliminarElemento($(this));
+            });
+
+            // Validar formula
+            $('.btnValidarFormula').click(function () {
+                objFormulas.validarFormula($(this));
+            });
+
+            // Guardar Formulario
+            $('.formulario-F-Liquidacion').submit(function () {
+
+
+                validacion = objFormulas.guardarFormula($(this));
+                console.log(validacion);
+
+                if (validacion === true)
+                    return true;
+
+                return false;
+
+            });
+
+            // Inicializador de componente para switch
+            var elems = Array.prototype.slice.call(document.querySelectorAll('.formula-switch'));
+
+            elems.forEach(function(campo) {
+
+                switchery = new Switchery(campo, {size: 'small'});
+
+                // Asignación de funcionalidad para la actualización de estado
+                $(campo).change(function () {
+                    objFormulas.actualizarEstadoFormula( $(this) );
+                })
+            });
+
+            // Actualización de formula
+            $('.btnEditarFormula').click(function () {
+                objFormulas.formularioEdita($(this));
+            });
+
+        });
+
+
+
+    </script>
+
+{% endblock  scriptsModulo %}

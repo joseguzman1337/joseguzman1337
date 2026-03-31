@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="keywords" content="Social applications, widgets" />
+<meta name="description" content="The jQuery Windows Plugin allows you to easily create ajax windows" />
+<meta name="language" content="en-US" />
+<title>The jQuery Windows Plugin allows you to easily create ajax windows</title>
+
+<link type="text/css" rel="stylesheet" href="jquery.windows-engine.css" />
+
+<script src="jquery.js" type="text/javascript"></script>
+<script type="text/javascript" src="jquery.windows-engine.js"></script>
+
+<script type="text/javascript">
+
+
+$(document).ready(function() {
+	
+	$("#example1").newWindow({
+		 windowTitle:"Example1",
+		 ajaxURL: "ajaxcontent.html",
+		 //onDragBegin: function(){alert("Drag begin")},
+		 //onDragEnd: function(){alert("Drag end")},
+		 //onResizeBegin: function(){alert("Resize begin")},
+		 //onResizeEnd: function(){alert("Resize end")},
+		 //onAjaxContentLoaded: function(){alert("Ajax Content Loaded")},
+		 width:600,height:400
+	});
+	
+	$("#example2").newWindow({
+		windowTitle:"Example1", 
+		content: "example2",
+		posx:200,posy:100,
+		resizeable:false, maximizeButton:false, draggable:false
+	});
+	
+	$("#example3").newWindow({
+		windowTitle:"Example4", 
+		content: "Ok, I really don't know what to put here.",
+		width:400,height:200, closeButton: false
+	});
+	
+	$("#example4").newWindow({
+		 windowTitle:"Example1",
+		 content: "<iframe width='600px' height='400px' src='http://www.google.com'>",
+		 windowType: "iframe",
+		 width:600,height:400
+	});
+	
+	$("#example5").newWindow({
+		 windowTitle:"Example1",
+		 content: $("#video1").html(),
+		 windowType: "video",
+		 width:425,height:344
+	});
+	
+});
+</script>
+
+</head>
+
+<body style="font-family:verdana;">
+<div>
+
+<strong>jQuery Windows Engine (jqWindowsEngine)</strong>
+</div>
+<br/>
+<div id="container-1">
+
+		<div>
+		<a href="#" id="example1" >Example 1</a>: a simple window with ajax loaded content.
+		</div>
+		<br/>
+		<div>
+		<a href="#" id="example2" >Example 2</a>: a non resizeable, non maximizable, non draggable window.
+		</div>
+		<br/>
+		<div>
+		<a href="#" id="example3" >Example 3</a>: a non closable window.
+		</div>
+		<br/>
+		<div>
+		<a href="#" id="example4" >Example 4</a>: a window with iframe content.
+		</div>
+		<br/>
+		<div>
+		<a href="#" id="example5" >Example 5</a>: a window with video content.
+		</div>
+
+</div>
+
+
+<div id="video1" style="display:none;">
+<object width="425" height="344">
+<param name="movie" value="http://www.youtube.com/v/B_xrTPQLxos&hl=en&fs=1"></param>
+<param name="allowFullScreen" value="true"></param>
+<param name="allowscriptaccess" value="always"></param>
+<param name="wmode" value="transparent"></param>
+<embed src="http://www.youtube.com/v/B_xrTPQLxos&hl=en&fs=1" 
+type="application/x-shockwave-flash" allowscriptaccess="always" 
+allowfullscreen="true" width="425" height="344" wmode="transparent">
+</embed>
+</object>
+</div>
+
+</div>
+
+</body>
+</html>

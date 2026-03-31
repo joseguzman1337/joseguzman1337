@@ -1,0 +1,154 @@
+html, body{
+    width:100%;
+    background-color: #F1F1F1;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+html, body, #barraLateral{
+    height:100%;
+}
+#barraLateral{
+    left:0;
+    background-color:#526782;
+    float:left;
+    width:180px;
+    display: table;
+}
+
+#container{
+    /*width: 100%; fallback if needed 
+     width: calc(100% - 180px);
+     float:right;*/
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+#header{
+    width:100%;
+    background-color:#4985DB;
+    height:25px;
+    padding: 30px 0 35px;
+}
+
+#pageWrapper{
+    width:100%;
+    height:100%;
+    padding: 20px;
+}
+
+#pageContainer{
+    background-color:#fff;
+    /*padding:20px;
+    display: inline-block;*/
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin-right: 40px;
+    min-height:400px;
+    overflow-y: scroll;
+    padding:20px 20px 40px;
+}
+
+#barraLateral h1{
+    margin-top:10px;
+    color: #fff;
+    font-family: Verdana, Helvetica;
+    font-size:1.8em;
+    text-align:center;
+    margin-bottom:100px
+}
+
+#barraLateral ul li{
+    border-top: 0;
+    border-bottom: 2px solid #475970;
+}
+
+#barraLateral ul li.first{
+    border-top: 2px solid #475970;
+}
+
+#barraLateral ul li a,#barraLateral ul li a:visited{
+    color: #C2E307;
+    text-transform:uppercase;
+    display:block;
+    text-decoration:none;
+    font-weight: bold;
+    background-image: url('../images/barras.png');
+    background-repeat: no-repeat;
+    padding: 5px 5px 5px 25px;
+    background-position: 5px 6px;    
+}
+
+#barraLateral ul li a:hover,#barraLateral ul li a.active{
+    color: #54697F;
+    text-decoration:none;
+    background-image: url('../images/barrasHover.png');
+    background-color:#C9EB00;    
+    
+}
+
+#header a.sala{
+    float:right;
+    display:block;
+    background-color:#4379C6;
+    margin-right:20px;
+    padding: 5px 10px;
+    font-size:0.9em;
+    color: #fff;
+    text-decoration:none;
+}
+
+#loadingDiv{
+    display:none;
+    text-align:center;
+    padding: 20px;
+    background-color:#fff;
+    padding:20px;
+    /*display: inline-block;*/
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin-right: 40px;
+    height:400px;
+}
+
+#loadingDiv img {
+    margin-top:160px;
+}
+
+table{
+    width:100%;
+    margin:0px auto;
+    border: 0;
+}
+table th,table td{
+    padding:10px 5px;
+    border:0;
+    border-bottom: 1px solid #ccc;
+}
+table thead th{
+    font-weight:bold;
+    text-align:right;
+}
+table tbody td.first{
+    color: #999;
+}
+table tbody td{
+    text-align:right;
+}
+
+table td a,table td a:visited{
+    text-decoration:none;
+    /*color:#0000EE*/
+        color: #5262AA;
+}
+table td a:hover{
+    color:#458B00;
+}
+table tbody td span.badResult{
+    padding:5px;
+    background-color: #FFAFAF;
+        -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -khtml-border-radius: 20px;
+    border-radius: 20px;
+}
+

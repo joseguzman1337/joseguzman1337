@@ -1,0 +1,21 @@
+.menuPrincipal{
+	display: block;
+	width: 100%;
+}
+a div{
+	color: #ffffff !important;
+}
+
+a div.iconoMenu{
+	width: 55px;
+	height: 55px;
+	display: inline-block; 
+	position: relative;
+	vertical-align: middle;
+}
+
+a div.textMenu{ 
+	display: inline-block; 
+	position: relative;
+	vertical-align: middle;
+}

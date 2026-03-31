@@ -1,0 +1,69 @@
+/* Definición de estilos para sala */ 
+
+/* Estilo para la tipografia */
+BODY{ font-family:Arial, Helvetica, sans-serif; 
+font-weight: bold; 
+font-size:10px }
+FONT{ font-family:Arial, Helvetica, sans-serif }
+
+/* Estilo para tablas */
+
+/* Tablas con el fondo verde o naranja y titulos en negrilla */
+TABLE{ left:auto; 
+border-color:#003333; 
+font-family:Arial, Helvetica, sans-serif; 
+font-size:10px;}
+
+/* TD con color verde */
+TD#tituloverde{ background-color:#C5D5D6; 
+font-size:11px; 
+font-weight: bold; }
+TH#tituloverde{ background-color:#C5D5D6; 
+font-size:11px; 
+font-weight: bold; }
+
+/* TD con color naranja */
+TD#titulonaranja{ background-color:#FEF7ED; 
+font-size:11px; 
+font-weight: bold; }
+TH#titulonaranja{ background-color:#FEF7ED; 
+font-size:11px; 
+font-weight: bold; }
+
+/* TR con color naranja */
+TR#titulonaranja{ background-color:#FEF7ED; 
+}
+
+/* TD con negrilla */
+TD#titulonegrilla{ font-size:11px; 
+font-weight: bold; }
+
+/* A href sin que se vaya con el href si no con el onclik, da la apariencia de link */
+A#aparencialink { border-bottom:1px solid blue;
+cursor:pointer; 
+font-size:11px; 
+font-weight: bold; 
+color:#000099}
+
+/* Estilo para parrafos */
+/* Este parrafo es para titulos */
+P { font-size:12px;
+font-weight: bold; }
+
+INPUT#texto{ width:100px; 
+font-size:10px;
+}
+
+INPUT#textoid{ width:40px; 
+font-size:10px;
+}
+
+/* Estilo para notas */
+LABEL#nota{ color:#660000;
+font-size:11px;
+font-weight: bold;
+}
+LABEL#notapequena{ color:#660000;
+font-size:10px;
+font-weight: bold;
+}

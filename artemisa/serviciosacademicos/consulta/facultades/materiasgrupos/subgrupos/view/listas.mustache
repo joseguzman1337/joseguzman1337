@@ -1,0 +1,159 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <script type="text/javascript" language="javascript" src="../../../../../mgi/js/jquery.js"></script>
+    <title>LISTADO DE ROTACIONES</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link type="text/css" href="../../../../../educacionContinuada/css/normalize.css" rel="stylesheet"/>
+    <link media="screen, projection" type="text/css" href="../../../../../educacionContinuada/css/style.css" rel="stylesheet"/>
+    <script type="text/javascript" language="javascript" src="../../../../../mgi/js/jquery-ui-1.8.21.custom.min.js"></script>
+    <script type="text/javascript" language="javascript" src="../../../../../mgi/js/nicEdit.js"></script>
+    <script type="text/javascript" language="javascript" src="../../../../../mgi/js/functions.js"></script>
+    <script type="text/javascript" language="javascript" src="../../../../../mgi/js/functionsMonitoreo.js"></script>
+    <script type="text/javascript" language="javascript" src="../js/RotacionSubGrupos.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#exportExcel').click(function(e){
+                $("#datos_a_enviar").val( $("<div>").append( $("#reporteGeneral").eq(0).clone()).html());
+                $("#formInforme").submit();
+            });
+        });
+    </script>
+    <script>
+        function identificarmodal(id,SubgrupoId,materia)
+        {
+            $('#rotacion').val(id);
+            $('#materia').val(materia);
+            $('#SubgrupoId').val(SubgrupoId);
+        }
+    </script>
+    <style>
+        form span.info{
+            margin-left:15px;position:relative;top:2px;
+            clear: right;
+            display: inline-block;
+            float: left;
+        }
+        .modal-contenido{
+            background-color: white;
+            width:300px;
+            padding: 10px 20px;
+            margin: 20% auto;
+            position: relative;
+        }
+        .modal{
+            background-color: rgba(0,0,0,.8);
+            position:fixed;
+            top:0;
+            right:0;
+            bottom:0;
+            left:0;
+            opacity:0;
+            pointer-events:none;
+            transition: all 1s;
+        }
+        #miModal:target{
+            opacity:1;
+            pointer-events: auto;
+        }
+    </style>
+</head>
+<body class="body">
+<div id="pageContainer">
+    <div id="container">
+        <center><h1>LISTADO DE ROTACIONES</h1><br />Subgrupo:{{nombreSubgrupo}} N#: {{idgrupo}}- {{SubgrupoId}}</center>
+        <div><table style="width: 100%;"><tr><td style="aling:left;">
+            <form>
+                <input type="hidden" id="idgrupo" value="{{idgrupo}}" />
+                <input type="hidden" id="materia" value="{{materia}}" />
+                <input type="button" value="Regresar" onclick="RegresarsubGrupo()" />
+            </form>
+        </td></tr></table>
+        </div>
+        {{#ListaRotacionesSubgruposData}}
+            {{#datos}}
+                <table style="width: 100%;"><tr><td style="aling:left;">
+                    <form id="formulario{{IdInstitucion}}" name="formulario{{IdInstitucion}}" method="">
+                        <input type="hidden" id="idgrupo" value="{{idgrupo}}" />
+                        <input type="hidden" id="materia" value="{{materia}}" />
+                        <input type="hidden" id="SubgrupoId" value="{{SubgrupoId}}" />
+                        <input type="hidden" id="Institucion" value="{{IdInstitucion}}" />
+                        <input type="button" id="detallesRotacion" name="detallesRotacion" value="Detalles Rotacion" onclick="DetallesRotacion('formulario{{IdInstitucion}}')" />
+                    </form>
+                </td>
+                    <td style="aling:right;">
+                        <form id="formInforme" style="z-index: -1; width:100%" method="post" action="../../../../../utilidades/imprimirReporteExcel.php">
+                            <input id="datos_a_enviar" type="hidden" name="datos_a_enviar">
+                            <input name="exportExcel" id="exportExcel" type="submit" value="Exportar" />
+                        </form>
+                    </td>
+                </tr></table>
+            {{/datos}}
+            <br />
+            <div id="demo">
+                <center>
+                    <table cellpadding="0" cellspacing="0" border="1" class="display" id="reporteGeneral">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>N° Documento</th>
+                            <th>Apellidos</th>
+                            <th>Nombres</th>
+                            <th>Materia</th>
+                            <th>Lugar Rotacion</th>
+                            <th>Fecha Inicio</th>
+                            <th>Fecha Finalización</th>
+                            <th>Periodo</th>
+                            <th>Dias</th>
+                            <th>Horas</th>
+                            <th>Estado</th>
+                            <th>Eliminar</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {{#rotacion}}
+                            <tr>
+                                <td>{{row}}</td>
+                                <td>{{numerodocumento}}</td>
+                                <td>{{apellidosestudiantegeneral}}</td>
+                                <td>{{nombresestudiantegeneral}}</td>
+                                <td>{{nombremateria}}</td>
+                                <td>{{lugarRotacion}}</td>
+                                <td>{{FechaIngreso}}</td>
+                                <td>{{FechaEgreso}}</td>
+                                <td>{{codigoperiodo}}</td>
+                                <td>{{TotalDias}}</td>
+                                <td>{{TotalHoras}}</td>
+                                <td>{{NombreEstado}}</td>
+                                <td id="datos_eliminar" class="">
+                                    <a  class="" href="#miModal" id="{{row}}" onclick="identificarmodal('{{RotacionEstudianteId}}','{{SubgrupoId}}','{{materia}}');">Eliminar</a>
+                                </td>
+                            </tr>
+                        {{/rotacion}}
+                        </tbody>
+                    </table>
+                </center>
+            </div>
+        {{/ListaRotacionesSubgruposData}}
+
+        <div id="miModal" class="modal" name="{{row}}">
+            <div class="modal-contenido">
+                <div>
+                    <a href="#">X</a>
+                    <p>Esta seguro de elimar esta rotacion?</p>
+                    <form id="Eliminarformulario" method="post"  >
+                        <input type="hidden" name="rotacion" id="rotacion" value="{{RotacionEstudianteId}}" />
+                        <input type="hidden" name="SubgrupoId" id="SubgrupoId" value="{{SubgrupoId}}" />
+                        <input type="hidden" name="idgrupo" id="idgrupo" value="{{idgrupo}}" />
+                        <input type="hidden" name="materia" id="materia" value="{{materia}}" />
+                        <input type="hidden" name="user" id="user" value="{{user}}" />
+                        <input type="hidden" id="action_ID" name="action_ID" value="EliminarRotacion" />
+                        <input type="button" id="eliminar" name="eliminar" value="Aceptar" onclick="EliminarLaRotacion('#Eliminarformulario');"/>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

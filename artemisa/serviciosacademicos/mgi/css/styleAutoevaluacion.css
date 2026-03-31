@@ -1,0 +1,106 @@
+
+/* --------------- BOTONES --------------- */
+
+.clsAgregarFila.button, .clsAgregarFila.button, .clsAgregarFilaG.button, .clsAgregarFilaG.button, .clsAgregarFilaL.button, .clsAgregarFilaL.button, .clsAgregarFilaMR.button, .clsAgregarFilaMR.button
+, .clsAgregarFilaUR.button, .clsAgregarFilaUR.button, .clsAgregarFilaA.button, .clsAgregarFilaA.button, .clsAgregarFilaAP.button, .clsAgregarFilaAP.button:visited { background-color: #296ef2; }
+.clsAgregarFila.button, .clsAgregarFilaL.button, .clsAgregarFilaG.button, .clsAgregarFilaD.button, .clsAgregarFilaMR.button, .clsAgregarFilaUR.button, .clsAgregarFilaA.button , .clsAgregarFilaAP.button:hover{ background-color: #8ea7d7; }
+
+
+.clsEliminarFila.button, .clsEliminarFila.button, .clsEliminarFilaG.button, .clsEliminarFilaG.button, .clsEliminarFilaL.button, .clsEliminarFilaL.button, .clsEliminarFilaMR.button, .clsEliminarFilaMR.button
+, .clsEliminarFilaUR.button, .clsEliminarFilaUR.button , .clsEliminarFilaA.button, .clsEliminarFilaA.button, .clsEliminarFilaAP.button, .clsEliminarFilaAP.button:visited { background-image: url("../images/eliminar2.png"); background-color: #296ef2; }
+.clsEliminarFila.button, .clsEliminarFilaL.button, .clsEliminarFilaG.button, .clsEliminarFilaD.button, .clsEliminarFilaMR.button, .clsEliminarFilaUR.button, .clsEliminarFilaA.button, .clsEliminarFilaAP.button:hover{  background-image: url("../images/eliminar2.png"); background-color: #8ea7d7;}
+
+
+a.submit {
+    padding: 9px 17px;
+   font-family: Helvetica, Arial, sans-serif;
+   font-weight: bold;
+   line-height: 1;
+   border: none;
+   text-shadow: 0 1px 1px rgba(255, 255, 255, 0.85);
+   background-image: -webkit-gradient( linear, 0% 0%, 0% 100%, from(#fff), to(#bbb));
+   background-image: -moz-linear-gradient(0% 100% 90deg, #BBBBBB, #FFFFFF);
+   background-color: #fff;
+   border: 1px solid #f1f1f1;
+   border-radius: 10px;
+   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+button.submit {
+    padding: 9px 17px;
+   font-family: Helvetica, Arial, sans-serif;
+   font-weight: bold;
+   line-height: 1;
+   color: #444;
+   border: none;
+   text-shadow: 0 1px 1px rgba(255, 255, 255, 0.85);
+   background-image: -webkit-gradient( linear, 0% 0%, 0% 100%, from(#fff), to(#bbb));
+   background-image: -moz-linear-gradient(0% 100% 90deg, #BBBBBB, #FFFFFF);
+   background-color: #fff;
+   border: 1px solid #f1f1f1;
+   border-radius: 10px;
+   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+button.submit:hover {
+    opacity:.80;
+    cursor: pointer;
+}
+button.submit:active {
+    border: 1px solid #222;
+    box-shadow: 0 0 10px 5px #444 inset;
+}
+
+.izquierda {
+    float: left
+}
+
+.derecha {
+    float: right;
+    margin-right: 180px;
+}
+
+
+fieldset {
+-webkit-border-radius: 8px;
+-moz-border-radius: 8px;
+border-radius: 8px;
+border-color:#88AB0C;
+border-style: solid;
+border-width: 1px;
+position: relative;
+width: 1000px;
+
+}
+
+legend {
+color: #3E4729; 
+font-size:14px;
+font-weight: bold;
+letter-spacing:-1px;
+padding-bottom:20px;
+padding-top:8px;
+text-transform:capitalize;
+}
+
+
+.ul-state-sess{
+    list-style-type: none;
+    margin: 0; padding: 0 0 2.5em; float: left; margin-right: 10px;
+    background-color: #069;
+    border-bottom: 2px solid #036;
+    background-image: -webkit-gradient(linear, left top, left bottom, from( #fbfbfb /*{b-body-background-start}*/), to( #e7e7e7 /*{b-body-background-end}*/)); /* Saf4+, Chrome */
+    background-image: -webkit-linear-gradient( #fbfbfb /*{b-body-background-start}*/, #e7e7e7 /*{b-body-background-end}*/); /* Chrome 10+, Saf5.1+ */
+    background-image:    -moz-linear-gradient( #fbfbfb /*{b-body-background-start}*/, #e7e7e7 /*{b-body-background-end}*/); /* FF3.6 */
+    background-image:     -ms-linear-gradient( #fbfbfb /*{b-body-background-start}*/, #e7e7e7 /*{b-body-background-end}*/); /* IE10 */
+    background-image:      -o-linear-gradient( #fbfbfb /*{b-body-background-start}*/, #e7e7e7 /*{b-body-background-end}*/); /* Opera 11.10+ */
+    background-image:         linear-gradient( #fbfbfb /*{b-body-background-start}*/, #e7e7e7 /*{b-body-background-end}*/);
+        
+}
+
+#sortable1, #sortable2 { list-style-type: none; margin: 0; padding: 0 0 2.5em; float: left; margin-right: 10px; }
+#sortable1 li, #sortable2 li { margin: 0 5px 5px 5px; padding: 5px; font-size: 1.2em; width: 220px; }
+    
+form input[type="text"].error, form textarea.error, form select.error, form table.error {
+    /*background-color: #ffc;*/
+    border: 1px solid #c00;
+}

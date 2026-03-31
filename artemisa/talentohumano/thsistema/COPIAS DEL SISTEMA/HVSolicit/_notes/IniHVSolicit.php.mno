@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_Facultades" value="name:IdFacultad;datatype:int,name:Facultad;datatype:string" />
+</info>

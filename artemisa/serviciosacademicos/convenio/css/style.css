@@ -1,0 +1,109 @@
+.clearfix:after {
+    display:block;
+    clear:both;
+}
+
+/**, *::before, *::after {
+    border: 0 none;
+    box-sizing: border-box;
+    font: inherit;
+    margin: 0;
+    padding: 0;
+}*/
+ 
+/*----- Menu Outline -----*/
+#menuPrincipal ul.sub-menu{
+height:auto;
+    width:auto;
+	color: #000;
+}
+
+#menuPrincipal li.active ul.sub-menu li a{
+	color: #000;
+	width: -moz-calc(100% - 60px);
+    width: -webkit-calc(100% - 60px);
+    width: calc(100% - 60px);
+}
+
+.menu-wrap {
+    width:100%;
+    box-shadow:0px 1px 3px rgba(0,0,0,0.2);
+    background:#3e3436;
+}
+ 
+.menu {
+    width:1000px;
+    margin:0px auto;
+}
+ 
+.menu li {
+    margin:0px;
+    list-style:none;
+    font-family:'Ek Mukta';
+}
+ 
+.menu a {
+    transition:all linear 0.15s;
+    color:#919191;
+}
+ 
+#menuPrincipal ul.sub-menu li:hover > a,#menuPrincipal li.active ul.sub-menu li:hover > a, #menuPrincipal ul.sub-menu .current-item > a , #menuPrincipal  li.active ul.sub-menu .current-item > a{
+    text-decoration:none;
+    /*color:#be5b70;*/
+	color:#fff;
+}
+ 
+.menu .arrow {
+    font-size:11px;
+    line-height:0%;
+}
+ 
+/*----- Top Level -----*/
+.menu > ul > li {
+    float:left;
+    display:inline-block;
+    position:relative;
+    font-size:19px;
+}
+ 
+.menu > ul > li > a {
+    padding:10px 40px;
+    display:inline-block;
+    text-shadow:0px 1px 0px rgba(0,0,0,0.4);
+}
+ 
+.menu > ul > li:hover > a, .menu > ul > .current-item > a,.menu > ul > li:hover {
+    background:#2e2728;
+}
+ 
+/*----- Bottom Level -----*/
+.menu li:hover .sub-menu {
+    z-index:1;
+    opacity:1;
+}
+ 
+.sub-menu {
+    padding:5px 0px;
+    position:absolute;
+    top:100%;
+    left:0px;
+    z-index:-1;
+    opacity:0;
+    transition:opacity linear 0.15s;
+    box-shadow:0px 2px 3px rgba(0,0,0,0.2);
+    background:#2e2728;
+}
+ 
+.sub-menu li , #menuPrincipal .sub-menu li{
+    display:block;
+    font-size:16px;
+}
+ 
+.sub-menu li a, #menuPrincipal .sub-menu li a {
+    padding:10px 30px;
+    display:block;
+}
+ 
+.sub-menu li a:hover, .sub-menu .current-item a {
+    background:#3e3436;
+}

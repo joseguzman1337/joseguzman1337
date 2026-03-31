@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8">
+<TITLE>Output</TITLE>
+<LINK TYPE="text/css" REL="stylesheet" HREF="../fpdf.css">
+</HEAD>
+<BODY>
+<H2>Output</H2>
+<TT><B>string</B> Output([<B>string</B> name [, <B>string</B> dest]])</TT>
+<H4 CLASS='st'>Version</H4>
+1.0
+<H4 CLASS='st'>Descripción</H4>
+Envía el documento a un destino dado: una cadena, un fichero local o al navegador. En el
+último caso, puede utilizarse la extensión -plug in- (si existe) o forzarse un cuadro
+de diálogo de descarga.
+<BR>
+El método invoca ante todo a Close() si es necesario cerrar el documento.
+<H4 CLASS='st'>Parámetros</H4>
+<TT><U>name</U></TT>
+<BLOCKQUOTE>
+El nombre del fichero. Si no se especifica, el documento se envía al navegador
+(destino <TT>I</TT>) con el nombre <TT>doc.pdf</TT>.
+</BLOCKQUOTE>
+<TT><U>dest</U></TT>
+<BLOCKQUOTE>
+Destino al que enviar el documento. Puede tener uno de los siguientes valores:
+<UL>
+<LI><TT>I</TT>: envía el fichero al navegador de forma que se usa la extensión
+(plug in) si está disponible.
+El nombre dado en <TT>nombre</TT> se usa si el usuario escoge la opción "Guardar como..." en
+el enlace que genera el PDF.
+<LI><TT>D</TT>: envía el fichero al navegador y fuerza la descarga del fichero con el
+nombre especificado por <TT>nombre</TT>.
+<LI><TT>F</TT>: guarda el fichero en un fichero local de nombre <TT>nombre</TT>.
+<LI><TT>S</TT>: devuelve el documento como una cadena. <TT>nombre</TT> se ignora.
+</UL>
+Si el parámetro no se especifica pero se ha dado un nombre, el destino es <TT>F</TT>.
+Si no se especifica ningún parametro, el destino es<TT>I</TT>.<BR>
+<BR>
+Nota: por compatibilidad con versiones anteriores, también se acepta un valor booleano
+(<TT>false</TT> para <TT>F</TT> y <TT>true</TT> para <TT>D</TT>).
+</BLOCKQUOTE>
+<H4 CLASS='st'>Vea además</H4>
+<A HREF="close.htm">Close()</A>.
+<HR STYLE="margin-top:1.5em">
+<DIV STYLE="text-align:center"><A HREF="index.htm">Inicio</A></DIV>
+</BODY>
+</HTML>

@@ -1,0 +1,96 @@
+/*!
+ *  Font page by @quinteroivan
+ */
+/* FONT PATH
+ * -------------------------- 
+/**/
+@font-face {
+	font-family: 'Acherus Grotesque'; 
+	src: url('../fonts/AcherusGrotesque/AcherusGrotesque-Light.otf') format("opentype"); 
+}
+@font-face {
+	font-family: 'Acherus Grotesque';
+	src: url('../fonts/AcherusGrotesque/AcherusGrotesque-Black.otf') format("opentype");  
+    font-weight: bold;  
+}
+@font-face {
+	font-family: 'Acherus Grotesque'; 
+	src: url('../fonts/AcherusGrotesque/AcherusGrotesque-Black-Italic.otf') format("opentype"); 
+    font-style: italic, oblique;
+}
+@font-face {
+	font-family: 'Acherus Grotesque'; 
+	src: url('../fonts/AcherusGrotesque/AcherusGrotesque-Bold.otf') format("opentype"); 
+    font-weight: bold;
+    font-style: italic, oblique;
+}
+@font-face {
+	font-family: 'Acherus Grotesque'; 
+	src: url('../fonts/AcherusGrotesque/AcherusGrotesque-Bold.otf') format("opentype"); 
+    font-weight: bold;
+}
+@font-face {
+	font-family: 'Acherus Grotesque'; 
+	src: url('../fonts/AcherusGrotesque/AcherusGrotesque-Extrabold.otf') format("opentype"); 
+    font-weight: bolder;
+}
+@font-face {
+	font-family: 'Acherus Grotesque'; 
+	src: url('../fonts/AcherusGrotesque/AcherusGrotesque-Light.otf') format("opentype");  
+    font-weight: normal; 
+}
+/*{     
+	src: url('../fonts/AcherusGrotesque/AcherusGrotesque-Medium.otf') format("opentype");  
+	src: url('../fonts/AcherusGrotesque/AcherusGrotesque-Medium-Italic.otf') format("opentype");   
+	src: url('../fonts/AcherusGrotesque/AcherusGrotesque-Regular.otf') format("opentype");   
+	src: url('../fonts/AcherusGrotesque/AcherusGrotesque-Regular-Italic.otf') format("opentype");   
+	src: url('../fonts/AcherusGrotesque/AcherusGrotesque-Thin.otf') format("opentype");   
+	src: url('../fonts/AcherusGrotesque/AcherusGrotesque-Thin-Italic.otf') format("opentype");   
+	src: url('../fonts/AcherusGrotesque/AcherusGrotesque-Ultralight.otf') format("opentype");   
+	src: url('../fonts/AcherusGrotesque/AcherusGrotesque-Ultralight-Italic.otf') format("opentype");   
+}/**/
+
+@font-face {
+	font-family: Lato;
+	src: url('../fonts/fonts-page/Lato-Black.ttf'); 
+	src: url('../fonts/fonts-page/Lato-BlackItalic.ttf');  
+	src: url('../fonts/fonts-page/Lato-Bold.ttf');  
+	src: url('../fonts/fonts-page/Lato-BoldItalic.ttf');  
+	src: url('../fonts/fonts-page/Lato-Hairline.ttf');  
+	src: url('../fonts/fonts-page/Lato-HairlineItalic.ttf');  
+	src: url('../fonts/fonts-page/Lato-Italic.ttf');  
+	src: url('../fonts/fonts-page/Lato-Light.ttf');  
+	src: url('../fonts/fonts-page/Lato-LightItalic.ttf'); 
+	src: url('../fonts/fonts-page/Lato-Regular.ttf');
+}
+
+@font-face {
+	font-family: PTSerif;
+	src: url('../fonts/fonts-page/PTSerif700.ttf'); 	
+	src: url('../fonts/fonts-page/PTSerif700italic.ttf');   
+	src: url('../fonts/fonts-page/PTSerifCaptionitalic.ttf');   
+	src: url('../fonts/fonts-page/PTSerifCaptionregular.ttf');   
+	src: url('../fonts/fonts-page/PTSerifitalic.ttf');   
+	src: url('../fonts/fonts-page/PTSerifregular.ttf');   
+} 
+/*
+h3{
+	font-family: Acherus_Grotesque;
+	font-size: 28 - Line height: 31 - Tracking: -0.5;
+}
+h4{
+	font-family: Acherus_Grotesque;
+	font-size: 22 - Line height: 25 - Tracking: -0.5;
+}
+
+cita{
+	font-family: Acherus_Grotesque;
+	font-size: 28 - Line height: 30 - Tracking: -0.5;
+}
+
+p{
+	font-family: Lato;
+	font-size: 16 - Line height: 22 - Tracking: 0;
+}
+
+/**/

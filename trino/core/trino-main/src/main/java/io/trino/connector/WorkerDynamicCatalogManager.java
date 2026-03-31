@@ -1,0 +1,317 @@
+/*
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package io.trino.connector;
+
+import com.google.common.collect.ImmutableMap;
+import com.google.common.util.concurrent.Futures;
+import com.google.common.util.concurrent.ListenableFuture;
+import com.google.errorprone.annotations.ThreadSafe;
+import com.google.errorprone.annotations.concurrent.GuardedBy;
+import com.google.inject.Inject;
+import io.airlift.log.Logger;
+import io.trino.connector.system.GlobalSystemConnector;
+import io.trino.metadata.Catalog;
+import io.trino.metadata.CatalogManager;
+import io.trino.plugin.base.util.AutoCloseableCloser;
+import io.trino.spi.TrinoException;
+import io.trino.spi.catalog.CatalogName;
+import io.trino.spi.catalog.CatalogProperties;
+import io.trino.spi.connector.ConnectorName;
+import jakarta.annotation.PreDestroy;
+
+import java.util.ArrayList;
+import java.util.Deque;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Optional;
+import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentMap;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReadWriteLock;
+import java.util.concurrent.locks.ReentrantReadWriteLock;
+
+import static com.google.common.base.Preconditions.checkArgument;
+import static com.google.common.collect.ImmutableList.toImmutableList;
+import static com.google.common.collect.ImmutableMap.toImmutableMap;
+import static io.airlift.concurrent.Threads.daemonThreadsNamed;
+import static io.trino.connector.CatalogHandle.createRootCatalogHandle;
+import static io.trino.spi.StandardErrorCode.GENERIC_INTERNAL_ERROR;
+import static java.util.Objects.requireNonNull;
+import static java.util.concurrent.Executors.newCachedThreadPool;
+
+@ThreadSafe
+public class WorkerDynamicCatalogManager
+        implements ConnectorServicesProvider
+{
+    private static final Logger log = Logger.get(WorkerDynamicCatalogManager.class);
+
+    private final CatalogFactory catalogFactory;
+
+    private final ReadWriteLock catalogsLock = new ReentrantReadWriteLock();
+    private final Lock catalogLoadingLock = catalogsLock.readLock();
+    private final Lock catalogRemovingLock = catalogsLock.writeLock();
+    private final ConcurrentMap<CatalogHandle, RegisteredCatalog> catalogs = new ConcurrentHashMap<>();
+    private final ExecutorService executor = newCachedThreadPool(daemonThreadsNamed("worker-dynamic-catalog-manager-%s"));
+
+    @GuardedBy("catalogsLock")
+    private boolean stopped;
+
+    @Inject
+    public WorkerDynamicCatalogManager(CatalogFactory catalogFactory)
+    {
+        this.catalogFactory = requireNonNull(catalogFactory, "catalogFactory is null");
+    }
+
+    @PreDestroy
+    public void stop()
+            throws Exception
+    {
+        try (AutoCloseableCloser closer = AutoCloseableCloser.create()) {
+            catalogRemovingLock.lock();
+            try {
+                if (stopped) {
+                    return;
+                }
+                stopped = true;
+
+                catalogs.values().forEach(registeredCatalog -> closer.register(registeredCatalog.catalog()::shutdown));
+                catalogs.clear();
+            }
+            finally {
+                catalogRemovingLock.unlock();
+            }
+
+            closer.register(executor::shutdownNow);
+        }
+    }
+
+    @Override
+    public void loadInitialCatalogs() {}
+
+    @Override
+    public void ensureCatalogsLoaded(List<CatalogProperties> expectedCatalogs)
+    {
+        if (getMissingCatalogs(expectedCatalogs).isEmpty()) {
+            return;
+        }
+
+        catalogLoadingLock.lock();
+        try {
+            if (stopped) {
+                return;
+            }
+
+            List<CatalogProperties> missingCatalogs = getMissingCatalogs(expectedCatalogs);
+            missingCatalogs.forEach(catalog -> checkArgument(!catalog.name().equals(GlobalSystemConnector.CATALOG_HANDLE.getCatalogName()), "Global system catalog not registered"));
+            List<ListenableFuture<Void>> loadedCatalogs = Futures.inCompletionOrder(
+                    missingCatalogs.stream()
+                            .map(catalog ->
+                                    Futures.submit(() -> {
+                                        catalogs.computeIfAbsent(createRootCatalogHandle(catalog.name(), catalog.version()), cataloghandle -> {
+                                            CatalogConnector newCatalog = catalogFactory.createCatalog(catalog);
+                                            log.debug("Added catalog: %s", cataloghandle);
+                                            return new RegisteredCatalog(new RegistrationToken(), newCatalog);
+                                        });
+                                    }, executor))
+                            .collect(toImmutableList()));
+
+            Deque<Throwable> catalogLoadingExceptions = new LinkedList<>();
+            for (ListenableFuture<Void> loadedCatalog : loadedCatalogs) {
+                try {
+                    loadedCatalog.get();
+                }
+                catch (ExecutionException e) {
+                    if (e.getCause() != null) {
+                        catalogLoadingExceptions.add(e.getCause());
+                    }
+                    else {
+                        catalogLoadingExceptions.add(e);
+                    }
+                }
+                catch (InterruptedException e) {
+                    Thread.currentThread().interrupt();
+                    catalogLoadingExceptions.add(e);
+                }
+                finally {
+                    loadedCatalog.cancel(true);
+                }
+            }
+            if (!catalogLoadingExceptions.isEmpty()) {
+                Throwable firstError = catalogLoadingExceptions.poll();
+                while (!catalogLoadingExceptions.isEmpty()) {
+                    firstError.addSuppressed(catalogLoadingExceptions.poll());
+                }
+                throw new TrinoException(GENERIC_INTERNAL_ERROR, "Error loading catalogs on worker", firstError);
+            }
+        }
+        finally {
+            catalogLoadingLock.unlock();
+        }
+    }
+
+    @Override
+    public PrunableState getPrunableState()
+    {
+        return new PrunableStateImpl(catalogs.entrySet().stream()
+                .collect(toImmutableMap(entry -> entry.getKey(), entry -> entry.getValue().registrationToken())));
+    }
+
+    @Override
+    public void pruneCatalogs(PrunableState opaquePrunableState, Set<CatalogHandle> catalogsInUse)
+    {
+        PrunableStateImpl prunableState = (PrunableStateImpl) opaquePrunableState;
+        List<CatalogConnector> removedCatalogs = new ArrayList<>();
+        catalogRemovingLock.lock();
+        try {
+            if (stopped) {
+                return;
+            }
+            Iterator<Entry<CatalogHandle, RegisteredCatalog>> iterator = catalogs.entrySet().iterator();
+            while (iterator.hasNext()) {
+                Entry<CatalogHandle, RegisteredCatalog> entry = iterator.next();
+                CatalogHandle catalogHandle = entry.getKey();
+                RegistrationToken registrationToken = entry.getValue().registrationToken();
+                if (registrationToken.equals(prunableState.prunableCatalogs().get(catalogHandle))
+                        && !catalogsInUse.contains(catalogHandle)) {
+                    iterator.remove();
+                    removedCatalogs.add(entry.getValue().catalog());
+                }
+            }
+        }
+        finally {
+            catalogRemovingLock.unlock();
+        }
+
+        removedCatalogs.forEach(removedCatalog -> Futures.submit(
+                () -> {
+                    try {
+                        removedCatalog.shutdown();
+                        log.debug("Pruned catalog: %s", removedCatalog.getCatalogHandle());
+                    }
+                    catch (Throwable e) {
+                        log.error(e, "Error shutting down catalog: %s".formatted(removedCatalog));
+                    }
+                },
+                executor).state());
+    }
+
+    private List<CatalogProperties> getMissingCatalogs(List<CatalogProperties> expectedCatalogs)
+    {
+        return expectedCatalogs.stream()
+                .filter(catalog -> !catalogs.containsKey(createRootCatalogHandle(catalog.name(), catalog.version())))
+                .collect(toImmutableList());
+    }
+
+    @Override
+    public ConnectorServices getConnectorServices(CatalogHandle catalogHandle)
+    {
+        RegisteredCatalog registeredCatalog = catalogs.get(catalogHandle.getRootCatalogHandle());
+        checkArgument(registeredCatalog != null, "No catalog '%s'", catalogHandle.getCatalogName());
+        return registeredCatalog.catalog().getMaterializedConnector(catalogHandle.getType());
+    }
+
+    public void registerGlobalSystemConnector(GlobalSystemConnector connector)
+    {
+        requireNonNull(connector, "connector is null");
+
+        catalogLoadingLock.lock();
+        try {
+            if (stopped) {
+                return;
+            }
+
+            CatalogConnector catalog = catalogFactory.createCatalog(GlobalSystemConnector.CATALOG_HANDLE, new ConnectorName(GlobalSystemConnector.NAME), connector);
+            if (catalogs.putIfAbsent(GlobalSystemConnector.CATALOG_HANDLE, new RegisteredCatalog(new RegistrationToken(), catalog)) != null) {
+                throw new IllegalStateException("Global system catalog already registered");
+            }
+        }
+        finally {
+            catalogLoadingLock.unlock();
+        }
+    }
+
+    record PrunableStateImpl(Map<CatalogHandle, RegistrationToken> prunableCatalogs)
+            implements PrunableState
+    {
+        public PrunableStateImpl
+        {
+            prunableCatalogs = ImmutableMap.copyOf(requireNonNull(prunableCatalogs, "prunableCatalogs is null"));
+        }
+    }
+
+    static class RegistrationToken
+    {
+        // identity-based equality
+        @Override
+        public boolean equals(Object obj)
+        {
+            return super.equals(obj);
+        }
+
+        @Override
+        public int hashCode()
+        {
+            return super.hashCode();
+        }
+    }
+
+    private record RegisteredCatalog(RegistrationToken registrationToken, CatalogConnector catalog)
+    {
+        RegisteredCatalog
+        {
+            requireNonNull(registrationToken, "registrationToken is null");
+            requireNonNull(catalog, "catalog is null");
+        }
+    }
+
+    public static class NoOpWorkerCatalogManager
+            implements CatalogManager
+    {
+        @Override
+        public Set<CatalogName> getCatalogNames()
+        {
+            return Set.of();
+        }
+
+        @Override
+        public Optional<Catalog> getCatalog(CatalogName catalogName)
+        {
+            return Optional.empty();
+        }
+
+        @Override
+        public Optional<CatalogProperties> getCatalogProperties(CatalogHandle catalogHandle)
+        {
+            return Optional.empty();
+        }
+
+        @Override
+        public Set<CatalogHandle> getReachableDynamicCatalogs()
+        {
+            return Set.of();
+        }
+
+        @Override
+        public void createCatalog(CatalogName catalogName, ConnectorName connectorName, Map<String, String> properties, boolean notExists) {}
+
+        @Override
+        public void dropCatalog(CatalogName catalogName, boolean exists) {}
+    }
+}

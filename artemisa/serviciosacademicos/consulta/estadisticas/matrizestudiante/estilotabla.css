@@ -1,0 +1,23 @@
+.estilocelda{
+/*#E9E9E9*/
+ border-left: 1px outset #A5A5A5;
+ border-top-width: 1px;
+ border-top-style: outset;
+ border-top-color: #A5A5A5;
+}
+
+.estilototalgeneral{
+	background-color: #FFEE53;
+}
+.estilototalarea{
+	background-color: #7EBAFF;
+}
+.estilototalfacultad{
+	background-color: #97D9FF;
+}
+.estilototalmodalidad{
+	background-color: #00D0F0;
+}
+.estilototalcarrera{
+	background-color: #FFFFFF;
+}

@@ -1,0 +1,51 @@
+/*
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package io.trino.sql.planner.iterative.rule;
+
+import io.trino.sql.planner.iterative.rule.test.BaseRuleTest;
+import org.junit.jupiter.api.Test;
+
+import static io.trino.sql.ir.Booleans.FALSE;
+import static io.trino.sql.planner.plan.JoinType.INNER;
+
+public class TestCanonicalizeExpressions
+        extends BaseRuleTest
+{
+    @Test
+    public void testDoesNotFireForExpressionsInCanonicalForm()
+    {
+        CanonicalizeExpressions canonicalizeExpressions = new CanonicalizeExpressions(tester().getPlannerContext());
+        tester().assertThat(canonicalizeExpressions.filterExpressionRewrite())
+                .on(p -> p.filter(FALSE, p.values()))
+                .doesNotFire();
+    }
+
+    @Test
+    public void testDoesNotFireForUnfilteredJoin()
+    {
+        CanonicalizeExpressions canonicalizeExpressions = new CanonicalizeExpressions(tester().getPlannerContext());
+        tester().assertThat(canonicalizeExpressions.joinExpressionRewrite())
+                .on(p -> p.join(INNER, p.values(), p.values()))
+                .doesNotFire();
+    }
+
+    @Test
+    public void testDoesNotFireForCanonicalExpressions()
+    {
+        CanonicalizeExpressions canonicalizeExpressions = new CanonicalizeExpressions(tester().getPlannerContext());
+        tester().assertThat(canonicalizeExpressions.joinExpressionRewrite())
+                .on(p -> p.join(INNER, p.values(), p.values(), FALSE))
+                .doesNotFire();
+    }
+}

@@ -1,0 +1,141 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="../../css/demo_page.css" type="text/css" />
+    <link rel="stylesheet" href="../../css/demo_table_jui.css" type="text/css" />
+    <link rel="stylesheet" href="../../css/themes/smoothness/jquery-ui-1.8.4.custom.css" type="text/css" />
+    <link rel="stylesheet" href="../../mgi/css/styleDatos.css" type="text/css" />
+    <link rel="stylesheet" href="../../css/themes/smoothness/jquery-ui-1.8.4.custom.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../EspacioFisico/css/styleMustache.css" />
+    <link rel="stylesheet" href="../../EspacioFisico/css/jquery.clockpick.1.2.9.css" type="text/css" /> 
+    <link rel="stylesheet" type="text/css" href="../../EspacioFisico/asignacionSalones/css/jquery.datetimepicker.css"/>  
+    <link href="../../EspacioFisico/asignacionSalones/calendario3/wdCalendar/css/dailog.css" rel="stylesheet" type="text/css" />
+    <link href="../../EspacioFisico/asignacionSalones/calendario3/wdCalendar/css/calendar.css" rel="stylesheet" type="text/css" /> 
+    <link href="../../EspacioFisico/asignacionSalones/calendario3/wdCalendar/css/dp.css" rel="stylesheet" type="text/css" />   
+    <link href="../../EspacioFisico/asignacionSalones/calendario3/wdCalendar/css/alert.css" rel="stylesheet" type="text/css" /> 
+    <link href="../../EspacioFisico/asignacionSalones/calendario3/wdCalendar/css/main.css" rel="stylesheet" type="text/css" />
+	
+ 
+</head>
+   <style>
+        tr.odd:hover,tr.even:hover{
+            background-color: lightgoldenrodyellow;
+            cursor: pointer;
+        }
+        .ClasOnclikColor{    
+             background-color: lightskyblue;
+        }
+        .odd{
+            background-color: #e2e4ff;
+        }
+        .even{
+          background-color: white;  
+        }
+        
+        </style>
+   
+        <script type="text/javascript" href="../../EspacioFisico/asignacionSalones/js/jquery-3.6.0.min.js"></script>
+        <script src="../../EspacioFisico/asignacionSalones/calendario3/wdCalendar/src/jquery.js" type="text/javascript"></script>  
+        <script src="../js/Plugins/Common.js" type="text/javascript"></script>    
+        <script src="../js/Plugins/datepicker_lang_US.js" type="text/javascript"></script>     
+        <script src="../js/Plugins/jquery.datepicker.js" type="text/javascript"></script>
+        <script src="../js/Plugins/jquery.alert.js" type="text/javascript"></script>    
+        <script src="../js/Plugins/jquery.ifrmdailog.js" defer="defer" type="text/javascript"></script>
+        <script src="../js/Plugins/wdCalendar_lang_US.js" type="text/javascript"></script>    
+        <script src="../js/Plugins/jquery.calendar.js" type="text/javascript"></script>   
+        <script src="../js/CalendarioView.js"></script>
+    
+    <!--
+        <script type="text/javascript" language="javascript" src="../../mgi/js/jquery.js"></script>
+        <script type="text/javascript" src="../../EspacioFisico/asignacionSalones/js/jquery.datetimepicker.js"></script>
+        <script type="text/javascript" language="javascript" src="../../EspacioFisico/js/jquery.bpopup.min.js"></script>
+        <script type="text/javascript" language="javascript" src="../../EspacioFisico/js/jquery.clockpick.1.2.9.js"></script>
+        <script type="text/javascript" language="javascript" src="../../EspacioFisico/js/jquery.clockpick.1.2.9.min.js"></script>
+        <script type="text/javascript" language="javascript" src="../../mgi/js/jquery-ui-1.8.21.custom.min.js"></script>
+        <script type="text/javascript" language="javascript" src="../../mgi/js/functions.js"></script>
+        <script type="text/javascript" language="javascript" src="../../mgi/js/functionsMonitoreo.js"></script>-->
+    
+      
+<body class="body" id="PrincipalView">
+    <fieldset>
+        <legend>{{Label}}</legend>
+      
+        <div id="mostrarCalendario">
+            <div style="width: 98%; ">
+                <div id="calhead" style="padding-left:1px;padding-right:1px;">          
+                    <div class="cHead">                        
+                        <div class="ftitle">Asignación de Salones</div>
+                        <div id="loadingpannel" class="ptogtitle loadicon" style="display: none;">Cargando Datos...</div>
+                        <div id="errorpannel" class="ptogtitle loaderror" style="display: none;">Disculpe, no se pudo cargar sus datos, porfavor intente despues</div>
+                    </div>  
+                    <div id="caltoolbar" class="ctoolbar">
+                        <div id="faddbtn" class="fbutton">
+                            <div>                                
+                                <span title='Click para crear un Nuevo Evento' class="addcal">
+                                Nuevo Evento                
+                                </span>                                
+                            </div>
+                        </div>
+                        <div class="btnseparator"></div>
+                        <div id="showtodaybtn" class="fbutton">
+                            <div>                            
+                                <span title='Click to back to today ' class="showtoday">Hoy</span>
+                            </div>
+                        </div>
+                        <div class="btnseparator"></div>
+
+                        <div id="showdaybtn" class="fbutton">
+                            <div><span title='Day' class="showdayview">Día</span></div>
+                        </div>
+                        <div  id="showweekbtn" class="fbutton fcurrent">
+                            <div><span title='Week' class="showweekview">Semana</span></div>
+                        </div>
+                        <div  id="showmonthbtn" class="fbutton">
+                            <div><span title='Month' class="showmonthview">Més</span></div>
+                        </div>
+                        <div class="btnseparator"></div>
+                        <div  id="showreflashbtn" class="fbutton">
+                            <div><span title='Refresh view' class="showdayflash">Actualizar</span></div>
+                        </div>
+                        <div class="btnseparator"></div>
+                        <div id="sfprevbtn" title="Prev"  class="fbutton">
+                            <span class="fprev"></span>
+                        </div>
+                        <div id="sfnextbtn" title="Next" class="fbutton">
+                            <span class="fnext"></span>
+                        </div>
+                        <div class="fshowdatep fbutton">
+                            <div>
+                                <input type="hidden" name="txtshow" id="hdtxtshow" />
+                                <span id="txtdatetimeshow">Calendario</span>
+                            </div>
+                        </div>
+                         <div id="Salirbtn" class="fbutton">
+                            <div>                                
+                                <span title='Click para Salir del calendario' class="addcal">
+                                Salir                
+                                </span>                                
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                       
+                    </div>
+                </div>
+                <div style="padding:1px;border:">
+                <div class="t1 chromeColor">&nbsp;</div>
+                <div class="t2 chromeColor">&nbsp;</div>
+                <div id="dvCalMain" class="calmain printborder">
+                <div id="gridcontainer" style="overflow-y: visible;"></div>
+                </div>
+                <div class="t2 chromeColor">&nbsp;</div>
+                <div class="t1 chromeColor">&nbsp;</div>   
+            </div>
+
+            </div>    
+        </div>
+        
+    </fieldset>
+</body>
+</html>

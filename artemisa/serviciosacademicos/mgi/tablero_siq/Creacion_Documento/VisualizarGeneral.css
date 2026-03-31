@@ -1,0 +1,563 @@
+@charset "utf-8";
+/* CSS Document */
+
+body {
+	font-family: 'Roboto', sans-serif;
+	padding: 0;
+	margin: 0;
+	background: url(imagenes/fondo_papel-oscuro.gif);
+	min-width: 780px;
+}
+body div#container {
+	background: none !important;
+}
+body.body div#pageContainer {
+	margin: 0;
+	padding: 0;
+}
+#blanco {
+	background-color: #fff;
+	padding-bottom: 30px;
+	margin-bottom: 20px;
+	border-bottom: 4px solid #e8e325;
+	position:relative;
+	top:-5px;
+}
+a {
+	-webkit-transition: background-color .35s ease-out;
+	-moz-transition: background-color .35s ease-out;
+	-o-transition: background-color .35s ease-out;
+	transition: background-color .35s ease-out;
+}
+p {
+	text-indent: 40px;
+	line-height: 1.6em !important;
+	margin: 0 40px;
+}
+p.reset {
+	text-indent: 0;
+	margin: 0;
+}
+p span {
+	font-size: inherit !important;
+}
+ul {
+	margin-left: 50px;
+}
+#encabezado {
+	width:100%;
+	height: 80px;
+	background: url(imagenes/fondo_papel-oscuro.gif);
+}
+.cajon {
+	max-width: 1240px;
+	margin: 0 auto;
+	position: relative;
+	overflow: hidden;
+	padding: 0 40px;
+}
+#logo {
+	float: left;
+}
+
+.instrumentoActivo{
+	color: #e77f18 !important;
+}
+
+.documento {
+	position: relative;
+	bottom: 0;
+	right: 40px;
+	line-height: 40px;
+	text-decoration: none;
+	top: 41px;
+	float: right;
+}
+#menu,
+.documento h1 {
+	background-color:#e8e325;
+}
+.documento h1 {
+	font-size: 1.3em;
+	margin: 0;
+	padding: 0;
+	font-family: 'Roboto Condensed', sans-serif;
+	text-transform: lowercase;	
+}
+.documento h1:before {
+	content: url(imagenes/pestana_antes.png);
+	float: left;
+	margin-right: 10px;
+}
+.documento h1:after {
+	content: url(imagenes/pestana_despues.png);
+	float: right;
+	margin-left: 10px;
+}
+
+.documento2 {
+	position: relative;
+	bottom: 0;
+	right: 40px;
+	line-height: 40px;
+	text-decoration: none;
+	top: 41px;
+	float: right;
+}
+#menu,
+.documento2 h1 {
+	background-color:#e8e325;
+}
+.documento2 h1 {
+	font-size: 1.3em;
+	margin: 0;
+	padding: 0;
+	font-family: 'Roboto Condensed', sans-serif;
+	text-transform: lowercase;
+}
+.documento2 h1:before {
+	content: url(imagenes/pestana_antes.png);
+	float: left;
+	margin-right: 10px;
+}
+.documento2 h1:after {
+	content: url(imagenes/pestana_despues.png);
+	float: right;
+	margin-left: 10px;
+}
+
+#centeredmenu {
+   width:100%;
+   background:#fff;
+   border-bottom:4px solid #000;
+   overflow:hidden;
+}
+#menu {
+	border-bottom: 1px solid #999574;
+	padding: 20px 0;
+	margin: 0;
+	list-style: none;
+	overflow: hidden;
+   text-align:center;
+}
+#centeredmenu ul li {
+   display:inline-block;
+   list-style:none;
+   margin:0;
+   padding:0;
+}
+.pestana {
+	cursor: pointer;
+	/*float: left;*/
+	margin: 3px;
+	text-transform: lowercase;
+	background-color: #DCD723;
+	font-family: 'Roboto Condensed',sans-serif;
+	font-size: 1.2em;
+	padding: 5px 10px;
+	display: block;
+	color: #424139;
+}
+.pestana:hover {
+	background-color: #E77F18;
+	color: #fff;
+}
+.pestana.BotonImagen_New {
+	background-color: #E77F18;
+	color: #fff;
+}
+.pestana div {
+	border-bottom: 1px solid #ddd;
+	overflow: hidden;
+	height: 39px;
+}
+.pestana img {
+	float: left;
+}
+#acordeon .contenido {
+	margin-top: 20px;
+}
+#CargarInfo {
+	padding-top: 50px;
+}
+
+
+/* contenido */
+h2 {
+	font-family: 'Roboto Condensed',sans-serif;
+	margin-bottom: 20px;
+}
+h4:before {
+	content: ' ';
+	background-color: #000;
+	display: inline-block;
+	width: 12px;
+	height: 12px;
+	margin-right: 5px;
+}
+
+h4.valoracion:before{
+	content:none;
+}
+
+h4.valoracion{
+	display:inline-block;
+	float:right;
+	margin-right: 10px;
+}
+
+a.volver {
+	cursor: pointer;
+	margin-left: -40px;
+	padding-right: 10px;
+}
+a.volver:before {
+	content: '«';
+	background-color: #88ab0c;
+	color: #fff;
+	display: inline-block;
+	width: 30px;
+	text-align: center;
+	margin-right: 10px;
+	font-weight: normal;
+}
+a.volver:hover {
+	cursor: pointer;
+	margin-left: -40px;
+	background-color: #88ab0c;
+	color: #fff;
+}
+.autor {
+	text-align: right;
+	margin-bottom: 60px;
+	margin-top: 30px;
+}
+
+#caracteristica .proceso{
+	padding:0 20px;
+}
+#caracteristica .proceso p{
+	margin:0;
+}
+
+/* front */
+body.front {
+	background: url(imagenes/fondo_papel-oscuro.gif);	
+}
+#caracteristica h4,
+#aspectos h4 {
+	margin-bottom: 0;
+}
+ul.caracteristicas,
+ul.aspectos,
+ul.indicadores {
+	list-style: none;
+	margin: -5px 0 50px 5px;
+	border-left: 1px solid #000000;
+	padding: 30px 0 0;
+}
+ul.caracteristicas li,
+ul.aspectos li {
+	overflow: hidden;
+	margin-bottom: 5px;
+}
+ul.caracteristicas li:before,
+ul.aspectos li:before,
+#indicador li:before {
+	content: '—';
+	margin:0 -2px;
+}
+a.caracteristica,
+a.aspecto {
+	font-size: 1em;
+	clear: both;
+	margin-bottom: 5px;
+	padding-right: 10px;
+}
+a.caracteristica:before,
+a.aspecto:before {
+	content: '»';
+	background-color: #88ab0c;
+	color: #fff;
+	display: inline-block;
+	width: 30px;
+	text-align: center;
+	margin-right: 5px;
+}
+a.caracteristica:hover,
+a.aspecto:hover {
+	background-color: #88ab0c;
+	color: #fff;
+	cursor: pointer;
+}
+.caracteristica_numero {
+	text-transform: uppercase;
+	font-size: 0.8em;
+}
+.caracteristica_nombre {
+	font-size: 1.3em;
+}
+#indicador {
+	margin-left: 40px;
+}
+#indicador li a:before {
+	content: ' ';
+	background-color: #88ab0c;
+	display: inline-block;
+	width: 12px;
+	height: 12px;
+	margin-right: 5px;
+}
+#indicador li a {
+	cursor: pointer;
+}
+h3.anaranjado:before {
+	content: '*';
+	background-color: #df7e00;
+	color: #df7e00;
+	display: inline-block;
+	width: 30px;
+	text-align: center;
+	margin-right: 10px;
+	font-weight: normal;
+	margin-left: -40px;
+}
+#footer {
+	background: url(imagenes/fondo_papel-oscuro.gif);
+	height: 50px;
+	border-top: 7px solid #e8e325;
+}
+
+
+
+
+
+
+.first{
+		padding: 0px 14px 0px;
+		padding: 0px 14px 0px;
+		font-size: 20px;
+		cursor: pointer;
+		text-align: center;
+		display:inline-block;
+		/*border:1px solid #D4D4D4; */ 
+		-moz-border-radius: 10px;
+		-webkit-border-radius: 10px;
+		-khtml-border-radius: 10px;
+		border-radius: 10px;
+		-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+		-moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+		box-shadow: 0 1px 2px rgba(0,0,0,.2);
+		background: #5D7D0E;
+		text-shadow: 0 1px 1px rgba(0,0,0,.3);
+		background:-moz-linear-gradient(center top , #7DB72F, #4E7D0E) repeat scroll 0 0 transparent; 
+		background: -webkit-gradient(linear, left top, left bottom, from(#7DB72F), to(#4E7D0E));
+		/*filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#7DB72F', endColorstr='#4E7D0E');*/
+		border: 1px solid #538312;
+		color: #E8F0DE;
+		margin-left: 10px;
+	}
+.submit {
+		padding: 9px 17px;
+		font-family: Helvetica, Arial, sans-serif;
+		font-weight: bold;
+		line-height: 1;
+		color: #444;
+		border: none;
+		text-shadow: 0 1px 1px rgba(255, 255, 255, 0.85);
+		background-image: -webkit-gradient( linear, 0% 0%, 0% 100%, from(#fff), to(#bbb));
+		background-image: -moz-linear-gradient(0% 100% 90deg, #BBBBBB, #FFFFFF);
+		background-color: #fff;
+		border: 1px solid #f1f1f1;
+		border-radius: 10px;
+		box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5)
+	}
+.Border2{
+		border:0px solid #FFF;
+		padding:.5em;
+	}	
+.ColorTitulo{
+		color:#FFFFFF; 
+		font-size:26px;
+	}	
+.ContenedorFactor{
+		border:#3E4729 solid 1px;
+		border-radius:8px;
+		-moz-border-radius: 8px;
+		-webkit-border-radius: 8px;
+		display: table-cell; 
+		height:100%; 
+		width:95%; 
+		margin-right:1%; 
+		margin-left:2%;
+		display: inline-block;
+		clear:both;
+	}	
+.TextoInicial{
+		border:#88AB0C solid 1px; 
+		border-radius:8px; 
+		-moz-border-radius: 8px; 
+		-webkit-border-radius: 8px; 
+		width:95%;
+		margin-right:1%; 
+		margin-left:2%;
+	}	
+.BanerInferior{
+		background-color:#3E4729; 
+		border-bottom:7px solid #88AB0C;
+		border-top-left-radius:2em;
+		border-bottom-right-radius:2em; 
+		width:100%; 
+		height:10px;
+	}	
+.ConteCaracteristica{
+		border:#88AB0C solid 1px;
+	}
+.ContAspecto{
+		border:#88AB0C solid 1px;
+	}			
+.ContIndicador{
+		border:#88AB0C solid 1px;
+	}	
+.BanerDetalle{
+		background-color:#3E4729;
+		border-bottom:7px solid #88AB0C;
+		border-top-left-radius:2em;
+		border-bottom-right-radius:2em; 
+		width:98%;   
+	}	
+.ContenedorInicial{
+		height:90%; 
+		width:98%;
+		border:#88AB0C solid 1px; 
+	}	
+.ContDescrip{
+		height:90%; 
+		width:98%;  
+		border-top-left-radius:2em;
+		border-bottom-right-radius:2em;
+		border:#88AB0C solid 1px;
+	}	
+.ClassHr{
+		border:#3E4729 solid 1px;
+		width:80%;
+		margin:0 10px 10px;
+		margin-left:9%;
+	}	
+.BanerIndoDetalle{
+		background-color:#3E4729;
+		border-bottom:7px solid #88AB0C;
+		border-top-left-radius:2em;
+		border-bottom-right-radius:2em; 
+		width:98%;
+	}
+
+	div.botones{
+		/*display:inline-block;
+		float:right;*/
+		margin-top:10px;
+	}
+	
+	div.clear{
+		height:1px;
+		width:100%;
+		clear:both;
+	}
+	
+	div.botones button{
+		background-color: #88AB0C; border: 0 none; 
+		box-shadow: 0 4px 2px #4d4d4d; color: #fff; 
+		text-align: center;  padding: 9px 26px;padding: 6px 20px;
+		cursor:pointer;font-size:1.1em;
+		/*float: right; 
+		*/
+		
+		position:relative;
+	}
+	
+	div.botones button:first-child{
+		/*margin-left:10px;*/
+	}	
+	
+	div.botones button.active{
+		background-color: transparent; 
+		box-shadow: none; 
+		color: #000; 
+		cursor:text;
+	}
+	
+	#tituloFactor{
+		margin-bottom:20px;display:inline-block;
+		 margin-top: 10px;
+	}
+	
+	#factor #tituloFactor{
+		display:block;
+		margin-bottom:0px;
+	}
+	
+	#caracteristica_descripcion span.caracteristica_numero{
+		display: block;
+	}
+	
+	#caracteristica_descripcion div.botones button {
+		top: -4px;
+	}
+	
+	#factor div.botones{
+		float:none;
+	}
+	
+	#factor div.botones button:first-child{
+		margin-left:0px;
+	}	
+	
+	#factor div.botones button{
+		margin-right:10px;
+		margin-left:0px;
+	}	
+	
+	#factor div.botones button{
+		font-weight:bold;
+		font-size:0.7em;
+		padding:9px 16px;
+		margin-bottom:20px;
+		float:none;
+	}
+	
+	.reset{
+		clear:both;
+	}
+	
+/**********************************
+*
+*RESPONSIVE DESIGN
+*
+************************************/
+/* Desktop smaller screens */
+@media (max-width: 1300px) {
+	#documento h1 {
+		font-size: 1.6em;
+	}
+	
+	.pestana {
+		font-size: 1.1em;
+	}
+}
+
+@media (max-width: 1220px) {
+	#documento h1 {
+		font-size: 1.5em;
+	}
+	
+	.pestana {
+		font-size: 1em;
+	}
+	
+	body {
+		min-width: 730px;
+	}
+}
+
+@media (max-width: 1040px) {
+}

@@ -1,0 +1,98 @@
+/*
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package io.trino.plugin.tpcds.statistics;
+
+import com.fasterxml.jackson.databind.json.JsonMapper;
+import com.google.common.io.Resources;
+import io.airlift.json.JsonMapperProvider;
+import io.trino.tpcds.Table;
+
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.Writer;
+import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.Optional;
+
+import static io.trino.plugin.base.util.JsonUtils.parseJson;
+import static java.lang.String.format;
+import static java.nio.charset.StandardCharsets.UTF_8;
+import static java.nio.file.StandardOpenOption.CREATE;
+import static java.nio.file.StandardOpenOption.WRITE;
+
+public class TableStatisticsDataRepository
+{
+    private final JsonMapper jsonMapper = new JsonMapperProvider().get();
+
+    public void save(
+            String schemaName,
+            Table table,
+            TableStatisticsData statisticsData)
+    {
+        schemaName = normalizeSchemaName(schemaName);
+        String filename = table.getName();
+        Path path = Path.of("trino-tpcds", "src", "main", "resources", "tpcds", "statistics", schemaName, filename + ".json");
+        writeStatistics(path, statisticsData);
+    }
+
+    private String normalizeSchemaName(String schemaName)
+    {
+        return schemaName.trim()
+                .replaceAll("\\.0+$", "");
+    }
+
+    private void writeStatistics(Path path, TableStatisticsData tableStatisticsData)
+    {
+        File file = path.toFile();
+        file.getParentFile().mkdirs();
+        try {
+            jsonMapper
+                    .writerWithDefaultPrettyPrinter()
+                    .writeValue(file, tableStatisticsData);
+            try (Writer writer = Files.newBufferedWriter(path, UTF_8, CREATE, WRITE)) {
+                writer.append('\n');
+            }
+        }
+        catch (IOException e) {
+            throw new RuntimeException("Could not save table statistics data", e);
+        }
+    }
+
+    public Optional<TableStatisticsData> load(String schemaName, Table table)
+    {
+        schemaName = normalizeSchemaName(schemaName);
+        String filename = table.getName();
+        String resourcePath = "/tpcds/statistics/" + schemaName + "/" + filename + ".json";
+        return readStatistics(resourcePath);
+    }
+
+    private Optional<TableStatisticsData> readStatistics(String resourcePath)
+    {
+        URL resource = getClass().getResource(resourcePath);
+        if (resource == null) {
+            return Optional.empty();
+        }
+        try {
+            try (InputStream inputStream = Resources.asByteSource(resource).openStream()) {
+                return Optional.of(parseJson(jsonMapper, inputStream, TableStatisticsData.class));
+            }
+        }
+        catch (Exception e) {
+            throw new RuntimeException(format("Failed to parse stats from resource [%s]", resourcePath), e);
+        }
+    }
+}

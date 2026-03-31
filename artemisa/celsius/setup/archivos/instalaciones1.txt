@@ -1,0 +1,5 @@
+Indicar el nombre de la Base de Datos
+Celcius utiliza una base de datos para almacenar información relacionada con la configuracion del sistema:
+Nombre de la Base de Datos:
+El campo con el nombre de la Base de Datos debe ser completado para continuar.
+Continuar  con exito!

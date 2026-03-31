@@ -1,0 +1,34 @@
+<html>
+<head>
+<script type="text/javascript">
+function createRequestObject() {
+	var ro;
+	var browser = navigator.appName;
+	if(browser == 'Microsoft Internet Explorer') {
+		ro = new ActiveXObject("Microsoft.XMLHTTP");
+	} else {
+		ro = new XMLHttpRequest();
+	}
+	return ro;
+}
+var http = createRequestObject();
+function sndReq(action) {
+	http.open('get', 'test.php');
+	http.onreadystatechange = handleResponse;
+	http.send(null);
+}
+function handleResponse() {
+	if(http.readyState == 4) {
+		var response = http.responseText;
+		document.getElementById('foo').innerHTML = response;
+	}
+}
+setInterval('sndReq()', 1000);
+</script>
+</head>
+<body>
+<div id="foo">
+retrieving data...
+</div>
+</body>
+</html>

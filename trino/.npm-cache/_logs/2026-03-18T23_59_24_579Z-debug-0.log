@@ -1,0 +1,24 @@
+0 verbose cli /Users/x/x/ai/workspaces/trino-docs/.node/node/node /Users/x/x/ai/workspaces/trino-docs/.node/node/node_modules/npm/bin/npm-cli.js
+1 info using npm@11.7.0
+2 info using node@v24.12.0
+3 silly config load:file:/Users/x/x/ai/workspaces/trino-docs/.node/node/node_modules/npm/npmrc
+4 silly config load:file:/Users/x/x/ai/workspaces/trino-docs/core/trino-web-ui/src/main/resources/webapp/src/.npmrc
+5 silly config load:file:/Users/x/.npmrc
+6 silly config load:file:/Users/x/x/ai/workspaces/trino-docs/.node/etc/npmrc
+7 verbose title npm run package
+8 verbose argv "run" "package"
+9 verbose logfile logs-max:10 dir:/Users/x/x/ai/workspaces/trino-docs/.npm-cache/_logs/2026-03-18T23_59_24_579Z-
+10 verbose logfile /Users/x/x/ai/workspaces/trino-docs/.npm-cache/_logs/2026-03-18T23_59_24_579Z-debug-0.log
+11 silly logfile done cleaning log files
+12 http fetch GET 200 https://registry.npmjs.org/npm 390ms
+13 verbose cwd /Users/x/x/ai/workspaces/trino-docs/core/trino-web-ui/src/main/resources/webapp/src
+14 verbose os Darwin 25.4.0
+15 verbose node v24.12.0
+16 verbose npm  v11.7.0
+17 notice
+17 notice New minor version of npm available! 11.7.0 -> 11.12.0
+17 notice Changelog: https://github.com/npm/cli/releases/tag/v11.12.0
+17 notice To update run: npm install -g npm@11.12.0
+17 notice  { force: true, Symbol(proc-log.meta): true }
+18 verbose exit 0
+19 info ok

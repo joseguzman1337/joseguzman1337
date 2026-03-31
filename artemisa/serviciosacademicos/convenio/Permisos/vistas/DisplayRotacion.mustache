@@ -1,0 +1,72 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>{{title}}</title>
+		<link rel="stylesheet" type="text/css" href="../../../mgi/css/cssreset-min.css" />
+		<link rel="stylesheet" type="text/css" href="../../../mgi/css/normalize.css" />	
+        <link rel="stylesheet" href="../../../mgi/../css/demo_page.css" type="text/css" /> 
+        <link rel="stylesheet" href="../../../mgi/../css/demo_table_jui.css" type="text/css" /> 
+        <link rel="stylesheet" href="../../../mgi/../css/themes/smoothness/jquery-ui-1.8.4.custom.css" type="text/css" /> 
+        <link rel="stylesheet" href="../../../mgi/css/styleMonitoreo.css" type="text/css" /> 
+        <link rel="stylesheet" href="../../../mgi/css/styleDatos.css" type="text/css" /> 
+        <link rel="stylesheet" href="../../../EspacioFisico/css/Botones.css" type="text/css" />
+        <script type="text/javascript" language="javascript" src="../../../mgi/js/jquery.js"></script> 
+        <script type="text/javascript" language="javascript" src="../../../mgi/js/jquery.dataTables.js"></script>
+        <script type="text/javascript" language="javascript" src="../../../mgi/js/jquery-ui-1.8.21.custom.min.js"></script>   
+        <script type="text/javascript" language="javascript" src="../../../mgi/js/jquery.fastLiveFilter.js"></script>    
+        <script type="text/javascript" language="javascript" src="../../../mgi/js/nicEdit.js"></script>
+        <script type="text/javascript" language="javascript" src="../../../mgi/js/jquery.maskMoney.js"></script>
+        <style>
+            th,td{
+                border: 1px white solid;
+            }
+            fieldset{
+                margin-left: 5%;
+                margin-right: 5%;
+            }
+        </style>	
+	</head>
+	<body class="body">
+        <br /><br />
+        <br />
+        <fieldset>
+        <legend>{{Label}}</legend>
+        <form id="FromRolModuloConvenio">
+        <input type="hidden" id="actionID" name="actionID" value="" />
+            <table>
+                <tr>
+                    <td>
+                        <strong>{{LabelUser}}</strong>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" name="{{name}}"  id="{{name}}"  placeholder="{{Example}}" autocomplete="off" size="70" onclick="{{function}}()" style="text-align: center;" onkeypress="{{auto}}()" /><input type="hidden" id="{{NameHidden}}" name="{{NameHidden}}"  onkeypress="return val_texto(event)"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>{{LabelRol}}</strong>
+                    </td>
+                </tr>
+                <tr>
+                    <td id="TD_Rol">
+                        <select id="Rol" name="Rol" onchange="{{funcionRol}}(this.value)">
+                            <option value="-1"></option>
+                            {{#Roles}}
+                            <option value="{{id}}">{{Nombre}}</option>
+                            {{/Roles}}
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align: right;">
+                        <input type="button" id="Save" name="Save" value="Guardar" onclick="NewRolModuloConvenio()" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+        </fieldset>
+	</body>
+</html>

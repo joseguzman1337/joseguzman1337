@@ -1,0 +1,112 @@
+10 03 2018 01:03:12 logtraceID: 	<m:messageRequest xmlns:m="http://xmlns.oracle.com/Enterprise/Tools/schemas/UBI_CREA_ORDENPAG_REQ_MSG.VERSION_1">
+		<UBI_ESTADO>I</UBI_ESTADO>
+		<UBI_OPERACION_ORD>U</UBI_OPERACION_ORD>
+		<NATIONAL_ID_TYPE>CC</NATIONAL_ID_TYPE>
+		<NATIONAL_ID>1010135916</NATIONAL_ID>
+		<NATIONAL_ID_TYPE_OLD></NATIONAL_ID_TYPE_OLD>
+		<NATIONAL_ID_OLD>1010135916</NATIONAL_ID_OLD>
+		<FIRST_NAME>YERSON</FIRST_NAME>
+		<MIDDLE_NAME>RONALDO</MIDDLE_NAME>
+		<LAST_NAME>GONZALEZ</LAST_NAME>
+		<SECOND_LAST_NAME>LOPEZ</SECOND_LAST_NAME>
+		<BIRTHDATE>01242000</BIRTHDATE>
+		<BIRTHCOUNTRY>CO</BIRTHCOUNTRY>
+		<BIRTHSTATE>54</BIRTHSTATE>
+		<BIRTHPLACE>54001</BIRTHPLACE>
+		<SEX>M</SEX>
+		<MAR_STATUS>S</MAR_STATUS>
+		<ADDRESS1>AVENIDA 10A  CASA 12_22 BARRIO TOLEDO PLATA</ADDRESS1>
+		<PHONE>3115576173</PHONE>
+		<EMAIL_ADDR>yerson_24@live.com</EMAIL_ADDR>
+		<BUSINESS_UNIT>UBSF0</BUSINESS_UNIT>
+	</m:messageRequest> id:1 descripcion:2018-03-10-01.00.11.000000>>>  - Integration Gateway - External System Contact Error (158,10721) LC_PERSONAL_DATA_AP.LC_SERVICIOS_AP.LC_BASE_AC.OnExecute  Name:asignarIDCT  PCPC:110587  Statement:821
+Called from:PERSON.EMPLID.SavePreChange  Statement:5Error saving Component Interface. {HCR_PERSONAL_DATA_SRV} (91,37) (0,0) HMCR_API2CI.ciHandler.OnExecute  Name:notificarErroresCI  PCPC:63152  Statement:1234
+Called from:HMCR_API2CI.ciHandler.OnExecute  Name:ciSave  Statement:109
+Called from:HMCR_API2CI.ciLocalPool.OnExecute  Name:ciSavePool  Statement:40
+Called from:HCR_PERSON_SERVICES.Person.AddPerson_v1_1.implAddPerson.OnExecute  Name:Save  Statement:57
+Called from:HCR_PERSON_SERVICES.Person.AddPerson_v1_1.implAddPerson.OnExecute  Name:DoService  Statement:45
+Called from:SCC_HR_INTEGRATION.HRServices.PersonServices.OnExe
+10 03 2018 01:03:20 logtraceID: 	<m:messageRequest xmlns:m="http://xmlns.oracle.com/Enterprise/Tools/schemas/UBI_CREA_ORDENPAG_REQ_MSG.VERSION_1">
+		<UBI_ESTADO>I</UBI_ESTADO>
+		<UBI_OPERACION_ORD>U</UBI_OPERACION_ORD>
+		<NATIONAL_ID_TYPE>CC</NATIONAL_ID_TYPE>
+		<NATIONAL_ID>1032460852</NATIONAL_ID>
+		<NATIONAL_ID_TYPE_OLD></NATIONAL_ID_TYPE_OLD>
+		<NATIONAL_ID_OLD>1032460852</NATIONAL_ID_OLD>
+		<FIRST_NAME>HENRY</FIRST_NAME>
+		<MIDDLE_NAME>DANIEL</MIDDLE_NAME>
+		<LAST_NAME>FLORIAN</LAST_NAME>
+		<SECOND_LAST_NAME>CANO</SECOND_LAST_NAME>
+		<BIRTHDATE>12111993</BIRTHDATE>
+		<BIRTHCOUNTRY>CO</BIRTHCOUNTRY>
+		<BIRTHSTATE>11</BIRTHSTATE>
+		<BIRTHPLACE>11001</BIRTHPLACE>
+		<SEX>M</SEX>
+		<MAR_STATUS>S</MAR_STATUS>
+		<ADDRESS1>CALLE 152B58C50  INTERIOR 12 APTO301 BARRIO COLINA CAMPESTRE</ADDRESS1>
+		<PHONE>3045471</PHONE>
+		<EMAIL_ADDR>daniflorian1@hotmail.com</EMAIL_ADDR>
+		<BUSINESS_UNIT>UBSF0</BUSINESS_UNIT>
+	</m:messageRequest> id:1 descripcion:2018-03-10-01.00.19.000000>>>  - Integration Gateway - External System Contact Error (158,10721) LC_PERSONAL_DATA_AP.LC_SERVICIOS_AP.LC_BASE_AC.OnExecute  Name:asignarIDCT  PCPC:110587  Statement:821
+Called from:PERSONAL_DATA.GBL.SavePostChange  Statement:14Error saving Component Interface. {HCR_PERSONAL_DATA_SRV} (91,37) (0,0) HMCR_API2CI.ciHandler.OnExecute  Name:notificarErroresCI  PCPC:63152  Statement:1234
+Called from:HMCR_API2CI.ciHandler.OnExecute  Name:ciSave  Statement:109
+Called from:HMCR_API2CI.ciLocalPool.OnExecute  Name:ciSavePool  Statement:40
+Called from:HCR_PERSON_SERVICES.Person.SetPerson_v1_1.implSetPerson.OnExecute  Name:Save  Statement:364
+Called from:HCR_PERSON_SERVICES.Person.SetPerson_v1_1.implSetPerson.OnExecute  Name:DoService  Statement:343
+Called from:SCC_HR_INTEGRATION.HRServices.PersonServices.OnE
+10 03 2018 01:03:28 logtraceID: 	<m:messageRequest xmlns:m="http://xmlns.oracle.com/Enterprise/Tools/schemas/UBI_CREA_ORDENPAG_REQ_MSG.VERSION_1">
+		<UBI_ESTADO>I</UBI_ESTADO>
+		<UBI_OPERACION_ORD>U</UBI_OPERACION_ORD>
+		<NATIONAL_ID_TYPE>TI</NATIONAL_ID_TYPE>
+		<NATIONAL_ID>1001083809</NATIONAL_ID>
+		<NATIONAL_ID_TYPE_OLD></NATIONAL_ID_TYPE_OLD>
+		<NATIONAL_ID_OLD>1001083809</NATIONAL_ID_OLD>
+		<FIRST_NAME>DANIELA</FIRST_NAME>
+		<MIDDLE_NAME></MIDDLE_NAME>
+		<LAST_NAME>MÉNDEZ</LAST_NAME>
+		<SECOND_LAST_NAME>BARBA</SECOND_LAST_NAME>
+		<BIRTHDATE>06202001</BIRTHDATE>
+		<BIRTHCOUNTRY>CO</BIRTHCOUNTRY>
+		<BIRTHSTATE>11</BIRTHSTATE>
+		<BIRTHPLACE>11001</BIRTHPLACE>
+		<SEX>F</SEX>
+		<MAR_STATUS>S</MAR_STATUS>
+		<ADDRESS1>KR 7B BIS No. 132-11</ADDRESS1>
+		<PHONE>7040747</PHONE>
+		<EMAIL_ADDR>Danielamendez20@hotmail.com</EMAIL_ADDR>
+		<BUSINESS_UNIT>UBSF0</BUSINESS_UNIT>
+	</m:messageRequest> id:1 descripcion:2018-03-10-01.00.28.000000>>>  - Integration Gateway - External System Contact Error (158,10721) LC_PERSONAL_DATA_AP.LC_SERVICIOS_AP.LC_BASE_AC.OnExecute  Name:asignarIDCT  PCPC:110587  Statement:821
+Called from:PERSONAL_DATA.GBL.SavePostChange  Statement:14Error saving Component Interface. {HCR_PERSONAL_DATA_SRV} (91,37) (0,0) HMCR_API2CI.ciHandler.OnExecute  Name:notificarErroresCI  PCPC:63152  Statement:1234
+Called from:HMCR_API2CI.ciHandler.OnExecute  Name:ciSave  Statement:109
+Called from:HMCR_API2CI.ciLocalPool.OnExecute  Name:ciSavePool  Statement:40
+Called from:HCR_PERSON_SERVICES.Person.SetPerson_v1_1.implSetPerson.OnExecute  Name:Save  Statement:364
+Called from:HCR_PERSON_SERVICES.Person.SetPerson_v1_1.implSetPerson.OnExecute  Name:DoService  Statement:343
+Called from:SCC_HR_INTEGRATION.HRServices.PersonServices.OnE
+10 03 2018 01:03:36 logtraceID: 	<m:messageRequest xmlns:m="http://xmlns.oracle.com/Enterprise/Tools/schemas/UBI_CREA_ORDENPAG_REQ_MSG.VERSION_1">
+		<UBI_ESTADO>I</UBI_ESTADO>
+		<UBI_OPERACION_ORD>U</UBI_OPERACION_ORD>
+		<NATIONAL_ID_TYPE>CC</NATIONAL_ID_TYPE>
+		<NATIONAL_ID>1000713814</NATIONAL_ID>
+		<NATIONAL_ID_TYPE_OLD></NATIONAL_ID_TYPE_OLD>
+		<NATIONAL_ID_OLD>1000713814</NATIONAL_ID_OLD>
+		<FIRST_NAME>MARÍA</FIRST_NAME>
+		<MIDDLE_NAME>LAURA</MIDDLE_NAME>
+		<LAST_NAME>GUERRERO</LAST_NAME>
+		<SECOND_LAST_NAME></SECOND_LAST_NAME>
+		<BIRTHDATE>11131999</BIRTHDATE>
+		<BIRTHCOUNTRY>CO</BIRTHCOUNTRY>
+		<BIRTHSTATE>11</BIRTHSTATE>
+		<BIRTHPLACE>11001</BIRTHPLACE>
+		<SEX>F</SEX>
+		<MAR_STATUS>S</MAR_STATUS>
+		<ADDRESS1>KR 7B BIS No. 132-11</ADDRESS1>
+		<PHONE>3002166233</PHONE>
+		<EMAIL_ADDR>marialauraguerrero99@gmail.com</EMAIL_ADDR>
+		<BUSINESS_UNIT>UBSF0</BUSINESS_UNIT>
+	</m:messageRequest> id:1 descripcion:2018-03-10-01.00.35.000000>>>  - Integration Gateway - External System Contact Error (158,10721) LC_PERSONAL_DATA_AP.LC_SERVICIOS_AP.LC_BASE_AC.OnExecute  Name:asignarIDCT  PCPC:110587  Statement:821
+Called from:PERSON.EMPLID.SavePreChange  Statement:5Error saving Component Interface. {HCR_PERSONAL_DATA_SRV} (91,37) (0,0) HMCR_API2CI.ciHandler.OnExecute  Name:notificarErroresCI  PCPC:63152  Statement:1234
+Called from:HMCR_API2CI.ciHandler.OnExecute  Name:ciSave  Statement:109
+Called from:HMCR_API2CI.ciLocalPool.OnExecute  Name:ciSavePool  Statement:40
+Called from:HCR_PERSON_SERVICES.Person.AddPerson_v1_1.implAddPerson.OnExecute  Name:Save  Statement:57
+Called from:HCR_PERSON_SERVICES.Person.AddPerson_v1_1.implAddPerson.OnExecute  Name:DoService  Statement:45
+Called from:SCC_HR_INTEGRATION.HRServices.PersonServices.OnExe

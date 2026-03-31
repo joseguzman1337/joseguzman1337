@@ -1,0 +1,24 @@
+<script type="text/javascript">
+	$(function() {
+		$( "#tabs" ).tabs({
+		beforeLoad: function( event, ui ) {
+			ui.jqXHR.error(function() {
+				ui.panel.html(
+				"Ocurrio un problema cargando el contenido." );
+				});
+			}
+		});
+                
+                 $( "#tabs" ).tabs().addClass( "ui-tabs-vertical ui-helper-clearfix" );
+                $( "#tabs li" ).removeClass( "ui-corner-top" ).addClass( "ui-corner-left" );
+	});
+</script>
+<div id="tabs">
+	<ul>
+		<li><a href="formularios/recursosFisicos/formBibliotecaMaterialImpreso.php">Material impreso</a></li>
+		<li><a href="formularios/recursosFisicos/formBibliotecaBasesDeDatosNroTitulosConsultas.php">Bases de datos – Número de títulos y consultas</a></li>
+		<li><a href="formularios/recursosFisicos/formBibliotecaConveniosServiciosInformacionBiblioteca.php">Convenios - Servicios de información de la biblioteca</a></li>
+                <li><a href="formularios/recursosFisicos/formBibliotecaEstadisticasServiciosOfrecidos.php">Estadísticas por cada Servicio ofrecido</a></li>
+		<li><a href="formularios/recursosFisicos/formBibliotecaBasesDeDatosDispxAreaTematica.php">Bases de datos - Disponibles por área temática</a></li>
+	</ul>
+</div>

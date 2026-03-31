@@ -1,0 +1,86 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>{{title}}</title>
+         <style type="text/css" title="currentStyle">
+                @import "../../consulta/estadisticas/riesgos/data/media/css/demo_page.css";
+                @import "../../consulta/estadisticas/riesgos/data/media/css/demo_table_jui.css";
+                @import "../../consulta/estadisticas/riesgos/data/media/css/ColVis.css";
+                @import "../../consulta/estadisticas/riesgos/data/media/css/TableTools.css";
+                @import "../../consulta/estadisticas/riesgos/data/media/css/jquery.modal.css";
+
+        </style>
+		<link rel="stylesheet" type="text/css" href="../../css/cssreset-min.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/normalize.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/themes/smoothness/jquery-ui-1.8.4.custom.css" />
+		<script type="text/javascript" language="javascript" src="../../js/jquery.js"></script>
+		<script type="text/javascript" language="javascript" src="../../js/jquery-ui-1.8.21.custom.min.js"></script>
+        <script type="text/javascript" language="javascript" src="../../js/jquery.dataTables.js"></script>
+        <script type="text/javascript" language="javascript">
+        /****************************************************************/
+        	$(document).ready( function () {
+
+        			oTable = $('#example').dataTable({
+                                    "sDom": '<"H"Cfrltip>',
+                                    "bJQueryUI": true,
+                                    "bPaginate": true,
+                                    "sPaginationType": "full_numbers",
+                                    "oColVis": {
+                                          "buttonText": "Ver/Ocultar Columnas",
+                                           "aiExclude": [ 0 ]
+                                    }
+                                });
+                                var oTableTools = new TableTools( oTable, {
+        					"buttons": [
+        						"copy",
+        						"csv",
+        						"xls",
+        						"pdf",
+        						{ "type": "print", "buttonText": "Imprimir" }
+        					]
+        		         });
+                                 $('#demo').before( oTableTools.dom.container );
+        		} );
+        	/**************************************************************/
+        </script>
+	</head>
+	<body class="body">
+        <div id="container">
+            <center><h1>{{title}}</h1></center>
+        </div>
+        <div id="demo">
+            <table cellpadding="0" cellspacing="0" border="1" class="display" id="example">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>NombreConvenio</th>
+                        <th>NombreInstitucion</th>
+                        <th>nombretipoconvenio</th>
+                        <th>Contraprestaciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#convenios}}
+        			<tr>
+                        <td>{{ROW}}</td>
+                        <td>{{NombreConvenio}}</td>
+                        <td>{{NombreInstitucion}}</td>
+                        <td>{{nombretipoconvenio}}</td>
+                        <td>
+                            <form action="../Controller/ModificarContraprestaciones.php" method="post">
+                                <input type="hidden" name="Accion" id="Accion" value="lista" />
+                                <input type="hidden" name="lista" id="lista" value="{{ConvenioId}}" />
+                                <input type="image" src="../../mgi/images/file_search.png" width="20"/>
+                            </form>
+                        </td>
+                    </tr>
+                    {{/convenios}}
+                </tbody>
+    		</table>
+        </div>
+    </body>
+    {{#alerta}}
+        <script type="text/javascript">alert("Este convenio no tiene instituciones asociadas.");</script>
+    {{/alerta}}
+</html>

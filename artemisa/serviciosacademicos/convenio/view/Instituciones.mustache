@@ -1,0 +1,69 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>{{title}}</title>
+		<link type="text/css" href="../../educacionContinuada/css/normalize.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../css/themes/smoothness/jquery-ui-1.8.4.custom.css" type="text/css" /> 
+		<link media="screen, projection" type="text/css" href="../../educacionContinuada/css/style.css" rel="stylesheet">
+        <script type='text/javascript' language="javascript" src="../../js/jquery.js"></script>
+        <script type="text/javascript" language="javascript" src="../../js/jquery-ui-1.8.21.custom.min.js"></script> 
+        <script type="text/javascript" language="javascript" src="../../educacionContinuada/js/functions.js"></script>
+        <script type="text/javascript" language="javascript" src="../js/funcionesGestionContraprestaciones.js "></script>
+		<style>
+			form span.info{
+				margin-left:15px;position:relative;top:2px;
+				clear: right;
+				display: inline-block;
+				float: left;
+			}
+		</style>
+	</head>
+	<body class="body">
+        <div id="container">
+            <center><h1><font face="sans-serif">{{title}}</font></h1></center>
+            <center><h3>{{Nombreprograma}}</h3></center>
+        </div>
+        <div>
+            <fieldset>
+            <center>
+                <table cellpadding="3" border="0" width="920px">
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Entidad de salud</th>
+                        <th>Formula</th>                        
+                        <th>Fecha de Creacion</th>
+                        <th>Detalles</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {{#Entidades}}
+                        <tr>
+                            <td>{{ROW}}</td>
+                            <td>{{NombreInstitucion}}</td>
+                            <td>{{formula}}</td>                                                        
+                            <td>{{FechaCreacion}}</td>                                                        
+                            <td>
+                            <form action="../Controller/Formulasliquidacion.php" method="post">
+                                <input type="hidden" name="Accion" id="Accion" value="Detalles" />
+                                <input type="hidden" name="formula" id="formula" value="{{formula}}" />
+                                <input type="hidden" name="codigocarrera" id="codigocarrera" value="{{codigocarrera}}" />
+                                <input type="hidden" name="InstitucionConvenioId" id="InstitucionConvenioId" value="{{InstitucionConvenioId}}" />
+                                <input type="hidden" name="ConvenioId" id="ConvenioId" value="{{ConvenioId}}" />
+                                <input type="hidden" name="IdContraprestacion" id="IdContraprestacion" value="{{IdContraprestacion}}" />
+                                <input type="image" src="../../mgi/images/file_search.png" width="20"/>
+                            </form>
+                            </td>
+                        </tr>
+                    {{/Entidades}}
+                    </tbody>
+                </table>
+            <form action="../Controller/Formulasliquidacion.php" method="post">                               
+                <input type="button" value="regresar" onclick="RegresarFormulas();" />
+            </form>
+            </center>
+            </fieldset>
+        </div>
+    </body>
+</html>

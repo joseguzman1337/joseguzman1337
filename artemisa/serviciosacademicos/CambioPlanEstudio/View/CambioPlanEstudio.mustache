@@ -1,0 +1,304 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>{{title}}</title>
+        <link rel="stylesheet" href="../../css/demo_page.css" type="text/css" /> 
+        <link rel="stylesheet" href="../../css/demo_table_jui.css" type="text/css" />
+        <link rel="stylesheet" href="../../css/themes/smoothness/jquery-ui-1.8.4.custom.css" type="text/css" />
+        <link rel="stylesheet" href="../../mgi/css/styleDatos.css" type="text/css" />
+        <link rel="stylesheet" href="../../css/themes/smoothness/jquery-ui-1.8.4.custom.css" type="text/css" /> 
+        <link rel="stylesheet" href="../../mgi/css/styleMonitoreo.css" type="text/css" /> 
+       
+		<script type="text/javascript" language="javascript" src="../../mgi/js/jquery.js"></script>
+        <script type="text/javascript" language="javascript" src="../../mgi/js/jquery.js"></script>
+        <script type="text/javascript" language="javascript" src="../../mgi/js/jquery.dataTables.js"></script>
+        <script type="text/javascript" language="javascript" src="../../mgi/js/jquery-ui-1.8.21.custom.min.js"></script>   
+        <script type="text/javascript" language="javascript" src="../../mgi/js/jquery.fastLiveFilter.js"></script>  
+        <script type="text/javascript" language="javascript" src="../../mgi/js/functions.js"></script>  
+        <script type="text/javascript" language="javascript" src="../../mgi/js/functionsMonitoreo.js"></script>
+
+        <script type="text/javascript" language="javascript" src="../js/CambioPlanEstudio.js"></script>
+
+        <script type="text/javascript">
+            $(document).ready(function(){
+ 
+                $(".messages").hide();
+                //queremos que esta variable sea global
+                var fileExtension = "";
+                //función que observa los cambios del campo file y obtiene información
+                $(':file').change(function()
+                {
+                    //obtenemos un array con los datos del archivo
+
+                    var file = $("#Archivo")[0].files[0];
+                   //obtenemos el nombre del archivo
+                    var fileName = file.name;
+                    //obtenemos la extensión del archivo
+                    fileExtension = fileName.substring(fileName.lastIndexOf('.') + 1);
+                    //obtenemos el tamaño del archivo
+                    var fileSize = file.size;
+                    //obtenemos el tipo de archivo image/png ejemplo
+                    var fileType = file.type;
+                    //mensaje con la información del archivo
+                    showMessage("<span class='info'>Archivo para subir: "+fileName+", peso total: "+fileSize+" bytes.</span>");
+                });
+             });   
+           function validarNumeros(e) { // 1//**onkeydown="return validarNumeros(event)"*//
+           
+            		tecla = (document.all) ? e.keyCode : e.which; // 2
+            		if (tecla==8) return true; // backspace
+                    if (tecla==9) return true; // tab
+            		//if (tecla==109) return true; // menos
+                    //if (tecla==110) return true; // punto
+            		//if (tecla==189) return true; // guion
+            		//if (e.ctrlKey && tecla==86) { return true}; //Ctrl v
+            		if (e.ctrlKey && tecla==67) { return true}; //Ctrl c
+            		if (e.ctrlKey && tecla==88) { return true}; //Ctrl x
+            		if (tecla>=96 && tecla<=105) { return true;} //numpad
+             
+            		patron = /[0-9]/; // patron
+             
+            		te = String.fromCharCode(tecla); 
+            		return patron.test(te); // prueba
+            }//function validarNumeros
+            function val_texto(e) { //*onkeypress="return val_texto(event)"**//
+                tecla = (document.all) ? e.keyCode : e.which;
+                if(tecla==118){
+                return false;
+               }
+                if (tecla==8 || tecla==0){ 
+                    return true;
+                }else{
+                
+                patron = /[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+$/;
+                te = String.fromCharCode(tecla);
+              
+                return patron.test(te);
+                }
+            }//function val_texto
+            function val_textoNumero(e){
+               if (tecla==8) return true; // backspace
+                if (tecla==9) return true; // tab
+                if (tecla==109) return true; // menos
+                if (tecla==110) return true; // punto
+                if (tecla==189) return true; // guion
+                if (tecla==47 || tecla==40 || tecla==41 || tecla==61 || tecla==63 || tecla==191 || tecla==161 || tecla==124 || tecla==58 || tecla==59 || tecla==44 || tecla==46 || tecla==45 || tecla==95) return true;
+                if(tecla>=33 && tecla<=39)return true;//!
+                if (tecla>=96 && tecla<=105){ return true;} //numpad
+                if (tecla==8 || tecla==0){ 
+                    return true;
+                }else{
+                
+                patron = /[a-zA-ZñÑáéíóúÁÉÍÓÚ\s0-9]+$/;
+                te = String.fromCharCode(tecla);
+              
+                return patron.test(te);
+                }
+            }//function val_textoNumero(){}
+            
+        </script>           
+        <style>
+        .button{
+            background-color: #fff;
+            background-image: -moz-linear-gradient(0% 100% 90deg, #bbbbbb, #ffffff);
+            border: 1px solid #f1f1f1;
+            border-radius: 10px;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+            color: #444;
+            font-family: Helvetica,Arial,sans-serif;
+            font-weight: bold;
+            line-height: 1;
+            padding: 9px 17px;
+            text-shadow: 0 1px 1px rgba(255, 255, 255, 0.85);
+            cursor: pointer;
+        }
+        
+        fieldset{
+            border: grey 1px solid; margin: 1%;padding: 1%;
+        }
+        
+        
+        .tbNuevaInscripcion{
+        	border: 0px;
+        }
+        
+        td{
+            border: 0px;
+           
+        }
+        h4 {
+			font-size: 24px;
+			line-height: 26px;
+			margin: 20px auto 10px;
+			text-align:center;
+		}
+		
+		legend {
+			font-size: 1.15em;
+		}
+		
+		.formData input{
+			border-color: #ccc;
+			border-style: solid;
+			border-width: 1px;
+			box-sizing: border-box;
+			clear: right;
+			display: block;
+			float: left;
+			font-size: 0.9em;
+			line-height: 1.1em;
+			margin-bottom: 10px;
+			margin-left: 15px;
+			padding: 3px;
+			vertical-align: middle;    
+			position: relative;
+			top: 5px;
+		}
+		table.formData{
+			    font-size: 14px;
+		}
+		#OrdenesVer #trtitulogris td{
+			font-weight:bold;
+		}
+		#OrdenesVer table table tr td{
+			border: 1px solid #999;
+		}
+		
+		#OrdenesVer a {
+			color: #0000EE;
+			text-decoration:underline;
+			cursor: pointer;
+		}
+        .Buton{
+            background: transparent -moz-linear-gradient(center top , #7db72f, #4e7d0e) repeat scroll 0 0;
+            border: 1px solid #538312;
+            border-radius: 10px;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+            color: #e8f0de;
+            cursor: pointer;
+            display: inline-block;
+            font-size: 14px;
+            padding: 8px 19px 9px;
+            text-align: center;
+            text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);            
+        }
+        .TypeBici{
+            /*width: 180px;*/
+            height: 150px;
+            overflow: scroll;
+        }
+       .messages{
+        float: left;
+        font-family: sans-serif;
+        display: none;
+    }
+    .info{
+        padding: 10px;
+        border-radius: 10px;
+        background: orange;
+        color: #fff;
+        font-size: 18px;
+        text-align: center;
+    }
+    .before{
+        padding: 10px;
+        border-radius: 10px;
+        background: blue;
+        color: #fff;
+        font-size: 18px;
+        text-align: center;
+    }
+    .success{
+        padding: 10px;
+        border-radius: 10px;
+        background: green;
+        color: #fff;
+        font-size: 18px;
+        text-align: center;
+    }
+    .error{
+        padding: 10px;
+        border-radius: 10px;
+        background: red;
+        color: #fff;
+        font-size: 18px;
+        text-align: center;
+    }
+
+       </style>
+	<body class="body">
+        <h4>{{Label}}</h4>
+         <fieldset style="width: 90%;margin-left:2%; font-family: Lucida Grande, sans-serif; ">
+            <form id="CambioPlanEstudioFormulario" name="CambioPlanEstudioFormulario" method="post"  enctype="multipart/form-data" class="CambioPlanEstudioFormulario">
+            <input type="hidden" id="action_ID" name="action_ID" class="Clear" />
+            <input type="hidden" id="opc" name="opc" />
+            <table style="width: 100%;" border="0" class="formData">
+                <tr>
+                    <td><strong>{{Modalidad}}<span style="color: red;">*</span></strong></td>
+                    <td>{{Modalidad}}</td>
+                    <td>
+                        <select id="{{modalidad}}" name="{{modalidad}}" onchange="{{funcionModalida}}(this.value)">
+                            <option value="-1"></option>
+                            {{#DataModalidad}}
+                                <option value="{{id}}">{{nombremodalidadacademica}}</option>
+                            {{/DataModalidad}}
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>{{Programa}}</td>
+                    <td id="Td_Programa">
+                        <select id="programa" name="programa" disabled="disabled">
+                            <option value="-1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
+                        </select>
+                    </td>
+                </tr>
+                 <tr id="Tr_OldPlan">
+                    <td>{{PlanOld}}</td>
+                    <td id="Td_PlanOld">
+                        <select id="PlanOld" name="PlanOld" disabled="disabled">
+                            <option value="-1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>{{PlanNew}}</td>
+                    <td id="Td_PlanNew">
+                        <select id="PlanNew" name="PlanNew" disabled="disabled">
+                            <option value="-1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr id="Tr_Archivo" style="visibility: collapse;">
+                    <td>
+                        <input type="file" id="Archivo" name="Archivo" /><strong>Tipo de Archivo CSV</strong>&nbsp;<strong><span style="color: red;">*</span></strong>
+                    </td>
+                    <td>&nbsp;&nbsp;</td>
+                </tr>
+                <tr id="Tr_Excel">
+                    <td colspan="2" style="text-align: right;">
+                        <img src="../../mgi/images/Office-Excel-icon.png" width="32" title="Click para cargar archvio" style="cursor: pointer;" onclick="CargarArchivo()" />
+                    </td>
+                </tr>
+                <tr id="Tr_Return" style="visibility: collapse;">
+                    <td colspan="2" style="text-align: left;">
+                        <img src="../imagen/return_arow.png" width="32" style="cursor: pointer;" title="Regresar" onclick="VolverFormulario()" />
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">&nbsp;&nbsp;</td>
+                </tr>
+                <tr>
+                    <td style="text-align: center;">
+                        <input type="button" value="Enviar" class="Buton" onclick="SaveFormulario()" />
+                    </td>
+                    <td>&nbsp;</td>
+                </tr>
+            </table>
+         </form>
+        <!--div para visualizar mensajes-->
+        <div class="messages"></div><br /><br />        
+       </fieldset>
+	</body>
+</html>

@@ -1,0 +1,12 @@
+Creando el archivo parametros.inc
+No es posible conectarse con MYSQL. Recuerde que para poder utilizar MySQL, éste debe estar correctamente instalado, y el nombre de usuario y la contraseña de root deben ser ingresados correctamente.
+Mensaje de error retornado por MySQL
+Usuario ingresado satisfactoriamente!
+Bases de datos creada satisfactoriamente!
+Directorios para executar Celsius
+Diretorio que contiene los archivos de Celsius
+Directorio en cual se almacenarán los documentos subidos al sitio
+Direccion Raiz
+Email
+Titulo del Sitio
+Continuar

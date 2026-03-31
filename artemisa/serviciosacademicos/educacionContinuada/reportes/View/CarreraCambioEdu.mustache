@@ -1,0 +1,51 @@
+<div style="margin-left: 20%;">
+    <form id="SaveCarreraNewOrdenPago">
+    <input type="hidden" value="Denegado" id="action_ID" name="action_ID" />
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre Estudiante</th>
+                    <th>N&deg; Documento</th>
+                </tr>
+                <tr>
+                    <th>{{NombreEstudiante}}<input type="hidden" id="idestudiantegeneral" name="idestudiantegeneral" value="{{idestudiantegeneral}}" /></th>
+                    <th>{{numerodocumento}}<input type="hidden" id="id" name="id" value="{{id}}" /></th>
+                </tr>
+                <tr>
+                    <th>Teléfono</th>
+                    <th>E-mail</th>
+                </tr>
+                <tr>
+                    <th>{{Celular}}<input type="hidden" id="codigoestudiante" name="codigoestudiante" value="{{codigoestudiante}}" /></th>
+                    <th>{{Correo}}<input type="hidden" id="codigoperiodo" name="codigoperiodo" value="{{codigoperiodo}}" /></th>
+                </tr>
+                <tr>
+                    <th colspan="2">Carrera Actual</th>
+                </tr>
+                <tr>
+                    <th colspan="2">{{nombrecarrera}}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Carrera nueva:</td>
+                    <td>
+                        <input type="text"   id="CarreraNew" name="CarreraNew" autocomplete="off"  style="text-align:center;width:90%;" size="70" onclick="formReset();" onkeypress="AutoCompletCarrera()" />
+                        <input type="hidden" id="CodigoCarreraNew" name="CodigoCarreraNew" />
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="button" class="button" id="Retornar" value="Retornar" onclick="retornar()" />
+                    </td>
+                    <td>
+                        <input type="button" class="button" id="SaveData" value="Guardar y Generar Orden de Pago" onclick="SaveCarreraNew()" />
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+</div>

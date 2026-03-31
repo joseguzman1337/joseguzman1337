@@ -1,0 +1,24 @@
+<b>Log Item</b> 
+
+<span style='background:red'>El código centro de beneficio en la Fila No 1 NO existe en SALA verifique o comuníquese con Tecnología.</span>
+
+<span style='background:red'> Campos vacíos en la Fila No 2</span> 
+
+<span style='background:red'> Campos vacíos en la Fila No 3</span> 
+
+<span style='background:red'> Campos vacíos en la Fila No 4</span> 
+
+<span style='background:red'> Campos vacíos en la Fila No 5</span> 
+
+<span style='background:red'> Campos vacíos en la Fila No 6</span> 
+
+<span style='background:red'> Campos vacíos en la Fila No 7</span> 
+
+<span style='background:red'> Campos vacíos en la Fila No 8</span> 
+
+<span style='background:red'> Campos vacíos en la Fila No 9</span> 
+
+<span style='background:red'> Campos vacíos en la Fila No 10</span> 
+
+<span style='background:red'> Campos vacíos en la Fila No 11</span> 
+

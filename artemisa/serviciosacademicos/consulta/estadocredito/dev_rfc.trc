@@ -1,0 +1,1157 @@
+
+**** ERROR file opened at 20081128 233744 COT, SAP-REL 620,0,1909 RFC-VER 3 748231 MT-SL
+T:1077377920 ======> 
+
+**** ERROR file opened at 20081129 000938 COT, SAP-REL 620,0,1909 RFC-VER 3 748231 MT-SL
+T:1077377920 ======> 
+
+**** ERROR file opened at 20081129 001148 COT, SAP-REL 620,0,1909 RFC-VER 3 748231 MT-SL
+T:1077377920 ======> 
+
+**** ERROR file opened at 20081129 002114 COT, SAP-REL 620,0,1909 RFC-VER 3 748231 MT-SL
+T:1077377920 ======> 
+
+**** ERROR file opened at 20081129 002219 COT, SAP-REL 620,0,1909 RFC-VER 3 748231 MT-SL
+T:1077377920 ======> 
+
+**** ERROR file opened at 20081129 003024 COT, SAP-REL 620,0,1909 RFC-VER 3 748231 MT-SL
+T:1077377920 ======> 
+
+**** ERROR file opened at 20081129 003439 COT, SAP-REL 620,0,1909 RFC-VER 3 748231 MT-SL
+T:1077377920 ======> 
+
+**** ERROR file opened at 20081129 003459 COT, SAP-REL 620,0,1909 RFC-VER 3 748231 MT-SL
+T:1077377920 ======> 
+
+**** ERROR file opened at 20081129 003520 COT, SAP-REL 620,0,1909 RFC-VER 3 748231 MT-SL
+T:1077377920 ======> 
+
+**** ERROR file opened at 20081129 003547 COT, SAP-REL 620,0,1909 RFC-VER 3 748231 MT-SL
+T:1077377920 ======> 
+
+**** ERROR file opened at 20081129 003607 COT, SAP-REL 620,0,1909 RFC-VER 3 748231 MT-SL
+T:1077377920 ======> 
+
+**** ERROR file opened at 20081129 003628 COT, SAP-REL 620,0,1909 RFC-VER 3 748231 MT-SL
+T:1077377920 ======> 
+
+**** ERROR file opened at 20081222 142144 COT, SAP-REL 620,0,1909 RFC-VER 3 748231 MT-SL
+T:1077377920 ======> Connect to SAP gateway failed
+Connect_PM  GWHOST=172.16.6.9, GWSERV=sapgw00, ASHOST=172.16.6.9, SYSNR=00
+
+LOCATION    CPIC (TCP/IP) on local host
+ERROR       partner not reached (host 172.16.6.9, service 3300)
+
+TIME        Mon Dec 22 14:21:44 2008
+RELEASE     620
+COMPONENT   NI (network interface)
+VERSION     36
+RC          -10
+MODULE      niuxi_mt.c
+LINE        1108
+DETAIL      NiPConnect2
+SYSTEM CALL SO_ERROR
+ERRNO       113
+ERRNO TEXT  No route to host
+COUNTER     1
+
+>TS> Mon Dec 22 14:21:47 2008
+T:1077377920 ======> Connect to SAP gateway failed
+Connect_PM  GWHOST=172.16.6.9, GWSERV=sapgw00, ASHOST=172.16.6.9, SYSNR=00
+
+LOCATION    CPIC (TCP/IP) on local host
+ERROR       partner not reached (host 172.16.6.9, service 3300)
+
+TIME        Mon Dec 22 14:21:47 2008
+RELEASE     620
+COMPONENT   NI (network interface)
+VERSION     36
+RC          -10
+MODULE      niuxi_mt.c
+LINE        1102
+DETAIL      NiPConnect2
+SYSTEM CALL SO_ERROR
+ERRNO       113
+ERRNO TEXT  No route to host
+COUNTER     2
+
+>TS> Mon Dec 22 14:21:50 2008
+T:1077377920 ======> Connect to SAP gateway failed
+Connect_PM  GWHOST=172.16.6.9, GWSERV=sapgw00, ASHOST=172.16.6.9, SYSNR=00
+
+LOCATION    CPIC (TCP/IP) on local host
+ERROR       partner not reached (host 172.16.6.9, service 3300)
+
+TIME        Mon Dec 22 14:21:50 2008
+RELEASE     620
+COMPONENT   NI (network interface)
+VERSION     36
+RC          -10
+MODULE      niuxi_mt.c
+LINE        1102
+DETAIL      NiPConnect2
+SYSTEM CALL SO_ERROR
+ERRNO       113
+ERRNO TEXT  No route to host
+COUNTER     3
+
+>TS> Mon Dec 22 14:21:53 2008
+T:1077377920 ======> Connect to SAP gateway failed
+Connect_PM  GWHOST=172.16.6.9, GWSERV=sapgw00, ASHOST=172.16.6.9, SYSNR=00
+
+LOCATION    CPIC (TCP/IP) on local host
+ERROR       partner not reached (host 172.16.6.9, service 3300)
+
+TIME        Mon Dec 22 14:21:53 2008
+RELEASE     620
+COMPONENT   NI (network interface)
+VERSION     36
+RC          -10
+MODULE      niuxi_mt.c
+LINE        1102
+DETAIL      NiPConnect2
+SYSTEM CALL SO_ERROR
+ERRNO       113
+ERRNO TEXT  No route to host
+COUNTER     4
+
+>TS> Mon Dec 22 14:26:16 2008
+T:1077377920 ======> Connect to SAP gateway failed
+Connect_PM  GWHOST=172.16.6.9, GWSERV=sapgw00, ASHOST=172.16.6.9, SYSNR=00
+
+LOCATION    CPIC (TCP/IP) on local host
+ERROR       partner not reached (host 172.16.6.9, service 3300)
+
+TIME        Mon Dec 22 14:26:16 2008
+RELEASE     620
+COMPONENT   NI (network interface)
+VERSION     36
+RC          -10
+MODULE      niuxi_mt.c
+LINE        1102
+DETAIL      NiPConnect2
+SYSTEM CALL SO_ERROR
+ERRNO       113
+ERRNO TEXT  No route to host
+COUNTER     5
+
+>TS> Mon Dec 22 14:26:19 2008
+T:1077377920 ======> Connect to SAP gateway failed
+Connect_PM  GWHOST=172.16.6.9, GWSERV=sapgw00, ASHOST=172.16.6.9, SYSNR=00
+
+LOCATION    CPIC (TCP/IP) on local host
+ERROR       partner not reached (host 172.16.6.9, service 3300)
+
+TIME        Mon Dec 22 14:26:19 2008
+RELEASE     620
+COMPONENT   NI (network interface)
+VERSION     36
+RC          -10
+MODULE      niuxi_mt.c
+LINE        1102
+DETAIL      NiPConnect2
+SYSTEM CALL SO_ERROR
+ERRNO       113
+ERRNO TEXT  No route to host
+COUNTER     6
+
+>TS> Mon Dec 22 14:26:22 2008
+T:1077377920 ======> Connect to SAP gateway failed
+Connect_PM  GWHOST=172.16.6.9, GWSERV=sapgw00, ASHOST=172.16.6.9, SYSNR=00
+
+LOCATION    CPIC (TCP/IP) on local host
+ERROR       partner not reached (host 172.16.6.9, service 3300)
+
+TIME        Mon Dec 22 14:26:22 2008
+RELEASE     620
+COMPONENT   NI (network interface)
+VERSION     36
+RC          -10
+MODULE      niuxi_mt.c
+LINE        1102
+DETAIL      NiPConnect2
+SYSTEM CALL SO_ERROR
+ERRNO       113
+ERRNO TEXT  No route to host
+COUNTER     7
+
+>TS> Mon Dec 22 14:26:25 2008
+T:1077377920 ======> Connect to SAP gateway failed
+Connect_PM  GWHOST=172.16.6.9, GWSERV=sapgw00, ASHOST=172.16.6.9, SYSNR=00
+
+LOCATION    CPIC (TCP/IP) on local host
+ERROR       partner not reached (host 172.16.6.9, service 3300)
+
+TIME        Mon Dec 22 14:26:25 2008
+RELEASE     620
+COMPONENT   NI (network interface)
+VERSION     36
+RC          -10
+MODULE      niuxi_mt.c
+LINE        1102
+DETAIL      NiPConnect2
+SYSTEM CALL SO_ERROR
+ERRNO       113
+ERRNO TEXT  No route to host
+COUNTER     8
+
+>TS> Mon Dec 22 14:26:28 2008
+T:1077377920 ======> Connect to SAP gateway failed
+Connect_PM  GWHOST=172.16.6.9, GWSERV=sapgw00, ASHOST=172.16.6.9, SYSNR=00
+
+LOCATION    CPIC (TCP/IP) on local host
+ERROR       partner not reached (host 172.16.6.9, service 3300)
+
+TIME        Mon Dec 22 14:26:28 2008
+RELEASE     620
+COMPONENT   NI (network interface)
+VERSION     36
+RC          -10
+MODULE      niuxi_mt.c
+LINE        1102
+DETAIL      NiPConnect2
+SYSTEM CALL SO_ERROR
+ERRNO       113
+ERRNO TEXT  No route to host
+COUNTER     9
+
+>TS> Mon Dec 22 14:26:35 2008
+T:1077377920 ======> Connect to SAP gateway failed
+Connect_PM  GWHOST=172.16.6.9, GWSERV=sapgw00, ASHOST=172.16.6.9, SYSNR=00
+
+LOCATION    CPIC (TCP/IP) on local host
+ERROR       partner not reached (host 172.16.6.9, service 3300)
+
+TIME        Mon Dec 22 14:26:35 2008
+RELEASE     620
+COMPONENT   NI (network interface)
+VERSION     36
+RC          -10
+MODULE      niuxi_mt.c
+LINE        1102
+DETAIL      NiPConnect2
+SYSTEM CALL SO_ERROR
+ERRNO       113
+ERRNO TEXT  No route to host
+COUNTER     10
+
+>TS> Mon Dec 22 14:26:40 2008
+T:1077377920 ======> Connect to SAP gateway failed
+Connect_PM  GWHOST=172.16.6.9, GWSERV=sapgw00, ASHOST=172.16.6.9, SYSNR=00
+
+LOCATION    CPIC (TCP/IP) on local host
+ERROR       partner not reached (host 172.16.6.9, service 3300)
+
+TIME        Mon Dec 22 14:26:40 2008
+RELEASE     620
+COMPONENT   NI (network interface)
+VERSION     36
+RC          -10
+MODULE      niuxi_mt.c
+LINE        1102
+DETAIL      NiPConnect2
+SYSTEM CALL SO_ERROR
+ERRNO       113
+ERRNO TEXT  No route to host
+COUNTER     11
+
+>TS> Mon Dec 22 14:26:43 2008
+T:1077377920 ======> Connect to SAP gateway failed
+Connect_PM  GWHOST=172.16.6.9, GWSERV=sapgw00, ASHOST=172.16.6.9, SYSNR=00
+
+LOCATION    CPIC (TCP/IP) on local host
+ERROR       partner not reached (host 172.16.6.9, service 3300)
+
+TIME        Mon Dec 22 14:26:43 2008
+RELEASE     620
+COMPONENT   NI (network interface)
+VERSION     36
+RC          -10
+MODULE      niuxi_mt.c
+LINE        1102
+DETAIL      NiPConnect2
+SYSTEM CALL SO_ERROR
+ERRNO       113
+ERRNO TEXT  No route to host
+COUNTER     12
+
+>TS> Mon Dec 22 14:28:02 2008
+T:1077377920 ======> Connect to SAP gateway failed
+Connect_PM  GWHOST=172.16.6.9, GWSERV=sapgw00, ASHOST=172.16.6.9, SYSNR=00
+
+LOCATION    CPIC (TCP/IP) on local host
+ERROR       partner not reached (host 172.16.6.9, service 3300)
+
+TIME        Mon Dec 22 14:28:02 2008
+RELEASE     620
+COMPONENT   NI (network interface)
+VERSION     36
+RC          -10
+MODULE      niuxi_mt.c
+LINE        1102
+DETAIL      NiPConnect2
+SYSTEM CALL SO_ERROR
+ERRNO       113
+ERRNO TEXT  No route to host
+COUNTER     13
+
+>TS> Mon Dec 22 14:28:05 2008
+T:1077377920 ======> Connect to SAP gateway failed
+Connect_PM  GWHOST=172.16.6.9, GWSERV=sapgw00, ASHOST=172.16.6.9, SYSNR=00
+
+LOCATION    CPIC (TCP/IP) on local host
+ERROR       partner not reached (host 172.16.6.9, service 3300)
+
+TIME        Mon Dec 22 14:28:05 2008
+RELEASE     620
+COMPONENT   NI (network interface)
+VERSION     36
+RC          -10
+MODULE      niuxi_mt.c
+LINE        1102
+DETAIL      NiPConnect2
+SYSTEM CALL SO_ERROR
+ERRNO       113
+ERRNO TEXT  No route to host
+COUNTER     14
+
+>TS> Mon Dec 22 14:28:08 2008
+T:1077377920 ======> Connect to SAP gateway failed
+Connect_PM  GWHOST=172.16.6.9, GWSERV=sapgw00, ASHOST=172.16.6.9, SYSNR=00
+
+LOCATION    CPIC (TCP/IP) on local host
+ERROR       partner not reached (host 172.16.6.9, service 3300)
+
+TIME        Mon Dec 22 14:28:08 2008
+RELEASE     620
+COMPONENT   NI (network interface)
+VERSION     36
+RC          -10
+MODULE      niuxi_mt.c
+LINE        1102
+DETAIL      NiPConnect2
+SYSTEM CALL SO_ERROR
+ERRNO       113
+ERRNO TEXT  No route to host
+COUNTER     15
+
+>TS> Mon Dec 22 14:28:11 2008
+T:1077377920 ======> Connect to SAP gateway failed
+Connect_PM  GWHOST=172.16.6.9, GWSERV=sapgw00, ASHOST=172.16.6.9, SYSNR=00
+
+LOCATION    CPIC (TCP/IP) on local host
+ERROR       partner not reached (host 172.16.6.9, service 3300)
+
+TIME        Mon Dec 22 14:28:11 2008
+RELEASE     620
+COMPONENT   NI (network interface)
+VERSION     36
+RC          -10
+MODULE      niuxi_mt.c
+LINE        1102
+DETAIL      NiPConnect2
+SYSTEM CALL SO_ERROR
+ERRNO       113
+ERRNO TEXT  No route to host
+COUNTER     16
+
+>TS> Mon Dec 22 14:28:14 2008
+T:1077377920 ======> Connect to SAP gateway failed
+Connect_PM  GWHOST=172.16.6.9, GWSERV=sapgw00, ASHOST=172.16.6.9, SYSNR=00
+
+LOCATION    CPIC (TCP/IP) on local host
+ERROR       partner not reached (host 172.16.6.9, service 3300)
+
+TIME        Mon Dec 22 14:28:14 2008
+RELEASE     620
+COMPONENT   NI (network interface)
+VERSION     36
+RC          -10
+MODULE      niuxi_mt.c
+LINE        1102
+DETAIL      NiPConnect2
+SYSTEM CALL SO_ERROR
+ERRNO       113
+ERRNO TEXT  No route to host
+COUNTER     17
+
+
+**** ERROR file opened at 20081222 154314 COT, SAP-REL 620,0,1909 RFC-VER 3 748231 MT-SL
+T:1077377920 ======> Connect to SAP gateway failed
+Connect_PM  GWHOST=172.16.6.9, GWSERV=sapgw00, ASHOST=172.16.6.9, SYSNR=00
+
+LOCATION    CPIC (TCP/IP) on local host
+ERROR       partner not reached (host 172.16.6.9, service 3300)
+
+TIME        Mon Dec 22 15:43:14 2008
+RELEASE     620
+COMPONENT   NI (network interface)
+VERSION     36
+RC          -10
+MODULE      niuxi_mt.c
+LINE        1108
+DETAIL      NiPConnect2
+SYSTEM CALL SO_ERROR
+ERRNO       113
+ERRNO TEXT  No route to host
+COUNTER     1
+
+>TS> Mon Dec 22 15:43:17 2008
+T:1077377920 ======> Connect to SAP gateway failed
+Connect_PM  GWHOST=172.16.6.9, GWSERV=sapgw00, ASHOST=172.16.6.9, SYSNR=00
+
+LOCATION    CPIC (TCP/IP) on local host
+ERROR       partner not reached (host 172.16.6.9, service 3300)
+
+TIME        Mon Dec 22 15:43:17 2008
+RELEASE     620
+COMPONENT   NI (network interface)
+VERSION     36
+RC          -10
+MODULE      niuxi_mt.c
+LINE        1102
+DETAIL      NiPConnect2
+SYSTEM CALL SO_ERROR
+ERRNO       113
+ERRNO TEXT  No route to host
+COUNTER     2
+
+>TS> Mon Dec 22 15:43:20 2008
+T:1077377920 ======> Connect to SAP gateway failed
+Connect_PM  GWHOST=172.16.6.9, GWSERV=sapgw00, ASHOST=172.16.6.9, SYSNR=00
+
+LOCATION    CPIC (TCP/IP) on local host
+ERROR       partner not reached (host 172.16.6.9, service 3300)
+
+TIME        Mon Dec 22 15:43:20 2008
+RELEASE     620
+COMPONENT   NI (network interface)
+VERSION     36
+RC          -10
+MODULE      niuxi_mt.c
+LINE        1102
+DETAIL      NiPConnect2
+SYSTEM CALL SO_ERROR
+ERRNO       113
+ERRNO TEXT  No route to host
+COUNTER     3
+
+>TS> Mon Dec 22 15:43:23 2008
+T:1077377920 ======> Connect to SAP gateway failed
+Connect_PM  GWHOST=172.16.6.9, GWSERV=sapgw00, ASHOST=172.16.6.9, SYSNR=00
+
+LOCATION    CPIC (TCP/IP) on local host
+ERROR       partner not reached (host 172.16.6.9, service 3300)
+
+TIME        Mon Dec 22 15:43:23 2008
+RELEASE     620
+COMPONENT   NI (network interface)
+VERSION     36
+RC          -10
+MODULE      niuxi_mt.c
+LINE        1102
+DETAIL      NiPConnect2
+SYSTEM CALL SO_ERROR
+ERRNO       113
+ERRNO TEXT  No route to host
+COUNTER     4
+
+>TS> Mon Dec 22 15:43:38 2008
+T:1077377920 ======> Connect to SAP gateway failed
+Connect_PM  GWHOST=172.16.6.9, GWSERV=sapgw00, ASHOST=172.16.6.9, SYSNR=00
+
+LOCATION    CPIC (TCP/IP) on local host
+ERROR       partner not reached (host 172.16.6.9, service 3300)
+
+TIME        Mon Dec 22 15:43:38 2008
+RELEASE     620
+COMPONENT   NI (network interface)
+VERSION     36
+RC          -10
+MODULE      niuxi_mt.c
+LINE        1102
+DETAIL      NiPConnect2
+SYSTEM CALL SO_ERROR
+ERRNO       113
+ERRNO TEXT  No route to host
+COUNTER     5
+
+>TS> Mon Dec 22 15:43:41 2008
+T:1077377920 ======> Connect to SAP gateway failed
+Connect_PM  GWHOST=172.16.6.9, GWSERV=sapgw00, ASHOST=172.16.6.9, SYSNR=00
+
+LOCATION    CPIC (TCP/IP) on local host
+ERROR       partner not reached (host 172.16.6.9, service 3300)
+
+TIME        Mon Dec 22 15:43:41 2008
+RELEASE     620
+COMPONENT   NI (network interface)
+VERSION     36
+RC          -10
+MODULE      niuxi_mt.c
+LINE        1102
+DETAIL      NiPConnect2
+SYSTEM CALL SO_ERROR
+ERRNO       113
+ERRNO TEXT  No route to host
+COUNTER     6
+
+>TS> Mon Dec 22 15:43:44 2008
+T:1077377920 ======> Connect to SAP gateway failed
+Connect_PM  GWHOST=172.16.6.9, GWSERV=sapgw00, ASHOST=172.16.6.9, SYSNR=00
+
+LOCATION    CPIC (TCP/IP) on local host
+ERROR       partner not reached (host 172.16.6.9, service 3300)
+
+TIME        Mon Dec 22 15:43:44 2008
+RELEASE     620
+COMPONENT   NI (network interface)
+VERSION     36
+RC          -10
+MODULE      niuxi_mt.c
+LINE        1102
+DETAIL      NiPConnect2
+SYSTEM CALL SO_ERROR
+ERRNO       113
+ERRNO TEXT  No route to host
+COUNTER     7
+
+>TS> Mon Dec 22 15:44:07 2008
+T:1077377920 ======> Connect to SAP gateway failed
+Connect_PM  GWHOST=172.16.6.9, GWSERV=sapgw00, ASHOST=172.16.6.9, SYSNR=00
+
+LOCATION    CPIC (TCP/IP) on local host
+ERROR       partner not reached (host 172.16.6.9, service 3300)
+
+TIME        Mon Dec 22 15:44:07 2008
+RELEASE     620
+COMPONENT   NI (network interface)
+VERSION     36
+RC          -10
+MODULE      niuxi_mt.c
+LINE        1102
+DETAIL      NiPConnect2
+SYSTEM CALL SO_ERROR
+ERRNO       113
+ERRNO TEXT  No route to host
+COUNTER     8
+
+>TS> Mon Dec 22 15:44:10 2008
+T:1077377920 ======> Connect to SAP gateway failed
+Connect_PM  GWHOST=172.16.6.9, GWSERV=sapgw00, ASHOST=172.16.6.9, SYSNR=00
+
+LOCATION    CPIC (TCP/IP) on local host
+ERROR       partner not reached (host 172.16.6.9, service 3300)
+
+TIME        Mon Dec 22 15:44:10 2008
+RELEASE     620
+COMPONENT   NI (network interface)
+VERSION     36
+RC          -10
+MODULE      niuxi_mt.c
+LINE        1102
+DETAIL      NiPConnect2
+SYSTEM CALL SO_ERROR
+ERRNO       113
+ERRNO TEXT  No route to host
+COUNTER     9
+
+>TS> Mon Dec 22 15:44:13 2008
+T:1077377920 ======> Connect to SAP gateway failed
+Connect_PM  GWHOST=172.16.6.9, GWSERV=sapgw00, ASHOST=172.16.6.9, SYSNR=00
+
+LOCATION    CPIC (TCP/IP) on local host
+ERROR       partner not reached (host 172.16.6.9, service 3300)
+
+TIME        Mon Dec 22 15:44:13 2008
+RELEASE     620
+COMPONENT   NI (network interface)
+VERSION     36
+RC          -10
+MODULE      niuxi_mt.c
+LINE        1102
+DETAIL      NiPConnect2
+SYSTEM CALL SO_ERROR
+ERRNO       113
+ERRNO TEXT  No route to host
+COUNTER     10
+
+>TS> Mon Dec 22 15:44:16 2008
+T:1077377920 ======> Connect to SAP gateway failed
+Connect_PM  GWHOST=172.16.6.9, GWSERV=sapgw00, ASHOST=172.16.6.9, SYSNR=00
+
+LOCATION    CPIC (TCP/IP) on local host
+ERROR       partner not reached (host 172.16.6.9, service 3300)
+
+TIME        Mon Dec 22 15:44:16 2008
+RELEASE     620
+COMPONENT   NI (network interface)
+VERSION     36
+RC          -10
+MODULE      niuxi_mt.c
+LINE        1102
+DETAIL      NiPConnect2
+SYSTEM CALL SO_ERROR
+ERRNO       113
+ERRNO TEXT  No route to host
+COUNTER     11
+
+>TS> Mon Dec 22 15:44:19 2008
+T:1077377920 ======> Connect to SAP gateway failed
+Connect_PM  GWHOST=172.16.6.9, GWSERV=sapgw00, ASHOST=172.16.6.9, SYSNR=00
+
+LOCATION    CPIC (TCP/IP) on local host
+ERROR       partner not reached (host 172.16.6.9, service 3300)
+
+TIME        Mon Dec 22 15:44:19 2008
+RELEASE     620
+COMPONENT   NI (network interface)
+VERSION     36
+RC          -10
+MODULE      niuxi_mt.c
+LINE        1102
+DETAIL      NiPConnect2
+SYSTEM CALL SO_ERROR
+ERRNO       113
+ERRNO TEXT  No route to host
+COUNTER     12
+
+>TS> Mon Dec 22 15:44:22 2008
+T:1077377920 ======> Connect to SAP gateway failed
+Connect_PM  GWHOST=172.16.6.9, GWSERV=sapgw00, ASHOST=172.16.6.9, SYSNR=00
+
+LOCATION    CPIC (TCP/IP) on local host
+ERROR       partner not reached (host 172.16.6.9, service 3300)
+
+TIME        Mon Dec 22 15:44:22 2008
+RELEASE     620
+COMPONENT   NI (network interface)
+VERSION     36
+RC          -10
+MODULE      niuxi_mt.c
+LINE        1102
+DETAIL      NiPConnect2
+SYSTEM CALL SO_ERROR
+ERRNO       113
+ERRNO TEXT  No route to host
+COUNTER     13
+
+>TS> Mon Dec 22 15:54:10 2008
+T:1077377920 ======> Connect to SAP gateway failed
+Connect_PM  GWHOST=172.16.6.9, GWSERV=sapgw00, ASHOST=172.16.6.9, SYSNR=00
+
+LOCATION    CPIC (TCP/IP) on local host
+ERROR       partner not reached (host 172.16.6.9, service 3300)
+
+TIME        Mon Dec 22 15:54:10 2008
+RELEASE     620
+COMPONENT   NI (network interface)
+VERSION     36
+RC          -10
+MODULE      niuxi_mt.c
+LINE        1102
+DETAIL      NiPConnect2
+SYSTEM CALL SO_ERROR
+ERRNO       113
+ERRNO TEXT  No route to host
+COUNTER     14
+
+>TS> Mon Dec 22 15:54:13 2008
+T:1077377920 ======> Connect to SAP gateway failed
+Connect_PM  GWHOST=172.16.6.9, GWSERV=sapgw00, ASHOST=172.16.6.9, SYSNR=00
+
+LOCATION    CPIC (TCP/IP) on local host
+ERROR       partner not reached (host 172.16.6.9, service 3300)
+
+TIME        Mon Dec 22 15:54:13 2008
+RELEASE     620
+COMPONENT   NI (network interface)
+VERSION     36
+RC          -10
+MODULE      niuxi_mt.c
+LINE        1102
+DETAIL      NiPConnect2
+SYSTEM CALL SO_ERROR
+ERRNO       113
+ERRNO TEXT  No route to host
+COUNTER     15
+
+>TS> Mon Dec 22 15:54:16 2008
+T:1077377920 ======> Connect to SAP gateway failed
+Connect_PM  GWHOST=172.16.6.9, GWSERV=sapgw00, ASHOST=172.16.6.9, SYSNR=00
+
+LOCATION    CPIC (TCP/IP) on local host
+ERROR       partner not reached (host 172.16.6.9, service 3300)
+
+TIME        Mon Dec 22 15:54:16 2008
+RELEASE     620
+COMPONENT   NI (network interface)
+VERSION     36
+RC          -10
+MODULE      niuxi_mt.c
+LINE        1102
+DETAIL      NiPConnect2
+SYSTEM CALL SO_ERROR
+ERRNO       113
+ERRNO TEXT  No route to host
+COUNTER     16
+
+>TS> Mon Dec 22 15:54:19 2008
+T:1077377920 ======> Connect to SAP gateway failed
+Connect_PM  GWHOST=172.16.6.9, GWSERV=sapgw00, ASHOST=172.16.6.9, SYSNR=00
+
+LOCATION    CPIC (TCP/IP) on local host
+ERROR       partner not reached (host 172.16.6.9, service 3300)
+
+TIME        Mon Dec 22 15:54:19 2008
+RELEASE     620
+COMPONENT   NI (network interface)
+VERSION     36
+RC          -10
+MODULE      niuxi_mt.c
+LINE        1102
+DETAIL      NiPConnect2
+SYSTEM CALL SO_ERROR
+ERRNO       113
+ERRNO TEXT  No route to host
+COUNTER     17
+
+>TS> Mon Dec 22 15:54:22 2008
+T:1077377920 ======> Connect to SAP gateway failed
+Connect_PM  GWHOST=172.16.6.9, GWSERV=sapgw00, ASHOST=172.16.6.9, SYSNR=00
+
+LOCATION    CPIC (TCP/IP) on local host
+ERROR       partner not reached (host 172.16.6.9, service 3300)
+
+TIME        Mon Dec 22 15:54:22 2008
+RELEASE     620
+COMPONENT   NI (network interface)
+VERSION     36
+RC          -10
+MODULE      niuxi_mt.c
+LINE        1102
+DETAIL      NiPConnect2
+SYSTEM CALL SO_ERROR
+ERRNO       113
+ERRNO TEXT  No route to host
+COUNTER     18
+
+>TS> Mon Dec 22 15:57:09 2008
+T:1077377920 ======> Connect to SAP gateway failed
+Connect_PM  GWHOST=172.16.6.9, GWSERV=sapgw00, ASHOST=172.16.6.9, SYSNR=00
+
+LOCATION    CPIC (TCP/IP) on local host
+ERROR       partner not reached (host 172.16.6.9, service 3300)
+
+TIME        Mon Dec 22 15:57:09 2008
+RELEASE     620
+COMPONENT   NI (network interface)
+VERSION     36
+RC          -10
+MODULE      niuxi_mt.c
+LINE        1102
+DETAIL      NiPConnect2
+SYSTEM CALL SO_ERROR
+ERRNO       113
+ERRNO TEXT  No route to host
+COUNTER     19
+
+>TS> Mon Dec 22 15:57:12 2008
+T:1077377920 ======> Connect to SAP gateway failed
+Connect_PM  GWHOST=172.16.6.9, GWSERV=sapgw00, ASHOST=172.16.6.9, SYSNR=00
+
+LOCATION    CPIC (TCP/IP) on local host
+ERROR       partner not reached (host 172.16.6.9, service 3300)
+
+TIME        Mon Dec 22 15:57:12 2008
+RELEASE     620
+COMPONENT   NI (network interface)
+VERSION     36
+RC          -10
+MODULE      niuxi_mt.c
+LINE        1102
+DETAIL      NiPConnect2
+SYSTEM CALL SO_ERROR
+ERRNO       113
+ERRNO TEXT  No route to host
+COUNTER     20
+
+
+**** ERROR file opened at 20081222 160529 COT, SAP-REL 620,0,1909 RFC-VER 3 748231 MT-SL
+T:1077377920 ======> Connect to SAP gateway failed
+Connect_PM  GWHOST=172.16.6.9, GWSERV=sapgw00, ASHOST=172.16.6.9, SYSNR=00
+
+LOCATION    CPIC (TCP/IP) on local host
+ERROR       partner not reached (host 172.16.6.9, service 3300)
+
+TIME        Mon Dec 22 16:05:29 2008
+RELEASE     620
+COMPONENT   NI (network interface)
+VERSION     36
+RC          -10
+MODULE      niuxi_mt.c
+LINE        1108
+DETAIL      NiPConnect2
+SYSTEM CALL SO_ERROR
+ERRNO       113
+ERRNO TEXT  No route to host
+COUNTER     1
+
+>TS> Mon Dec 22 16:05:32 2008
+T:1077377920 ======> Connect to SAP gateway failed
+Connect_PM  GWHOST=172.16.6.9, GWSERV=sapgw00, ASHOST=172.16.6.9, SYSNR=00
+
+LOCATION    CPIC (TCP/IP) on local host
+ERROR       partner not reached (host 172.16.6.9, service 3300)
+
+TIME        Mon Dec 22 16:05:32 2008
+RELEASE     620
+COMPONENT   NI (network interface)
+VERSION     36
+RC          -10
+MODULE      niuxi_mt.c
+LINE        1102
+DETAIL      NiPConnect2
+SYSTEM CALL SO_ERROR
+ERRNO       113
+ERRNO TEXT  No route to host
+COUNTER     2
+
+>TS> Mon Dec 22 16:05:35 2008
+T:1077377920 ======> Connect to SAP gateway failed
+Connect_PM  GWHOST=172.16.6.9, GWSERV=sapgw00, ASHOST=172.16.6.9, SYSNR=00
+
+LOCATION    CPIC (TCP/IP) on local host
+ERROR       partner not reached (host 172.16.6.9, service 3300)
+
+TIME        Mon Dec 22 16:05:35 2008
+RELEASE     620
+COMPONENT   NI (network interface)
+VERSION     36
+RC          -10
+MODULE      niuxi_mt.c
+LINE        1102
+DETAIL      NiPConnect2
+SYSTEM CALL SO_ERROR
+ERRNO       113
+ERRNO TEXT  No route to host
+COUNTER     3
+
+>TS> Mon Dec 22 16:05:38 2008
+T:1077377920 ======> Connect to SAP gateway failed
+Connect_PM  GWHOST=172.16.6.9, GWSERV=sapgw00, ASHOST=172.16.6.9, SYSNR=00
+
+LOCATION    CPIC (TCP/IP) on local host
+ERROR       partner not reached (host 172.16.6.9, service 3300)
+
+TIME        Mon Dec 22 16:05:38 2008
+RELEASE     620
+COMPONENT   NI (network interface)
+VERSION     36
+RC          -10
+MODULE      niuxi_mt.c
+LINE        1102
+DETAIL      NiPConnect2
+SYSTEM CALL SO_ERROR
+ERRNO       113
+ERRNO TEXT  No route to host
+COUNTER     4
+
+>TS> Mon Dec 22 16:06:18 2008
+T:1077377920 ======> Connect to SAP gateway failed
+Connect_PM  GWHOST=172.16.6.9, GWSERV=sapgw00, ASHOST=172.16.6.9, SYSNR=00
+
+LOCATION    CPIC (TCP/IP) on local host
+ERROR       partner not reached (host 172.16.6.9, service 3300)
+
+TIME        Mon Dec 22 16:06:18 2008
+RELEASE     620
+COMPONENT   NI (network interface)
+VERSION     36
+RC          -10
+MODULE      niuxi_mt.c
+LINE        1102
+DETAIL      NiPConnect2
+SYSTEM CALL SO_ERROR
+ERRNO       113
+ERRNO TEXT  No route to host
+COUNTER     5
+
+>TS> Mon Dec 22 16:06:21 2008
+T:1077377920 ======> Connect to SAP gateway failed
+Connect_PM  GWHOST=172.16.6.9, GWSERV=sapgw00, ASHOST=172.16.6.9, SYSNR=00
+
+LOCATION    CPIC (TCP/IP) on local host
+ERROR       partner not reached (host 172.16.6.9, service 3300)
+
+TIME        Mon Dec 22 16:06:21 2008
+RELEASE     620
+COMPONENT   NI (network interface)
+VERSION     36
+RC          -10
+MODULE      niuxi_mt.c
+LINE        1102
+DETAIL      NiPConnect2
+SYSTEM CALL SO_ERROR
+ERRNO       113
+ERRNO TEXT  No route to host
+COUNTER     6
+
+>TS> Mon Dec 22 16:06:24 2008
+T:1077377920 ======> Connect to SAP gateway failed
+Connect_PM  GWHOST=172.16.6.9, GWSERV=sapgw00, ASHOST=172.16.6.9, SYSNR=00
+
+LOCATION    CPIC (TCP/IP) on local host
+ERROR       partner not reached (host 172.16.6.9, service 3300)
+
+TIME        Mon Dec 22 16:06:24 2008
+RELEASE     620
+COMPONENT   NI (network interface)
+VERSION     36
+RC          -10
+MODULE      niuxi_mt.c
+LINE        1102
+DETAIL      NiPConnect2
+SYSTEM CALL SO_ERROR
+ERRNO       113
+ERRNO TEXT  No route to host
+COUNTER     7
+
+>TS> Mon Dec 22 16:06:27 2008
+T:1077377920 ======> Connect to SAP gateway failed
+Connect_PM  GWHOST=172.16.6.9, GWSERV=sapgw00, ASHOST=172.16.6.9, SYSNR=00
+
+LOCATION    CPIC (TCP/IP) on local host
+ERROR       partner not reached (host 172.16.6.9, service 3300)
+
+TIME        Mon Dec 22 16:06:27 2008
+RELEASE     620
+COMPONENT   NI (network interface)
+VERSION     36
+RC          -10
+MODULE      niuxi_mt.c
+LINE        1102
+DETAIL      NiPConnect2
+SYSTEM CALL SO_ERROR
+ERRNO       113
+ERRNO TEXT  No route to host
+COUNTER     8
+
+>TS> Mon Dec 22 16:06:30 2008
+T:1077377920 ======> Connect to SAP gateway failed
+Connect_PM  GWHOST=172.16.6.9, GWSERV=sapgw00, ASHOST=172.16.6.9, SYSNR=00
+
+LOCATION    CPIC (TCP/IP) on local host
+ERROR       partner not reached (host 172.16.6.9, service 3300)
+
+TIME        Mon Dec 22 16:06:30 2008
+RELEASE     620
+COMPONENT   NI (network interface)
+VERSION     36
+RC          -10
+MODULE      niuxi_mt.c
+LINE        1102
+DETAIL      NiPConnect2
+SYSTEM CALL SO_ERROR
+ERRNO       113
+ERRNO TEXT  No route to host
+COUNTER     9
+
+>TS> Mon Dec 22 16:15:40 2008
+T:1077377920 ======> Connect to SAP gateway failed
+Connect_PM  GWHOST=172.16.6.9, GWSERV=sapgw00, ASHOST=172.16.6.9, SYSNR=00
+
+LOCATION    CPIC (TCP/IP) on local host
+ERROR       partner not reached (host 172.16.6.9, service 3300)
+
+TIME        Mon Dec 22 16:15:40 2008
+RELEASE     620
+COMPONENT   NI (network interface)
+VERSION     36
+RC          -10
+MODULE      niuxi_mt.c
+LINE        1102
+DETAIL      NiPConnect2
+SYSTEM CALL SO_ERROR
+ERRNO       113
+ERRNO TEXT  No route to host
+COUNTER     10
+
+>TS> Mon Dec 22 16:15:43 2008
+T:1077377920 ======> Connect to SAP gateway failed
+Connect_PM  GWHOST=172.16.6.9, GWSERV=sapgw00, ASHOST=172.16.6.9, SYSNR=00
+
+LOCATION    CPIC (TCP/IP) on local host
+ERROR       partner not reached (host 172.16.6.9, service 3300)
+
+TIME        Mon Dec 22 16:15:43 2008
+RELEASE     620
+COMPONENT   NI (network interface)
+VERSION     36
+RC          -10
+MODULE      niuxi_mt.c
+LINE        1102
+DETAIL      NiPConnect2
+SYSTEM CALL SO_ERROR
+ERRNO       113
+ERRNO TEXT  No route to host
+COUNTER     11
+
+>TS> Mon Dec 22 16:21:11 2008
+T:1077377920 ======> Connect to SAP gateway failed
+Connect_PM  GWHOST=172.16.6.9, GWSERV=sapgw00, ASHOST=172.16.6.9, SYSNR=00
+
+LOCATION    CPIC (TCP/IP) on local host
+ERROR       partner not reached (host 172.16.6.9, service 3300)
+
+TIME        Mon Dec 22 16:21:11 2008
+RELEASE     620
+COMPONENT   NI (network interface)
+VERSION     36
+RC          -10
+MODULE      niuxi_mt.c
+LINE        1102
+DETAIL      NiPConnect2
+SYSTEM CALL SO_ERROR
+ERRNO       113
+ERRNO TEXT  No route to host
+COUNTER     12
+
+>TS> Mon Dec 22 16:21:14 2008
+T:1077377920 ======> Connect to SAP gateway failed
+Connect_PM  GWHOST=172.16.6.9, GWSERV=sapgw00, ASHOST=172.16.6.9, SYSNR=00
+
+LOCATION    CPIC (TCP/IP) on local host
+ERROR       partner not reached (host 172.16.6.9, service 3300)
+
+TIME        Mon Dec 22 16:21:14 2008
+RELEASE     620
+COMPONENT   NI (network interface)
+VERSION     36
+RC          -10
+MODULE      niuxi_mt.c
+LINE        1102
+DETAIL      NiPConnect2
+SYSTEM CALL SO_ERROR
+ERRNO       113
+ERRNO TEXT  No route to host
+COUNTER     13
+
+>TS> Mon Dec 22 16:23:23 2008
+T:1077377920 ======> Connect to SAP gateway failed
+Connect_PM  GWHOST=172.16.6.9, GWSERV=sapgw00, ASHOST=172.16.6.9, SYSNR=00
+
+LOCATION    CPIC (TCP/IP) on local host
+ERROR       partner not reached (host 172.16.6.9, service 3300)
+
+TIME        Mon Dec 22 16:23:23 2008
+RELEASE     620
+COMPONENT   NI (network interface)
+VERSION     36
+RC          -10
+MODULE      niuxi_mt.c
+LINE        1102
+DETAIL      NiPConnect2
+SYSTEM CALL SO_ERROR
+ERRNO       113
+ERRNO TEXT  No route to host
+COUNTER     14
+
+>TS> Mon Dec 22 16:23:26 2008
+T:1077377920 ======> Connect to SAP gateway failed
+Connect_PM  GWHOST=172.16.6.9, GWSERV=sapgw00, ASHOST=172.16.6.9, SYSNR=00
+
+LOCATION    CPIC (TCP/IP) on local host
+ERROR       partner not reached (host 172.16.6.9, service 3300)
+
+TIME        Mon Dec 22 16:23:26 2008
+RELEASE     620
+COMPONENT   NI (network interface)
+VERSION     36
+RC          -10
+MODULE      niuxi_mt.c
+LINE        1102
+DETAIL      NiPConnect2
+SYSTEM CALL SO_ERROR
+ERRNO       113
+ERRNO TEXT  No route to host
+COUNTER     15
+
+
+**** ERROR file opened at 20090207 101955 COT, SAP-REL 620,0,1909 RFC-VER 3 748231 MT-SL
+T:1077377920 ======> Connect to SAP gateway failed
+Connect_PM  GWHOST=172.16.3.198, GWSERV=sapgw00, ASHOST=172.16.3.198, SYSNR=00
+
+LOCATION    CPIC (TCP/IP) on local host
+ERROR       partner not reached (host 172.16.3.198, service 3300)
+
+TIME        Sat Feb  7 10:19:55 2009
+RELEASE     620
+COMPONENT   NI (network interface)
+VERSION     36
+RC          -10
+MODULE      niuxi_mt.c
+LINE        1108
+DETAIL      NiPConnect2
+SYSTEM CALL SO_ERROR
+ERRNO       111
+ERRNO TEXT  Connection refused
+COUNTER     1
+
+T:1077377920 ======> Connect to SAP gateway failed
+Connect_PM  GWHOST=172.16.3.198, GWSERV=sapgw00, ASHOST=172.16.3.198, SYSNR=00
+
+LOCATION    CPIC (TCP/IP) on local host
+ERROR       partner not reached (host 172.16.3.198, service 3300)
+
+TIME        Sat Feb  7 10:19:55 2009
+RELEASE     620
+COMPONENT   NI (network interface)
+VERSION     36
+RC          -10
+MODULE      niuxi_mt.c
+LINE        1102
+DETAIL      NiPConnect2
+SYSTEM CALL SO_ERROR
+ERRNO       111
+ERRNO TEXT  Connection refused
+COUNTER     2
+
+T:1077377920 ======> Connect to SAP gateway failed
+Connect_PM  GWHOST=172.16.3.198, GWSERV=sapgw00, ASHOST=172.16.3.198, SYSNR=00
+
+LOCATION    CPIC (TCP/IP) on local host
+ERROR       partner not reached (host 172.16.3.198, service 3300)
+
+TIME        Sat Feb  7 10:19:55 2009
+RELEASE     620
+COMPONENT   NI (network interface)
+VERSION     36
+RC          -10
+MODULE      niuxi_mt.c
+LINE        1102
+DETAIL      NiPConnect2
+SYSTEM CALL SO_ERROR
+ERRNO       111
+ERRNO TEXT  Connection refused
+COUNTER     3
+
+T:1077377920 ======> Connect to SAP gateway failed
+Connect_PM  GWHOST=172.16.3.198, GWSERV=sapgw00, ASHOST=172.16.3.198, SYSNR=00
+
+LOCATION    CPIC (TCP/IP) on local host
+ERROR       partner not reached (host 172.16.3.198, service 3300)
+
+TIME        Sat Feb  7 10:19:55 2009
+RELEASE     620
+COMPONENT   NI (network interface)
+VERSION     36
+RC          -10
+MODULE      niuxi_mt.c
+LINE        1102
+DETAIL      NiPConnect2
+SYSTEM CALL SO_ERROR
+ERRNO       111
+ERRNO TEXT  Connection refused
+COUNTER     4
+

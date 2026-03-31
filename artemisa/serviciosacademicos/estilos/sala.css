@@ -1,0 +1,540 @@
+/**********************************************
+	Definición de estilos para sala
+**********************************************/
+
+/**********************************************
+1. Estilo para la tipografia
+**********************************************/
+BODY{ font-family:Verdana, Arial, Helvetica, sans-serif;
+font-size: 10px;
+}
+FONT{ font-family:Verdana, Arial, Helvetica, sans-serif;
+}
+
+
+/**********************************************
+2. Estilo para tablas
+*********************************************/
+
+/* Tablas */
+TABLE{ font-family:Verdana, Arial, Helvetica, sans-serif;
+font-size:10px;}
+
+/* TR solitario */
+/*TR{ font-size:9px;
+}*/
+
+/* TR con color gris */
+TR#trtitulogris{ background-color:#F8F8F8;
+font-size:10px;
+font-weight: bold;
+}
+
+
+/*color verde institucional*/
+TR#trtituloNaranjaInst{
+	background-color: #008876;
+	font-size:17px;
+	color:#FFFFFF;
+	font-family: 'Darker Grotesque', sans-serif;
+	font-weight: bold;
+}
+
+#tdtituloNaranjaInst{
+	background-color: #008876;
+	font-size:17px;
+	color:#FFFFFF;
+	font-family: 'Darker Grotesque', sans-serif;
+	font-weight: bold;
+}
+.tdtituloWhiteInst{
+	font-size:17px;
+	color:black;
+	font-family: 'Darker Grotesque', sans-serif;
+	font-weight: bold;
+}
+
+/* TR con color gris */
+TR#trgris{ background-color:#F8F8F8;
+font-size:10px;
+}
+
+/* TR con color naranja */
+TR#trtitulonaranja{ background-color:#FF9E08;
+}
+
+/* TR con color verde */
+TR#trtituloverde{ background-color:#C5D5D6;
+}
+
+/* TD con negrilla */
+TD#tdtitulonegrilla{ font-weight: bold; }
+
+/* TD con color gris */
+TD#tdtitulogris{ background-color:#F8F8F8;
+font-weight: bold; }
+
+TD#tdtituloencuesta
+{
+/*background-color:#E99000;*/
+/*background-color:#FFF0C1;*/
+background-color:#FFF6DC;
+/*background-color:#596221;*/
+/*color:#FFFFFF;*/
+color:#000000;
+font-weight: bold;
+font-size:13px;
+}
+
+TD#tdtituloencuestaprincipal
+{
+font-weight: bold;
+font-size:14px;
+}
+
+TD#tdtituloencuestadescripcion
+{
+background-color:#F8F8F8;
+font-size:12px;
+}
+
+TD#tdtitulosubgrupoencuesta{
+/*color:#FF9E08;*/
+/*background-color:#F8F8F8; */
+background-color:#DBDBDB;
+font-size:11px;
+font-weight: bold;
+}
+
+
+TH#thtitulogris{ background-color:#F8F8F8;
+font-weight: bold; }
+
+/* TD con color verde */
+TD#tdtituloverde{ background-color:#C5D5D6;
+font-size:11px;
+font-weight: bold; }
+TH#thtituloverde{ background-color:#C5D5D6;
+font-size:11px;
+font-weight: bold; }
+
+/* TD con color naranja */
+TD#tdtitulonaranja{ background-color:#FF9E08;
+font-size:11px;
+font-weight: bold; }
+
+TD#tdnaranja{ background-color:#FF9E08;
+}
+
+TH#thtitulonaranja{ background-color:#FEF7ED;
+font-size:11px;
+font-weight: bold; }
+
+/**********************************************
+3. Estilo para parrafos
+*********************************************/
+/* Este parrafo es para titulos */
+P { font-family:Verdana, Arial, Helvetica, sans-serif;
+font-size: 10px;
+font-weight: bold; }
+
+
+/**********************************************
+4. Estilo para cajas de texto
+*********************************************/
+/* Caja de texto normal */
+INPUT{font-size:10px;
+}
+
+/* Caja de texto pequeña */
+INPUT#txtpequena{font-size:9px;
+}
+
+INPUT#texto{ width:100px;
+font-size:10px;
+}
+
+/* Caja de texto corta */
+INPUT#textoid{ width:40px;
+font-size:10px;
+}
+
+/**********************************************
+5. Estilo para notas
+*********************************************/
+/* Nota resaltada 1 */
+LABEL#labelresaltado{
+color:#FF9E08;
+font-size:10px;
+font-weight: bold;
+}
+
+LABEL#labelasterisco{
+color:#FF0202;
+font-size:17px;
+font-weight: bold;
+}
+/* Nota resaltada 2 */
+LABEL#labelsinresaltar{ color:#FF9E08;
+font-size:10px;}
+
+/* Nota resaltada 3 */
+LABEL#labelpequeno{ color:#FF9E08;
+font-size:9px;}
+
+/* Nota resaltada 3 */
+LABEL#labelgrande{ font-size:11px;}
+
+/* Nota Resaltada Tamaño H3*/
+LABEL#labelresaltadogrande{
+color:#FF9E08;
+font-size:16px;
+font-weight: bold;
+}
+
+/**********************************************
+5. Estilo para Hipervinculos
+*********************************************/
+
+/* A href sin que se vaya con el href si no con el onclik, da la apariencia de link */
+A#aparencialink { border-bottom:1px solid blue;
+cursor:pointer;
+font-weight: bold;
+color:#000099}
+
+/* A href sin que se vaya con el href si no con el onclik, da la apariencia de link con color naranja */
+A#aparencialinknaranja { border-bottom-color:#FF9E08;
+cursor:pointer;
+font-weight: bold;
+color:#FF9E08}
+
+/**********************************************
+6. Estilo para selección
+*********************************************/
+/* Caja de texto larga */
+SELECT{ font-size:10px;
+}
+
+/**********************************************
+7. Estilo para lineas horizontales
+*********************************************/
+/* Caja de texto larga */
+HR{ color:#FF9E08
+}
+
+
+.calendar {
+			  position: relative;
+			  display: none;
+			  border-top: 2px solid #fff;
+			  border-right: 2px solid #000;
+			  border-bottom: 2px solid #000;
+			  border-left: 2px solid #fff;
+			  font-size: 11px;
+			  color: #000;
+			  cursor: default;
+			  background: #d4d0c8;
+			  font-family: tahoma,verdana,sans-serif;
+			}
+
+			.calendar table {
+			  border-top: 1px solid #000;
+			  border-right: 1px solid #fff;
+			  border-bottom: 1px solid #fff;
+			  border-left: 1px solid #000;
+			  font-size: 11px;
+			  color: #000;
+			  cursor: default;
+			  background: #d4d0c8;
+			  font-family: tahoma,verdana,sans-serif;
+			}
+
+			/* Header part -- contains navigation buttons and day names. */
+
+			.calendar .button { /* "<<", "<", ">", ">>" buttons have this class */
+			  text-align: center;
+			  padding: 1px;
+			  border-top: 1px solid #fff;
+			  border-right: 1px solid #000;
+			  border-bottom: 1px solid #000;
+			  border-left: 1px solid #fff;
+			}
+
+			.calendar .nav {
+			  background: transparent url(menuarrow.gif) no-repeat 100% 100%;
+			}
+
+			.calendar thead .title { /* This holds the current "month, year" */
+			  font-weight: bold;
+			  padding: 1px;
+			  border: 1px solid #000;
+			  background: #848078;
+			  color: #fff;
+			  text-align: center;
+			}
+
+			.calendar thead .headrow { /* Row <TR> containing navigation buttons */
+			}
+
+			.calendar thead .daynames { /* Row <TR> containing the day names */
+			}
+
+			.calendar thead .name { /* Cells <TD> containing the day names */
+			  border-bottom: 1px solid #000;
+			  padding: 2px;
+			  text-align: center;
+			  background: #f4f0e8;
+			}
+
+			.calendar thead .weekend { /* How a weekend day name shows in header */
+			  color: #f00;
+			}
+
+			.calendar thead .hilite { /* How do the buttons in header appear when hover */
+			  border-top: 2px solid #fff;
+			  border-right: 2px solid #000;
+			  border-bottom: 2px solid #000;
+			  border-left: 2px solid #fff;
+			  padding: 0px;
+			  background-color: #e4e0d8;
+			}
+
+			.calendar thead .active { /* Active (pressed) buttons in header */
+			  padding: 2px 0px 0px 2px;
+			  border-top: 1px solid #000;
+			  border-right: 1px solid #fff;
+			  border-bottom: 1px solid #fff;
+			  border-left: 1px solid #000;
+			  background-color: #c4c0b8;
+			}
+
+			/* The body part -- contains all the days in month. */
+
+			.calendar tbody .day { /* Cells <TD> containing month days dates */
+			  width: 2em;
+			  text-align: right;
+			  padding: 2px 4px 2px 2px;
+			}
+			.calendar tbody .day.othermonth {
+			  font-size: 80%;
+			  color: #aaa;
+			}
+			.calendar tbody .day.othermonth.oweekend {
+			  color: #faa;
+			}
+
+			.calendar table .wn {
+			  padding: 2px 3px 2px 2px;
+			  border-right: 1px solid #000;
+			  background: #f4f0e8;
+			}
+
+			.calendar tbody .rowhilite td {
+			  background: #e4e0d8;
+			}
+
+			.calendar tbody .rowhilite td.wn {
+			  background: #d4d0c8;
+			}
+
+			.calendar tbody td.hilite { /* Hovered cells <TD> */
+			  padding: 1px 3px 1px 1px;
+			  border-top: 1px solid #fff;
+			  border-right: 1px solid #000;
+			  border-bottom: 1px solid #000;
+			  border-left: 1px solid #fff;
+			}
+
+			.calendar tbody td.active { /* Active (pressed) cells <TD> */
+			  padding: 2px 2px 0px 2px;
+			  border-top: 1px solid #000;
+			  border-right: 1px solid #fff;
+			  border-bottom: 1px solid #fff;
+			  border-left: 1px solid #000;
+			}
+
+			.calendar tbody td.selected { /* Cell showing selected date */
+			  font-weight: bold;
+			  border-top: 1px solid #000;
+			  border-right: 1px solid #fff;
+			  border-bottom: 1px solid #fff;
+			  border-left: 1px solid #000;
+			  padding: 2px 2px 0px 2px;
+			  background: #e4e0d8;
+			}
+
+			.calendar tbody td.weekend { /* Cells showing weekend days */
+			  color: #f00;
+			}
+
+			.calendar tbody td.today { /* Cell showing today date */
+			  font-weight: bold;
+			  color: #00f;
+			}
+
+			.calendar tbody .disabled { color: #999; }
+
+			.calendar tbody .emptycell { /* Empty cells (the best is to hide them) */
+			  visibility: hidden;
+			}
+
+			.calendar tbody .emptyrow { /* Empty row (some months need less than 6 rows) */
+			  display: none;
+			}
+
+			/* The footer part -- status bar and "Close" button */
+
+			.calendar tfoot .footrow { /* The <TR> in footer (only one right now) */
+			}
+
+			.calendar tfoot .ttip { /* Tooltip (status bar) cell <TD> */
+			  background: #f4f0e8;
+			  padding: 1px;
+			  border: 1px solid #000;
+			  background: #848078;
+			  color: #fff;
+			  text-align: center;
+			}
+
+			.calendar tfoot .hilite { /* Hover style for buttons in footer */
+			  border-top: 1px solid #fff;
+			  border-right: 1px solid #000;
+			  border-bottom: 1px solid #000;
+			  border-left: 1px solid #fff;
+			  padding: 1px;
+			  background: #e4e0d8;
+			}
+
+			.calendar tfoot .active { /* Active (pressed) style for buttons in footer */
+			  padding: 2px 0px 0px 2px;
+			  border-top: 1px solid #000;
+			  border-right: 1px solid #fff;
+			  border-bottom: 1px solid #fff;
+			  border-left: 1px solid #000;
+			}
+
+			/* Combo boxes (menus that display months/years for direct selection) */
+
+			.calendar .combo {
+			  position: absolute;
+			  display: none;
+			  width: 4em;
+			  top: 0px;
+			  left: 0px;
+			  cursor: default;
+			  border-top: 1px solid #fff;
+			  border-right: 1px solid #000;
+			  border-bottom: 1px solid #000;
+			  border-left: 1px solid #fff;
+			  background: #e4e0d8;
+			  font-size: 90%;
+			  padding: 1px;
+			  z-index: 100;
+			}
+
+			.calendar .combo .label,
+			.calendar .combo .label-IEfix {
+			  text-align: center;
+			  padding: 1px;
+			}
+
+			.calendar .combo .label-IEfix {
+			  width: 4em;
+			}
+
+			.calendar .combo .active {
+			  background: #c4c0b8;
+			  padding: 0px;
+			  border-top: 1px solid #000;
+			  border-right: 1px solid #fff;
+			  border-bottom: 1px solid #fff;
+			  border-left: 1px solid #000;
+			}
+
+			.calendar .combo .hilite {
+			  background: #048;
+			  color: #fea;
+			}
+
+			.calendar td.time {
+			  border-top: 1px solid #000;
+			  padding: 1px 0px;
+			  text-align: center;
+			  background-color: #f4f0e8;
+			}
+
+			.calendar td.time .hour,
+			.calendar td.time .minute,
+			.calendar td.time .ampm {
+			  padding: 0px 3px 0px 4px;
+			  border: 1px solid #889;
+			  font-weight: bold;
+			  background-color: #fff;
+			}
+
+			.calendar td.time .ampm {
+			  text-align: center;
+			}
+
+			.calendar td.time .colon {
+			  padding: 0px 2px 0px 3px;
+			  font-weight: bold;
+			}
+
+			.calendar td.time span.hilite {
+			  border-color: #000;
+			  background-color: #766;
+			  color: #fff;
+			}
+
+			.calendar td.time span.active {
+			  border-color: #f00;
+			  background-color: #000;
+			  color: #0f0;
+			}
+.tablecontainer
+{
+    position: absolute;
+}
+
+.mytable
+{
+    table-layout: fixed;
+}
+
+.mytable TD, .mytable TH
+{
+    border: solid 1px black;
+    width: 140px;
+}
+
+.mytable TH
+{
+    background-color: #e0e0e0;
+}
+.boton{
+      text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+            text-align:center;
+            text-decoration: none;
+      font-family: 'Helvetica Neue', Helvetica, sans-serif;
+      display:inline-block;
+            color: #FFF;
+            background: #E65F00;
+            padding: 7px 20px;
+            white-space: nowrap;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border-radius: 100px;
+            margin: 10px 5px;
+            -webkit-transition: all 0.2s ease-in-out;
+            -ms-transition: all 0.2s ease-in-out;
+            -moz-transition: all 0.2s ease-in-out;
+            -o-transition: all 0.2s ease-in-out;
+            transition: all 0.2s ease-in-out;
+}
+
+.colorBtn1
+{
+	background-color: #7CC240;
+	border-radius: 24px!important;
+}

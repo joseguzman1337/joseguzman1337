@@ -1,0 +1,13 @@
+Datos de la administracoin del Ambiente Celsius
+Error inesperado! Reinicie la instalacion
+Directorios configurados con exitos!
+Ingresar los datos de administrador
+El sistema utiliza un usuario 
+para acceder a la administracion de ambiente.Especifique una contraseña para ese usuario e <b>utilize esa informacion</b> para autentificar en Administracion del ambiente.
+Contraseña para la cuenta de administracion de Celsius (usuario 
+Confirme la contraseña de Administrador:
+Nombre de la máquina de acceso 
+Apellido de administrador
+Nombre de administrador
+E-mail doel administrador
+Continuarusuario de

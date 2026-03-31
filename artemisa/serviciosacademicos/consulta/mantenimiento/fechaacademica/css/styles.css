@@ -1,0 +1,20 @@
+select{
+	width:400px;	
+}
+
+.primera tr td{
+	background-color:#FEF7ED;
+	border: 1px solid #000;
+}
+
+.primera tr td:first-child{
+	background-color:#CCDADD;
+}
+
+.required{
+	color:red;
+}
+
+span{
+	cursor: pointer;
+}

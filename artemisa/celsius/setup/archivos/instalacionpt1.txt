@@ -1,0 +1,5 @@
+Definir el nombre de la Base de Dato
+Celcius utiliza una base de datos para mantener la informacion de la configuracion del sistema:
+Nombre de la base de Datos:
+Deberia llenar los campos con los nombre de la base de dato como para continuar.
+Continuaruna contraseña para ese usuario e <b>utilize esa informacion</b> para autentificar en Administracion del ambiente.

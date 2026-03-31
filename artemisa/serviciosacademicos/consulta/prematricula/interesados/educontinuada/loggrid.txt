@@ -1,0 +1,1 @@
+UPDATE ordenpago SET codigoestadoordenpago='10' WHERE codigoestadoordenpago='40'  and numeroordenpago='1076115'

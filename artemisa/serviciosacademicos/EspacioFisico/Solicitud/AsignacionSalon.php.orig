@@ -1,0 +1,694 @@
+<?php
+class AsignacionSalon{
+    public function ValidacionEspacio($db,$fecha,$hora_1,$hora_2,$id){
+        
+          $Fecha_HoraIni = $fecha.' '.$hora_1;
+          $Fecha_HoraFin = $fecha.' '.$hora_2;  
+            
+          $SQL='SELECT
+                x.ClasificacionEspaciosId
+                FROM ClasificacionEspacios x INNER JOIN EspaciosFisicos e ON e.EspaciosFisicosId=x.EspaciosFisicosId
+									         INNER JOIN DetalleClasificacionEspacios d ON x.ClasificacionEspaciosId=d.ClasificacionEspaciosId 
+                where x.ClasificacionEspaciosId not in 
+                (
+                SELECT eventos.ClasificacionEspaciosId FROM (
+                		SELECT ae.AsignacionEspaciosId 
+                		,ae.FechaAsignacion as fecha 
+                		,ae.HoraInicio as horainicio 
+                		,ae.HoraFin as horafinal 
+                		,g.nombregrupo as grupos 
+                		,ce.Nombre as Salon 
+                		,ce.ClasificacionEspaciosId
+                		FROM AsignacionEspacios ae 
+                		INNER JOIN SolicitudAsignacionEspacios sae ON ae.SolicitudAsignacionEspacioId = sae.SolicitudAsignacionEspacioId 
+                		INNER JOIN ClasificacionEspacios ce ON ce.ClasificacionEspaciosId=ae.ClasificacionEspaciosId 
+                		INNER JOIN tiposalon ts ON ce.codigotiposalon=ts.codigotiposalon and ts.codigoestado=100 
+                		INNER JOIN SolicitudEspacioGrupos seg ON seg.SolicitudAsignacionEspacioId=sae.SolicitudAsignacionEspacioId 
+                		INNER JOIN grupo g ON g.idgrupo=seg.idgrupo
+                		
+                		) eventos
+                		WHERE "'.$Fecha_HoraIni.'" <> CONCAT(fecha," ",horafinal) 
+                		and "'.$Fecha_HoraFin.'" <> CONCAT(fecha," ",horainicio) 
+                		and (
+                		("'.$Fecha_HoraIni.'" BETWEEN CAST(CONCAT(fecha," ",horainicio) AS DATETIME) AND CAST(CONCAT(fecha," ",horafinal) AS DATETIME)) 
+                		OR ("'.$Fecha_HoraFin.'" BETWEEN CAST(CONCAT(fecha," ",horainicio) AS DATETIME) and CAST(CONCAT(fecha," ",horafinal) AS DATETIME) )
+                		OR  (CAST(CONCAT(fecha," ",horainicio) AS DATETIME)  BETWEEN "'.$Fecha_HoraIni.'" AND "'.$Fecha_HoraFin.'"  ) 
+                		OR (CAST(CONCAT(fecha," ",horafinal) AS DATETIME)  BETWEEN "'.$Fecha_HoraIni.'"  AND "'.$Fecha_HoraFin.'"  )
+                		)
+                ) 
+                
+                AND
+                e.PermitirAsignacion=1
+                AND 
+                "'.$fecha.'" BETWEEN d.FechaInicioVigencia and d.FechaFinVigencia';
+                
+                if($EspaciosDisponibles=&$db->Execute($SQL)===false){
+                    Echo 'Error en el SQL de Validacion De Disponible Espacio...<br><br>'.$SQL;
+                    die;
+                }
+                
+                if(!$EspaciosDisponibles->EOF){
+                    while(!$EspaciosDisponibles->EOF){
+                        
+                        if($id==$EspaciosDisponibles->fields['ClasificacionEspaciosId']){
+                            return 1;exit;
+                        }else{
+                            return 0;
+                        }
+                        $EspaciosDisponibles->MoveNext();
+                    }//while
+                }else{
+                    return 0;
+                }
+    }//public function ValidacionEspacio
+    public function Disponibilidad($db,$Sede,$TipoSalon,$F_inicial,$F_final,$H_inicial,$H_final,$Acceso,$max,$op=''){ 
+       
+        /*
+        [Horaini] 
+        [Horafin] 
+        */
+        if(!$op){
+           $C_Horas = $this->Horas($H_inicial,$H_final); 
+           $hora_1  = $C_Horas['Horaini'];
+           $hora_2  = $C_Horas['Horafin'];
+        }else{
+           $hora_1  = $H_inicial;
+           $hora_2  = $H_final; 
+        }
+        
+        $fecha  = $F_inicial;
+        
+        $Fecha_horaIni = $fecha.' '.$hora_1;
+        $fecha_horaFin = $fecha.' '.$hora_2;
+        
+        if($Acceso==1){
+            $Condicion = ' AND  x.AccesoDiscapacitados="'.$Acceso.'"';
+        }else{
+            $Condicion = '';
+        }
+        //var_dump(is_file('../../../Solicitud/SolicitudEspacio_class.php'));die;
+       
+         $SQL='SELECT
+                    xx.ClasificacionEspaciosId AS id,
+                    xx.CapacidadEstudiantes
+                FROM(
+                    SELECT
+                            x.ClasificacionEspaciosId, 
+                            x.ClasificacionEspacionPadreId,
+                            x.CapacidadEstudiantes
+                    FROM 
+                            ClasificacionEspacios x INNER JOIN EspaciosFisicos e ON e.EspaciosFisicosId=x.EspaciosFisicosId
+                                                    INNER JOIN DetalleClasificacionEspacios d ON x.ClasificacionEspaciosId=d.ClasificacionEspaciosId 
+                    WHERE x.ClasificacionEspaciosId not in (
+                            SELECT 
+                                eventos.ClasificacionEspaciosId 
+                            FROM (
+                            		SELECT
+
+                                    a.AsignacionEspaciosId,
+                                    a.FechaAsignacion AS fecha,
+                                    a.HoraInicio AS horainicio,
+                                    a.HoraFin AS horafinal,
+                                    g.nombregrupo AS grupos,
+                                    m.nombremateria,
+                                    g.matriculadosgrupo,
+                                    c.ClasificacionEspaciosId,
+                                    c.Nombre AS Salon
+                                    
+                                    FROM
+                                    
+                                    AsignacionEspacios a INNER JOIN SolicitudAsignacionEspacios s ON a.SolicitudAsignacionEspacioId=s.SolicitudAsignacionEspacioId
+                                    										 INNER JOIN ClasificacionEspacios c ON c.ClasificacionEspaciosId=a.ClasificacionEspaciosId
+                                    										 INNER JOIN SolicitudEspacioGrupos sg ON sg.SolicitudAsignacionEspacioId=s.SolicitudAsignacionEspacioId
+                                    										 INNER JOIN grupo g ON g.idgrupo=sg.idgrupo
+                                    										 INNER JOIN tiposalon t ON t.codigotiposalon=c.codigotiposalon
+                                    										 INNER JOIN materia m ON m.codigomateria=g.codigomateria
+                            		
+                            		) eventos
+                            		WHERE 
+                                        "'.$Fecha_horaIni.'" <> CONCAT(fecha," ",horafinal) 
+                      		            AND 
+                                        "'.$fecha_horaFin.'" <> CONCAT(fecha," ",horainicio) 
+                            		    AND (
+                            		("'.$Fecha_horaIni.'" BETWEEN CAST(CONCAT(fecha," ",horainicio) AS DATETIME) AND CAST(CONCAT(fecha," ",horafinal) AS DATETIME)) 
+                            		OR ("'.$fecha_horaFin.'" BETWEEN CAST(CONCAT(fecha," ",horainicio) AS DATETIME) and CAST(CONCAT(fecha," ",horafinal) AS DATETIME) )
+                            		OR  (CAST(CONCAT(fecha," ",horainicio) AS DATETIME)  BETWEEN "'.$Fecha_horaIni.'"  AND "'.$fecha_horaFin.'"  ) 
+                            		OR (CAST(CONCAT(fecha," ",horafinal) AS DATETIME)  BETWEEN "'.$Fecha_horaIni.'"  AND "'.$fecha_horaFin.'"  )
+                   	         )
+                    ) 
+                    AND
+                    x.codigotiposalon="'.$TipoSalon.'"
+                    '.$Condicion.'
+                    AND
+                    e.PermitirAsignacion=1
+                    AND 
+                    "'.$fecha.'" BETWEEN d.FechaInicioVigencia and d.FechaFinVigencia 
+                    
+                    ) xx INNER JOIN ClasificacionEspacios cp ON xx.ClasificacionEspacionPadreId=cp.ClasificacionEspaciosId  AND cp.ClasificacionEspacionPadreId="'.$Sede.'"
+                    
+                    ORDER BY xx.CapacidadEstudiantes';
+                        
+                     
+                     if($AulasTipoMax=&$db->Execute($SQL)===false){
+                        echo 'Error en el SQL Disponibilida de Espacios Por tipo Sede Y capacidad En un Fecha Unica...<br><br>'.$SQL;
+                        die;
+                     }   
+             
+                
+             $this->ViewEspacios($db,$AulasTipoMax,'#C6F4D1',$max,'',$op,$fecha,$hora_1,$hora_2); 
+             
+             /*********************************************************************/
+             
+            
+          $SQL='SELECT
+                    xx.ClasificacionEspaciosId AS id,
+                    xx.CapacidadEstudiantes
+                FROM(
+                    SELECT
+                            x.ClasificacionEspaciosId, 
+                            x.ClasificacionEspacionPadreId,
+                            x.CapacidadEstudiantes
+                    FROM 
+                            ClasificacionEspacios x INNER JOIN EspaciosFisicos e ON e.EspaciosFisicosId=x.EspaciosFisicosId
+                                                    INNER JOIN DetalleClasificacionEspacios d ON x.ClasificacionEspaciosId=d.ClasificacionEspaciosId 
+                    WHERE x.ClasificacionEspaciosId not in (
+                            SELECT 
+                                eventos.ClasificacionEspaciosId 
+                            FROM (
+                            		SELECT
+
+                                    a.AsignacionEspaciosId,
+                                    a.FechaAsignacion AS fecha,
+                                    a.HoraInicio AS horainicio,
+                                    a.HoraFin AS horafinal,
+                                    g.nombregrupo AS grupos,
+                                    m.nombremateria,
+                                    g.matriculadosgrupo,
+                                    c.ClasificacionEspaciosId,
+                                    c.Nombre AS Salon
+                                    
+                                    FROM
+                                    
+                                    AsignacionEspacios a INNER JOIN SolicitudAsignacionEspacios s ON a.SolicitudAsignacionEspacioId=s.SolicitudAsignacionEspacioId
+                                    										 INNER JOIN ClasificacionEspacios c ON c.ClasificacionEspaciosId=a.ClasificacionEspaciosId
+                                    										 INNER JOIN SolicitudEspacioGrupos sg ON sg.SolicitudAsignacionEspacioId=s.SolicitudAsignacionEspacioId
+                                    										 INNER JOIN grupo g ON g.idgrupo=sg.idgrupo
+                                    										 INNER JOIN tiposalon t ON t.codigotiposalon=c.codigotiposalon
+                                    										 INNER JOIN materia m ON m.codigomateria=g.codigomateria
+                            		
+                            		) eventos
+                            		WHERE 
+                                        "'.$Fecha_horaIni.'" <> CONCAT(fecha," ",horafinal) 
+                      		            AND 
+                                        "'.$fecha_horaFin.'" <> CONCAT(fecha," ",horainicio) 
+                            		    AND (
+                            		("'.$Fecha_horaIni.'" BETWEEN CAST(CONCAT(fecha," ",horainicio) AS DATETIME) AND CAST(CONCAT(fecha," ",horafinal) AS DATETIME)) 
+                            		OR ("'.$fecha_horaFin.'" BETWEEN CAST(CONCAT(fecha," ",horainicio) AS DATETIME) and CAST(CONCAT(fecha," ",horafinal) AS DATETIME) )
+                            		OR  (CAST(CONCAT(fecha," ",horainicio) AS DATETIME)  BETWEEN "'.$Fecha_horaIni.'"  AND "'.$fecha_horaFin.'"  ) 
+                            		OR (CAST(CONCAT(fecha," ",horafinal) AS DATETIME)  BETWEEN "'.$Fecha_horaIni.'"  AND "'.$fecha_horaFin.'"  )
+                   	         )
+                    ) 
+                    AND
+                    x.codigotiposalon<>"'.$TipoSalon.'"
+                    '.$Condicion.'
+                    AND
+                    e.PermitirAsignacion=1
+                    AND 
+                    "'.$fecha.'" BETWEEN d.FechaInicioVigencia and d.FechaFinVigencia
+                    ) xx INNER JOIN ClasificacionEspacios cp ON xx.ClasificacionEspacionPadreId=cp.ClasificacionEspaciosId  AND cp.ClasificacionEspacionPadreId="'.$Sede.'"
+                    
+                    ORDER BY xx.CapacidadEstudiantes';
+                        
+                     
+                     if($AulasMax=&$db->Execute($SQL)===false){
+                        echo 'Error en el SQL Disponibilida de Espacios Por tipo Sede Y capacidad En un Fecha Unica...<br><br>'.$SQL;
+                        die;
+                     }     
+            $this->ViewEspacios($db,$AulasMax,'#FBFBC0',$max,'',$op,$fecha,$hora_1,$hora_2); 
+            
+            /********************************Consulta de aulas Ocupadas******************************************************/
+            
+          $SQL='SELECT
+                    xx.ClasificacionEspaciosId AS id,
+                    xx.CapacidadEstudiantes
+                FROM(
+                    SELECT
+                            x.ClasificacionEspaciosId, 
+                            x.ClasificacionEspacionPadreId,
+                            x.CapacidadEstudiantes
+                    FROM 
+                            ClasificacionEspacios x INNER JOIN EspaciosFisicos e ON e.EspaciosFisicosId=x.EspaciosFisicosId
+                                                    INNER JOIN DetalleClasificacionEspacios d ON x.ClasificacionEspaciosId=d.ClasificacionEspaciosId 
+                    WHERE x.ClasificacionEspaciosId  in (
+                            SELECT 
+                                eventos.ClasificacionEspaciosId 
+                            FROM (
+                            		SELECT
+
+                                    a.AsignacionEspaciosId,
+                                    a.FechaAsignacion AS fecha,
+                                    a.HoraInicio AS horainicio,
+                                    a.HoraFin AS horafinal,
+                                    g.nombregrupo AS grupos,
+                                    m.nombremateria,
+                                    g.matriculadosgrupo,
+                                    c.ClasificacionEspaciosId,
+                                    c.Nombre AS Salon
+                                    
+                                    FROM
+                                    
+                                    AsignacionEspacios a INNER JOIN SolicitudAsignacionEspacios s ON a.SolicitudAsignacionEspacioId=s.SolicitudAsignacionEspacioId
+                                    										 INNER JOIN ClasificacionEspacios c ON c.ClasificacionEspaciosId=a.ClasificacionEspaciosId
+                                    										 INNER JOIN SolicitudEspacioGrupos sg ON sg.SolicitudAsignacionEspacioId=s.SolicitudAsignacionEspacioId
+                                    										 INNER JOIN grupo g ON g.idgrupo=sg.idgrupo
+                                    										 INNER JOIN tiposalon t ON t.codigotiposalon=c.codigotiposalon
+                                    										 INNER JOIN materia m ON m.codigomateria=g.codigomateria
+                            		
+                            		) eventos
+                            		WHERE 
+                                        "'.$Fecha_horaIni.'" <> CONCAT(fecha," ",horafinal) 
+                      		            AND 
+                                        "'.$fecha_horaFin.'" <> CONCAT(fecha," ",horainicio) 
+                            		    AND (
+                            		("'.$Fecha_horaIni.'" BETWEEN CAST(CONCAT(fecha," ",horainicio) AS DATETIME) AND CAST(CONCAT(fecha," ",horafinal) AS DATETIME)) 
+                            		OR ("'.$fecha_horaFin.'" BETWEEN CAST(CONCAT(fecha," ",horainicio) AS DATETIME) and CAST(CONCAT(fecha," ",horafinal) AS DATETIME) )
+                            		OR  (CAST(CONCAT(fecha," ",horainicio) AS DATETIME)  BETWEEN "'.$Fecha_horaIni.'"  AND "'.$fecha_horaFin.'"  ) 
+                            		OR (CAST(CONCAT(fecha," ",horafinal) AS DATETIME)  BETWEEN "'.$Fecha_horaIni.'"  AND "'.$fecha_horaFin.'"  )
+                   	         )
+                    ) 
+                    
+                    '.$Condicion.'
+                    AND
+                    e.PermitirAsignacion=1
+                    AND 
+                    "'.$fecha.'" BETWEEN d.FechaInicioVigencia and d.FechaFinVigencia 
+                    
+                    ) xx INNER JOIN ClasificacionEspacios cp ON xx.ClasificacionEspacionPadreId=cp.ClasificacionEspaciosId  AND cp.ClasificacionEspacionPadreId="'.$Sede.'"
+                    
+                    ORDER BY xx.CapacidadEstudiantes';
+                    
+                 if($AulasOcupadas=&$db->Execute($SQL)===false){
+                    echo 'Error en el SQl de las Aulas Ocupadas....<br><br>'.$SQL;
+                    die;
+                 }  
+                 
+              $this->ViewEspacios($db,$AulasOcupadas,'#F7BBBB',$max,1,$op,$fecha,$hora_1,$hora_2);     
+    }//public function Disponibilidad
+    public function Horas($Hora_1,$Hora_2){
+        //echo 'Hora->'.$Hora_1;
+        $C_Horaini = explode(' ',$Hora_1);//Dessarmar la Hora Inicial
+        
+        if($C_Horaini[1]=='AM' || $C_Horaini[1]=='am' || $C_Horaini[1]=='A.M.' || $C_Horaini[1]=='a.m.'){
+            $Horaini = $C_Horaini[0];
+        }else{
+            $H_inicial = explode(':',$C_Horaini[0]);
+            
+            if($C_Horaini[1]=='PM' || $C_Horaini[1]=='pm' || $C_Horaini[1]=='P.M.' || $C_Horaini[1]=='p.m.'){
+                if($H_inicial[0]==12){  
+                    $Horaini = $H_inicial[0].':'.$H_inicial[1];
+                }else{ 
+                    $H = $H_inicial[0]+12;
+                    $Horaini = $H.':'.$H_inicial[1];
+                }
+            }
+        }//if hora Inicial
+        
+        $C_Horafin = explode(' ',$Hora_2);//Dessarmar la Hora final
+      
+        if($C_Horafin[1]=='AM' || $C_Horafin[1]=='am' || $C_Horaini[1]=='A.M.' || $C_Horaini[1]=='a.m.'){
+            $Horafin = $C_Horafin[0];
+        }else{
+            $H_final = explode(':',$C_Horafin[0]);
+            
+            if($C_Horafin[1]=='PM' || $C_Horafin[1]=='pm' || $C_Horafin[1]=='P.M.' || $C_Horafin[1]=='p.m.'){ 
+                if($H_final[0]==12){ 
+                    $Horafin = $H_final[0].':'.$H_final[1];
+                }else{
+                    $H = $H_final[0]+12;
+                    $Horafin = $H.':'.$H_final[1];
+                }
+            }
+        }//if hora final
+        
+        $C_Result = array();
+        
+        $C_Result['Horaini']  = $Horaini;
+        $C_Result['Horafin']  = $Horafin;
+        
+        return $C_Result;
+    }//public function Horas()
+    public function ViewEspacios($db,$Data,$Color,$max,$op='',$tittle='',$Fecha='',$hora_1='',$hora_2=''){
+        
+        if(!$Data->EOF){
+            if(!$op){
+                $Style='width: 5%;';
+                $Style_2='width: 10%;';
+            }else{
+                $Style = 'width: 5%;';
+                $Style_2='';
+            }
+            ?>
+            <div>
+                <table style="width: 100%;">
+                    <?PHP 
+                    if($tittle==1){
+                        if($op==1){
+                            $Columnas = 13;
+                        }else{
+                            $Columnas = 7;
+                        }
+                        
+                       $HoraView = $this->HorasInversa($hora_1,$hora_2);
+                      ?>
+                        <tr style="background: #C0E7FB;">
+                            <td colspan="<?PHP echo $Columnas?>">
+                                <?PHP 
+                                $Dia = $this->DiasSemana($Fecha);
+                                
+                                echo $Dia .' '.$Fecha.'&nbsp;&nbsp;&nbsp;Hora Inicial: &nbsp;'.$HoraView['inicial'].'&nbsp;&nbsp;&nbsp;Hora Final: &nbsp;'.$HoraView['final'];
+                                ?>
+                            </td>&nbsp;
+                        </tr>
+                        <?PHP
+                    }
+                    ?>
+                    <tr style="background: #C0E7FB;">
+                        <td style="<?PHP echo $Style?> ">N&deg;</td>
+                        <td style="<?PHP echo $Style_2?>">Nombre Espacio</td>
+                        <td style="<?PHP echo $Style_2?>">Capacidad Espacio</td>
+                        <td style="<?PHP echo $Style_2?>">Sobrecupo</td>
+                        <td style="<?PHP echo $Style_2?>">Capacidad Total</td>
+                        <td style="<?PHP echo $Style_2?>">Tipo Aula</td>
+                        <td style="<?PHP echo $Style_2?>">Acceso a Discapacitados</td>
+                        <?PHP 
+                        if($op==1){
+                            ?>
+                            <td>Fecha</td>
+                            <td>Hora Inicial</td>
+                            <td>Hora Final</td>
+                            <td>Nombre Grupo</td>
+                            <td>Nombre Materia</td>
+                            <td>Ocupantes</td>
+                            <?PHP
+                        }
+                        ?>
+                    </tr>
+            <?PHP
+            $i=0;
+            while(!$Data->EOF){
+                /*********************************************************************/
+                  $SQL='SELECT
+
+                        *
+                        FROM
+                        ( SELECT 
+ 
+                        c.Nombre,
+                        c.CapacidadEstudiantes AS maxi,
+                        t.nombretiposalon,
+                        c.AccesoDiscapacitados,
+                        d.CantidadAutorizadaSobrecupo AS SobreCupo,
+                        IF(SUM( d.CantidadAutorizadaSobrecupo+c.CapacidadEstudiantes ) is NULL,c.CapacidadEstudiantes,SUM( d.CantidadAutorizadaSobrecupo+c.CapacidadEstudiantes )) as CupoMax
+
+                        
+                        FROM ClasificacionEspacios c  INNER JOIN tiposalon t ON c.codigotiposalon=t.codigotiposalon
+                                                      INNER JOIN DetalleClasificacionEspacios d ON c.ClasificacionEspaciosId=d.ClasificacionEspaciosId
+                        
+                        WHERE 
+                        
+                        c.ClasificacionEspaciosId="'.$Data->fields['id'].'"
+                        AND 
+                        d.EstadoAprobacion=1) x
+
+                        WHERE
+                        
+                        x.CupoMax>="'.$max.'"';
+                        
+                     if($Info=&$db->Execute($SQL)===false){
+                        echo 'Error en el SQL De la Informacion...<br><br>'.$SQL;
+                        die;
+                     }  
+                  if(!$Info->EOF){   
+                     if($Info->fields['AccesoDiscapacitados']==1){
+                        $Acceso = 'Si';
+                     }else{
+                        $Acceso = 'No';
+                     } 
+                     
+                     if(!$Info->fields['SobreCupo']){
+                            $SobreCupo = 0;
+                        }else{
+                            $SobreCupo = $Info->fields['SobreCupo'];
+                        }  
+                        
+                        
+                  
+                  if($op==1){
+                    $SQL_D='SELECT
+
+<<<<<<< HEAD
+                            x.fecha,
+                            x.horainicio,
+                            x.horafinal,
+                            x.grupos,
+                            x.nombremateria,
+                            x.matriculadosgrupo
+                            
+                             FROM (
+                            		SELECT ae.AsignacionEspaciosId 
+                            		,ae.FechaAsignacion as fecha 
+                            		,ae.HoraInicio as horainicio 
+                            		,ae.HoraFin as horafinal 
+                            		,g.nombregrupo as grupos 
+                            		,ce.Nombre as Salon 
+                            		,ce.ClasificacionEspaciosId
+                            		,sae.SolicitudAsignacionEspacioId,
+                            m.nombremateria,
+                            g.matriculadosgrupo
+                            		FROM AsignacionEspacios ae 
+                            		INNER JOIN SolicitudAsignacionEspacios sae ON ae.SolicitudAsignacionEspacioId = sae.SolicitudAsignacionEspacioId 
+                            		INNER JOIN ClasificacionEspacios ce ON ce.ClasificacionEspaciosId=ae.ClasificacionEspaciosId 
+                            		INNER JOIN tiposalon ts ON ce.codigotiposalon=ts.codigotiposalon and ts.codigoestado=100 
+                            		INNER JOIN SolicitudEspacioGrupos seg ON seg.SolicitudAsignacionEspacioId=sae.SolicitudAsignacionEspacioId 
+                            		INNER JOIN grupo g ON g.idgrupo=seg.idgrupo
+                            		INNER JOIN materia m ON g.codigomateria=m.codigocarrera
+                            
+                            
+                            		
+                            		) x 
+                            
+                            WHERE
+                            x.ClasificacionEspaciosId="'.$Data->fields['id'].'"';
+=======
+                                    a.AsignacionEspaciosId,
+                                    a.FechaAsignacion AS fecha,
+                                    a.HoraInicio AS horainicio,
+                                    a.HoraFin AS horafinal,
+                                    g.nombregrupo AS grupos,
+                                    m.nombremateria,
+                                    g.matriculadosgrupo,
+                                    c.ClasificacionEspaciosId,
+                                    c.Nombre AS Salon
+                                    
+                                    FROM
+                                    
+                                    AsignacionEspacios a INNER JOIN SolicitudAsignacionEspacios s ON a.SolicitudAsignacionEspacioId=s.SolicitudAsignacionEspacioId
+                                    										 INNER JOIN ClasificacionEspacios c ON c.ClasificacionEspaciosId=a.ClasificacionEspaciosId
+                                    										 INNER JOIN SolicitudEspacioGrupos sg ON sg.SolicitudAsignacionEspacioId=s.SolicitudAsignacionEspacioId
+                                    										 INNER JOIN grupo g ON g.idgrupo=sg.idgrupo
+                                    										 INNER JOIN tiposalon t ON t.codigotiposalon=c.codigotiposalon
+                                    										 INNER JOIN materia m ON m.codigomateria=g.codigomateria
+                                    
+                                    WHERE  c.ClasificacionEspaciosId="'.$Data->fields['id'].'"';
+>>>>>>> 1b86516db1912d4c871ac08e99d7558d0b46c8ef
+                            
+                        if($Detalle=&$db->Execute($SQL_D)===false){
+                            echo 'Error en el SQL Detalle View.....<br><br>'.$SQL_D;
+                            die;
+                        }  
+                        
+                        
+                  }   
+                     
+                ?>
+                <tr style="background:<?PHP echo $Color?>;">
+                    <td style="text-align: left;"><?PHP echo $i+1;?></td>
+                    <td style="text-align: center;"><?PHP echo $Info->fields['Nombre'];?></td>
+                    <td style="text-align: center;"><?PHP echo $Info->fields['maxi'];?></td>
+                    <td style="text-align: center;"><?PHP echo $SobreCupo;?></td>
+                    <td style="text-align: center;"><?PHP echo $Info->fields['CupoMax'];?></td>
+                    <td style="font-size: 12px;"><?PHP echo $Info->fields['nombretiposalon'];?></td>
+                    <td style="text-align: center;"><?PHP echo $Acceso;?></td>
+                    <?PHP 
+                        if($op==1){ 
+                            ?>
+                            <td><?PHP echo $Detalle->fields['fecha']?></td>
+                            <td><?PHP echo $Detalle->fields['horainicio']?></td>
+                            <td><?PHP echo $Detalle->fields['horafinal']?></td>
+                            <td style="font-size: 12px;"><?PHP echo $Detalle->fields['grupos']?></td>
+                            <td style="font-size: 9px;"><?PHP echo $Detalle->fields['nombremateria']?></td>
+                            <td style="text-align: center;"><?PHP echo $Detalle->fields['matriculadosgrupo']?></td>
+                            <?PHP
+                        }
+                    ?>
+                </tr>
+                <?PHP
+                /*********************************************************************/
+                $i++;
+                }
+                $Data->MoveNext();
+            }//while
+            ?>
+                </table>
+            </div>
+            <?PHP
+        }else{
+            ?>
+            <br />
+            <span style="color:<?PHP echo $Color?>;"><?PHP Echo 'No Hay Inforamcion...';?></span>
+            <br />
+            <?PHP 
+        }
+        
+    }//public function ViewEspacios
+    public function DisponibilidadMultiple($db,$Data){
+        /****************************************************************/
+        //echo '<pre>';print_r($Data);
+        /*
+            [NumEstudiantes] => 41
+            [Acceso] => on
+            [Campus] => 4
+            [TipoSalon] => 01
+            [FechaIni] => 2014-07-14
+            [FechaFin] => 2014-07-25
+            [numIndices] => 1
+            [DiaSemana] => Array
+                (
+                    [0] => 1
+                    [1] => 3
+                    [2] => 5
+                )
+        
+            [HoraInicial_0]
+            [HoraFin_0]
+        */
+        $Max          = $Data['NumEstudiantes'];
+        $Acceso       = $Data['Acceso'];
+        if($Acceso=='on'){
+            $Acceso = 1;
+        }else{
+            $Acceso = 0;
+        }
+        $Sede        = $Data['Campus'];
+        $TipoSalon   = $Data['TipoSalon'];
+        $FechaIni    = $Data['FechaIni'];
+        $FechaFin    = $Data['FechaFin'];
+        $DiaSemana   = $Data['DiaSemana'];
+        $numIndices  = $Data['numIndices'];
+        
+       //var_dump(is_file('../../../Solicitud/SolicitudEspacio_class.php'));die;
+        
+        include_once('../../../Solicitud/SolicitudEspacio_class.php');  
+         
+        $C_SolicitudEspacio = new SolicitudEspacio();
+        
+        $Result = $C_SolicitudEspacio->FechasFuturas('35',$FechaIni,$FechaFin,$DiaSemana);
+        
+        $Horas = array();
+       
+        for($l=0;$l<count($DiaSemana);$l++){
+            for($h=0;$h<=$numIndices;$h++){
+                /******************************************************/
+                $x          = $DiaSemana[$l]-1;
+                $Horaini    = $Data['HoraInicial_'.$h][$x];
+                $Horafin    = $Data['HoraFin_'.$h][$x];
+                
+                $C_H['inicial'][$l][]    = $Horaini;      
+                $C_H['final'][$l][]      = $Horafin;      
+                
+                $HorasFormato = $this->Horas($Horaini,$Horafin);
+                
+                
+                $Horas['inicial'][$l][]    = $HorasFormato['Horaini'];
+                $Horas['final'][$l][]      = $HorasFormato['Horafin']; 
+                
+                
+                /******************************************************/
+            }//for            
+        }//for
+        
+            
+        $n = 0;
+        
+        for($l=0;$l<count($DiaSemana);$l++){
+           for($j=0;$j<count($Result[$l]);$j++){
+                for($x=0;$x<count($Horas['inicial']);$x++){
+                /*********************************************************/
+                    if($Horas['inicial'][$l][$x]){
+                        $X_Result[$n][] = $Result[$l][$j].' '.$Horas['inicial'][$l][$x];
+                        $X_Result[$n][] = $Result[$l][$j].' '.$Horas['final'][$l][$x];
+                        $n++;
+                        
+                        $Feha_inicial = $Result[$l][$j];
+                        $Feha_final   = $Result[$l][$j];
+                        
+                        $this->Disponibilidad($db,$Sede,$TipoSalon,$Feha_inicial,$Feha_final,$Horas['inicial'][$l][$x],$Horas['final'][$l][$x],$Acceso,$Max,1);
+                    }
+                   /************************************************/
+                }//for
+            }//for
+        }//for
+        /****************************************************************/
+        
+       
+    }//public function DisponibilidadMultiple
+    public function DiasSemana($Fecha){ 
+        $dias = array('','Lunes','Martes','Miercoles','Jueves','Viernes','Sabado','Domingo');
+        //$dias = array('','1','2','3','4','5','6','7');
+        $fecha = $dias[date('N', strtotime($Fecha))]; 
+        
+        return $fecha;
+    }// public function DiasSemana
+    public function HorasInversa($hora_1,$hora_2){
+        
+        $C_Horaini = explode(':',$hora_1);//Dessarmar la Hora Inicial
+        
+        if($C_Horaini[0]>=12){
+            $Formato = 'PM';
+            
+            if($C_Horaini[0]==12){
+                $Hora['inicial']  = $C_Horaini[0].':'.$C_Horaini[1].' '.$Formato;   
+             }else{
+                $H = $C_Horaini[0]-12;
+                
+                $Hora['inicial']  = $H.':'.$C_Horaini[1].' '.$Formato;
+            }
+        }else{
+            $Formato = 'AM';
+            
+            $Hora['inicial']  = $C_Horaini[0].':'.$C_Horaini[1].' '.$Formato;   
+        }//Hora Inicial 
+        
+        $C_Horafin = explode(':',$hora_2);//Dessarmar la Hora final
+        
+        if($C_Horafin[0]>=12){
+            $Formato = 'PM';
+            
+            if($C_Horafin[0]==12){
+                $Hora['final']  = $C_Horafin[0].':'.$C_Horafin[1].' '.$Formato;   
+             }else{
+                $H = $C_Horafin[0]-12;
+                
+                $Hora['final']  = $H.':'.$C_Horafin[1].' '.$Formato;
+            }
+        }else{
+            $Formato = 'AM';
+            
+            $Hora['final']  = $C_Horafin[0].':'.$C_Horafin[1].' '.$Formato;   
+        }//Hora final
+        
+        return $Hora; 
+    }//public function HorasInversa
+}//class
+
+?>

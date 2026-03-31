@@ -1,0 +1,18 @@
+
+**** ERROR file opened at 20081231 093926 COT, SAP-REL 620,0,1909 RFC-VER 3 748231 MT-SL
+T:1077377920 ======> Connect to SAP gateway failed
+Connect_PM  GWHOST=172.16.6.9, GWSERV=sapgw00, ASHOST=172.16.6.9, SYSNR=00
+
+LOCATION    CPIC (TCP/IP) on local host
+ERROR       connection to host 172.16.6.9, service 3300 timed out
+
+TIME        Wed Dec 31 09:39:26 2008
+RELEASE     620
+COMPONENT   NI (network interface)
+VERSION     36
+RC          -12
+MODULE      nixxi_r_mt.c
+LINE        824
+DETAIL      NiPConnect
+COUNTER     1
+

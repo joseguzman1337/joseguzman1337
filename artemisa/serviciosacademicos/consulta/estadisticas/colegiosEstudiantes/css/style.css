@@ -1,0 +1,39 @@
+div#pageContainer{
+    margin: 30px 50px;
+}
+
+table{
+    font-size: 0.95em;
+}
+
+table th, table td{
+    border: 1px solid #98BF21;
+    padding: 4px 10px 3px;
+}
+
+tfoot tr td.title{
+    font-weight: bold;
+}
+
+table tr.dataColumns th, table tr#totalColumns td, table tr#contentColumns th{
+    background-color: #90A860;
+}
+
+table tr.contentColumns th.category, table tr.contentColumns td.category{
+    /*background-color: #C0D890;*/
+    background-color: #D8D8C0;
+}
+
+table tr.dataColumns th span{
+    color: #000;
+    background-color: transparent;
+    border:0;
+}
+
+th.right{
+    text-align:right;
+}
+
+table td.center{
+    text-align:center;
+}

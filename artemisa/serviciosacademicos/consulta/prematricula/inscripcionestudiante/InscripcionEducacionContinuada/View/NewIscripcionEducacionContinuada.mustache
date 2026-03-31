@@ -1,0 +1,215 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>{{title}}</title>
+        <link rel="stylesheet" href="../../../../../css/demo_page.css" type="text/css" /> 
+        <link rel="stylesheet" href="../../../../../css/demo_table_jui.css" type="text/css" />
+        <link rel="stylesheet" href="../../../../../css/themes/smoothness/jquery-ui-1.8.4.custom.css" type="text/css" />
+        <link rel="stylesheet" href="../../../../../mgi/css/styleDatos.css" type="text/css" />
+        <link rel="stylesheet" href="../../../../../css/themes/smoothness/jquery-ui-1.8.4.custom.css" type="text/css" /> 
+        <link rel="stylesheet" href="../../../../../mgi/css/styleMonitoreo.css" type="text/css" /> 
+       
+		<script type="text/javascript" language="javascript" src="../../../../../mgi/js/jquery.js"></script>
+        <script type="text/javascript" language="javascript" src="../../../../../mgi/js/jquery.js"></script>
+        <script type="text/javascript" language="javascript" src="../../../../../mgi/js/jquery.dataTables.js"></script>
+        <script type="text/javascript" language="javascript" src="../../../../../mgi/js/jquery-ui-1.8.21.custom.min.js"></script>   
+        <script type="text/javascript" language="javascript" src="../../../../../mgi/js/jquery.fastLiveFilter.js"></script>  
+        <script type="text/javascript" language="javascript" src="../../../../../mgi/js/functions.js"></script>  
+        <script type="text/javascript" language="javascript" src="../../../../../mgi/js/functionsMonitoreo.js"></script>
+        <script src="../javascript/MainNuevaInscripcion.js" type="text/javascript"></script>
+        <script src="../javascript/MainTools.js" type="text/javascript"></script>
+    	
+    	<script type="text/javascript">
+        	$(document).ready( function () {
+    			   $("#FechaNaci").datepicker({
+                        changeMonth: true,
+                        changeYear: true,
+						yearRange: "-100:+0", // last hundred years
+                        showOn: "button",
+                        buttonImage: "../../../../../css/themes/smoothness/images/calendar.gif",
+                        buttonImageOnly: true,
+						defaultDate: new Date(),
+                        dateFormat: "yy-mm-dd"
+                    });
+                    
+                   $('#ui-datepicker-div').css('display','none');
+                   
+           });
+           function validarNumeros(e) { // 1
+            		tecla = (document.all) ? e.keyCode : e.which; // 2
+            		if (tecla==8) return true; // backspace
+            		if (tecla==109) return true; // menos
+                if (tecla==110) return true; // punto
+            		if (tecla==189) return true; // guion
+            		if (e.ctrlKey && tecla==86) { return true}; //Ctrl v
+            		if (e.ctrlKey && tecla==67) { return true}; //Ctrl c
+            		if (e.ctrlKey && tecla==88) { return true}; //Ctrl x
+            		if (tecla>=96 && tecla<=105) { return true;} //numpad
+             
+            		patron = /[0-9]/; // patron
+             
+            		te = String.fromCharCode(tecla); 
+            		return patron.test(te); // prueba
+            }//function validarNumeros
+        </script>           
+        <style>
+        .button{
+            background-color: #fff;
+            background-image: -moz-linear-gradient(0% 100% 90deg, #bbbbbb, #ffffff);
+            border: 1px solid #f1f1f1;
+            border-radius: 10px;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+            color: #444;
+            font-family: Helvetica,Arial,sans-serif;
+            font-weight: bold;
+            line-height: 1;
+            padding: 9px 17px;
+            text-shadow: 0 1px 1px rgba(255, 255, 255, 0.85);
+            cursor: pointer;
+        }
+        
+        fieldset{
+            border: grey 1px solid; margin: 1%;padding: 1%;
+        }
+        
+        
+        .tbNuevaInscripcion{
+        	border: 0px;
+        }
+        
+        td{
+        	border: 0px;
+        }
+        h4 {
+			font-size: 24px;
+			line-height: 26px;
+			margin: 20px auto 10px;
+			text-align:center;
+		}
+		
+		legend {
+			font-size: 1.15em;
+		}
+		
+		.formData input{
+			border-color: #ccc;
+			border-style: solid;
+			border-width: 1px;
+			box-sizing: border-box;
+			clear: right;
+			display: block;
+			float: left;
+			font-size: 0.9em;
+			line-height: 1.1em;
+			margin-bottom: 10px;
+			margin-left: 15px;
+			padding: 3px;
+			vertical-align: middle;    
+			position: relative;
+			top: 5px;
+		}
+		table.formData{
+			    font-size: 14px;
+		}
+		#OrdenesVer #trtitulogris td{
+			font-weight:bold;
+		}
+		#OrdenesVer table table tr td{
+			border: 1px solid #999;
+		}
+		
+		#OrdenesVer a {
+			color: #0000EE;
+			text-decoration:underline;
+			cursor: pointer;
+		}
+       </style>
+	<body class="body">
+        <h4>{{LabelCurso}}</h4>
+         <fieldset style="width: 90%;margin-left:2%; font-family: Lucida Grande, sans-serif; ">
+            <legend><strong>DATOS DEL PARTICIPANTE</strong></legend>
+            <table style="width: 100%;" border="0" class="formData">
+            <tr>
+                  <td><strong>Número de Documento</strong><span style="color: red;">&nbsp;*</span></td>
+                  <td>
+                      <input type="text" id="NumeroDocumento" name="NumeroDocumento" class="txtNumeroDocumento" onkeydown="return validarNumeros(event)" size="70"/>
+                      <input type="hidden" id="txtIdEstudiante" name="txtIdEstudiante" class="txtIdEstudiante" />
+                  </td>
+                  <td colspan="2" style="width:50%"></td>
+            </tr>
+            </table>
+            <form id="InscripcionEducacion">
+            <input type="hidden" id="Curso" name="Curso" value="{{Curso}}" />
+            <input type="hidden" id="codigoperiodo" name="codigoperiodo" value="{{codigoperiodo}}" />
+            <input type="hidden" id="Tipocurso" name="Tipocurso" value="{{Tipocurso}}" />
+            <table class="tbNuevaInscripcion" style="width: 100%;">
+                    <tr style="padding-bottom:20px;">
+                        <td colspan="4" style="text-align:center;border-bottom:1px solid #777;padding-bottom:10px;"><strong>Información Personal</strong></td>
+                    </tr>
+					<tr>
+						<td colspan="4"></td>
+					</tr>
+                    <tr>
+                        <td><strong>Tipo de Documento</strong><span style="color: red;">&nbsp;*</span></td>
+                        <td>
+                            <select id="TipoDocumento" name="TipoDocumento">
+                                <option value="-1"></option>
+                                {{#TipoDocumento}}
+                                <option value="{{id}}">{{name}}</option>
+                                {{/TipoDocumento}}
+                            </select>
+                        </td>
+                        <td><strong>Nombre</strong><span style="color: red;">&nbsp;*</span></td>
+                        <td><input type="text" size="70" id="NombreInscripto" name="NombreInscripto" class="txtNombreEstudiante" /></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Apellido</strong><span style="color: red;">&nbsp;*</span></td>
+                        <td><input type="text" size="70" id="ApellidoInscripto" name="ApellidoInscripto" class="txtApellidoEstudiante" /></td>
+                        <td><strong>Fecha Nacimiento</strong><span style="color: red;">&nbsp;*</span></td>
+                        <td>
+                            <input type="text" readonly="readonly" id="FechaNaci" name="FechaNaci" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Género</strong><span style="color: red;">&nbsp;*</span></td>
+                        <td>    
+                            <select id="Genero" name="Genero">
+                                <option value="-1"></option>
+                                {{#Genero}}
+                                <option value="{{id}}">{{name}}</option>
+                                {{/Genero}}
+                            </select>
+                        </td>
+                        <td><strong>Teléfono de Residencia</strong><span style="color: red;">&nbsp;*</span></td>
+                        <td><input type="text" id="TelefonoResidencia" name="TelefonoResidencia" onkeydown="return validarNumeros(event)" maxlength="10" /></td>
+                    </tr>
+                    <tr>
+                        <td><strong>E-mail</strong><span style="color: red;">&nbsp;*</span></td>
+                        <td><input type="text" size="70" id="Email" name="Email" /></td>
+                        <td><strong>Teléfono de Oficina</strong></td>
+                        <td><input type="text" id="TelefonoOficina" name="TelefonoOficina" onkeydown="return validarNumeros(event)" maxlength="10" /></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Celular</strong><span style="color: red;">&nbsp;*</span></td>
+                        <td><input type="text" id="Celular" name="Celular" onkeydown="return validarNumeros(event)" maxlength="10" /></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><strong>Ingrese el contenido de la imagen<span style="color:red;">(*)</span></strong></td>                        
+                    </tr>
+                    <tr>
+                        <td><img src="../../../../../mgi/autoevaluacion/interfaz/phpcaptcha/captcha.php"/></td>
+                        <td width="60px">                           
+                            <input type="text" name="captcha" id="captcha" maxlength="6" size="6"/>
+                        </td>    
+                    </tr>
+            </table>
+            <button id="btnNuevaInscripcion" >Realizar Inscripción</button>
+            <div id="distraer"></div>
+            <button id="btnActualizaInscripcion" style="display:none;">Realizar Inscripción</button>
+         </form>
+         <br />
+         <div id="OrdenesVer"></div>
+       </fieldset>
+	</body>
+</html>

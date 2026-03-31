@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<title>{{title}}</title>
+        
+        <link type="text/css" rel="stylesheet" href="../../../../../../assets/css/normalize.css"> 
+        <link type="text/css" rel="stylesheet" href="../../../../../../assets/css/font-page.css"> 
+        <link type="text/css" rel="stylesheet" href="../../../../../../assets/css/font-awesome.css"> 
+        <link type="text/css" rel="stylesheet" href="../../../../../../assets/css/bootstrap.css"> 
+        <link type="text/css" rel="stylesheet" href="../../../../../../assets/css/general.css"> 
+        <link type="text/css" rel="stylesheet" href="../../../../../../assets/css/chosen.css">         
+        <link type="text/css" rel="stylesheet" href="../../../../../../assets/css/custom.css">
+        <script type="text/javascript" src="../../../../../../assets/js/jquery-3.6.0.min.js"></script> 
+        <script type="text/javascript" src="../../../../../../assets/js/bootstrap.js"></script>	
+<!--        <script type="text/javascript" src="../../../../../../assets/js/custom.js"></script>-->
+        <script type="text/javascript" src="../../../../../../assets/js/chosen.jquery.min.js"></script>
+        <script type="text/javascript" src="../../../../../../assets/js/triggerChosen.js"></script>
+        <script type="text/javascript" src="../javascript/MainTools.js" ></script>
+        <script type="text/javascript" src="../javascript/MainNuevaInscripcion.js?v=1" ></script>
+    	
+        <!-- librerias datatime-->
+        <link type="text/css" rel="stylesheet" href="../../../../../../assets/css/bootstrap-datetimepicker.css">
+        <link type="text/css" rel="stylesheet" href="../../../../../../assets/css/bootstrap-datetimepicker.min.css">   
+        <script type="text/javascript" src="../../../../../../assets/js/moment.js"></script>   
+        <script type="text/javascript" src="../../../../../../assets/js/moment-with-locales.js"></script>
+        <script type="text/javascript" src="../../../../../../assets/js/bootstrap-datetimepicker.js"></script>
+        <script type="text/javascript">
+            $( document ).ready(function() 
+            {
+                $(".form_datetime").datetimepicker({ format: 'YYYY-MM-DD', locale: 'es' });              
+            });  
+                       
+            function mostrarcuerpo()
+            {
+                var x = $("#Curso").val();
+                var y = $("#Curso option:selected").attr("name");
+                //Valida si existe la carrera y si existen fechas activas para inscripción.               
+                if(x !== '')
+                {
+                        $.ajax({
+                            type: 'POST',
+                            url: '../servicio/contacto.php',
+                            dataType: "json",
+                            data: {carrera:x , tipoOperacion:"ConsultarProgramaActivo"},
+                            success: function (data) {
+                                
+                                if( data.val === false ){
+                                    $('#cuerpo').hide('slow'); 
+                                    $('#disponible').show('slow');  
+                                    $('#pie').hide('slow'); 
+                                 } else{
+                                 $('#disponible').hide('slow'); 
+                                           /*
+                    * Particulares 0
+                    * Bosque, estudiantes, Docente, egresado 1 
+                    * 
+                    */
+                    var n = y.search("Bosque");
+                    var l = y.search("Estudiante");
+                    var m = y.search("Egresado");
+                    var g = y.search("Docente");
+                    if(n >= 0 || l >= 0 || m >= 0 || g >= 0)
+                    {                        
+                        $('#Tipocurso').attr('value', '1');                     
+                        $("#btnActualizaInscripcion").css("display","block");
+                        $("#btnNuevaInscripcion").css("display","none");
+                    }
+                    else
+                    {
+                        var n = y.search("Externo");
+                        var o = y.search("Profesional");
+                        if(n >= 0 || o >= 0)
+                        {                            
+                            $('#Tipocurso').attr('value', '0');
+                            $("#btnActualizaInscripcion").css("display","none");
+                            $("#btnNuevaInscripcion").css("display","block");
+                        }
+                        else
+                        {                         
+                            $('#Tipocurso').attr('value', '0');
+                        }
+                    }
+                    $('#cuerpo').show('slow'); 
+                    $('#pie').show('slow');
+                                                
+                                }
+                            //window.onload = limpiar();  
+                            },
+                            error: function (data, error)
+                            {
+                                alert("Error en la consulta de los datos.");
+                            }
+                        });
+                    
+                    
+                   
+                }else
+                {
+                    $('#cuerpo').hide('slow');         
+                }
+            }//function mostrarcuerpo
+        </script>    
+
+<script>
+        function val_texto(e) {
+            tecla = (document.all) ? e.keyCode : e.which;
+            if (tecla==8) return true;
+            patron = /[a-zA-ZñÑ\s]+$/;
+            te = String.fromCharCode(tecla);
+            return patron.test(te);
+        }
+        function val_numero(e) {
+            tecla = (document.all) ? e.keyCode : e.which;
+            if (tecla==8) return true;
+            patron =/[A-Z0-9]$/;
+            te = String.fromCharCode(tecla);
+            return patron.test(te);
+        }
+        </script>
+         <script>
+        function val_email(e) {
+            tecla = (document.all) ? e.keyCode : e.which;
+            if (tecla==8) return true;
+            patron = /[0-9a-zA-Z\-\.\@\s]+$/;
+            te = String.fromCharCode(tecla);
+            return patron.test(te);
+        }
+             
+        </script>       
+    </head>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark"  style="background-color:#2C3E50;">  
+            <div class="container">
+                <img src="../../../../../../assets/ejemplos/img/logo_blanco.png" width="280px" alt="Inicio" class="img-responsive" >
+            </div>
+        </nav>
+
+        <div class="container-fluid text-center">    
+            <div class="row content">
+                <div class="col-sm-2 sidenav">
+ 
+                </div>
+                <div class="col-sm-8 text-left">                   
+                <h1>{{LabelCurso}}</h1>    
+                <hr style="height: 4px; background:darksalmon">
+                    <div>
+                        <strong><h4>Datos del participante</h4></strong>
+                        <p>Para realizar la inscripción deberá ingresar los datos solicitados.</p>
+                        <form role="form" class="form" id="InscripcionEducacion" name="InscripcionEducacion" method="post" enctype="multipart/form-data">     
+                            <div class="row">
+                            <div class="col-sm-6 text-left">
+                                <div class="form-group">
+                                    <label>Categorías de Curso</label>
+                                    <select id="Curso" name="Curso" class="form-control" onchange="mostrarcuerpo()">
+                                        <option value="0">Seleccione...</option>
+                                        {{#agrupaciones }}
+                                        <option value="{{CodigoCarrera}}" name="{{nombrecarrera}}">{{nombrecarrera}}</option>
+                                        {{/agrupaciones}}
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="cuerpo" style="display:none;">
+                            <div class="row">
+                                <div class="col-sm-4 text-left">
+                                    <div class="form-group">
+                                        <label>Tipo de Documento</label>
+                                        <select id="TipoDocumento" name="TipoDocumento" class="form-control">
+                                            <option value="-1"></option>
+                                            {{#TipoDocumento}}
+                                            <option value="{{id}}">{{name}}</option>
+                                            {{/TipoDocumento}}
+                                        </select>
+                                    </div>        
+                                </div>    
+                                <div class="col-sm-4 text-left">
+                                    <div class="form-group">
+                                        <label>No de Documento <span class="glyphicon glyphicon-info-sign" title="Si va a introducir letras estas deben ser en mayusculas"></span></label><br>
+                                        <input type="text" id="NumeroDocumento" name="NumeroDocumento" class="txtNumeroDocumento" onkeypress="return val_numero(event)" required/>
+                                        <input type="hidden" id="txtIdEstudiante" name="txtIdEstudiante" class="txtIdEstudiante" />
+                                    </div>                            
+                                </div>
+                            </div>                        
+                            <div class="row">
+                                <div class="col-sm-4 text-left">
+                                    <div class="form-group">
+                                        <label>Nombres</label><br>
+                                        <input type="text" id="NombreInscripto" name="NombreInscripto" class="txtNombreEstudiante" onkeypress="return val_texto(event)" required/>
+                                    </div>
+                                </div>
+                                <div class="col-xs-4 form-group">                            
+                                    <label>Apellidos</label><br>
+                                    <input type="text" id="ApellidoInscripto" name="ApellidoInscripto" class="txtApellidoEstudiante" onkeypress="return val_texto(event)" required>
+                                </div>
+                            </div>
+                            <div class="row">            
+                                <div class="col-xs-4 form-group">
+                                    <div class="form-group"> 
+                                        <label>Fecha de Nacimiento</label>
+                                        <div class='input-group date'>
+                                        <input class="form_datetime" id="FechaNaci" name="FechaNaci" type="text" value="2007-01-01" size="8" required>   
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-4 form-group">
+                                    <div class="form-group">  
+                                        <label>Genero</label><br>
+                                        <select id="Genero" name="Genero" class="form-control" required>
+                                            <option value="-1"></option>
+                                            {{#Genero}}
+                                            <option value="{{id}}">{{name}}</option>
+                                            {{/Genero}}
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-4 form-group">                            
+                                    <div class="form-group"> 
+                                        <label>Teléfono de Residencia</label><br>
+                                        <input type="text" id="TelefonoResidencia" name="TelefonoResidencia"  maxlength="10" onkeypress="return val_numero(event)"/>
+                                    </div>
+                                </div>
+                                <div class="col-xs-4 form-group">
+                                    <div class="form-group"> 
+                                        <label>E-mail</label>
+                                        <input type="email" size="70" id="Email" name="Email" onkeypress="return val_email(event)" required />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-4 form-group">                            
+                                    <div class="form-group">  
+                                        <label>Teléfono de Oficina</label><br>
+                                        <input type="text" id="TelefonoOficina" name="TelefonoOficina" onkeypress="return val_numero(event)"  maxlength="10" />
+                                    </div>
+                                </div>                        
+                                <div class="col-xs-4 form-group">                           
+                                    <div class="form-group">  
+                                        <label>Celular</label><br>
+                                        <input type="text" id="Celular" name="Celular" onkeypress="return val_numero(event)" maxlength="10" required/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">                    
+                                <div class="col-xs-4 form-group">
+                                    <label>Ingrese el contenido de la imagen</label><br>
+                                    <img src="../../../../../mgi/autoevaluacion/interfaz/phpcaptcha/captcha.php"/>
+                                    <input type="text" name="captcha" id="captcha" maxlength="6" size="6" required/>  
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-8 form-group">
+                                    <label><input type="checkbox" id="aprobacion" name="aprobacion" value="1" required="required"> 
+                                    Autorizo a la Universidad El Bosque para el envío de información 
+                                    <a href="https://www.unbosque.edu.co/sites/default/files/2019-01/politica-privacidad-informacion-pagina-web-universidad-el-bosque.pdf" target="_blank">Términos y condiciones</a></label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group">
+                                    <input type="hidden" id="Grupo" name="Grupo" value="{{Grupo}}" />
+                                    <input type="hidden" id="codigoperiodo" name="codigoperiodo" value="{{codigoperiodo}}" />
+                                    <input type="hidden" id="Tipocurso" name="Tipocurso" value="" />
+                                    <button id="btnActualizaInscripcion" style="display:none;"  class="btn btn-fill-green-XL">Realizar Inscripción</button>
+                                    <button id="btnNuevaInscripcion"  class="btn btn-fill-green-XL">Realizar Inscripción</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="disponible" style='display:none;'>
+                            <p><em><strong>La fecha límite para las inscripciones a este programa ha caducado. Para mayor<br>
+                                        información comuniquese con la Facultad de Educación Continuada.<br><br>Gracias.</strong></em></p>
+                        </div>
+                    </form>            
+                </div> 
+                <div class="col-sm-8 text-left"> 
+                    <div id="OrdenesVer" style="display: none;">
+                        <img src="../../../../../../assets/ejemplos/img/Procesando.gif" witdh="400px"><br>
+                        <p>Procesando, por favor espere...</p>
+                    </div>
+                </div>
+                <div class="col-sm-2 sidenav">
+                </div>
+            </div>
+        </div> 
+            <footer id="pie" class="container-fluid" style="background-color:#2C3E50; display: none">
+            <p>. </p>
+        </footer>
+    </body>
+</html>

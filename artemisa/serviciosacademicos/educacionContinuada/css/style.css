@@ -1,0 +1,844 @@
+/* 
+    Document   : style
+    Created on : 26/09/2012, 10:34:54 AM
+    Author     : proyecto_mgi_cp
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+body.body { 
+   padding: 20px 0px 0px 0px;
+   margin: 0;
+   min-width: 700px;
+   width: auto;
+   /*Pa internet explorer
+   width:expression(document.body.clientWidth < 700? "700px": "100%" );*/
+}
+
+body.body div#pageContainer{ 
+   padding:0;
+   margin: 0px 40px 0px 40px;
+   width: auto;
+}
+
+
+h1 {
+	/*18px via YUI Fonts CSS foundation*/
+	font-size:2.5em;  
+}
+h2 {
+	/*16px via YUI Fonts CSS foundation*/
+	font-size:1.9em; 
+}
+h3 {
+	/*14px via YUI Fonts CSS foundation*/
+	font-size:108%;  
+}
+h1,h2,h3 {
+	/* top & bottom margin based on font size */
+	margin:0.7em 0 0.5em;
+}
+h1,h2,h3,h4,h5,h6,strong {
+	/*bringing boldness back to headers and the strong element*/
+	font-weight:bold; 
+}
+abbr,acronym {
+	/*indicating to users that more info is available */
+	border-bottom:1px dotted #000;
+	cursor:help;
+} 
+em {
+	/*bringing italics back to the em element*/
+	font-style:italic;
+}
+del {
+	text-decoration:line-through;
+}
+blockquote,ul,ol,dl {
+	/*giving blockquotes and lists room to breath*/
+	margin:1em;
+}
+ol,ul,dl {
+	/*bringing lists on to the page with breathing room */
+	margin-left:2em;
+}
+ol {
+	/*giving OL's LIs generated numbers*/
+	list-style: decimal outside;	
+}
+ul {
+	/*giving UL's LIs generated disc markers*/
+	list-style: disc outside;
+}
+dl dd {
+	/*giving UL's LIs generated numbers*/
+	margin-left:1em;
+}
+th,td {
+	/*borders and padding to make the table readable*/
+	border:1px solid #000;
+	padding:.5em;
+}
+td.center,#contenido table.detalle th.center{
+    text-align:center;
+}
+th {
+	/*distinguishing table headers from data cells*/
+	font-weight:bold;
+	text-align:center;
+}
+caption {
+	/*coordinated margin to match cell's padding*/
+	margin-bottom:.5em;
+	/*centered so it doesn't blend in to other content*/
+	text-align:center;
+}
+p,fieldset,table,pre {
+	/*so things don't run into each other*/
+	margin-bottom:1em;
+}
+
+/**********************************************************
+    MENÚ PRINCIPAL
+**********************************************************/
+#menuPrincipal{
+   width: auto;
+}
+
+a{
+color:#459E00;
+}
+
+#menuPrincipal ul {
+padding: 0;
+margin: 0;
+list-style-type:none;
+width:100%;
+height:33px;
+font-size:1em;
+background: #D1D1D1 repeat-x top left;
+font-family:Verdana,Helvetica,Arial,sans-serif;
+border:1px solid #CCC;
+margin:0;
+padding:0;
+white-space: nowrap;
+}
+
+#menuPrincipal ul.littleSmaller {
+font-size:0.98em;
+}
+
+#menuPrincipal li {
+display:inline-block;
+/*float:left;*/
+width:auto;
+height:100%;
+margin:0;
+padding:0;
+white-space: nowrap;
+}
+
+#menuPrincipal li a {
+float:left;
+color:#555;
+text-decoration:none;
+height:24px;
+padding:6px 15px 0;
+font-weight:normal;
+}
+
+#menuPrincipal li a:hover, li.active {
+/*color:#7AB300;*/
+color:#FFF;
+text-decoration:none;
+}
+
+li.active {
+background-color: #8AB200;
+height:100%;
+}
+
+#menuPrincipal li.active a {
+color:#FFF;
+font-weight:bold;
+}
+
+/*************************************
+  FORMS
+**************************************/
+
+span.mandatory{
+  color:red; 
+  font-size:9px;
+  position:relative;
+  top:-5px;
+}
+
+div#contenido{
+    margin: 0 20px;
+}
+
+/* 12-column Grid (thanks for Fluid 960 Grid System) */
+.grid-auto {width: auto;}
+.grid-1-12 {width: 5.333%;}
+.grid-2-12 {width: 14.666%;}
+.grid-3-12 {width: 22%;}
+.grid-4-12 {width: 30.333%;}
+.grid-5-12 {width: 38.666%;}
+.grid-6-12 {width: 47%;}
+.grid-7-12 {width: 55.333%;}
+.grid-8-12 {width: 63.666%;}
+.grid-9-12 {width: 72%;}
+.grid-10-12 {width: 80.333%;}
+.grid-11-12 {width: 88.666%;}
+.grid-12-12 {width: 97%;}
+
+form input[type="text"], form input[type="password"], form input[type="file"], form textarea, form select{
+	vertical-align: middle;
+	line-height: 1.1em;
+	padding:3px;
+        font-size: 0.9em;
+        border-color: #ccc;
+	border-style: solid;
+	border-width: 1px;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+        display: block;
+        float:left;
+        margin-left:15px;
+        clear:right;
+        margin-bottom: 20px;
+}
+form textarea {height: 10em;resize:none;}
+form textarea.smaller {
+    height: 5em;
+}
+form select {padding:3px;height:2em;}
+
+/* form button  */
+form input[type="submit"], form input[type="button"], form input[type="reset"], input[type="button"].buttonForm , a.buttonForm{
+  font-size: 14px;
+  padding: 8px 19px 9px;
+  cursor: pointer;
+  text-align: center;
+  display:inline-block;
+  /*border:1px solid #D4D4D4; */ 
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -khtml-border-radius: 10px;
+   border-radius: 10px;
+   -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+  -moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+  box-shadow: 0 1px 2px rgba(0,0,0,.2);
+  background: #5D7D0E;
+   text-shadow: 0 1px 1px rgba(0,0,0,.3);
+    background:-moz-linear-gradient(center top , #7DB72F, #4E7D0E) repeat scroll 0 0 transparent; 
+  background: -webkit-gradient(linear, left top, left bottom, from(#7DB72F), to(#4E7D0E));
+   /*filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#7DB72F', endColorstr='#4E7D0E');*/
+   border: 1px solid #538312;
+   color: #E8F0DE;
+   text-decoration:none;
+}
+
+form button.ui-button, form button#select-all-carreras{
+    padding: 0px 14px 0px;
+  font-size: 12px;
+  cursor: pointer;
+  text-align: center;
+  display:inline-block;
+  /*border:1px solid #D4D4D4; */ 
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -khtml-border-radius: 10px;
+   border-radius: 10px;
+   -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+  -moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+  box-shadow: 0 1px 2px rgba(0,0,0,.2);
+  background: #5D7D0E;
+   text-shadow: 0 1px 1px rgba(0,0,0,.3);
+    background:-moz-linear-gradient(center top , #7DB72F, #4E7D0E) repeat scroll 0 0 transparent; 
+  background: -webkit-gradient(linear, left top, left bottom, from(#7DB72F), to(#4E7D0E));
+   /*filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#7DB72F', endColorstr='#4E7D0E');*/
+   border: 1px solid #538312;
+   color: #E8F0DE;
+   margin-left: 10px;
+}
+
+
+form fieldset input[type="checkbox"]{
+        border-color: #ccc;
+	border-style: solid;
+	border-width: 1px;  
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+        margin-left: 40px;
+        line-height: 1.1em;
+}
+
+form a.cancel, form button.cancel{
+    color: #DA0000;
+    font-weight: bold;
+    text-decoration: underline;
+    font-size: 14px;
+    letter-spacing: 0.05em;
+}
+
+form button.cancel{
+background:none!important;
+     border:none; 
+     padding:0!important;
+     cursor:pointer;
+}
+
+.body strong, strong{
+    font-weight: bold;
+}
+
+form input[type="submit"].first, form input[type="button"].first, form input[type="reset"].first {
+   margin-left: 16.4%;    
+}
+form input.small[type="submit"], form input.small[type="button"], form input.small[type="reset"] {
+    margin-left: 30px;
+}
+
+input[type="text"]:focus, textarea:focus{
+    border-color: #8ABC00;
+}
+
+input[type="submit"]:active, input[type="button"]:active{
+    position: relative;
+    top: 1px;
+}
+
+input[type="button"]:focus, input[type="submit"]:focus { 
+    outline: none; 
+}
+
+label, span.inputText{
+    display:block;
+    float:left;
+    clear:left;
+    padding:3px;
+    text-align: right;
+    font-size: 0.9em;
+}
+
+span.inputText{
+    clear:right;
+}
+
+legend {
+    color: #2B2B2B;
+    font-size: 1.2em;
+    font-weight: normal;
+    line-height: 1.2em;
+    padding: 0 5px;
+}
+
+fieldset, #pageContainer fieldset{
+    border: 1px solid #D4D4D4;
+    padding: 1.2em 0;
+    position: relative;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -khtml-border-radius: 5px;
+   border-radius: 5px;
+}
+
+fieldset.noBorder{
+    border: 0;
+    padding: 0;
+}
+
+fieldset p{
+    padding-top:3px;
+}
+
+form input[type="text"].error, form textarea.error, form select.error {
+    /*background-color: #ffc;*/
+    border: 1px solid #c00;
+}
+
+form input[type="checkbox"].error {
+outline: 1px solid #c00;
+}
+
+div.msg-error{
+    background: url("../images/form-ic-error.png") no-repeat scroll 12px 12px #FAD0D0;
+    border-color: #F6ABAB;
+}
+
+div.msg-info, div.msg-warning, div.msg-error, div.msg-success{
+    border-radius: 4px 4px 4px 4px;
+    color: #2B2B2B;
+    border: 1px solid #CCCCCC;
+    clear: both;
+    display: block;
+    height: auto;
+    margin: 0 0 0.8em;
+    padding: 10px 20px 5px 38px;
+}
+
+div.msg-info p, div.msg-warning p, div.msg-error p, div.msg-success p{
+    line-height: 1.1em;
+    margin: 0 0 0.3em;
+    padding: 0;
+    color: #2B2B2B;
+    font-weight: bold;
+}
+
+div.msg-success{
+    border: 1px solid;
+    margin: 0.8em 0px;
+    padding:15px 10px 15px 50px;
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    color: #4F8A10;
+    background-color: #DFF2BF;
+    background-image:url('../images/success.png');
+}
+
+div.msg-success p{
+    color: #4F8A10;
+    font-size:0.8em;
+}
+
+.ui-autocomplete {
+        max-height: 170px;
+        overflow-y: auto;
+        /* prevent horizontal scrollbar */
+        overflow-x: hidden;
+    }
+    /* IE 6 doesn't support max-height
+     * we use height instead, but this forces the menu to always be this tall
+     */
+    * html .ui-autocomplete {
+        height: 170px;
+    }
+    
+    h4.toggler{
+        margin-left:30px;
+        cursor:pointer;
+        color: #74a823;
+        margin-bottom: 5px;
+    } 
+    
+    div.toggle{
+        margin-left:30px;
+    }
+
+/***********************************************************
+ VISTAS DE LISTAS
+************************************************************/
+
+div#container th, div#container td{
+    border: 0;
+}
+
+#example_filter label,#example2_filter label{
+    float:right;
+    width:100%;
+}
+
+#example_filter label input, #example2_filter label input{
+    width:40%;
+}
+
+div#container table .column_fecha, div#contenidoSecundario table .column_fecha, div#contenidoSecundario table .column_center,
+div#container table .column_center, div#contenidoSecundario2 table .column_fecha, div#contenidoSecundario2 table .column_center{
+    text-align:center;
+}
+
+/***********************************************************
+ VISTAS DE DETALLE
+************************************************************/
+
+#contenido table.detalle{
+    width: 100%;
+}
+
+#contenido table.detalle th{
+    text-align:right;
+    background-color: #EEEEEE;
+}
+
+#contenido table.detalle th.noLineBreak{
+    white-space:nowrap;
+}
+
+/***********************************************************
+TIPOS DE ALERTAS
+************************************************************/
+
+div#menuEditor{
+    clear:right; 
+    float:left;
+}
+
+.nicEdit-panelContain, .nicEdit-main{
+    float:left;
+    
+}
+
+.nicEdit-main{
+    line-height: 1.1em;
+    margin-bottom: 20px;
+    margin-left: 15px;
+    
+}
+
+.vacio{
+    clear:both;
+	height:1px;
+}
+
+.hidden, form button.hidden, .fform label.hidden{
+    display:none;
+}
+
+/***********************************************************
+DIALOG CALENDAR
+************************************************************/
+
+body.dialog{
+    padding: 20px 0 0;
+}
+
+div#botonesMenu, div.monitoreoIndicador ul#nav {
+    position:relative;
+    margin-bottom: 10px;
+}
+
+/*---- CROSS BROWSER DROPDOWN MENU ----*/
+		div.monitoreoIndicador ul#nav {margin: 0px;clear:both;margin-bottom: 10px;}
+		div.monitoreoIndicador ul.drop button { display:block; color: #000;  text-decoration: none;background-color: transparent; border: 0; padding: 0;cursor:pointer;}
+		div.monitoreoIndicador ul.drop ul button:hover { display:block; color: #fff; text-decoration: none;}
+		div.monitoreoIndicador ul.drop, div.monitoreoIndicador ul.drop li, div.monitoreoIndicador ul.drop ul { list-style: none; margin: 0; padding: 0;}
+		div.monitoreoIndicador ul.drop { position: relative; z-index: 597; float: left; }
+		div.monitoreoIndicador ul.drop li { float: left; line-height: 1.3em; vertical-align: middle; zoom: 1; padding: 5px 10px; }		
+		div.monitoreoIndicador ul.drop li.level1-li { display:inline-block;
+						margin-right:8px;
+						cursor:pointer;
+						padding:5px 10px;
+						background-color: #dcdcdc;
+						border: 1px solid #666;
+						color:#000;
+						text-decoration:none;
+                                                /*border-bottom:0px;*/
+						-moz-box-shadow: 3px 3px 4px #000;
+						-webkit-box-shadow: 3px 3px 4px #000;
+						box-shadow: 3px 3px 4px #000;
+                                                /*Lo quite porque me dañaba el drop down menu*/
+						/* For IE 8 */
+						/*-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000')";*/
+						/* For IE 5.5 - 7 */
+						/*filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000');*/
+	}
+		div.monitoreoIndicador ul.drop li:focus, div.monitoreoIndicador ul.drop li:active, div.monitoreoIndicador ul.drop li.active
+                { position: relative; z-index: 599;  color: #555; padding: 4px 8px 5px 8px; }
+		div.monitoreoIndicador ul.drop ul { visibility: hidden; position: absolute; top: 100%; left: -1px; z-index: 598; min-width: 100%; background: #dcdcdc; border: 1px solid #666; }
+		div.monitoreoIndicador ul.drop ul li { float: none; }
+		div.monitoreoIndicador ul.drop ul ul { top: -2px; left: 100%; }
+		div.monitoreoIndicador ul.drop li:focus > ul, div.monitoreoIndicador ul.drop li:active > ul, div.monitoreoIndicador ul.drop li.active > ul
+                { visibility: visible } 
+
+                div.monitoreoIndicador table.detalle{
+                    clear:both;
+                }
+                
+                ul#verIndicador{
+                    width:200px;
+                }
+                ul#actualizarIndicador{
+                    width:220px;
+                }
+                
+div#botonesMenu button{
+    display:inline-block;
+    margin-right:5px;
+    cursor:pointer;
+    padding:5px;
+    background-color: #dcdcdc;
+    border: 1px solid #666;
+    color:#000;
+    text-decoration:none;
+    /*border-bottom:0px;*/
+    -moz-box-shadow: 3px 3px 4px #000;
+	-webkit-box-shadow: 3px 3px 4px #000;
+	box-shadow: 3px 3px 4px #000;
+	/* For IE 8 */
+	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000')";
+	/* For IE 5.5 - 7 */
+	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000');
+}
+
+div#botonesMenu button:hover{
+    padding: 4px 4px 5px 4px;
+}
+
+/***********************************************************
+PAGINACION TABLAS DEL PLUGIN DATATABLES
+************************************************************/
+.paging_full_numbers {
+    width: 500px !important;
+}
+
+/***********************************************************
+TABS JQUERY
+***********************************************************/
+#tabs { 
+    background: transparent; 
+    border: none; 
+} 
+#tabs .ui-widget-header { 
+    background: transparent; 
+    border: none; 
+    border-bottom: 1px solid #c0c0c0; 
+    -moz-border-radius: 0px; 
+    -webkit-border-radius: 0px; 
+    border-radius: 0px; 
+} 
+#tabs .ui-tabs-nav .ui-state-default { 
+    background: transparent; 
+    border: none; 
+	font-weight:bold;
+} 
+#tabs .ui-tabs-nav .ui-state-active { 
+    background: transparent url("../images/uiTabsArrow.png") no-repeat bottom center; 
+    border: none; 
+	font-weight:bold;
+} 
+#tabs .ui-tabs-nav .ui-state-default a { 
+    color: #c0c0c0; 
+} 
+#tabs .ui-tabs-nav .ui-state-active a { 
+    color: #459e00; 
+}
+
+#tabs .ui-helper-reset{
+font-size: 0.8em;
+}
+
+#tabs .ui-tabs-panel{
+padding: 0 1.4em;
+}
+
+.ui-widget table{
+font-size:0.8em;
+}
+
+/***********************************************************
+BOTONES
+***********************************************************/
+
+button.soft{
+    cursor: pointer;
+    line-height: 1.2em;
+    letter-spacing: 0;
+     -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -khtml-border-radius: 10px;
+    border-radius: 10px;
+    display: block;
+    padding:5px 10px 6px 7px;
+    
+    background-color: #C0D990;
+    border:1px solid #90A860;  
+    color: #538312;
+    
+    -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
+}
+
+button.image{
+     -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+    -khtml-border-radius: 0;
+    border-radius: 0;
+    padding:0;    
+    background-color: transparent;
+    border:0;      
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+button.soft:hover, button.disable{
+    background-color:#e5e5e5;
+    border:1px solid #cecece;
+    color:#565656;
+}
+
+button.image:hover{
+    border:0;
+    background-color:transparent;
+}
+
+button.disable{
+    cursor: default;
+}
+
+button.addBtn{
+    margin: -3px 40px;
+    display:inline-block;
+}
+
+div.campo{
+    margin-bottom:10px;
+}
+
+label.fixed{
+    width:185px;
+}
+
+span.campoValor{
+    margin-left: 15px;
+    margin-top: 3px;
+    display:inline-block;
+    margin-bottom: 10px;
+}
+
+a.before{
+    display:inline-block;
+    float:left;
+    color: #459E00;
+    text-decoration: none;
+}
+
+a.next{
+    display:inline-block;
+    float:right;    
+    color: #459E00;
+    text-decoration: none;
+}
+
+input.percentage{
+margin-right:10px;
+}
+
+table.viewList{
+	margin-top:10px;
+}
+
+table.viewList th{
+	 background-color: #90A860;
+	 font-weight: bold;
+    text-align: center;
+}
+
+table.viewList tr.category th{
+	background-color: #D8D8C0;
+}
+
+table span.sendReport{
+	cursor:pointer;
+	color: #459E00;
+	/*color: #75AA19;*/
+}
+
+table.greenList thead th{
+    /*border: 1px solid #98BF21;*/
+    padding: 10px 8px 8px;
+    /*color: #fff;*/
+}
+
+table.greenList th, table.greenList td{
+    /*border: 1px solid #98BF21;*/
+    padding: 4px 8px 3px;
+}
+
+table.viewList tbody tr{
+    font-size:0.95em;
+}
+
+table.viewReport tr.total{
+    font-weight:bold;
+    font-size:0.9em;
+	background-color:#D8D8C0;
+}
+
+table.viewReport tbody tr.odd, table.viewReport tbody td.odd{
+	background-color:#E3F0C9;
+}
+
+table.viewReport tbody tr.oddEarth{
+	background-color: #E5DEC2;
+}
+table.viewReport tbody tr.oddYellow{
+	background-color: #FFFAB3;
+}
+
+table tr.grey{
+    background-color:lightGrey;
+}
+
+table tr.green{
+    background-color: #EAF2D3;
+}
+
+
+form input.small[type="submit"], form input.small[type="button"], form input.small[type="reset"], input.small[type="button"] {
+    padding: 3px 19px 4px;
+}
+
+#estructuraFirmas td{
+	border: 0px;
+}
+
+/***
+*** ADMIN USUARIOS
+*/
+ul#sortable1, ul#sortable2 {
+    list-style-type: none;
+    margin: 5px 0 0;
+    padding:0;
+}
+
+#sortable1 li, #sortable2 li {
+    font-size: 1.2em;
+    margin: 0 5px 5px;
+    padding: 5px;
+}
+
+#sortable1 li:hover, #sortable2 li:hover {
+    cursor: pointer;
+}
+
+div.seccionBox{
+    margin-left: 10px;
+    margin-right: 15px;
+}
+
+div.seccionBox label {
+    float: left;
+    width: 190px;
+    text-align:right;
+}
+
+div.seccionBox h4 {
+    margin-top:0;
+    margin-left:60px;
+}
+
+.floatingHeader {
+      position: fixed;
+      top: 0;
+      visibility: hidden;
+    }
+	
+table.detalle td div.center{
+margin:0;text-align:center;
+}
+	
+table.detalle td div button.image{
+margin:2px;display: inline-block;
+}
+
+button.image{
+style="display:inline-block
+}

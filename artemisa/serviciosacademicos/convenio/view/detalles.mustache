@@ -1,0 +1,130 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>{{title}}</title>
+		<link type="text/css" href="../../educacionContinuada/css/normalize.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../css/themes/smoothness/jquery-ui-1.8.4.custom.css" type="text/css" /> 
+		<link media="screen, projection" type="text/css" href="../../educacionContinuada/css/style.css" rel="stylesheet">
+        <script type='text/javascript' language="javascript" src="../../js/jquery.js"></script>
+        <script type="text/javascript" language="javascript" src="../../js/jquery-ui-1.8.21.custom.min.js"></script> 
+        <script type="text/javascript" language="javascript" src="../../educacionContinuada/js/functions.js"></script>
+        <script type="text/javascript" language="javascript" src="../js/funcionesGestionContraprestaciones.js "></script> 
+        <script>
+            function val_numero(e) 
+            {
+                tecla = (document.all) ? e.keyCode : e.which;
+                if (tecla==8 || tecla==0) return true;
+                patron =/[0-9]+$/;            
+                te = String.fromCharCode(tecla);
+                return patron.test(te);
+            }
+        </script>
+		<style>
+			form span.info{
+				margin-left:15px;position:relative;top:2px;
+				clear: right;
+				display: inline-block;
+				float: left;
+			}
+		</style>
+	</head>
+	<body class="body">
+        <div id="container">
+            <center><h1><font face="sans-serif">{{title}}</font></h1></center>
+            <center><h3><font face="sans-serif">{{nombreconvenio}}</font></h3></center>
+        </div>
+        <div>
+            <form method="post" action="ActualizarContraprestacion.php" id="form_contraprestacion">
+             <fieldset>   
+                <legend>Información Contraprestación</legend>
+                <div>
+                <label class="fixed">Ubicaciones <span style="color: red;">*</span></label>
+                <select id="IdUbicacionInstitucion" name="IdUbicacionInstitucion">                    
+                    {{#ubicaciones}}
+                        <option value="{{IdUbicacionInstitucion}}">{{NombreInstitucion}} - {{NombreUbicacion}}</option>
+                    {{/ubicaciones}}    
+                </select>
+                </div>
+                <label class="fixed">Tipo contraprestacion <span style="color: red;">*</span></label>
+                <select id="tipocontraprestacion" name="tipocontraprestacion">
+                    <option value="{{idsiq_contraprestacion}}" selected="selected">{{nombretipocontraprestacion}}</option>
+                    <option value="">--</option>
+                    {{#tiposcontra}}
+                    <option value="{{idsiq_contraprestacion}}">{{nombretipocontraprestacion}}</option>
+                    {{/tiposcontra}}    
+                </select>
+                
+				<label class="fixed">Tipo de practicante <span style="color: red;">*</span></label>
+                <select id="idtipopracticante" name="idtipopracticante">
+                    <option value="{{idtipopracticante}}" selected="selected">{{practicante}}</option>
+                    <option value="">--</option>
+                    {{#tipospracticantes}}
+                    <option value="{{IdTipoPracticante}}">{{NombrePracticante}}</option>
+                    {{/tipospracticantes}}    
+                </select>                                
+                
+				<label class="fixed">Tipo pago <span style="color: red;">*</span> </label>
+				<select id="IdTipoPagoContraprestacion" name="IdTipoPagoContraprestacion">
+                    <option value="{{idtipopago}}" selected="selected">{{nombrepago}}</option>
+                    <option value="">--</option>
+                    {{#tipospagos}}
+                    <option value="{{IdTipoPagoContraprestacion}}">{{NombrePagoContraprestacion}}</option>
+                    {{/tipospagos}}    
+                </select> 
+                
+				<label class="fixed">Valor <span style="color: red;">*</span></label>
+				<input name="ValorContraprestacion" id="ValorContraprestacion" type="text" value="{{ValorContraprestacion}}" onkeypress="return val_numero(event)" />
+                
+				<label class="fixed">estado <span style="color: red;">*</span></label>
+				<select id="codigoestado" name="codigoestado">
+                    <option value="{{codigoestado}}" selected="selected">{{nombreestado}}</option>
+                    <option value="">--</option>
+                    {{#estados}}
+                    <option value="{{codigoestado}}">{{nombreestado}}</option>
+                    {{/estados}}    
+                </select>
+                
+                <label class="fixed">Articulo</label>
+                <textarea id="articulo" name="articulo" cols="40" rows="15">{{articulo}}</textarea>
+			</fieldset>
+                <input type="hidden" name="idcontra" id="idcontra" value="{{IdContraprestacion}}" />
+                <input type="hidden" name="idconvenio" id="idconvenio" value="{{idconvenio}}" />
+            	<input type="submit" name="submit" id="submit" value="Guardar cambios" />
+                <input type="hidden" name="Action" id="Action" value="GuardarCon" />
+                <input type="button" value="regresar" onclick="RegresarModificarcontraprestacion();" />
+                <input type="hidden" id="accion" name="accion" value="{{accion}}" />
+            </form>
+        </div>
+        <script type="text/javascript">
+                $(':submit').click(function(event) {
+                    event.preventDefault();
+                    var valido= validateForm("#form_contraprestacion");
+                    if(valido){
+                        sendForm();
+                    }
+                });			
+
+                function sendForm(){
+                    $(':submit').css("display","none");                    
+                    $.ajax({
+                        dataType: 'json',
+                        type: 'POST',
+                        url: '../Controller/ActualizarContraprestacion.php',
+                        data: $('#form_contraprestacion').serialize(),                
+                        success:function(data){
+                            if (data.success == true){
+								alert(data.message);
+                                window.location.href="../Controller/ModificarContraprestaciones.php";
+                            }
+                            else{ 
+                                alert(data.message);
+                                window.location.href="../Controller/ModificarContraprestaciones.php";
+                            }                            
+                        },
+                        error: function(data,error,errorThrown){alert(error + errorThrown);}
+                    });            
+                }
+		</script>
+    </body>
+</html>

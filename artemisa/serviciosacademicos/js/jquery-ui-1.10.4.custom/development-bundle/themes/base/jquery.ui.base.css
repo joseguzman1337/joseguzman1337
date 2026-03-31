@@ -1,0 +1,14 @@
+/*!
+ * jQuery UI CSS Framework 1.13.1
+ * http://jqueryui.com
+ *
+ * Copyright 2014 jQuery Foundation and other contributors
+ * Released under the MIT license.
+ * http://jquery.org/license
+ *
+ * http://api.jqueryui.com/category/theming/
+ 
+ */
+@import url("jquery.ui.core.css");
+
+@import url("jquery.ui.datepicker.css");

@@ -1,0 +1,120 @@
+<?php
+// echo "<pre>"; print_r($_SESSION);
+if (!isset($_SESSION)) { 
+	session_start();
+}else{
+	die("No ha iniciado sesion en el sistema");
+}
+require_once("./consultas_class.php");
+$objeto = new ConsultarEspacios;
+// var_dump($objeto);
+?>
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html class="ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html class="ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> 
+<html class=""> <!--<![endif]-->
+<head>
+	<meta charset="utf-8" />
+	<title>Menú</title>	
+	<script type="text/javascript" href="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script>
+	// seleccione();
+	function seleccione(variable){
+		if (variable) {
+			$('#respuestaSalones').hide(); //oculto mediante id
+		}else{
+			$('#respuestaBloques').hide(); //oculto mediante id
+			$('#respuestaSalones').hide(); //oculto mediante id
+		};
+	}
+	function bloques(variable){
+		seleccione(1); //Controlo que no se muestre los salones si no se ha seleccionado un bloque
+		$('#respuestaBloques').show(); //Muestro div mediante id
+		var action = 'consultaBloques';
+		$.ajax({
+			url: './consultas_class.php',
+			type: 'POST',
+			dataType: 'html',
+			data: ({"ClasificacionEspaciosId": variable,"action": action}),
+		})
+		.done(function(data) {
+			$('#respuestaBloques').html(data);
+		})
+		.fail(function() {
+			console.log("error");
+		})
+		.always(function() {
+			console.log("complete");
+		});
+		
+	}
+	function salones(variable){
+		$('#respuestaSalones').show(); //Muestro div mediante id
+		var action = 'consultaSalones';
+		$.ajax({
+			url: './consultas_class.php',
+			type: 'POST',
+			dataType: 'html',
+			data: ({"ClasificacionEspaciosId": variable,"action": action}),
+		})
+		.done(function(data) {
+			$('#respuestaSalones').html(data);
+		})
+		.fail(function() {
+			console.log("error");
+		})
+		.always(function() {
+			console.log("complete");
+		});
+	}
+	function mostrarAgenda(){
+		var action = 'consultaAgenda';
+		$.ajax({
+			url: './calendario3/wdCalendar/sample.php',
+			type: 'POST',
+			dataType: 'html',
+			data: {action: action},
+		})
+		.done(function(data) {
+			$('#mostrarCalendario').html(data);
+		})
+		.fail(function() {
+			console.log("error");
+		})
+		.always(function() {
+			console.log("complete");
+		});
+		
+	}
+	</script>	
+</head>
+<body>
+	<form name="formul">
+		<div>
+			<h1>Eventos programados</h1>
+		</div>
+		<div>
+			<label>Sitio:</label> 
+			<select name="miSelect">
+				<option value="0" onclick="seleccione(0)">Seleccione Sitio</option>
+			<?php 
+			$consultaSedes = $objeto->ConsultarSedes();  
+			while (!$consultaSedes->EOF) { 
+				?>
+				<option value"<?php echo $consultaSedes->fields['ClasificacionEspaciosId']; ?>" onclick="bloques(<?php echo $consultaSedes->fields['ClasificacionEspaciosId']; ?>)" select><?php echo $consultaSedes->fields['Nombre']; ?></option> 
+				<?php
+				$idClasi[] = $consultaSedes->fields['ClasificacionEspaciosId'];
+				$consultaSedes->MoveNext();
+				}
+			?>
+			</select>
+		</div>
+		<div id="respuestaBloques"></div>
+		<div id="respuestaSalones"></div>
+		<div id="mostrarCalendario"></div>			
+	</form>
+</body>
+</html>

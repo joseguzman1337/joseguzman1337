@@ -1,0 +1,705 @@
+
+.combobox{
+	width: 250px;
+}
+
+.campobox{
+	width: 210px;
+}
+
+.sampletext {
+	background: #FFFFFF;
+    border: 1px solid #DBE1EB;
+    border-radius: 4px;
+    width: 230px;
+}
+
+
+#saludo{
+	font-family: Arial Narrow , sans-serif;
+	font-size: medium;	
+}
+
+#contenedor {
+    width: 65%;
+	margin: auto;
+}
+
+
+
+
+#contenedor-header {
+    display: table;
+    width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 20px;
+	border-style: groove; 
+	border-width: 0px;
+	border-radius:4px;	
+    height: 130px;
+    background-color: #3e4729 /*rgb(62, 71, 41)337ab7*/;
+}
+
+#header {
+    display: table-cell;
+    vertical-align: top;
+    position: relative;
+    height: 110px;
+}
+
+#header .izquierdo{
+	background-image: url(images/logotipo_ueb.png);
+	background-repeat:no-repeat;
+	width: 500px; 
+	height: 90px;
+	float: left;
+	margin-left: 20px;
+}
+
+#header .derecho{
+	
+	
+	width: 88px; 
+	height: 106px;
+	float: right;
+	margin-right: 0px;
+}
+
+#header .centro{
+	font-family:Arial, Helvetica, sans-serif; 
+	font-size:20px; 
+	font-weight:normal;
+	color: white;
+	width:100%;
+}
+
+#header .menu{
+    margin-right: 10px;
+	height: 33px;
+	width: 370px;
+    margin-top: 25px;
+}
+
+#header .menu .inicio{
+	background-image:url(images/Cabecera_r2_c4.jpg);
+	background-repeat:no-repeat;
+	background-position:top;
+	height: 33px;
+	width: 95px;
+	border: 0;
+}
+
+#header .menu .cerrar{
+	/*background-image:url(images/Cabecera_r2_c5.jpg);*/
+	background-repeat:no-repeat;
+	background-position:top;
+	height: 33px;
+	width: 96px;
+	border: 0;
+}
+
+#header .menu .ayuda{
+	/*background-image:url(images/Cabecera_r2_c6.jpg);*/
+	background-repeat:no-repeat;
+	background-position:top;
+	height: 33px;
+	width: 90px;
+	border: 0;
+}
+
+#migadepan{
+    height: 20px;
+	background-color:#FFF;
+    width: 100%;
+}
+
+#contenedor-contenido {
+    height: auto;
+	background-color: #eff2dc;
+    width: 100%;
+}
+
+/*#contenedor-foot{
+	margin-top: 2px;
+	position: absolute;
+	margin-bottom: 0px; 
+	height:128px;
+	width:75%;
+	border-style: groove; 
+	border-width: 1px;
+	border-radius:4px;
+	background-color: rgb(62, 71, 41);
+	background-repeat: no-repeat;
+	
+}*/
+
+#contenedor-foot {
+    display: table;
+    width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 20px;
+	border-style: groove; 
+	border-width: 0px;
+	border-radius:4px;	
+    height: 130px;
+    background-color: #3e4729/*rgb(62, 71, 41)*/;
+}
+
+/*#foot-linea1{
+	/*background-image: url(images/inm2.jpg);*/
+	/*background-repeat:repeat-x;
+	height: 95px;
+	
+	
+}*/
+
+/*#foot-linea1 .izquierdo{
+	/*background-image: url(images/inm4.jpg);
+	background-repeat:no-repeat;*/
+	/*background-repeat:no-repeat;
+	width: auto; 
+	height: 95px;
+    margin: 0 auto;
+    background-color: rgb(62, 71, 41);
+	/*float: left;*/
+/*}
+
+
+#foot-linea2{
+	/*background-image: url(images/PiePagina_r2_c2.jpg);*/
+	/*background-repeat:repeat-x;
+	height: 95px;
+	width: 100%;
+	/*background-color: rgb(62, 71, 41);*/ 
+/*}
+
+#foot-linea2 .izquierdo{
+	/*background-image: url(images/PiePagina_r2_c1.jpg);*/
+	/*background-repeat:no-repeat;
+	width: auto; 
+	height: 29px;
+    margin: 0 auto;
+	float: left;
+	background-color: rgb(62, 71, 41);
+	
+}*/
+
+#panelLogin{
+	width: 300px;
+}
+
+#panelContactar{
+	width: 500px;
+}
+
+#panelAgenda{
+	width: 100%;
+}
+
+#panelCalendario{
+	width: 90%;
+}
+
+#panelDia{
+	width: 95%;
+}
+
+#error{
+    height: 20px;
+	background-color:#EE5757;
+    width: 100%;
+}
+
+#resultado{
+	background-color: #C6E746;
+	height: 20px;
+    width: 100%;
+}
+
+legend{
+	color: rgb(59, 89, 152); 
+	font-weight: normal;
+	margin-left: 0;
+}
+
+.descripcion
+{
+    border:1px solid #999999;
+    width:100%;
+    margin:5px 0;
+    padding:3px;
+}
+
+.gestionAlarma {
+	background-color: #D5F2CE;
+}
+.gestionTraslado {
+	background-color: #F2CED0;
+}
+
+/*.frmSearch {
+	border: 1px solid #F0F0F0;
+	background-color:#C8EEFD;
+	margin: 2px 0px;
+	padding:40px;
+}*/
+
+
+#listUsuarios{
+	float:left;
+	list-style:none;
+	margin:0;
+	padding:0;
+	width:190px;
+}
+#listUsuarios li{
+	padding: 10px; 
+	background:#FAFAFA;
+	border-bottom:#F0F0F0 1px solid;
+}
+#listUsuarios li:hover{
+	background:#F0F0F0;
+}
+#txtDirectivo{
+	padding: 10px;
+	border: #F0F0F0 1px solid;
+}
+
+#txtDirectivoSecretaria{
+	padding: 10px;
+	border: #F0F0F0 1px solid;
+}
+
+
+/* -------------------------------------------- */
+/* ----------- Pagination: Digg Style --------- */
+/* -------------------------------------------- */
+#pagination-digg { border:0; margin:0; padding:0; float: inherit; }
+#pagination-digg li          { border:0; margin:0; padding:0; font-size:11px; list-style:none; /* savers */ float:left; }
+#pagination-digg a           { border:solid 1px #888888; margin-right:2px; color:#888888; display:block; float:left; padding:3px 6px; text-decoration:none; cursor: pointer; }
+#pagination-digg .previous-off,
+#pagination-digg .next-off   { border:solid 1px #DEDEDE; color:#888888; display:block; float:left; font-weight:bold; margin-right:2px; padding:3px 4px; }
+#pagination-digg .next a,
+#pagination-digg .previous a { font-weight:bold; }
+#pagination-digg .active     { background:#2e6ab1; color:#FFFFFF; font-weight:bold; display:block; float:left; padding:4px 6px; /* savers */ margin-right:2px; }
+#pagination-digg a:link,
+#pagination-digg a:visited   { color:#0e509e; display:block; float:left; padding:3px 6px; text-decoration:none; }
+#pagination-digg a:hover     { border:solid 1px #0e509e; }
+
+
+
+#listaDocumentos {
+    counter-reset: li; 
+    list-style: none; 
+    *list-style: decimal; 
+    font: 15px 'trebuchet MS', 'lucida sans';
+    padding: 0;
+    margin-bottom: 4em;
+    text-shadow: 0 1px 0 rgba(255,255,255,.5);
+}
+
+#listaDocumentos ol {
+    margin: 0 0 0 2em; 
+}
+
+#listaDocumentos li{
+    position: relative;
+    display: block;
+    padding: .4em .4em .4em 2em;
+    *padding: .4em;
+    margin: .5em 0;
+    background: #ddd;
+    color: #444;
+    text-decoration: none;
+    border-radius: .3em;
+    transition: all .3s ease-out;   
+}
+
+#listaDocumentos li:hover{
+    background: #eee;
+}
+
+#listaDocumentos li:hover:before{
+    transform: rotate(360deg);  
+}
+
+#listaDocumentos li:before{
+    content: counter(li);
+    counter-increment: li;
+    position: absolute; 
+    left: -1.3em;
+    top: 50%;
+    margin-top: -1.3em;
+    background: #FFFFFF;
+    height: 2em;
+    width: 2em;
+    line-height: 2em;
+    border: .3em solid #fff;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 2em;
+    transition: all .3s ease-out;
+}
+
+#linkDocumentos{
+	color: #444;
+	font-weight: normal;
+	font-size: 14pt;
+}
+
+dl{ margin: 60px auto; width: auto; }
+dt, dd{ padding: 12px; }
+dt{ background: #D1CBCB; color: black; border-bottom: 1px solid #C5C2C2; border-top: 1px solid #4E4E4E; cursor: pointer;
+	-moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+	border-radius: 5px;
+	-moz-box-shadow: 0px 0px 4px #222;
+	-webkit-box-shadow: 0px 0px 4px #222;
+	box-shadow: 0px 0px 4px #222;
+	background-image: -moz-linear-gradient(top, #eeeeee, #cccccc);
+	background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, #eeeeee),color-stop(1, #cccccc));
+	background-image: -webkit-linear-gradient(top, #eeeeee, #cccccc);
+	background-image: -moz-linear-gradient(top, #eeeeee, #cccccc);
+	/*text-shadow: 0 1px 0 #ccc, 
+               0 2px 0 #c9c9c9,
+               0 3px 0 #bbb,
+               0 4px 0 #b9b9b9,
+               0 5px 0 #aaa,
+               0 6px 1px rgba(0,0,0,.1),
+               0 0 5px rgba(0,0,0,.1),
+               0 1px 3px rgba(0,0,0,.3),
+               0 3px 5px rgba(0,0,0,.2),
+               0 5px 10px rgba(0,0,0,.25),
+               0 10px 10px rgba(0,0,0,.2),
+               0 20px 20px rgba(0,0,0,.15); */
+}
+dd{ background: #F5F5F5; line-height: 1.4em; 
+	-moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+	border-radius: 5px;
+	-moz-box-shadow: 0px 0px 4px #222;
+	-webkit-box-shadow: 0px 0px 4px #222;
+	box-shadow: 0px 0px 4px #222;
+	background-image: -moz-linear-gradient(top, #eeeeee, #cccccc);
+	background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, #eeeeee),color-stop(1, #cccccc));
+	background-image: -webkit-linear-gradient(top, #eeeeee, #cccccc);
+	background-image: -moz-linear-gradient(top, #eeeeee, #cccccc);
+}
+dt.activo, dt:hover{ background: #FFFFFF; }
+dt:before{ content: "▸"; margin-right: 10px; }
+dt.activo:before{ content: "▾"; }
+
+#menuPlanDesarrollo{
+	margin-left: 30px;
+	font-family: Arial Narrow , sans-serif;
+}
+
+#menuPlanDesarrollo ul {
+    list-style-type: none;
+    margin: 0px;
+    padding: 20px;
+    font-family: Arial Narrow , sans-serif;
+}
+
+#menuPlanDesarrollo ul li a {
+    color: #000;
+    text-decoration: none;
+    font-size: 12pt;
+    /*text-transform: uppercase;*/
+}
+
+.ui-tabs-vertical { /*width: 55em;*/ }
+  /*.ui-tabs-vertical .ui-tabs-nav { padding: .2em .1em .2em .2em; float: left; width: 12em; }*/
+  .ui-tabs-vertical .ui-tabs-nav li { clear: left; margin: 0 -1px .2em 0; }
+  .ui-tabs-vertical .ui-tabs-nav li a { display:block; }
+  .ui-tabs-vertical .ui-tabs-nav li.ui-tabs-active { padding-bottom: 0; padding-right: .1em; border-right-width: 0px; }
+  /*.ui-tabs-vertical .ui-tabs-panel { padding: 1em; float: right; width: 40em;}*/
+ 
+#menuTexto{
+ 	color: #3e4729;
+ 	font-weight: normal;
+ 	font-size: 14pt;
+}
+
+#contenidoPlan{
+	margin-left: 30px;
+	margin-right: 30px;
+	font-family: Arial Narrow , sans-serif;
+	font-size: 10pt;
+}
+
+#divRegistrar{
+	margin-left: 30px;
+	margin-right: 30px;
+}
+
+input[type=text], select{
+    width: 70%;
+    padding: 6px 12px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=submit] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+.addPrograma{
+vertical-align: middle;
+padding-left: 30px;
+cursor: pointer;
+box-sizing: content-box;
+-moz-box-sizing: border-box; /* Firefox */
+-webkit-box-sizing: border-box; /*Safari */
+}
+
+textarea {
+    width: 70%;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    resize: none; 
+}
+
+.addResponsable{
+vertical-align: middle;
+margin-left: 10px;
+}
+
+#btnAddIndicador{
+	margin-left: 80px;
+}
+
+#btnAddPrograma{
+	margin-left: 10px;
+}
+#btnAddProyecto{
+	margin-left: 10px;
+}
+
+.btnOtroIndicador{
+	margin-left: 80px;
+}
+
+.btnOtro{
+	margin-left: 10px;
+}
+
+.separadorPrograma{
+	border: 0; 
+	border-top: 4px double #C8C8C8; 
+	width: 90%;
+}
+
+.strike {
+    display: block;
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap; 
+}
+
+.strike > span {
+    position: relative;
+    display: inline-block;
+}
+
+.strike > span:before,
+.strike > span:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 9999px;
+    height: 1px;
+    background: #C8C8C8;
+}
+
+.strike > span:before {
+    right: 100%;
+    margin-right: 15px;
+}
+
+.strike > span:after {
+    left: 100%;
+    margin-left: 15px;
+}
+
+.form-control{
+	margin-top: 10px;
+}
+
+.btnDeleteProyecto{
+	margin-left: 10px;
+}
+
+.btnAddMeta{
+	margin-left: 40px;
+}
+
+.consultarPlan{
+	margin-left: 50px;
+	margin-top: 30px;
+	margin-right: 50px;
+	margin-bottom: 30px;
+}
+
+.detalleMetaResponsable{
+	margin: 0 auto 0 auto;
+}
+
+.listAcciones li{
+	padding-bottom: 10px;
+}
+
+#sliderObj {
+		
+margin-top: 100px;
+margin-left: 30px;
+}
+		
+.btnMetaPrincipal{
+	margin-left: 10px;
+}
+		
+.imgCursor{
+	cursor: pointer;
+}
+/*
+ * @modified Andres Ariza <arizaandres@unbosque.edu.co>
+ * Added a this style for fix img button issue in registrar view 
+ * @since  November 8, 2016
+*/
+img{
+	box-sizing:unset !important;
+}
+/* END */		
+
+/*
+ * @modified Andres Ariza <arizaandres@unbosque.edu.co>
+ * Overwrhite ui style for buttons padding
+ * @since  November 11, 2016
+*/
+.ui-button-text-only .ui-button-text {
+    padding: 0 !important;
+}
+.chosen-container { 
+    max-width: 790px;
+}
+/* END */
+.btn-gris{
+	background-color: #CCCCCC !important;
+	border-color: #CCCCCC !important;
+}
+
+.mensageRegistrar{
+	text-align: center;
+	margin-top: 30px;
+}
+
+.btnAddMetaActualiza{
+	margin-left: 20px;
+}
+
+#menuFacilitador{
+	border: 1px solid #CCCCCC;
+	border-radius: 4px;
+}
+
+
+.ui-datepicker a
+ {
+    color: #000;
+  }
+  
+.mensageMetaS{
+	text-align: center;
+	margin-top: 15px;
+}
+
+.valor{
+	width: 30% !important;
+}
+
+.rediTextArea{
+	resize: both !important;
+}
+
+ul li{
+	padding-left: 5px;
+}
+ul li a,ul li a:hover{
+	color:#000000 !important; 
+}
+
+select {
+	color: #000000 !important;
+}
+
+
+
+.chosen-container-single .chosen-single span {
+    display: block;
+    overflow: hidden;
+    margin-right: 26px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: black;
+}
+
+a#btnRegresarConsultar{
+	color: #386613 !important;
+}
+	
+#btnRegresarConsultar img{
+	position: relative;
+	top: -2px;
+	margin-right: 2px;
+}
+
+a#btnRegresarConsultar:hover{
+	text-decoration:none;
+}
+
+
+a#btnRegresar{
+	color: #386613 !important;
+}
+	
+#btnRegresar img{
+	position: relative;
+	top: -2px;
+	margin-right: 2px;
+}
+
+a#btnRegresar:hover{
+	text-decoration:none;
+}
+
+
+a #contenedor-contenido {
+    padding: 0 15px;
+}
+
+#contenedor-contenido #contenidoPlan .container{
+padding: 15px 0;
+}
+
+.lectura{
+   background-color: #eee;
+}
+

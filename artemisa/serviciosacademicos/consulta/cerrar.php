@@ -1,0 +1,15 @@
+<?php
+session_start();
+unset($_SESSION['MM_Username']);
+unset($_SESSION['rol']);
+unset($_SESSION['codigo']);
+unset($_SESSION['codigoperiodosesion']);
+unset($_SESSION['codigoestadoperiodosesion']);
+unset($_SESSION['numerodocumento']);
+unset($_SESSION['codigodocente']);
+unset($_SESSION['codigofacultad']);
+unset($_SESSION['nombrefacultad']);
+unset($_SESSION['usuario']);
+unset($_SESSION['MM_UserGroup']);
+unset($_SESSION['nuevoMenu']);
+?>

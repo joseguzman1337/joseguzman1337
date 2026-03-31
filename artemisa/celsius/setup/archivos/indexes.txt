@@ -1,0 +1,4 @@
+Bienvenido a la instalacion del ambiente Celsius!
+Lea atentamente las instrucciones contenidas en cada paso de la instalación.
+En las siguientes páginas, deberá ingresar información necesaria para la instalación de Celsius.
+Continuar

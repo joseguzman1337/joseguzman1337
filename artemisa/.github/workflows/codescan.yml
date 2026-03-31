@@ -1,0 +1,53 @@
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+
+# This workflow requires that you have an existing account with codescan.io
+# For more information about configuring your workflow,
+# read our documentation at https://github.com/codescan-io/codescan-scanner-action
+name: CodeScan
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    # The branches below must be a subset of the branches above
+    branches: [ master ]
+  schedule:
+    - cron: '36 18 * * 2'
+
+permissions:
+  contents: read
+
+jobs:
+    CodeScan:
+        permissions:
+          contents: read # for actions/checkout to fetch code
+          security-events: write # for github/codeql-action/upload-sarif to upload SARIF results
+        runs-on: ubuntu-latest
+        steps:
+            - name: Harden Runner
+              uses: step-security/harden-runner@fa2e9d605c4eeb9fcad4c99c224cee0c6c7f3594 # v2.16.0
+              with:
+                egress-policy: audit
+
+            -   name: Checkout repository
+                uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5
+            -   name: Cache files
+                uses: actions/cache@668228422ae6a00e4ad889ee87cd7109ec5666a7 # v5.0.4
+                with:
+                    path: |
+                        ~/.sonar
+                    key: ${{ runner.os }}-sonar
+                    restore-keys: ${{ runner.os }}-sonar
+            -   name: Run Analysis
+                uses: codescan-io/codescan-scanner-action@955d3d1b4a9e374064189719484005ce8e08a749
+                with:
+                    login: ${{ secrets.CODESCAN_AUTH_TOKEN }}
+                    organization: ${{ secrets.CODESCAN_ORGANIZATION_KEY }}
+                    projectKey: ${{ secrets.CODESCAN_PROJECT_KEY }}
+            -   name: Upload SARIF file
+                uses: github/codeql-action/upload-sarif@38697555549f1db7851b81482ff19f1fa5c4fedc # v4.34.1
+                with:
+                    sarif_file: codescan.sarif

@@ -1,0 +1,26 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>{{title}}</title>
+		<link rel="stylesheet" type="text/css" href="../../mgi/css/cssreset-min.css" />
+		<link rel="stylesheet" type="text/css" href="../../mgi/css/normalize.css" />		
+	</head>
+	<body class="body">
+        <fieldset>
+            <legend>Por Favor Verificar Informaci&oacute;n</legend>
+            <table border=1>
+               {{# Data }}
+                 <tr>
+                    <td>{{Documento}}</td>
+                    <td>{{Text}}</td>
+                    <td>{{Tipo}}</td>
+                 </tr>
+               {{/ Data }}
+            </table>
+        </fieldset>
+        <br />
+        <br />
+        {{TextFin}}
+	</body>
+</html>

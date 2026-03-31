@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_oficina" value="name:codigooficina;datatype:string,name:nombreoficina;datatype:string,name:codigosede;datatype:string,name:codigoarea;datatype:string,name:codigopiso;datatype:string" />
+	<infoitem key="UD_cargo" value="name:codigocargo;datatype:string,name:nombrecargo;datatype:string" />
+	<infoitem key="UD_estado" value="name:codigoestadodirectorio;datatype:string,name:nombreestadodirectorio;datatype:string" />
+</info>

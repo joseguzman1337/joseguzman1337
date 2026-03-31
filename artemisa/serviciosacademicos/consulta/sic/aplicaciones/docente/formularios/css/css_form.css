@@ -1,0 +1,57 @@
+body { font-size: 68.5%; }
+label { display: inline-block; width: 100px; }
+legend { padding: 0.5em; }
+fieldset fieldset label { display: block; }
+#forma { width: 70%; margin:1.5em}
+#forma label { width: 30%;font-weight: bold; background-color: #F8F8F8; vertical-align: top; }
+#forma label.error {
+	background-color: #ffffff;
+	margin-left: 30%;
+	width: auto; 
+	color: red;
+	float: none;
+	font-size: 12px;
+	padding-left: 0.5em; 
+	vertical-align: middle;
+	display: inline-block;
+}
+#forma span.asterisco {
+	color: #FF0202;
+	font-weight: bold;
+}
+#bienvenida {
+	margin: 20px;
+	font-size: 16px;
+	font-weight: bold;
+}
+#forma span.success {
+	color: #138400;
+	margin-left: 50px;
+	font-size: 12px;
+	font-weight: bold;
+}
+#forma span.error {
+	color: #FF0202;
+	margin-left: 50px;
+	font-size: 12px;
+	font-weight: bold;
+}
+#forma div#resultado {
+	margin:10px;
+}
+#forma div#submit { margin-left: 30%; }
+
+#forma button {
+    background-clip: padding-box;
+    background-color: #C46A60;
+    background-image: linear-gradient(#EF7260, #B04C41);
+    border-radius: 3px 3px 3px 3px;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset, 1px 1px 1px rgba(0, 0, 0, 0.5);
+    color: #FFFFFF;
+    line-height: 27px;
+    padding: 0 20px;
+    position: relative;
+    text-align: center;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4);
+    border-radius: 3px 3px 3px 3px;
+}

@@ -1,0 +1,54 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8">
+<TITLE>Cabecera, pie, salto de página e imagen</TITLE>
+<LINK TYPE="text/css" REL="stylesheet" HREF="../fpdf.css">
+</HEAD>
+<BODY>
+<H2>Cabecera, pie, salto de página e imagen</H2>
+Aquí tenemos un ejemplo de dos páginas con cabacera, pie de página y logotipo:
+<BR>
+<BR>
+<TABLE WIDTH="100%" STYLE="color:#4040C0; border-style:ridge" BORDERCOLORLIGHT="#B0B0E0" BORDERCOLORDARK="#000000" BORDER="2" CELLPADDING=6 CELLSPACING=0 BGCOLOR="#F0F5FF"><TR><TD style="border-width:0px">
+<NOBR><code><font color="#000000">
+&lt;?php<br><font class="kw">require(</font><font class="str">'fpdf.php'</font><font class="kw">);<br><br>class </font>PDF <font class="kw">extends </font>FPDF<br><font class="kw">{<br></font><font class="cmt">//Cabecera de página<br></font><font class="kw">function </font>Header<font class="kw">()<br>{<br>&nbsp;&nbsp;&nbsp;&nbsp;</font><font class="cmt">//Logo<br>&nbsp;&nbsp;&nbsp;&nbsp;</font>$<font class="kw">this-&gt;</font>Image<font class="kw">(</font><font class="str">'logo_pb.png'</font><font class="kw">,</font>10<font class="kw">,</font>8<font class="kw">,</font>33<font class="kw">);<br>&nbsp;&nbsp;&nbsp;&nbsp;</font><font class="cmt">//Arial bold 15<br>&nbsp;&nbsp;&nbsp;&nbsp;</font>$<font class="kw">this-&gt;</font>SetFont<font class="kw">(</font><font class="str">'Arial'</font><font class="kw">,</font><font class="str">'B'</font><font class="kw">,</font>15<font class="kw">);<br>&nbsp;&nbsp;&nbsp;&nbsp;</font><font class="cmt">//Movernos a la derecha<br>&nbsp;&nbsp;&nbsp;&nbsp;</font>$<font class="kw">this-&gt;</font>Cell<font class="kw">(</font>80<font class="kw">);<br>&nbsp;&nbsp;&nbsp;&nbsp;</font><font class="cmt">//Título<br>&nbsp;&nbsp;&nbsp;&nbsp;</font>$<font class="kw">this-&gt;</font>Cell<font class="kw">(</font>30<font class="kw">,</font>10<font class="kw">,</font><font class="str">'Title'</font><font class="kw">,</font>1<font class="kw">,</font>0<font class="kw">,</font><font class="str">'C'</font><font class="kw">);<br>&nbsp;&nbsp;&nbsp;&nbsp;</font><font class="cmt">//Salto de línea<br>&nbsp;&nbsp;&nbsp;&nbsp;</font>$<font class="kw">this-&gt;</font>Ln<font class="kw">(</font>20<font class="kw">);<br>}<br><br></font><font class="cmt">//Pie de página<br></font><font class="kw">function </font>Footer<font class="kw">()<br>{<br>&nbsp;&nbsp;&nbsp;&nbsp;</font><font class="cmt">//Posición: a 1,5 cm del final<br>&nbsp;&nbsp;&nbsp;&nbsp;</font>$<font class="kw">this-&gt;</font>SetY<font class="kw">(-</font>15<font class="kw">);<br>&nbsp;&nbsp;&nbsp;&nbsp;</font><font class="cmt">//Arial italic 8<br>&nbsp;&nbsp;&nbsp;&nbsp;</font>$<font class="kw">this-&gt;</font>SetFont<font class="kw">(</font><font class="str">'Arial'</font><font class="kw">,</font><font class="str">'I'</font><font class="kw">,</font>8<font class="kw">);<br>&nbsp;&nbsp;&nbsp;&nbsp;</font><font class="cmt">//Número de página<br>&nbsp;&nbsp;&nbsp;&nbsp;</font>$<font class="kw">this-&gt;</font>Cell<font class="kw">(</font>0<font class="kw">,</font>10<font class="kw">,</font><font class="str">'Page '</font><font class="kw">.</font>$<font class="kw">this-&gt;</font>PageNo<font class="kw">().</font><font class="str">'/{nb}'</font><font class="kw">,</font>0<font class="kw">,</font>0<font class="kw">,</font><font class="str">'C'</font><font class="kw">);<br>}<br>}<br><br></font><font class="cmt">//Creación del objeto de la clase heredada<br></font>$pdf<font class="kw">=new </font>PDF<font class="kw">();<br></font>$pdf<font class="kw">-&gt;</font>AliasNbPages<font class="kw">();<br></font>$pdf<font class="kw">-&gt;</font>AddPage<font class="kw">();<br></font>$pdf<font class="kw">-&gt;</font>SetFont<font class="kw">(</font><font class="str">'Times'</font><font class="kw">,</font><font class="str">''</font><font class="kw">,</font>12<font class="kw">);<br>for(</font>$i<font class="kw">=</font>1<font class="kw">;</font>$i<font class="kw">&lt;=</font>40<font class="kw">;</font>$i<font class="kw">++)<br>&nbsp;&nbsp;&nbsp;&nbsp;</font>$pdf<font class="kw">-&gt;</font>Cell<font class="kw">(</font>0<font class="kw">,</font>10<font class="kw">,</font><font class="str">'Imprimiendo línea número '</font><font class="kw">.</font>$i<font class="kw">,</font>0<font class="kw">,</font>1<font class="kw">);<br></font>$pdf<font class="kw">-&gt;</font>Output<font class="kw">();<br></font>?&gt;
+</font>
+</code></NOBR></TD></TR></TABLE><P></P>
+<SCRIPT>
+<!--
+if(document.location.href.indexOf('http:')==0)
+{
+document.write("<P CLASS='demo'><A HREF='tuto2.php' TARGET='_blank' CLASS='demo'>[Demo]</A></P>");
+}
+//-->
+</SCRIPT>
+Este ejemplo hace uso de los métodos <A HREF='../doc/header.htm'>Header()</A> y <A HREF='../doc/footer.htm'>Footer()</A> para procesar las
+cabeceras y pies de páginas. Se llaman automáticamente. Ya existen en la clase FPDF
+origuinal, pero no hacen nada. Por ello, tenemos que heredar la clase y sobreescribirlos.
+<BR>
+<BR>
+El logotipo se imprime con el método <A HREF='../doc/image.htm'>Image()</A> especificando su esquina superior
+izquierda y su anchura. La altura se calcula automáticamente respetando las proporciones
+de la imagen.
+<BR>
+<BR>
+Para imprimir el número de página, se le pasa un valor nulo (null) como ancho de la celda. Eso
+significa que la celda se extenderá hasta el margen derecho de la página; puede ser útil centrar
+el texto. El número actual de la página se devuelve por el métodos <A HREF='../doc/pageno.htm'>PageNo()</A>;
+mientras que el número total de páginas se obtiene mediante un valor especial de
+<TT>{nb}</TT> que será sustituido cuando se cierre el documento (suponiendo que
+usted antes utilizara <A HREF='../doc/aliasnbpages.htm'>AliasNbPages()</A>).
+<BR>
+Observe el uso del método <A HREF='../doc/sety.htm'>SetY()</A> que le permite especificar la posición en una
+ubicación absoluta respecto del origen de coordenadas de la página, empezando por
+el principio o por el final.
+<BR>
+<BR>
+Otra característica interesante se usa en el ejemplo: el salto automático de página. Tan
+pronto como una celda cruza el límite máximo de la página (a 2 cm del final, por defecto),
+se ejecuta un salto y se recupera la fuente. Aunque la cabecera y el pie usan su propia fuente
+(Arial), el cuerpo del documento continua con Times. Este mecanismo automático de recuperación
+también se aplica a los colores y al ancho de línea. El límite que fuerza los saltos de página
+puede establecerse con <A HREF='../doc/setautopagebreak.htm'>SetAutoPageBreak()</A>.
+</BODY>
+</HTML>

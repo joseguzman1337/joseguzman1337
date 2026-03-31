@@ -1,0 +1,20 @@
+CREATE TABLE `LogPagos` (
+  `TicketId` varchar(35) NOT NULL default '',
+  `SrvCode` varchar(80) NOT NULL default '',
+  `Reference1` varchar(50) NOT NULL default '',
+  `Reference2` varchar(50) default NULL,
+  `Reference3` varchar(50) default NULL,
+  `PaymentDesc` varchar(80) default NULL,
+  `TransValue` varchar(30) NOT NULL default '',
+  `TransVatValue` varchar(30) default NULL,
+  `SoliciteDate` datetime default NULL,
+  `BankProcessDate` datetime default NULL,
+  `FIName` varchar(35) default NULL,
+  `StaCode` varchar(50) default NULL,
+  `TrazabilityCode` varchar(20) default NULL,
+  `FlagButton` char(1) default NULL,
+  `RefAdc1` varchar(35) default NULL,
+  `RefAdc2` varchar(35) default NULL,
+  `RefAdc3` varchar(35) default NULL,
+  `RefAdc4` varchar(35) default NULL
+) 

@@ -1,0 +1,91 @@
+/* 
+    Document   : windowsModalJquery
+    Created on : 02-nov-2011, 16:46:58
+    Author     : stipmp
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+body {
+font-family:verdana;
+font-size:15px;
+}
+
+#label {font-size:15px;}
+a {color:#333; text-decoration:none}
+a:hover {color:#ccc; text-decoration:none}
+
+#mask {
+  position:absolute;
+  left:0;
+  top:0;
+  z-index:9000;
+  background-color:#000;
+  display:none;
+}
+
+#boxes .window {
+  position:absolute;
+  left:0;
+  top:0;
+  width:440px;
+  height:200px;
+  display:none;
+  z-index:9999;
+  padding:20px;
+}
+
+#boxes #dialog {
+  width:375px;
+  height:203px;
+  padding:10px;
+  background-color:#EDF0D5;
+}
+
+#boxes #dialog1 {
+  width:375px;
+  height:203px;
+}
+
+#dialog1 .d-header {
+  background:url(images/login-header.png) no-repeat 0 0 transparent;
+  width:375px;
+  height:150px;
+}
+
+#dialog1 .d-header input {
+  position:relative;
+  top:60px;
+  left:100px;
+  border:3px solid #cccccc;
+  height:22px;
+  width:200px;
+  font-size:15px;
+  padding:5px;
+  margin-top:4px;
+}
+
+#dialog1 .d-blank {
+  float:left;
+  background:url(images/login-blank.png) no-repeat 0 0 transparent;
+  width:267px;
+  height:53px;
+}
+
+#dialog1 .d-login {
+  float:left;
+  width:108px;
+  height:53px;
+}
+
+#boxes #dialog2 {
+  background:url(images/notice.png) no-repeat 0 0 transparent;
+  width:326px;
+  height:229px;
+  padding:50px 0 20px 25px;
+}
+

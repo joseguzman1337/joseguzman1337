@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_ConsTabEvDe" value="name:IdEvalDes;datatype:int,name:NombCol;datatype:string,name:JefCol;datatype:string,name:FechEval;datatype:date,name:CaGeCaTr;datatype:int,name:CaGeCoTr;datatype:int,name:CaGeInic;datatype:int,name:CaGeDiAp;datatype:int,name:CaGeOrTR;datatype:int,name:CaGeMaIn;datatype:int,name:CaGeAtCl;datatype:int,name:FaDeCuOp;datatype:int,name:FaDeCoop;datatype:int,name:FaDeComu;datatype:int,name:FaDeAdap;datatype:int,name:CoInPaAc;datatype:int,name:CoInSePe;datatype:int,name:CoInCoOr;datatype:int,name:CoInPrPe;datatype:int,name:PlMeFort;datatype:blob,name:PlMeAsMe;datatype:blob,name:PlMePlMe;datatype:blob,name:PlMePlAc;datatype:blob,name:CoGePeTf;datatype:blob,name:Evaluador;datatype:string,name:Evaluado;datatype:string,name:JefeTH;datatype:string" />
+</info>

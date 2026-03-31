@@ -1,0 +1,24 @@
+USE sala;
+delimiter //
+CREATE TRIGGER sala.trigger_logregistroincentivoacademico_insert
+  AFTER INSERT ON sala.registroincentivoacademico
+  FOR EACH ROW
+  BEGIN
+	INSERT INTO sala.logregistroincentivoacademico (idregistroincentivoacademico, idincentivoacademico, fechalogregistroincentivoacademico, nombrelogregistroincentivoacademico, numeroacuerdologregistroincentivoacademico, fechaacuerdologregistroincentivoacademico, numeroactalogregistroincentivoacademico, fechaactalogregistroincentivoacademico, observacionlogregistroincentivoacademico, codigoestado, idusuario) VALUES (NEW.idregistroincentivoacademico, 	NEW.idincentivoacademico,	NEW.fecharegistroincentivoacademico,	NEW.nombreregistroincentivoacademico,	NEW.numeroacuerdoregistroincentivoacademico,	NEW.fechaacuerdoregistroincentivoacademico,	NEW.numeroactaregistroincentivoacademico,	NEW.fechaactaregistroincentivoacademico,	NEW.observacionregistroincentivoacademico,	NEW.codigoestado,	NEW.idusuario);
+  END; //
+
+CREATE TRIGGER sala.trigger_logregistroincentivoacademico_update
+  AFTER UPDATE ON sala.registroincentivoacademico
+  FOR EACH ROW
+  BEGIN
+	INSERT INTO sala.logregistroincentivoacademico (idregistroincentivoacademico, idincentivoacademico, fechalogregistroincentivoacademico, nombrelogregistroincentivoacademico, numeroacuerdologregistroincentivoacademico, fechaacuerdologregistroincentivoacademico, numeroactalogregistroincentivoacademico, fechaactalogregistroincentivoacademico, observacionlogregistroincentivoacademico, codigoestado, idusuario) VALUES (NEW.idregistroincentivoacademico, 	NEW.idincentivoacademico,	NEW.fecharegistroincentivoacademico,	NEW.nombreregistroincentivoacademico,	NEW.numeroacuerdoregistroincentivoacademico,	NEW.fechaacuerdoregistroincentivoacademico,	NEW.numeroactaregistroincentivoacademico,	NEW.fechaactaregistroincentivoacademico,	NEW.observacionregistroincentivoacademico,	NEW.codigoestado,	NEW.idusuario);
+  END; //
+
+CREATE TRIGGER sala.trigger_logregistroincentivoacademico_delete
+  BEFORE DELETE ON sala.registroincentivoacademico
+  FOR EACH ROW
+  BEGIN
+	INSERT INTO sala.logregistroincentivoacademico (idregistroincentivoacademico, idincentivoacademico, fechalogregistroincentivoacademico, nombrelogregistroincentivoacademico, numeroacuerdologregistroincentivoacademico, fechaacuerdologregistroincentivoacademico, numeroactalogregistroincentivoacademico, fechaactalogregistroincentivoacademico, observacionlogregistroincentivoacademico, codigoestado, idusuario) VALUES (OLD.idregistroincentivoacademico, 	OLD.idincentivoacademico,	OLD.fecharegistroincentivoacademico,	OLD.nombreregistroincentivoacademico,	OLD.numeroacuerdoregistroincentivoacademico,	OLD.fechaacuerdoregistroincentivoacademico,	OLD.numeroactaregistroincentivoacademico,	OLD.fechaactaregistroincentivoacademico,	OLD.observacionregistroincentivoacademico,	OLD.codigoestado,	OLD.idusuario);
+  END; //
+
+delimiter ;

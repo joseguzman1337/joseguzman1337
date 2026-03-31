@@ -1,0 +1,15 @@
+### ALTER TABLE RENAME TO limitation
+
+The connector does not support renaming tables across multiple schemas. For
+example, the following statement is supported:
+
+```sql
+ALTER TABLE example.schema_one.table_one RENAME TO example.schema_one.table_two
+```
+
+The following statement attempts to rename a table across schemas, and therefore
+is not supported:
+
+```sql
+ALTER TABLE example.schema_one.table_one RENAME TO example.schema_two.table_two
+```

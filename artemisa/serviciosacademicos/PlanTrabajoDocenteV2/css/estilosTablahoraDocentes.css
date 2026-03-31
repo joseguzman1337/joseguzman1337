@@ -1,0 +1,53 @@
+
+    table#tablaReporteHoras thead tr {
+        border-color:#fff;
+    }
+
+    table#tablaReporteHoras tbody{
+        background-color:transparent;color:#fff;border-color:#fff;
+    }
+    table#tablaReporteHoras tbody tr td{
+        border-color:#fff; font-size: 11px;
+    }
+
+    table table.detalleProgramas {
+        margin:0;padding:0;
+    }
+    table table.detalleProgramas tr{
+        border:0;margin:0;padding:0;
+    }
+    table table.detalleProgramas tr td{
+        border:0;
+    }
+
+    table table.detalleProgramasEv {
+        margin:0;padding:0;
+    }
+    table table.detalleProgramasEv tr{
+        border:0;margin:0;padding:0;
+    }
+    table table.detalleProgramasEv tr td{
+        border:0;
+    }
+
+    table #subRow td
+    {
+        border: 1px solid #ffffff;
+    }
+    .tdFil{
+        border: 1px solid #f0e3df;
+    }
+
+    .tdFilNum{
+        border: 1px solid #f0e3df;
+        text-align: right;
+    }
+    .filFor:hover{
+        background: #BDBAAE;
+        color: #000000;
+    }    
+    .tdFilNumTotal{
+        border: 1px solid #f0e3df;
+        background: #BDBAAE; color: #000000;
+        text-align: center;
+    }

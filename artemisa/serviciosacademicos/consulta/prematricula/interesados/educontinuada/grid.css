@@ -1,0 +1,83 @@
+body
+{
+font-family: Verdana, Arial;
+font-size: 10pt
+}
+table.list2
+{
+width: 650px;
+}
+
+table
+{
+width: 500px;
+}
+td.right
+{
+color: darkblue;
+text-align: right;
+width: 125px
+}
+td.left
+{
+color: darkblue;
+text-align: left;
+width: 125px
+}
+table.list
+{
+border: black 1px solid;
+}
+th
+{
+	text-align: center;
+	background-color: #CCCCCC;
+	color: white;
+}
+th.th1
+{
+width: 30px
+}
+th.th2
+{
+width: 300px
+}
+input.editName
+{
+border: black 1px solid;
+width: 300px
+}
+input.editPrice
+{
+border: black 1px solid;
+width: 50px
+}
+input.editParameter
+{
+border: black 1px solid;
+width: 500px
+}
+input.editColum
+{
+	border: black 1px solid;
+	width: 80px;
+	height: 15px;
+}
+tr.filapar
+{
+background-color:#FEF7ED;
+}
+tr.filainpar
+{
+background-color:#F8F8F8;
+}
+td.seleccionado
+{
+background-color:#2684BF;
+}
+
+select.selParam
+{
+border: black 1px solid;
+width: 505px;
+}

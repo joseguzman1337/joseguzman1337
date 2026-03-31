@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <!--STYLESHEET-->
+    <!--=================================================-->
+
+    <!--Open Sans Font [ OPTIONAL ] -->
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;subset=latin" rel="stylesheet">
+
+    <!--Bootstrap Stylesheet [ REQUIRED ]-->
+    <link href="{{__urlAsset}}/css/bootstrap.min.css" rel="stylesheet">
+
+    <!--Nifty Stylesheet [ REQUIRED ]-->
+    <link href="{{__urlAsset}}/css/nifty.min.css" rel="stylesheet">
+
+
+    <!--Font Awesome [ OPTIONAL ]-->
+    <link href="{{__urlAsset}}/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+
+    <!--Animate.css [ OPTIONAL ]-->
+    <link href="{{__urlAsset}}/plugins/animate-css/animate.min.css" rel="stylesheet">
+
+    <!--Switchery [ OPTIONAL ]-->
+    <link href="{{__urlAsset}}/plugins/switchery/switchery.min.css" rel="stylesheet">
+
+
+    <!--Bootstrap Select [ OPTIONAL ]-->
+    <link href="{{__urlAsset}}/plugins/bootstrap-select/bootstrap-select.min.css" rel="stylesheet">
+
+
+    <!--Demo script [ DEMONSTRATION ]-->
+    <link href="{{__urlAsset}}/css/demo/nifty-demo.min.css" rel="stylesheet">
+
+
+    <!--SCRIPT-->
+    <!--=================================================-->
+
+    <!--Page Load Progress Bar [ OPTIONAL ]-->
+    <link href="{{__urlAsset}}/plugins/pace/pace.min.css" rel="stylesheet">
+    <script src="{{__urlAsset}}/plugins/pace/pace.min.js"></script>
+
+    <style>
+        body, #content-container{
+            background-color: white !important;
+        }
+
+        .panel {
+            border: 1px solid #ebeef0 !important;
+        }
+    </style>
+</head>
+
+<!--TIPS-->
+<!--You may remove all ID or Class names which contain "demo-", they are only used for demonstration. -->
+
+<body>
+<div id="container" class="effect mainnav-out">
+
+    <!--NAVBAR-->
+    <!--===================================================-->
+    <header id="navbar">
+        <div id="navbar-container" class="boxed">
+
+            <!--Brand logo & name-->
+            <!--================================-->
+            <div class="navbar-header"> </div>
+            <!--================================-->
+            <!--End brand logo & name-->
+
+
+            <!--Navbar Dropdown-->
+            <!--================================-->
+            <div class="navbar-content clearfix">
+                <ul class="nav navbar-top-links pull-left">
+
+                    <!--Mega dropdown-->
+                    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                    <li class="mega-dropdown">
+                        <a href="#" class="mega-dropdown-toggle">
+                            <i class="fa fa-th-large fa-lg"></i>
+                        </a>
+                        <div class="dropdown-menu mega-dropdown-menu">
+                            <div class="clearfix">
+                                {{{ __megaDropDown }}}
+                            </div>
+                        </div>
+                    </li>
+                    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                    <!--End mega dropdown-->
+
+                </ul>
+                <ul class="nav navbar-top-links pull-right">
+
+                </ul>
+            </div>
+            <!--================================-->
+            <!--End Navbar Dropdown-->
+
+        </div>
+    </header>
+    <!--===================================================-->
+    <!--END NAVBAR-->
+
+    <div class="boxed">
+
+        <!--CONTENT CONTAINER-->
+        <!--===================================================-->
+        <div id="content-container">
+
+            <!--Page content-->
+            <!--===================================================-->
+            <div id="page-content">

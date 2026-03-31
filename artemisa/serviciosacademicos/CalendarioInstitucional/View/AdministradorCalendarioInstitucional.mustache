@@ -1,0 +1,115 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="../../css/demo_page.css" type="text/css" />
+    <link rel="stylesheet" href="../../css/demo_table_jui.css" type="text/css" />
+    <link rel="stylesheet" href="../../css/themes/smoothness/jquery-ui-1.8.4.custom.css" type="text/css" />
+    <link rel="stylesheet" href="../../mgi/css/styleDatos.css" type="text/css" />
+    <link rel="stylesheet" href="../../css/themes/smoothness/jquery-ui-1.8.4.custom.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../EspacioFisico/css/styleMustache.css" />
+    <link rel="stylesheet" href="../../EspacioFisico/css/jquery.clockpick.1.2.9.css" type="text/css" /> 
+    <link rel="stylesheet" type="text/css" href="../../EspacioFisico/asignacionSalones/css/jquery.datetimepicker.css"/>  
+ 
+</head>
+   <style>
+        tr.odd:hover,tr.even:hover{
+            background-color: lightgoldenrodyellow;
+            cursor: pointer;
+        }
+        .ClasOnclikColor{    
+             background-color: lightskyblue;
+        }
+        .odd{
+            background-color: #e2e4ff;
+        }
+        .even{
+          background-color: white;  
+        }
+        
+        </style>
+    <style type="text/css" title="currentStyle">
+                @import "../../observatorio/data/media/css/demo_page.css";
+                @import "../../observatorio/data/media/css/demo_table_jui.css";
+                @import "../../observatorio/data/media/css/ColVis.css";
+                @import "../../observatorio/data/media/css/TableTools.css";
+                @import "../../observatorio/data/media/css/ColReorder.css";
+                @import "../../observatorio/data/media/css/themes/smoothness/jquery-ui-1.8.4.custom.css";
+                @import "../../observatorio/data/media/css/jquery.modal.css";
+                
+        </style>
+       <script type="text/javascript" language="javascript" src="../../mgi/js/jquery.js"></script>
+        <script type="text/javascript" src="../../EspacioFisico/asignacionSalones/js/jquery.datetimepicker.js"></script>
+        <script type="text/javascript" language="javascript" src="../../EspacioFisico/js/jquery.bpopup.min.js"></script>
+        <script type="text/javascript" language="javascript" src="../../EspacioFisico/js/jquery.clockpick.1.2.9.js"></script>
+        <script type="text/javascript" language="javascript" src="../../EspacioFisico/js/jquery.clockpick.1.2.9.min.js"></script>
+        <script type="text/javascript" language="javascript" src="../../mgi/js/jquery-ui-1.8.21.custom.min.js"></script>
+        <script type="text/javascript" language="javascript" src="../../mgi/js/functions.js"></script>
+        <script type="text/javascript" language="javascript" src="../../mgi/js/functionsMonitoreo.js"></script>
+    
+        <script type="text/javascript" language="javascript" src="../../observatorio/data/media/js/jquery.dataTables.js"></script><!--Tabla dinamica-->
+        <script type="text/javascript" charset="utf-8" src="../../observatorio/data/media/js/ColVis.js"></script>
+        <script type="text/javascript" charset="utf-8" src="../../observatorio/data/media/js/ZeroClipboard.js"></script>
+        <script type="text/javascript" charset="utf-8" src="../../observatorio/data/media/js/TableTools.js"></script>
+        <script type="text/javascript" charset="utf-8" src="../../observatorio/data/media/js/FixedColumns.js"></script>
+        <script type="text/javascript" charset="utf-8" src="../../observatorio/data/media/js/ColReorder.js"></script><!--Tabla dinamica-->
+        <script type="text/javascript" language="javascript" src="../js/CalendarioInstitucional.js"></script>   
+        <script type="text/javascript" language="javascript" src="../js/CalendarionAdmin.js"></script>   
+<body class="body" id="PrincipalView">
+    <fieldset>
+        <legend>{{Label}}</legend>
+        <div id="container">
+        <input type="hidden" id="id_Carga" name="id_Carga" />
+        <div class="demo_jui">
+            <div class="DTTT_container">
+                <button id="ToolTables_example_0" class="DTTT_button DTTT_button_text "  title="{{Nuevo}}">
+                    <span>{{Nuevo}}</span>                
+                </button>
+                <button id="ToolTables_example_1" class="DTTT_button DTTT_button_text DTTT_disabled"  title="{{Editar}}">
+                    <span>{{Editar}}</span>                
+                </button>
+                <button id="ToolTables_example_2" class="DTTT_button DTTT_button_text DTTT_disabled"  title="{{Cambia}}">
+                    <span>{{Cambia}}</span>
+                </button>
+                <button id="ToolTables_example_3" class="DTTT_button DTTT_button_text DTTT_disabled"  title="{{Eliminar}}">
+                    <span>{{Eliminar}}</span>
+                </button>
+                <button id="ToolTables_example_4" class="DTTT_button DTTT_button_text DTTT_disabled"  title="{{Visualizar}}">
+                    <span>{{Visualizar}}</span>
+                </button>
+            </div>
+            <div><!--style="display:none"-->
+                <input type="hidden" id="id_cargado" name="id_cargado" />
+            </div>
+            <table cellpadding="0" cellspacing="0" border="0" class="display" id="CalendarioInstitucional">
+                <thead>
+                    <tr>
+                        <th>N&deg;</th>   
+                        <th>{{Nombre}}</th>
+                        <th>{{Lugar}}</th>
+                        <th>{{Fecha}}</th>
+                        <th>{{Hora}}</th>
+                        <th>{{Usuario}}</th>
+                        <th>{{Estado}}</th>
+                    </tr>
+                </thead>
+                <tbody>  
+                    {{#Datos}}
+                     <tr onclick="CargarValor({{CalenadrioInstitucionalId}})" class="LogView" id="{{CalenadrioInstitucionalId}}">
+                        <td>{{num}}<input type="hidden" id="calendario_id" name="calendario_id" value="{{CalenadrioInstitucionalId}}"/></td>   
+                        <td>{{Evento}}</td>
+                        <td>{{Lugar}}</td>
+                        <td style="text-align:center">{{FechaInicial}} - {{FechaFin}}</td>
+                        <td style="text-align:center">{{HoraInicial}} - {{HoraFin}}</td>
+                        <td>{{NameUser}}</td>
+                        <td>{{NameEstado}}</td>
+                    </tr>     
+                    {{/Datos}}
+                </tbody>
+            </table>
+        </div>
+        </div> 
+    </fieldset>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<b>Log Item</b> 
+
+<span style='background:red'>El código centro de beneficio en la Fila No 1 NO existe en SALA verifique o comuníquese con Tecnología.</span>
+
+<span style='background:red'>El código centro de beneficio en la Fila No 2 NO existe en SALA verifique o comuníquese con Tecnología.</span>
+
+<span style='background:red'>El código centro de beneficio en la Fila No 3 NO existe en SALA verifique o comuníquese con Tecnología.</span>
+
+<span style='background:red'>El código centro de beneficio en la Fila No 4 NO existe en SALA verifique o comuníquese con Tecnología.</span>
+
+<span style='background:red'>El código centro de beneficio en la Fila No 5 NO existe en SALA verifique o comuníquese con Tecnología.</span>
+
+<span style='background:red'>El código centro de beneficio en la Fila No 6 NO existe en SALA verifique o comuníquese con Tecnología.</span>
+
+<span style='background:red'>El código centro de beneficio en la Fila No 7 NO existe en SALA verifique o comuníquese con Tecnología.</span>
+

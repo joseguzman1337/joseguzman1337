@@ -1,0 +1,67 @@
+{
+  "DescripcionDocumento" : "En este archivo se almacenan todas las query's usadas para las consultas que se realizan sobre el modulo Formulas de liquidacion / Rotaciones",
+  "sentencias": {
+
+    "sentencia_demo" : {
+      "sql" : "SELECT columns FROM Tabla WHERE columna= '%s' AND columna2 = %s ",
+      "descripcion" : "Texto alusivo al uso de la sentencia",
+      "argsEntrada" : {
+        "columna" : "argumento de validación uno debe ser una fecha",
+        "columna2" : "argumento de validación dos debe ser numerico",
+        "arg-n" : "descripción caracter de entrada para la sentencia"
+      },
+      "archivos" : {
+        "archivo_1" : "path/file.php",
+        "archivo_n" : "path/file.php"
+      }
+    },
+
+    "sentencia_01" : {
+      "sql" : "SELECT e.numerodocumento, e.idestudiantegeneral, e.nombresestudiantegeneral, e.apellidosestudiantegeneral, r.FechaIngreso, r.FechaEgreso, r.Totalhoras, r.TotalDias, r.codigocarrera, r.idsiq_convenio, r.IdUbicacionInstitucion, ui.NombreUbicacion, er.NombreEstado, r.JornadaId, r.codigomateria, i.NombreInstitucion, ui.DomicilioUbicacion, r.RotacionEstudianteId, r.codigoperiodo, J.Jornada FROM Convenios c INNER JOIN RotacionEstudiantes r ON r.idsiq_convenio = c.ConvenioId INNER JOIN InstitucionConvenios i ON i.InstitucionConvenioId = r.IdInstitucion INNER JOIN UbicacionInstituciones ui ON ui.InstitucionConvenioId = i.InstitucionConvenioId INNER JOIN estudiante es ON es.codigoestudiante = r.codigoestudiante INNER JOIN estudiantegeneral e ON e.idestudiantegeneral = es.idestudiantegeneral INNER JOIN EstadoRotaciones er ON er.EstadoRotacionId = r.EstadoRotacionId INNER JOIN JornadaRotaciones J ON J.JornadaRotacionesId = r.JornadaId WHERE r.codigoestado = %d AND r.EstadoRotacionId= %d AND r.codigoperiodo BETWEEN '%s' AND '%s' %s %s GROUP BY RotacionEstudianteId",
+      "descripcion" : "Busqueda de rotaciones realizadas por los estudiantes en las entidades definidas para tal fin",
+      "argsEntrada" : {
+        "codigoestado" : "Codigo de estado [100, 200]",
+        "EstadoRotacionId" : " debe ser el numero [1, 2, 3]",
+        "codigoperiodo_ini" : "debe ser numerico pertenece al inicio de un rango de codigos",
+        "codigoperiodo_fin" : "debe ser numerico pertenece al fin de un rango de codigos",
+        "ubicacionFacultad" : "segmento de sentencia agregada si varia el tipo de reporte",
+        "validacionAdd" : "agregación de condiciones si varia el tipo de reporte"
+      },
+      "archivos" : {
+        "archivo_1" : "serviciosacademicos/convenio/Formula/Formula.php"
+      }
+    },
+
+    "sentencia_02" : {
+      "sql" : "SELECT count(t0.RotacionEstudianteId) AS hallasgoz FROM RotacionEstudiantes t0 INNER JOIN estudiante t1 ON t0.codigoestudiante = t1.codigoestudiante WHERE t1.codigosituacioncarreraestudiante IN (105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 302, 303, 500, 501) AND t0.EstadoRotacionId = 1;",
+      "descripcion" : "Busqueda de rotaciones realizadas por los estudiantes con estados invalidos en las entidades definidas para tal fin",
+      "argsEntrada" : { },
+      "archivos" : {
+        "archivo_1" : "serviciosacademicos/convenio/Formula/Formula.php"
+      }
+    },
+
+    "sentencia_03" : {
+      "sql" : "UPDATE RotacionEstudiantes t0 JOIN  estudiante t1 ON t0.codigoestudiante = t1.codigoestudiante SET t0.EstadoRotacionId = 2, t0.codigoestado = 200 WHERE t1.codigosituacioncarreraestudiante IN (105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 302, 303, 500, 501);",
+      "descripcion" : "Deshabilitar rotaciones invalidas que se encuentren activas",
+      "argsEntrada" : { },
+      "archivos" : {
+        "archivo_1" : "serviciosacademicos/convenio/Formula/Formula.php"
+      }
+    },
+
+    "sentencia_04" : {
+      "sql" : "SELECT e.semestre, e.codigoperiodo, e.numerocohorte, e.codigoestudiante, eg.nombresestudiantegeneral, eg.apellidosestudiantegeneral, eg.numerodocumento, c.nombrecarrera, c.codigocarrera FROM estudiante e INNER JOIN estudiantegeneral eg ON eg.idestudiantegeneral = e.idestudiantegeneral INNER JOIN carrera c on c.codigocarrera = e.codigocarrera WHERE e.idestudiantegeneral = '%d' AND e.codigocarrera = '%d' AND e.codigosituacioncarreraestudiante NOT IN (105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 302, 303, 500, 501);",
+      "descripcion" : "Deshabilitar rotaciones invalidas que se encuentren activas",
+      "argsEntrada" : {
+        "idestudiantegeneral" : "PK entidad estudiantegeneral",
+        "codigocarrera" : "valor columna codigocarrera entidad estudiante"
+      },
+      "archivos" : {
+        "archivo_1" : "serviciosacademicos/convenio/Formula/Formula.php"
+      }
+    }
+
+
+  }
+}

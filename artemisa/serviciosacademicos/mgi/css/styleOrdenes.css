@@ -1,0 +1,64 @@
+*{
+    font-family:Arial;
+}
+
+h4{
+    color:#666666;
+    font-size:25px;
+}
+
+.menu-wrapper li{
+    border: dotted #666666 2px;
+}
+
+.menu-selected{
+    background-color: #B3B3B3;
+    color: #fff;
+}
+
+.myButton {
+	background-color:#fff;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border:1px solid #000;
+	display:inline-block;
+	cursor:pointer;
+	color:#000;
+	font-family:arial;
+	font-size:13px;
+	padding:6px 15px;
+	text-decoration:none;
+}
+.myButton:hover {
+	background-color:#b3b3b3;
+    color:#fff;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+
+
+.textbox { 
+   border: 1px dotted #000000; 
+   outline:0; 
+   height:25px; 
+   width: 130px; 
+} 
+
+ul#menu{
+    width:100%;
+	padding:0;
+}
+			
+ul#menu li{
+	display:inline-block;
+	padding: 5px 15px;
+    cursor: pointer;
+}
+
+.wrapper{
+    margin:auto;
+    width:50%;
+}

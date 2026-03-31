@@ -1,0 +1,35 @@
+/* Definición de estilos para sala */ 
+
+/* Estilo para la tipografia */
+BODY{ font-family:Arial, Helvetica, sans-serif; 
+font-weight: bold; 
+font-size:10px }
+FONT{ font-family:Arial, Helvetica, sans-serif }
+
+/* Estilo para tablas */
+
+/* Tablas con el fondo verde y titulos en negrilla */
+TABLE{ left:auto; 
+border-color:#003333; 
+font-family:Arial, Helvetica, sans-serif; 
+font-size:10px;}
+
+/* TD con color verde */
+TD#tituloverde{ background-color:#C5D5D6; 
+font-size:11px; 
+font-weight: bold; }
+/* TD con negrilla */
+TD#titulonegrilla{ font-size:11px; 
+font-weight: bold; }
+
+/* A href sin que se vaya con el href si no con el onclik, da la apariencia de link */
+A#aparencialink { border-bottom:1px solid blue;
+cursor:pointer; 
+font-size:11px; 
+font-weight: bold; 
+color:#000099}
+
+/* Estilo para parrafos */
+/* Este parrafo es para titulos */
+P { font-size:12px;
+font-weight: bold; }

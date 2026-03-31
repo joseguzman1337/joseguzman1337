@@ -1,0 +1,204 @@
+/*
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package io.trino.tests;
+
+import com.google.common.collect.ImmutableMap;
+import io.opentelemetry.api.trace.Span;
+import io.trino.Session;
+import io.trino.dispatcher.DispatchManager;
+import io.trino.execution.QueryInfo;
+import io.trino.execution.QueryManager;
+import io.trino.execution.QueryState;
+import io.trino.plugin.hive.TestingHivePlugin;
+import io.trino.server.BasicQueryInfo;
+import io.trino.server.SessionContext;
+import io.trino.server.protocol.Slug;
+import io.trino.spi.QueryId;
+import io.trino.spi.TrinoException;
+import io.trino.testing.DistributedQueryRunner;
+import io.trino.testing.QueryRunner;
+import io.trino.tests.tpch.TpchQueryRunner;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Timeout;
+import org.junit.jupiter.api.parallel.Execution;
+
+import java.nio.file.Path;
+
+import static io.trino.SessionTestUtils.TEST_SESSION;
+import static io.trino.SystemSessionProperties.QUERY_MAX_WRITE_PHYSICAL_SIZE;
+import static io.trino.execution.QueryRunnerUtil.createQuery;
+import static io.trino.execution.QueryRunnerUtil.waitForQueryState;
+import static io.trino.execution.QueryState.FAILED;
+import static io.trino.execution.QueryState.RUNNING;
+import static io.trino.spi.StandardErrorCode.EXCEEDED_CPU_LIMIT;
+import static io.trino.spi.StandardErrorCode.EXCEEDED_SCAN_LIMIT;
+import static io.trino.spi.StandardErrorCode.EXCEEDED_WRITE_LIMIT;
+import static io.trino.spi.StandardErrorCode.GENERIC_INTERNAL_ERROR;
+import static io.trino.testing.TestingSession.testSessionBuilder;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Fail.fail;
+import static org.junit.jupiter.api.parallel.ExecutionMode.SAME_THREAD;
+
+@Execution(SAME_THREAD) // run single threaded to avoid creating multiple query runners at once
+public class TestQueryManager
+{
+    @Test
+    @Timeout(60)
+    public void testFailQuery()
+            throws Exception
+    {
+        try (QueryRunner queryRunner = TpchQueryRunner.builder().build()) {
+            DispatchManager dispatchManager = queryRunner.getCoordinator().getDispatchManager();
+            QueryId queryId = dispatchManager.createQueryId();
+            dispatchManager.createQuery(
+                            queryId,
+                            Span.getInvalid(),
+                            Slug.createNew(),
+                            SessionContext.fromSession(TEST_SESSION),
+                            "SELECT * FROM lineitem")
+                    .get();
+
+            // wait until query starts running
+            while (true) {
+                QueryState state = dispatchManager.getQueryInfo(queryId).getState();
+                if (state.isDone()) {
+                    fail("unexpected query state: " + state);
+                }
+                if (state == RUNNING) {
+                    break;
+                }
+                Thread.sleep(100);
+            }
+
+            // cancel query
+            QueryManager queryManager = queryRunner.getCoordinator().getQueryManager();
+            queryManager.failQuery(queryId, new TrinoException(GENERIC_INTERNAL_ERROR, "mock exception"));
+            QueryInfo queryInfo = queryManager.getFullQueryInfo(queryId);
+            assertThat(queryInfo.getState()).isEqualTo(FAILED);
+            assertThat(queryInfo.getErrorCode()).isEqualTo(GENERIC_INTERNAL_ERROR.toErrorCode());
+            assertThat(queryInfo.getFailureInfo()).isNotNull();
+            assertThat(queryInfo.getFailureInfo().message()).isEqualTo("mock exception");
+        }
+    }
+
+    @Test
+    @Timeout(60)
+    public void testQueryCpuLimit()
+            throws Exception
+    {
+        try (QueryRunner queryRunner = TpchQueryRunner.builder().addExtraProperty("query.max-cpu-time", "1ms").build()) {
+            QueryId queryId = createQuery(queryRunner, TEST_SESSION, "SELECT COUNT(*) FROM lineitem");
+            waitForQueryState(queryRunner, queryId, FAILED);
+            QueryManager queryManager = queryRunner.getCoordinator().getQueryManager();
+            BasicQueryInfo queryInfo = queryManager.getQueryInfo(queryId);
+            assertThat(queryInfo.getState()).isEqualTo(FAILED);
+            assertThat(queryInfo.getErrorCode()).isEqualTo(EXCEEDED_CPU_LIMIT.toErrorCode());
+        }
+    }
+
+    @Test
+    @Timeout(60)
+    public void testQueryScanExceeded()
+            throws Exception
+    {
+        try (QueryRunner queryRunner = TpchQueryRunner.builder().addExtraProperty("query.max-scan-physical-bytes", "0B").build()) {
+            Session session = queryRunner.getDefaultSession();
+            QueryId queryId = createQuery(queryRunner, session, "SELECT * FROM system.runtime.nodes");
+            waitForQueryState(queryRunner, queryId, FAILED);
+            QueryManager queryManager = queryRunner.getCoordinator().getQueryManager();
+            BasicQueryInfo queryInfo = queryManager.getQueryInfo(queryId);
+            assertThat(queryInfo.getState()).isEqualTo(FAILED);
+            assertThat(queryInfo.getErrorCode()).isEqualTo(EXCEEDED_SCAN_LIMIT.toErrorCode());
+        }
+    }
+
+    @Test
+    @Timeout(60)
+    public void testQueryScanExceededSession()
+            throws Exception
+    {
+        try (QueryRunner queryRunner = TpchQueryRunner.builder().build()) {
+            Session session = Session.builder(queryRunner.getDefaultSession())
+                    .setSystemProperty("query_max_scan_physical_bytes", "0B")
+                    .build();
+            QueryId queryId = createQuery(queryRunner, session, "SELECT * FROM system.runtime.nodes");
+            waitForQueryState(queryRunner, queryId, FAILED);
+            QueryManager queryManager = queryRunner.getCoordinator().getQueryManager();
+            BasicQueryInfo queryInfo = queryManager.getQueryInfo(queryId);
+            assertThat(queryInfo.getState()).isEqualTo(FAILED);
+            assertThat(queryInfo.getErrorCode()).isEqualTo(EXCEEDED_SCAN_LIMIT.toErrorCode());
+        }
+    }
+
+    @Test
+    @Timeout(60)
+    public void testQueryWriteExceeded()
+            throws Exception
+    {
+        try (DistributedQueryRunner queryRunner = TpchQueryRunner.builder()
+                .addExtraProperty("query.max-write-physical-size", "0B")
+                .build()) {
+            Path hiveDataDir = queryRunner.getCoordinator().getBaseDataDir().resolve("hive_data");
+            queryRunner.installPlugin(new TestingHivePlugin(hiveDataDir));
+            queryRunner.createCatalog("hive", "hive", ImmutableMap.of(
+                    "hive.metastore", "file",
+                    "hive.metastore.catalog.dir", hiveDataDir.toFile().getAbsolutePath(),
+                    "fs.hadoop.enabled", "true"));
+
+            Session session = testSessionBuilder()
+                    .setCatalog("hive")
+                    .setSchema("test")
+                    .build();
+
+            queryRunner.execute(session, "CREATE SCHEMA IF NOT EXISTS test");
+            QueryId queryId = createQuery(queryRunner, session, "CREATE TABLE test_table AS SELECT * FROM tpch.tiny.orders");
+
+            waitForQueryState(queryRunner, queryId, FAILED);
+            QueryManager queryManager = queryRunner.getCoordinator().getQueryManager();
+            BasicQueryInfo queryInfo = queryManager.getQueryInfo(queryId);
+            assertThat(queryInfo.getState()).isEqualTo(FAILED);
+            assertThat(queryInfo.getErrorCode()).isEqualTo(EXCEEDED_WRITE_LIMIT.toErrorCode());
+        }
+    }
+
+    @Test
+    @Timeout(60)
+    public void testQueryWriteExceededSession()
+            throws Exception
+    {
+        try (DistributedQueryRunner queryRunner = TpchQueryRunner.builder().build()) {
+            Path hiveDataDir = queryRunner.getCoordinator().getBaseDataDir().resolve("hive_data");
+            queryRunner.installPlugin(new TestingHivePlugin(hiveDataDir));
+            queryRunner.createCatalog("hive", "hive", ImmutableMap.of(
+                    "hive.metastore", "file",
+                    "hive.metastore.catalog.dir", queryRunner.getCoordinator().getBaseDataDir().resolve("hive_data").toFile().getAbsolutePath(),
+                    "fs.hadoop.enabled", "true"));
+
+            Session session = testSessionBuilder()
+                    .setCatalog("hive")
+                    .setSchema("test")
+                    .setSystemProperty(QUERY_MAX_WRITE_PHYSICAL_SIZE, "0B")
+                    .build();
+
+            queryRunner.execute(session, "CREATE SCHEMA IF NOT EXISTS test");
+            QueryId queryId = createQuery(queryRunner, session, "CREATE TABLE test_table AS SELECT * FROM tpch.tiny.orders");
+
+            waitForQueryState(queryRunner, queryId, FAILED);
+            QueryManager queryManager = queryRunner.getCoordinator().getQueryManager();
+            BasicQueryInfo queryInfo = queryManager.getQueryInfo(queryId);
+            assertThat(queryInfo.getState()).isEqualTo(FAILED);
+            assertThat(queryInfo.getErrorCode()).isEqualTo(EXCEEDED_WRITE_LIMIT.toErrorCode());
+        }
+    }
+}

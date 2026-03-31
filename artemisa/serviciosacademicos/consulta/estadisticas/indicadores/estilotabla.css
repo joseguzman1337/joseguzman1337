@@ -1,0 +1,59 @@
+.estilocelda{
+/*#E9E9E9*/
+ border-left: 1px outset #A5A5A5;
+ border-top-width: 1px;
+ border-top-style: outset;
+ border-top-color: #A5A5A5;
+}
+.estilotitulo{
+/*#E9E9E9*/
+ border-right: 1px outset #A5A5A5;
+ border-bottom: 1px outset #A5A5A5;
+ border-top-width: 1px;
+ border-top-style: outset;
+ border-top-color: #A5A5A5;
+}
+.estilototalgeneral{
+	background-color: #FFEE53;
+}
+.estilototalarea{
+	background-color: #7EBAFF;
+}
+.estilototalfacultad{
+	background-color: #97D9FF;
+}
+.estilototalmodalidad{
+	background-color: #00D0F0;
+}
+.estilototalcarrera{
+	background-color: #FFFFFF;
+}
+.scroll {
+height:500px;
+width: 600px;
+overflow: auto;
+padding: 0px;
+}
+.scrolltitulo {
+height: 140px;
+width: 600px;
+background:#FFFFFF none repeat scroll 0 0;
+border-color:#CCCCCC;
+border-style:solid;
+border-width:1px 0;
+border-right: 1px outset #A5A5A5;
+border-bottom: 1px outset #A5A5A5;
+cursor:default;
+overflow:hidden;
+
+}
+.scrolltitulov {
+height: 500px;
+width: 363px;
+background:#FFFFFF none repeat scroll 0 0;
+border-right: 1px outset #A5A5A5;
+border-bottom: 1px outset #A5A5A5;
+cursor:default;
+overflow:hidden;
+
+}

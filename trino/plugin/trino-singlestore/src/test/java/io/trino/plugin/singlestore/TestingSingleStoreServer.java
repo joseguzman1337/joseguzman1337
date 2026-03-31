@@ -1,0 +1,132 @@
+/*
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package io.trino.plugin.singlestore;
+
+import com.google.common.collect.ImmutableSet;
+import org.testcontainers.containers.JdbcDatabaseContainer;
+import org.testcontainers.utility.DockerImageName;
+
+import java.io.Closeable;
+import java.io.IOException;
+import java.io.UncheckedIOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.Set;
+
+import static io.trino.testing.containers.TestContainers.startOrReuse;
+
+public class TestingSingleStoreServer
+        extends JdbcDatabaseContainer<TestingSingleStoreServer>
+{
+    // https://docs.singlestore.com/db/v9.0/support/singlestore-software-end-of-life-eol-policy
+    public static final String DEFAULT_VERSION = "8.7.2-29aa5175ea";
+    public static final String LATEST_TESTED_VERSION = "9.0.9";
+
+    // The singlestoredb-dev image must be compatible with the SingleStoreDB server version
+    // used at startup; mismatches may cause bootstrap or configuration failures.
+    // Please see https://github.com/singlestore-labs/singlestoredb-dev-image/blob/main/CHANGELOG.md for compatible versions.
+    private static final String DEFAULT_TAG = "ghcr.io/singlestore-labs/singlestoredb-dev:0.2.25"; // image comes with '8.7.2-29aa5175ea' SingleStore version
+    public static final String LATEST_TAG = "ghcr.io/singlestore-labs/singlestoredb-dev:0.2.62";
+
+    public static final Integer SINGLESTORE_PORT = 3306;
+
+    private final Closeable cleanup;
+
+    public TestingSingleStoreServer()
+    {
+        this(DEFAULT_VERSION, DEFAULT_TAG);
+    }
+
+    public TestingSingleStoreServer(String version, String tag)
+    {
+        super(DockerImageName.parse(tag));
+        addEnv("ROOT_PASSWORD", "memsql_root_password");
+        addEnv("SINGLESTORE_VERSION", version);
+        // reduce resource usage for tests (https://www.singlestore.com/forum/t/available-disk-space-error/3802/9)
+        addEnv("SINGLESTORE_SET_GLOBAL_DEFAULT_PARTITIONS_PER_LEAF", "4"); // defaults to 8
+        cleanup = startOrReuse(this);
+    }
+
+    @Override
+    public Set<Integer> getLivenessCheckPortNumbers()
+    {
+        return ImmutableSet.of(getMappedPort(SINGLESTORE_PORT));
+    }
+
+    @Override
+    protected void configure()
+    {
+        addExposedPort(SINGLESTORE_PORT);
+        setStartupAttempts(3);
+    }
+
+    @Override
+    public String getDriverClassName()
+    {
+        return "com.singlestore.jdbc.Driver";
+    }
+
+    @Override
+    public String getUsername()
+    {
+        return "root";
+    }
+
+    @Override
+    public String getPassword()
+    {
+        return "memsql_root_password";
+    }
+
+    @Override
+    public String getJdbcUrl()
+    {
+        return "jdbc:singlestore://" + getHost() + ":" + getMappedPort(SINGLESTORE_PORT);
+    }
+
+    @Override
+    public String getTestQueryString()
+    {
+        return "SELECT 1";
+    }
+
+    @Override
+    public void close()
+    {
+        try {
+            cleanup.close();
+        }
+        catch (IOException e) {
+            throw new UncheckedIOException(e);
+        }
+    }
+
+    public void execute(String sql)
+    {
+        execute(sql, getUsername(), getPassword());
+    }
+
+    public void execute(String sql, String user, String password)
+    {
+        try (Connection connection = DriverManager.getConnection(getJdbcUrl(), user, password);
+                Statement statement = connection.createStatement()) {
+            statement.execute(sql);
+        }
+        catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+}

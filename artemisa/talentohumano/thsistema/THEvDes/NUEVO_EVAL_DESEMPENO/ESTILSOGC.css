@@ -1,0 +1,51 @@
+@import url("webfonts/ChelseaMarket_Regular/stylesheet.css");
+.Estilo22 {color: #FFFFFF; font-weight: bold; }
+.Estilo4 {
+	font-family: Tahoma;
+	color: #FF0000;
+	font-weight: bold;
+	text-align: center;
+}
+.Estilo24 {
+	font-family: Tahoma;
+	color: #596221;
+	font-weight: bold;
+	font-size: 12px;
+	text-align: left;
+}
+.Estilo25 {
+	font-size: 18px;
+	color: #98BD0D;
+}
+.Estilo26 {color: #596221}
+.Estilo28 {font-family: Tahoma; color: #596221; font-weight: bold; font-size: 18px; }
+.Estilo30 {font-size: 18px}
+.Estilo33 {font-family: Tahoma; color: #596221; font-weight: bold; font-size: 14px; }
+.Estilo39 {
+	color: #CC3366;
+	font-weight: bold;
+	font-family: Tahoma;
+	font-size: 14px;
+}
+.Estilo39mediano {
+	color: #CC3366;
+	font-weight: bold;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 24px;
+}
+.Estilo39pequeno {
+	color: #CC3366;
+	font-weight: bold;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 12px;
+}
+.EstiloIrPrincipio {
+	color: #0000FF;
+	font-weight: bold;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 10px;
+}
+
+
+.Estilo40 {color: #CC3366; }
+.Estilo42 {color: #CC3366; font-size: 18px; }

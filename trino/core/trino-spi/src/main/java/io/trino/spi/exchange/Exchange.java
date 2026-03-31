@@ -1,0 +1,150 @@
+/*
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package io.trino.spi.exchange;
+
+import com.google.errorprone.annotations.ThreadSafe;
+import io.trino.spi.metrics.Metrics;
+
+import java.io.Closeable;
+import java.util.concurrent.CompletableFuture;
+
+@ThreadSafe
+public interface Exchange
+        extends Closeable
+{
+    enum SourceHandlesDeliveryMode
+    {
+        STANDARD,
+        EAGER
+    }
+
+    /**
+     * Get id of this exchange
+     */
+    ExchangeId getId();
+
+    /**
+     * Registers a new sink
+     *
+     * @param taskPartitionId uniquely identifies a dataset written to a sink
+     * @return {@link ExchangeSinkHandle} associated with the <code>taskPartitionId</code>.
+     * Must be passed to {@link #instantiateSink(ExchangeSinkHandle, int)} along with an attempt id to create a sink instance
+     */
+    ExchangeSinkHandle addSink(int taskPartitionId);
+
+    /**
+     * Called when no more sinks will be added with {@link #addSink(int)}.
+     * New sink instances for an existing sink may still be added with {@link #instantiateSink(ExchangeSinkHandle, int)}.
+     */
+    void noMoreSinks();
+
+    /**
+     * Registers a sink instance for an attempt.
+     * <p>
+     * Attempts are expected to produce the same data.
+     * <p>
+     * The implementation must ensure the data written by unsuccessful attempts is safely discarded.
+     * An attempt is considered successful when an {@link ExchangeSink} is closed with the {@link ExchangeSink#finish()} method.
+     * When a node dies before {@link ExchangeSink#finish()} is called or when an {@link ExchangeSink} is closed with the
+     * {@link ExchangeSink#abort()} method an attempt should be considered as unsuccessful.
+     * <p>
+     * When more than a single attempt is successful the implementation must pick one and discard the output of the other attempts
+     *
+     * @param sinkHandle - handle returned by <code>addSink</code>
+     * @param taskAttemptId - attempt id
+     * @return ExchangeSinkInstanceHandle to be sent to a worker that is needed to create an {@link ExchangeSink} instance using
+     * {@link ExchangeManager#createSink(ExchangeSinkInstanceHandle)}
+     */
+    CompletableFuture<ExchangeSinkInstanceHandle> instantiateSink(ExchangeSinkHandle sinkHandle, int taskAttemptId);
+
+    /**
+     * Update {@link ExchangeSinkInstanceHandle}. Update is requested by {@link ExchangeSink}.
+     * The updated {@link ExchangeSinkInstanceHandle} is expected to be set by {@link ExchangeSink#updateHandle(ExchangeSinkInstanceHandle)}.
+     *
+     * @param sinkHandle - handle returned by <code>addSink</code>
+     * @param taskAttemptId - attempt id
+     * @return updated handle
+     */
+    CompletableFuture<ExchangeSinkInstanceHandle> updateSinkInstanceHandle(ExchangeSinkHandle sinkHandle, int taskAttemptId);
+
+    /**
+     * Called by the engine when an attempt finishes successfully.
+     * <p>
+     * This method is expected to be lightweight. An implementation shouldn't perform any long running blocking operations within this method.
+     */
+    void sinkFinished(ExchangeSinkHandle sinkHandle, int taskAttemptId);
+
+    /**
+     * Called by the engine when all required sinks finished successfully.
+     * While some source tasks may still be running and writing to their sinks the data written to these sinks could be safely ignored after this method is invoked.
+     */
+    void allRequiredSinksFinished();
+
+    /**
+     * Returns an {@link ExchangeSourceHandleSource} instance to be used to enumerate {@link ExchangeSourceHandle}s.
+     *
+     * @return Future containing a list of {@link ExchangeSourceHandle} to be sent to a
+     * worker that is needed to create an {@link ExchangeSource} using {@link ExchangeManager#createSource()}
+     */
+    ExchangeSourceHandleSource getSourceHandles();
+
+    /**
+     * Change {@link ExchangeSourceHandleSource} delivery mode.
+     * <p>
+     * In {@link SourceHandlesDeliveryMode#STANDARD} mode the handles are delivered at
+     * pace optimized for throughput.
+     * <p>
+     * In {@link SourceHandlesDeliveryMode#EAGER} the handles are delivered as soon as possible even if that would mean
+     * each handle corresponds to smaller amount of data, which may be not optimal from throughput.
+     * <p>
+     * There are no strict constraints regarding when this method can be called. When called, the newly selected delivery mode
+     * will apply to all {@link ExchangeSourceHandleSource} instances already obtained via {@link #getSourceHandles()} method.
+     * As well as to those yet to be obtained.
+     * <p>
+     * Support for this method is optional and best-effort.
+     */
+    default void setSourceHandlesDeliveryMode(SourceHandlesDeliveryMode sourceHandlesDeliveryMode) {}
+
+    @Override
+    void close();
+
+    /**
+     * Returns a snapshot of the current exchange metrics.
+     * <p>
+     * This method can be called at any time during the exchange lifecycle, whether the exchange
+     * is open, actively processing data, or closed. It returns the current state of metrics
+     * at the time of invocation.
+     * <p>
+     * The metrics include exchange-specific measurements tied to interface implementation such as:
+     * <ul>
+     *   <li>Number of sinks and source handles created
+     *   <li>Data volume processed (bytes written/read)
+     *   <li>Number of files or chunks exchanged
+     * </ul>
+     * <p>
+     * <b>Implementation requirements:</b>
+     * Implementations must ensure this method executes with minimal overhead and completes quickly.
+     * Metrics should be maintained incrementally during exchange operations and this method should
+     * only return a snapshot of already-collected metrics. Implementations must not perform expensive
+     * operations such as I/O, network calls, or complex computations within this method.
+     * <p>
+     * The default implementation returns empty metrics.
+     *
+     * @return the current metrics snapshot, never null
+     */
+    default Metrics getMetrics()
+    {
+        return Metrics.EMPTY;
+    }
+}

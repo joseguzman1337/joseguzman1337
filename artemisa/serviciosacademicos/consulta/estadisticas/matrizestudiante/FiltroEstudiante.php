@@ -1,0 +1,293 @@
+<?php
+function Filtro($filtroCarreras="") {
+    global $db;
+    ?>
+<form action="" method="post" name="f1" onsubmit="return validar(this)">
+    <table border="1" cellpadding="1" cellspacing="0" bordercolor="#E9E9E9">
+        <tr>
+            <td colspan="2"><label id="labelresaltado">Seleccione los filtros que desee para efectuar la consulta y oprima el botón Enviar</label></td>
+        </tr>
+        <tr>
+            <td id="tdtitulogris">
+                Nivel Acad&eacute;mico<label id="labelresaltado"></label>
+            </td>
+            <td>
+                    <?php
+                    $query_modalidad = "SELECT codigomodalidadacademicasic, nombremodalidadacademicasic
+FROM modalidadacademicasic
+order by 1";
+                    $modalidad = $db->Execute($query_modalidad);
+                    $totalRows_modalidad = $modalidad->RecordCount();
+                    $row_modalidad = $modalidad->FetchRow();
+                    ?>
+                <select name="nacodigomodalidadacademicasic" id="modalidad" onChange="document.f1.submit()">
+                    <option value=""<?php if (!(strcmp("", $_REQUEST['nacodigomodalidadacademicasic']))) {echo "SELECTED";} ?>>
+                        *Todos
+                    </option>
+                    <option value="0"<?php if (!(strcmp("0", $_REQUEST['nacodigomodalidadacademicasic'])) || !isset($_REQUEST['nacodigomodalidadacademicasic'])) {echo "SELECTED";} ?>>
+                        Seleccionar
+                    </option>
+                        <?php
+                        do {
+                            ?>
+                    <option value="<?php echo $row_modalidad['codigomodalidadacademicasic']?>" <?php if (!(strcmp($row_modalidad['codigomodalidadacademicasic'], $_REQUEST['nacodigomodalidadacademicasic']))) {echo "SELECTED";} ?>>
+                                <?php echo $row_modalidad['nombremodalidadacademicasic']?>
+                    </option>
+                        <?php
+                        }
+                        while($row_modalidad = $modalidad->FetchRow());
+                        ?>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td id="tdtitulogris">
+                Area Disciplinar<label id="labelresaltado"></label>
+            </td>
+            <td>
+                    <?php
+                    $query_areadisciplinar = "SELECT codigoareadisciplinar, nombreareadisciplinar
+FROM areadisciplinar
+order by 1";
+                    $areadisciplinar = $db->Execute($query_areadisciplinar);
+                    $totalRows_areadisciplinar = $areadisciplinar->RecordCount();
+                    $row_areadisciplinar = $areadisciplinar->FetchRow();
+                    ?>
+                <select name="nacodigoareadisciplinar" id="modalidad" onChange="document.f1.submit()">
+                    <option value=""<?php if (!(strcmp("", $_REQUEST['nacodigoareadisciplinar']))) {echo "SELECTED";} ?>>
+                        *Todas
+                    </option>
+                    <option value="0"<?php if (!(strcmp("0", $_REQUEST['nacodigoareadisciplinar'])) || !isset($_REQUEST['nacodigoareadisciplinar'])) {echo "SELECTED";} ?>>
+                        Seleccionar
+                    </option>
+                        <?php
+                        do {
+                            ?>
+                    <option value="<?php echo $row_areadisciplinar['codigoareadisciplinar']?>" <?php if (!(strcmp($row_areadisciplinar['codigoareadisciplinar'], $_REQUEST['nacodigoareadisciplinar']))) {echo "SELECTED";} ?>>
+                                <?php echo $row_areadisciplinar['nombreareadisciplinar']?>
+                    </option>
+                        <?php
+                        }
+                        while($row_areadisciplinar = $areadisciplinar->FetchRow());
+                        ?>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td id="tdtitulogris">
+                Nombre del Programa<label id="labelresaltado"></label>
+            </td>
+            <td>
+                    <?php
+                    $fecha = date("Y-m-d G:i:s",time());
+                    if(!isset($_REQUEST['nacodigoareadisciplinar']) || $_REQUEST['nacodigoareadisciplinar'] != "") {
+                        $filtroArea = " and f.codigoareadisciplinar = '".$_REQUEST['nacodigoareadisciplinar']."' ";
+                    }
+                    if(!isset($_REQUEST['nacodigomodalidadacademicasic']) || $_REQUEST['nacodigomodalidadacademicasic'] != "") {
+                        $filtroModalidad = " and c.codigomodalidadacademicasic = '".$_REQUEST['nacodigomodalidadacademicasic']."' ";
+                    }
+                    if($filtroCarreras == "in()") {
+                        $filtroCarreras = "";
+                    }
+                    if($filtroCarreras != "") {
+                        $filtroCarreras = " and c.codigocarrera $filtroCarreras";
+                    }
+                    $query_carrera = "SELECT distinct c.nombrecortocarrera as nombrecarrera, c.codigocarrera
+FROM carrera c, facultad f
+where c.codigofacultad = f.codigofacultad
+$filtroArea
+$filtroModalidad
+$filtroCarreras
+order by 1";
+                    $carrera = $db->Execute($query_carrera);
+                    $totalRows_carrera = $carrera->RecordCount();
+                    //$row_carrera = $carrera->FetchRow();
+                    ?>
+                <select name="nacodigocarrera" id="especializacion">
+                    <option value="" <?php if (!(strcmp("", $_REQUEST['nacodigocarrera']))) {echo "SELECTED";} ?>>
+                        *Todas
+                    </option>
+                    <option value="0" <?php if (!(strcmp("0", $_REQUEST['nacodigocarrera'])) || !isset($_REQUEST['nacodigocarrera'])) {echo "SELECTED";} ?>>
+                        Seleccionar
+                    </option>
+                        <?php
+                        while($row_carrera = $carrera->FetchRow()) {
+                        //$algo2 = ereg_replace("^.+ - ","",$row_car['codigocarrera']." - ".$row_car['codigoperiodo']);
+                            ?>
+                    <option value="<?php echo $row_carrera['codigocarrera'];?>" <?php if (!(strcmp($row_carrera['codigocarrera'], $_REQUEST['nacodigocarrera']))) {echo "SELECTED";} ?>>
+                                <?php echo $row_carrera['nombrecarrera']; ?>
+                    </option>
+                        <?php
+                        }
+
+                        ?>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td id="tdtitulogris">
+                Campo del Formulario: <br><label id="labelresaltado">(Seleccione los campos del formulario que desea visualizar, <br>si quiere más de uno use control y haga la selección, <br>si quiere todos de clic en "*Todos los datos",<br> despues de hacer la selección de clic en el botón enviar)</label>
+            </td>
+            <td><select id="nacampoformulario" name="nacampoformulario[]" size="12" multiple="multiple">
+                    <?php
+                    $selected = "";
+                    if(in_array('todos',$_REQUEST['nacampoformulario']))
+                        $selected = "selected";
+                    ?>
+                    <option value="todos" <?php echo $selected;?>>*Todos los datos</option>
+                    <?php
+                    $selected = "";
+                    if(in_array('estrato',$_REQUEST['nacampoformulario']))
+                        $selected = "selected";
+                    ?>
+                    <option value="estrato" <?php echo $selected;?>>Estrato</option>
+                    <?php
+                    $selected = "";
+                    if(in_array('edad',$_REQUEST['nacampoformulario']))
+                        $selected = "selected";
+                    ?>
+                    <option value="edad" <?php echo $selected;?>>Rango De Edad</option>
+                    <?php
+                    $selected = "";
+                    if(in_array('genero',$_REQUEST['nacampoformulario']))
+                        $selected = "selected";
+                    ?>
+                    <option value="genero" <?php echo $selected;?>>Género</option>
+                    <?php
+                    $selected = "";
+                    if(in_array('niveleducativo',$_REQUEST['nacampoformulario']))
+                        $selected = "selected";
+                    ?>
+                    <option value="niveleducativo" <?php echo $selected;?>>Nivel educativo</option>
+                    <?php
+                    $selected = "";
+                    if(in_array('icfes',$_REQUEST['nacampoformulario']))
+                        $selected = "selected";
+                    ?>
+                    <option value="icfes" <?php echo $selected;?>>Puesto Icfes</option>
+                    <?php
+                    $selected = "";
+                    if(in_array('nacionalidad',$_REQUEST['nacampoformulario']))
+                        $selected = "selected";
+                    ?>
+                    <option value="nacionalidad" <?php echo $selected;?>>Nacionalidad</option>
+                    <?php
+                    $selected = "";
+                    if(in_array('participacionacademica',$_REQUEST['nacampoformulario']))
+                        $selected = "selected";
+                    ?>
+                    <option value="participacionacademica" <?php echo $selected;?>>Participación Académica</option>
+                    <?php
+                    $selected = "";
+                    if(in_array('participacioninvestigacion',$_REQUEST['nacampoformulario']))
+                        $selected = "selected";
+                    ?>
+                    <option value="participacioninvestigacion" <?php echo $selected;?>>Participación Investigación</option>
+                    <?php
+                    $selected = "";
+                    if(in_array('proyeccionsocial',$_REQUEST['nacampoformulario']))
+                        $selected = "selected";
+                    ?>
+                    <option value="proyeccionsocial" <?php echo $selected;?>>Proyección social</option>
+                    <?php
+                    $selected = "";
+                    if(in_array('participacionbienestar',$_REQUEST['nacampoformulario']))
+                        $selected = "selected";
+                    ?>
+                    <option value="participacionbienestar" <?php echo $selected;?>>Participacion bienestar</option>
+                    <?php
+                    $selected = "";
+                    if(in_array('participaciongobierno',$_REQUEST['nacampoformulario']))
+                        $selected = "selected";
+                    ?>
+                    <option value="participaciongobierno" <?php echo $selected;?>>Participacion gobierno</option>
+                    <?php
+                    $selected = "";
+                    if(in_array('gobiernouniversitario',$_REQUEST['nacampoformulario']))
+                        $selected = "selected";
+                    ?>
+                    <option value="gobiernouniversitario" <?php echo $selected;?>>Gobierno Universitario</option>
+                    <?php
+                    $selected = "";
+                    if(in_array('asociacion',$_REQUEST['nacampoformulario']))
+                        $selected = "selected";
+                    ?>
+                    <option value="asociacion" <?php echo $selected;?>>Asociaciones</option>
+                    <?php
+                    $selected = "";
+                    if(in_array('participaciongestion',$_REQUEST['nacampoformulario']))
+                        $selected = "selected";
+                    ?>
+                    <option value="participaciongestion" <?php echo $selected;?>>Participacion gestion</option>
+                    <?php
+                    $selected = "";
+                    if(in_array('estimulos',$_REQUEST['nacampoformulario']))
+                        $selected = "selected";
+                    ?>
+                    <option value="estimulos" <?php echo $selected;?>>Estímulos, reconocimientos y distinciones</option>
+                    <?php
+                    $selected = "";
+                    if(in_array('financiacion',$_REQUEST['nacampoformulario']))
+                        $selected = "selected";
+                    ?>
+                    <option value="financiacion" <?php echo $selected;?>>Financiación</option>
+                    <?php
+                    $selected = "";
+                    if(in_array('estado',$_REQUEST['nacampoformulario']))
+                        $selected = "selected";
+                    ?>
+                    <option value="estado" <?php echo $selected;?>>Estado</option>
+                    <?php
+                    $selected = "";
+                    if(in_array('historicos',$_REQUEST['nacampoformulario']))
+                        $selected = "selected";
+                    ?>
+                    <option value="historicos" <?php echo $selected;?>>Datos Históricos</option>
+                </select>
+            </td>
+        </tr>
+    </table>
+    <br>
+    <input type="submit" value="Enviar" name="naenviar" onclick="">
+    <input type="button" value="Restablecer" onClick="window.location.href=''">
+
+    <br><br>
+</form>
+<script type="text/javascript">
+    function validar(formulario) {
+        var indice1 = formulario.nacodigomodalidadacademicasic.selectedIndex;
+        var indice2 = formulario.nacodigoareadisciplinar.selectedIndex;
+        var indice3 = formulario.nacodigocarrera.selectedIndex;
+        //var indice4 = formulario.nacampoformulario.selectedIndex;
+        var selObj = document.getElementById('nacampoformulario');
+        var i;
+        var count = 0;
+        for (i=0; i<selObj.options.length; i++) {
+            if (selObj.options[i].selected) {
+                count++;
+                break;
+            }
+        }
+
+        //alert(selObj.options.length);
+        if(formulario.nacodigomodalidadacademicasic.options[indice1].value == '0') {
+            alert('Debe seleccionar un nivel académico');
+            return false;
+        }
+        if(formulario.nacodigoareadisciplinar.options[indice2].value == '0') {
+            alert('Debe seleccionar una área disciplinar');
+            return false;
+        }
+        if(formulario.nacodigocarrera.options[indice3].value == '0') {
+            alert('Debe seleccionar una carrera');
+            return false;
+        }
+        if(count == 0) {
+            alert('Debe seleccionar un campo para generar la matriz');
+            return false;
+        }
+    }
+</script>
+<?php
+}
+?>

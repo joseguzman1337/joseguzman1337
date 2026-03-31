@@ -1,0 +1,31 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Documento sin t&iacute;tulo</title>
+
+<script LANGUAGE="JavaScript1.1">
+function derecha(e) {
+	if (navigator.appName == 'Netscape' && (e.which == 3 || e.which == 2)){
+		alert('Botón derecho inhabilitado');
+		return false;
+	}
+
+	else if (navigator.appName == 'Microsoft Internet Explorer' && (event.button == 2)){
+		alert('Botón derecho inhabilitado');
+	}
+}
+document.onmousedown=derecha
+
+function pagina()
+{
+    parent.window.location.href="http://www.uelbosque.edu.co";
+}
+</script>
+
+</head>
+
+<body bgcolor="#FFA600" leftmargin="0" topmargin="0" oncontextmenu="return false">
+    <a href="http://www.uelbosque.edu.co" target="_parent" style="color: #FFA600">   <img src="imagesAlt2/banner.jpg" width="1024" height="92" ></a>
+</body>
+</html>

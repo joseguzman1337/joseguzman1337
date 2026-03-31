@@ -1,0 +1,61 @@
+<?php
+function combo_valida_post_bd($nombrevar,$nombreobjeto,$dato,$etiqueta_dato,$accion,$where,$validasino,$mensaje,$tablaexistente,$indicetablaexistente,$valorindicetablaexistente,$datotablaexistente,$where2="")
+{
+	//DB_DataObject::debugLevel(5);
+	$$nombreobjeto = DB_DataObject::factory($nombreobjeto);
+	if($where!=''){$$nombreobjeto->whereADD($where);};
+	$$nombreobjeto->orderBy($etiqueta_dato);
+	$$nombreobjeto->get('','*');
+	$$tablaexistente = DB_DataObject::factory($tablaexistente);
+	if($where2!=''){$$tablaexistente->whereADD($where2);};
+	$$tablaexistente->get($indicetablaexistente,$valorindicetablaexistente);
+	$arreglogrupomateria1=array();
+	do {
+		if ($$tablaexistente->$indicetablaexistente==$valorindicetablaexistente){
+			$arreglogrupomateria1['valor'] = $$tablaexistente->$datotablaexistente;			
+		}
+	} while ($$tablaexistente->fetch());
+?>
+<select name="<?php echo $nombrevar?>" id="<?php echo $nombrevar?>" <?php echo $accion?>>
+              <option value="">Seleccionar</option>
+              <?php
+              do {
+?>
+              <option value="<?php echo $$nombreobjeto->$dato;?>"<?php 
+  				if( ($where!='' && $$nombreobjeto->$dato==$$tablaexistente->$datotablaexistente) || ($arreglogrupomateria1['valor']==$$nombreobjeto->$dato) )
+					{
+						echo "selected";
+					}
+			  ?>><?php echo $$nombreobjeto->$etiqueta_dato;?></option>
+              <?php
+              } while ($$nombreobjeto->fetch());
+
+?>
+</select>
+<?php 
+//$valido['mensaje'] = "OK";
+$valido['valido'] = 1;
+
+if($validasino=='si'){
+	//if(isset($_POST[$nombrevar])){
+		if($_POST[$nombrevar] == '')
+		{
+			/* echo '<script language="JavaScript">alert("'.$mensaje.'")</script>';  */
+			echo "
+		<style type='text/css'>
+		<!--
+			.Estilo99 {
+			font-size: 18px;
+			color: #FF0000;
+					}
+		-->
+		</style>
+		<span class='Estilo99'>*</span>";
+			$valido['mensaje']=$mensaje;
+			$valido['valido'] = 0;
+		}
+		//print_r($valido);
+	//}
+}
+return $valido;
+} ?>

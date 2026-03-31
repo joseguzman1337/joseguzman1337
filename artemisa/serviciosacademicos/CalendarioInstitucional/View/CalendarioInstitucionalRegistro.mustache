@@ -1,0 +1,164 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="../../css/demo_page.css" type="text/css" />
+    <link rel="stylesheet" href="../../css/demo_table_jui.css" type="text/css" />
+    <link rel="stylesheet" href="../../css/themes/smoothness/jquery-ui-1.8.4.custom.css" type="text/css" />
+    <link rel="stylesheet" href="../../mgi/css/styleDatos.css" type="text/css" />
+    <link rel="stylesheet" href="../../css/themes/smoothness/jquery-ui-1.8.4.custom.css" type="text/css" />
+    <link rel="stylesheet" href="../../mgi/css/styleMonitoreo.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../EspacioFisico/css/styleMustache.css" />
+    <link rel="stylesheet" href="../../EspacioFisico/css/jquery.clockpick.1.2.9.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../EspacioFisico/asignacionSalones/css/jquery.datetimepicker.css"/>
+
+</head>
+
+<script type="text/javascript" language="javascript" src="../../mgi/js/jquery.js"></script>
+<script type="text/javascript" language="javascript" src="../../mgi/js/jquery-ui-1.8.21.custom.min.js"></script>
+<script type="text/javascript" src="../../EspacioFisico/asignacionSalones/js/jquery.datetimepicker.js"></script>
+<script type="text/javascript" language="javascript" src="../../EspacioFisico/js/jquery.bpopup.min.js"></script>
+<script type="text/javascript" language="javascript" src="../../EspacioFisico/js/jquery.clockpick.1.2.9.js"></script>
+<script type="text/javascript" language="javascript" src="../../EspacioFisico/js/jquery.clockpick.1.2.9.min.js"></script>
+<script type="text/javascript" language="javascript" src="../../mgi/js/functions.js"></script>
+<script type="text/javascript" language="javascript" src="../../mgi/js/functionsMonitoreo.js"></script>
+<script type="text/javascript" language="javascript" src="../js/CalendarioInstitucional.js"></script>
+
+
+
+<body class="body">
+    <fieldset>
+        <legend>{{Label}}</legend>
+        <form name="CalendarioCreate" id="CalendarioCreate" class="CalendarioCreate" method="post">
+            <input type="hidden" id="CalenadrioInstitucionalId" name="CalenadrioInstitucionalId" value="{{CalenadrioInstitucionalId}}" />
+            <input type="hidden" name="areaSeleccionada" id="areaSeleccionada" value="{{areaSeleccionada}}" />
+            <table>
+                <thead>
+                    <tr>
+                        <th style="text-align:left" colspan="2">
+                            <samp style="font-size:9px">{{msn}}</samp>&nbsp;<samp style="font-size:9px; color:red">*</samp>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th style="text-align:left">{{label_1}} <samp style="color:red; font-size:0.2 em">*</samp></th>
+                        <th>
+                            <input type="text" id="nameEvento" name="nameEvento"   autocomplete="off"  placeholder="{{label_1}}" size="70" style="text-align:center" value="{{Evento}}" />
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                       <td><strong>{{label_2}}<samp style="color:red; font-size:0.2 em">*</samp></strong></td>
+                        <td>
+                             <input type="text" id="lugar" name="lugar"  autocomplete="off"  placeholder="{{label_2}}" size="70" style="text-align:center" onkeypress="return val_textoNumero(event)" value="{{Lugar}}" />
+                        </td>
+                    </tr>
+                    <tr>
+                       <td><strong>Responsable<samp style="color:red; font-size:0.2 em">*</samp></strong></td>
+                        <td>
+                             <input type="text" id="responsable" name="responsable"  autocomplete="off"  placeholder="Responsable" size="70" style="text-align:center" onkeypress="return val_texto(event)" value="{{Responsable}}" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>{{label_3}}<br/>{{label_3_1}}<br/>{{label_3_2}}<samp style="color:red; font-size:0.2 em">*</samp></strong></td>
+                        <td>
+                            <select name="area" id="area" class="chosen-select" data-placeholder="Seleccione">
+                                {{#Area}}
+                                <option value="{{codigocarrera}}">{{nombrecarrera}}</option>
+                                {{/Area}}
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                       <td><strong>{{label_4}}<samp style="color:red; font-size:0.2 em">*</samp></strong></td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                       <td><strong>{{label_5}}<samp style="color:red; font-size:0.2 em">*</samp></strong></td>
+                        <td>
+                             <input type="text" id="fecha_1" name="fecha_1"   autocomplete="off" readonly="readonly" size="12" maxlength="10" style="text-align:center" value="{{FechaInicial}}" />
+                        </td>
+                    </tr>
+                    <tr>
+                       <td><strong>{{label_6}}<samp style="color:red; font-size:0.2 em">*</samp></strong></td>
+                        <td>
+                             <input type="text" id="fecha_2" name="fecha_2"  autocomplete="off" readonly="readonly" size="12" maxlength="10" style="text-align:center" value="{{FechaFin}}" />
+                        </td>
+                    </tr>
+                    <tr>
+                       <td><strong>{{label_7}}<samp style="color:red; font-size:0.2 em">*</samp></strong></td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                       <td><strong>{{label_5}}<samp style="color:red; font-size:0.2 em">*</samp></strong></td>
+                        <td>
+                             <input type="text" id="hora_1" name="hora_1"  size="5"  autocomplete="off" readonly="readonly" maxlength="5" style="text-align:center" value="{{HoraInicial}}" />
+                        </td>
+                    </tr>
+                    <tr>
+                       <td><strong>{{label_6}}<samp style="color:red; font-size:0.2 em">*</samp></strong></td>
+                        <td>
+                             <input type="text" id="hora_2" name="hora_2"  size="5"  autocomplete="off" readonly="readonly" maxlength="5" style="text-align:center" value="{{HoraFin}}" />
+                        </td>
+                    </tr>
+                    <tr style="{{Style}}">
+                        <td><strong>Imagen Actual</strong></td>
+                        <td>&nbsp;<input type="hidden" id="url" name="url" value="{{HiddenUrl}}" /></td>
+                    </tr>
+                    <tr style="{{Style}}">
+                        <td colspan="2" class="editimagen">
+                            <img src="{{ImagenUrl}}" width="300"  />
+                        </td>
+                    </tr>
+                    <tr>
+                       <td><strong>{{label_8}}&nbsp;Max 200 KB</strong></td>
+                        <td>
+                             <div class="showImage">
+                                <input type="file" id="imagenEvento" name="imagenEvento"  />
+                            </div>
+                            <div class="messages"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                       <td><strong>{{label_9}}<samp style="color:red; font-size:0.2 em">*</samp></strong></td>
+                        <td>
+                             <textarea cols="50" rows="20" id="Observacion" name="Observacion" placeholder="{{label_9}}..." onkeypress="return val_textoNumero(event)">{{Descripcion}}</textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                       <td><strong>{{label_10}}<samp style="color:red; font-size:0.2 em">*</samp></strong></td>
+                        <td>
+                             <select id="EstadoEvento" name="EstadoEvento" >
+                                 {{#Tipo}}
+                                 <option value="{{val}}">{{name}}</option>
+                                 {{/Tipo}}
+                             </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <table>
+                                <tr>
+                                    <td>
+                                        <button type="button" title="Guardar Evento" id="{{button}}" name="{{button}}" class="butonView" >Guardar Evento<img src="../../mgi/images/success.png" width="20" /></button>
+                                        <input type="hidden" id="action_ID" name="action_ID" />
+                                    </td>
+                                    <td><input type="button" value="Salir" id="Salir" style="{{StyleButon}}" /></td>
+                                    <td>
+                                        <button type="button" title="Nuevo Evento" id="Nuevo" name="Nuevo" style="{{StyleButon}}">Nuevo Evento<img src="../../mgi/images/add.png" width="20" /></button>
+                                    </td>
+                                </tr>
+                            </table>
+                            &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+    </fieldset>
+</body>
+
+</html>
+

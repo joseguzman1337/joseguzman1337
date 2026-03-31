@@ -1,0 +1,16 @@
+.Estilo1 {font-family: Tahoma; font-size: 11px;}
+.Estilo2 {font-family: Tahoma; font-size: 12px; font-weight: bold;}
+.Estilo3 {font-family: Tahoma; font-size: 14px; font-weight: bold;}
+.Estilo4 {color: #FF0000;}
+.Estilo5 {font-family: Tahoma; font-size: 12px;}
+.verdoso {
+	background-color: #CCDADD;
+	font-family: Tahoma; font-size: 12px; font-weight: bold;
+}
+.amarrillento {
+	background-color: #FEF7ED;
+	font-family: Tahoma; font-size: 11px;
+}
+.rojo {color: #FF0000}
+.verde {background-color: #CCDADD;}
+
