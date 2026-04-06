@@ -12,7 +12,7 @@
     "flow-bin": "^0.241.0",
     "prettier": "3.3.3",
     "terser-webpack-plugin": "^5.3.10",
-    "webpack": "^5.93.0",
+    "webpack": "^5.105.4",
     "webpack-cli": "^5.1.4"
   },
   "dependencies": {
