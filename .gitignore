@@ -2,3 +2,4 @@
 # macOS system files
 .DS_Store
 ._*
+node_modules/
