@@ -1,13 +1,13 @@
 'use strict'
 
-var { v4: uuid } = require('uuid')
+var { randomUUID } = require('crypto')
 var CombinedStream = require('combined-stream')
 var isstream = require('isstream')
 var Buffer = require('safe-buffer').Buffer
 
 function Multipart (request) {
   this.request = request
-  this.boundary = uuid()
+  this.boundary = randomUUID()
   this.chunked = false
   this.body = null
 }

@@ -1,26 +1,21 @@
-# restore-cursor [![Build Status](https://travis-ci.org/sindresorhus/restore-cursor.svg?branch=master)](https://travis-ci.org/sindresorhus/restore-cursor)
+# restore-cursor
 
 > Gracefully restore the CLI cursor on exit
 
-Prevent the cursor you've hidden interactively from remaining hidden if the process crashes.
+Prevent the cursor you have hidden interactively from remaining hidden if the process crashes.
 
+It does nothing if run in a non-TTY context.
 
 ## Install
 
+```sh
+npm install restore-cursor
 ```
-$ npm install restore-cursor
-```
-
 
 ## Usage
 
 ```js
-const restoreCursor = require('restore-cursor');
+import restoreCursor from 'restore-cursor';
 
 restoreCursor();
 ```
-
-
-## License
-
-MIT © [Sindre Sorhus](https://sindresorhus.com)
