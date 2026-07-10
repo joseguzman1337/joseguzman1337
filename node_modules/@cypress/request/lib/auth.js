@@ -1,7 +1,7 @@
 'use strict'
 
 var caseless = require('caseless')
-var { v4: uuid } = require('uuid')
+var { randomUUID } = require('crypto')
 var helpers = require('./helpers')
 
 var md5 = helpers.md5
@@ -89,7 +89,7 @@ Auth.prototype.digest = function (method, path, authHeader) {
 
   var qop = /(^|,)\s*auth\s*($|,)/.test(challenge.qop) && 'auth'
   var nc = qop && '00000001'
-  var cnonce = qop && uuid().replace(/-/g, '')
+  var cnonce = qop && randomUUID().replace(/-/g, '')
   var ha1 = ha1Compute(challenge.algorithm, self.user, challenge.realm, self.pass, challenge.nonce, cnonce)
   var ha2 = md5(method + ':' + path)
   var digestResponse = qop
