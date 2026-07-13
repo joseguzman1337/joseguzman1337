@@ -1,8 +1,0 @@
-Creacion de el usuarios de MySQL para el uso de la Base de Datos
-Debe completar los campos para poder continuar.
-Una nueva cuenta de acesso a la base de datos de MySQL será creada
-Nombre de usuario de
-Celsius
-Contraseña para el usuário de Celsius
-Confirme a contraseñas de usuario Celsius
-Continuar
