@@ -104,7 +104,7 @@ const currentWork = {
     <td valign="top" width="50%">
       <strong>Recognition</strong>
       <ul>
-        <li>Top ranked in Colombia on HackerOne in Q4 2020, Q3 2021, Q4 2024, and Q4 2025</li>
+        <li>Top ranked in Colombia on HackerOne + HTB in Q4 2020, Q3 2021, Q4 2024, Q4 2025, and Q2 2026</li>
         <li>Specializations in stored XSS, DOM XSS, authentication abuse, and advanced payload techniques</li>
         <li>Active labs and practice across HackTheBox, TryHackMe, and web application research</li>
       </ul>
