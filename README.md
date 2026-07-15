@@ -1,7 +1,7 @@
 # Hi, I'm ҉αkα x⠠⠵ 4k4xs4pH1r3
 
 <div align="center">
-  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&color=00FF00&center=true&vCenter=true&width=700&lines=Cybersecurity;Threat+Intelligence;Bug+Bounty+Hunter;Ethical+Hacker;Purple+Team+%7C+AI+Security" alt="Typing SVG" />
+  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&color=00FF00&center=true&vCenter=true&width=700&lines=Cyber+Security;Threat+Intelligence;Bug+Bounty+Hunter;Ethical+Hacker;Purple+Team+%7C+AI+Security" alt="Typing SVG" />
 </div>
 
 <div align="center">
