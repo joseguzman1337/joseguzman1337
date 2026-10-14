@@ -8,8 +8,11 @@
   <a href="https://hackerone.com/akax/">
     <img src="https://img.shields.io/badge/HackerOne-Top%20Ranked-494649?style=for-the-badge&logo=hackerone&logoColor=white" alt="HackerOne" />
   </a>
+  <a href="https://jose-guzman-security.pretty-gnat-7675.chatgpt.site">
+    <img src="https://img.shields.io/badge/Live%20App-ChatGPT%20Site-C8FF35?style=for-the-badge&logo=openai&logoColor=black" alt="Live App" />
+  </a>
   <a href="https://joseguzman1337.github.io/joseguzman1337/">
-    <img src="https://img.shields.io/badge/Portfolio-Live-FF5722?style=for-the-badge&logo=google-chrome&logoColor=white" alt="Portfolio" />
+    <img src="https://img.shields.io/badge/GitHub%20Pages-Live-FF5722?style=for-the-badge&logo=google-chrome&logoColor=white" alt="Portfolio" />
   </a>
 </div>
 
@@ -42,12 +45,13 @@ Cybersecurity and threat intelligence leader with **23+ years** of experience ac
   </tr>
   <tr>
     <td valign="top" width="50%">
-      <strong>Portfolio Website</strong><br />
-      <a href="https://joseguzman1337.github.io/joseguzman1337/">
+      <strong>Portfolio Website &amp; Live App</strong><br />
+      <a href="https://jose-guzman-security.pretty-gnat-7675.chatgpt.site">
         <img src="./aa.png" alt="Portfolio Website" width="64" />
       </a>
       <br />
-      <a href="https://joseguzman1337.github.io/joseguzman1337/">joseguzman1337.github.io/joseguzman1337</a>
+      ⚡ <strong>Live Portal:</strong> <a href="https://jose-guzman-security.pretty-gnat-7675.chatgpt.site">jose-guzman-security.pretty-gnat-7675.chatgpt.site</a><br />
+      🌐 <strong>GitHub Pages:</strong> <a href="https://joseguzman1337.github.io/joseguzman1337/">joseguzman1337.github.io/joseguzman1337</a>
     </td>
     <td valign="top" width="50%">
       <strong>Focus Snapshot</strong><br />
