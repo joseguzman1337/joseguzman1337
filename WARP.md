@@ -9,7 +9,7 @@ This is a GitHub profile repository (joseguzman1337/joseguzman1337) that serves 
 ## Repository Structure
 
 - **README.md** - Profile README displayed on GitHub profile page
-- **aa.png** - Profile image or logo
+- **src/assets/aa.png** - Profile image or logo
 - **.github/workflows/** - GitHub Actions workflows for security scanning
 - **LICENSE** - GPL-3.0 license file
 

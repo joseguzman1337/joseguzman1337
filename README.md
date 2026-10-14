@@ -47,7 +47,7 @@ Cybersecurity and threat intelligence leader with **23+ years** of experience ac
     <td valign="top" width="50%">
       <strong>Portfolio Website &amp; Live App</strong><br />
       <a href="https://jose-guzman-security.pretty-gnat-7675.chatgpt.site">
-        <img src="./aa.png" alt="Portfolio Website" width="64" />
+        <img src="./src/assets/aa.png" alt="Portfolio Website" width="64" />
       </a>
       <br />
       ⚡ <strong>Live Portal:</strong> <a href="https://jose-guzman-security.pretty-gnat-7675.chatgpt.site">jose-guzman-security.pretty-gnat-7675.chatgpt.site</a><br />
