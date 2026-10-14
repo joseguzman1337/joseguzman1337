@@ -1,28 +1,32 @@
-/* Theme definitions */
+/* Theme definitions: Pitch Black True Dark Mode by default */
 :root {
-    /* Default: Dark Mode */
-    --bg-page: #0c0e0b;
-    --bg-surface: #141712;
-    --bg-surface-alt: #1a1e17;
-    --bg-subtle: #181d15;
-    --ink: #e6eae0;
-    --ink-muted: #8d9585;
-    --ink-subtle: #68705e;
-    --lime: #c8ff35;
-    --lime-soft: rgba(200, 255, 55, 0.12);
-    --line: #262c21;
-    --line-light: #343c2f;
-    --dark: #080a07;
-    --dark-surface: #11140e;
-    --dark-border: #22281e;
+    /* Default: Absolute True Dark Mode (#000000 / OLED Black) */
+    --bg-page: #000000;
+    --bg-surface: #0a0c0a;
+    --bg-surface-alt: #10140f;
+    --bg-subtle: #0d100c;
+    --ink: #f2f5ed;
+    --ink-muted: #9aa293;
+    --ink-subtle: #6a7463;
+    --lime: #00ff66;
+    --lime-glow: rgba(0, 255, 102, 0.4);
+    --lime-soft: rgba(0, 255, 102, 0.08);
+    --line: #1c221a;
+    --line-light: #252e22;
+    --dark: #000000;
+    --dark-surface: #070906;
+    --dark-border: #181f16;
     --accent-red: #ff4d4d;
-    --card-bg: #151812;
+    --card-bg: #080a07;
     --card-shadow: 10px 10px 0 var(--lime);
-    --grid-opacity: 0.05;
+    --grid-opacity: 0.06;
+    --marquee-bg: #070a06;
+    --marquee-color: #00ff66;
+    --marquee-border: #1c221a;
     --max: 1240px;
 }
 
-/* Light Mode Overrides */
+/* Light Mode Overrides (When user clicks "Turn On Lights") */
 html[data-theme="light"] {
     --bg-page: #f0efe8;
     --bg-surface: #faf9f5;
@@ -31,16 +35,20 @@ html[data-theme="light"] {
     --ink: #10120f;
     --ink-muted: #555a51;
     --ink-subtle: #666a60;
-    --lime: #b6f519;
-    --lime-soft: rgba(182, 245, 25, 0.2);
+    --lime: #16a34a;
+    --lime-glow: rgba(22, 163, 74, 0.3);
+    --lime-soft: rgba(22, 163, 74, 0.12);
     --line: #ced0c6;
     --line-light: #e0e2d8;
     --dark: #111510;
     --dark-surface: #181c16;
     --dark-border: #282e24;
     --card-bg: #d9dccf;
-    --card-shadow: 10px 10px 0 #b6f519;
+    --card-shadow: 10px 10px 0 #16a34a;
     --grid-opacity: 0.08;
+    --marquee-bg: #e2fbd7;
+    --marquee-color: #14532d;
+    --marquee-border: #ced0c6;
 }
 
 * {
@@ -49,6 +57,7 @@ html[data-theme="light"] {
 
 html {
     scroll-behavior: smooth;
+    background-color: var(--bg-page);
     transition: background-color 0.25s ease, color 0.25s ease;
 }
 
@@ -66,8 +75,8 @@ body {
     inset: 0 0 auto;
     height: 950px;
     pointer-events: none;
-    background-image: linear-gradient(rgba(200, 255, 55, var(--grid-opacity)) 1px, transparent 1px), 
-                      linear-gradient(90deg, rgba(200, 255, 55, var(--grid-opacity)) 1px, transparent 1px);
+    background-image: linear-gradient(rgba(0, 255, 102, var(--grid-opacity)) 1px, transparent 1px), 
+                      linear-gradient(90deg, rgba(0, 255, 102, var(--grid-opacity)) 1px, transparent 1px);
     background-size: 44px 44px;
     mask-image: linear-gradient(#000, transparent);
 }
@@ -85,6 +94,7 @@ body {
     border-bottom: 1px solid var(--line);
     position: relative;
     z-index: 10;
+    background: var(--bg-page);
 }
 
 .wordmark {
@@ -99,9 +109,10 @@ body {
 
 .wordmark span {
     background: var(--lime);
-    color: #0c0e0b;
+    color: #000000;
     padding: 7px 10px;
     font-weight: 800;
+    box-shadow: 0 0 10px var(--lime-glow);
 }
 
 .nav nav {
@@ -125,6 +136,7 @@ body {
     color: var(--lime);
     text-decoration: underline;
     text-underline-offset: 5px;
+    text-shadow: 0 0 8px var(--lime-glow);
 }
 
 .nav-actions {
@@ -141,7 +153,7 @@ body {
     background: var(--bg-surface);
     color: var(--ink);
     border: 1px solid var(--line);
-    padding: 8px 13px;
+    padding: 8px 14px;
     font: 600 11px 'DM Mono', monospace;
     cursor: pointer;
     text-transform: uppercase;
@@ -152,9 +164,9 @@ body {
 
 .theme-toggle-btn:hover {
     background: var(--lime);
-    color: #0c0e0b;
+    color: #000000;
     border-color: var(--lime);
-    box-shadow: 0 0 14px rgba(200, 255, 55, 0.3);
+    box-shadow: 0 0 16px var(--lime-glow);
 }
 
 .theme-toggle-btn .toggle-icon {
@@ -166,23 +178,24 @@ body {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: var(--lime);
-    color: #0c0e0b;
+    background: transparent;
+    color: var(--lime);
     border: 1px solid var(--lime);
-    padding: 9px 13px;
+    padding: 8px 13px;
     font-weight: 700;
     border-radius: 2px;
+    box-shadow: 0 0 10px var(--lime-soft);
 }
 
 .nav-live:hover {
-    background: transparent;
-    color: var(--lime);
-    box-shadow: 0 0 12px rgba(200, 255, 55, 0.25);
+    background: var(--lime);
+    color: #000000;
+    box-shadow: 0 0 16px var(--lime-glow);
 }
 
 .nav-cta {
     border: 1px solid var(--line);
-    padding: 9px 13px;
+    padding: 8px 13px;
     border-radius: 2px;
 }
 
@@ -196,6 +209,7 @@ body {
 .hero {
     padding: 84px 0 0;
     position: relative;
+    background: var(--bg-page);
 }
 
 .signal,
@@ -228,15 +242,15 @@ body {
 .signal.pulse i {
     width: 8px;
     height: 8px;
-    background: #4aaa27;
+    background: var(--lime);
     border-radius: 50%;
-    box-shadow: 0 0 0 3px #4aaa2726;
+    box-shadow: 0 0 0 3px rgba(0, 255, 102, 0.2);
     animation: statusPulse 2s infinite ease-in-out;
 }
 
 @keyframes statusPulse {
-    0%, 100% { box-shadow: 0 0 0 3px #4aaa2726; }
-    50% { box-shadow: 0 0 0 7px #4aaa2745; }
+    0%, 100% { box-shadow: 0 0 0 3px rgba(0, 255, 102, 0.2); }
+    50% { box-shadow: 0 0 0 8px rgba(0, 255, 102, 0.4); }
 }
 
 .signal.interactive {
@@ -248,7 +262,8 @@ body {
 
 .signal.interactive:hover {
     background: var(--lime);
-    color: #0c0e0b;
+    color: #000000;
+    box-shadow: 0 0 14px var(--lime-glow);
 }
 
 .hero-grid {
@@ -278,6 +293,7 @@ h2 em {
     font-weight: 400;
     font-style: italic;
     color: var(--lime);
+    text-shadow: 0 0 12px var(--lime-soft);
 }
 
 .lede {
@@ -310,15 +326,16 @@ h2 em {
 }
 
 .button.primary {
-    background: var(--ink);
-    color: var(--bg-page);
-    border-color: var(--ink);
+    background: var(--bg-surface-alt);
+    color: var(--ink);
+    border-color: var(--line-light);
 }
 
 .button.primary:hover {
     background: var(--lime);
-    color: #0c0e0b;
+    color: #000000;
     border-color: var(--lime);
+    box-shadow: 0 0 18px var(--lime-glow);
     transform: translateY(-1px);
 }
 
@@ -327,7 +344,7 @@ h2 em {
 }
 
 .button.primary:hover span {
-    color: #0c0e0b;
+    color: #000000;
 }
 
 .button.secondary {
@@ -344,15 +361,16 @@ h2 em {
 
 .button.highlight {
     background: var(--lime);
-    color: #0c0e0b;
+    color: #000000;
     border-color: var(--lime);
     font-weight: 700;
+    box-shadow: 0 0 14px var(--lime-glow);
 }
 
 .button.highlight:hover {
     background: transparent;
     color: var(--lime);
-    box-shadow: 0 0 16px rgba(200, 255, 55, 0.25);
+    box-shadow: 0 0 20px var(--lime-glow);
 }
 
 /* Profile Card */
@@ -369,7 +387,7 @@ h2 em {
     width: 100%;
     height: auto;
     display: block;
-    filter: grayscale(1) contrast(1.1);
+    filter: grayscale(1) contrast(1.15);
 }
 
 .scanline {
@@ -459,17 +477,18 @@ h2 em {
 
 .portal-badge {
     background: var(--lime);
-    color: #0c0e0b;
+    color: #000000;
     padding: 5px 9px;
     font: 800 10px 'DM Mono', monospace;
     text-transform: uppercase;
     letter-spacing: 0.08em;
+    box-shadow: 0 0 10px var(--lime-glow);
 }
 
 .portal-text p {
     margin: 0;
     font-size: 14px;
-    color: #d1d6cc;
+    color: #cdd5c8;
 }
 
 .portal-text strong {
@@ -487,22 +506,23 @@ h2 em {
     text-decoration: none;
     font: 600 11px 'DM Mono', monospace;
     transition: all 0.2s ease;
+    box-shadow: 0 0 10px var(--lime-soft);
 }
 
 .portal-btn:hover {
     background: var(--lime);
-    color: #0c0e0b;
-    box-shadow: 0 0 12px rgba(200, 255, 55, 0.3);
+    color: #000000;
+    box-shadow: 0 0 18px var(--lime-glow);
 }
 
-/* Marquee */
+/* Marquee: Obsidian Dark in dark mode, light accent in light mode */
 .marquee {
     overflow: hidden;
-    background: var(--lime);
-    color: #0c0e0b;
-    border-bottom: 1px solid var(--line);
+    background: var(--marquee-bg);
+    color: var(--marquee-color);
+    border-bottom: 1px solid var(--marquee-border);
     font: 700 11px 'DM Mono', monospace;
-    padding: 12px 0;
+    padding: 13px 0;
     white-space: nowrap;
 }
 
@@ -514,6 +534,7 @@ h2 em {
 .marquee b {
     margin: 0 28px;
     font-weight: 500;
+    opacity: 0.8;
 }
 
 @keyframes marquee {
@@ -523,6 +544,7 @@ h2 em {
 /* Sections */
 .section {
     padding: 110px 0;
+    background: var(--bg-page);
 }
 
 .section-head {
@@ -567,6 +589,7 @@ h2 em {
 
 .expertise-grid article:hover {
     background: var(--bg-surface-alt);
+    border-color: var(--line-light);
 }
 
 .expertise-grid article:nth-child(2n) {
@@ -586,6 +609,7 @@ h2 em {
     font-size: 38px;
     margin: 24px 0 18px;
     color: var(--lime);
+    text-shadow: 0 0 14px var(--lime-glow);
 }
 
 .expertise-grid h3 {
@@ -643,6 +667,7 @@ h2 em {
     font: 600 12px 'DM Mono', monospace;
     color: var(--lime);
     display: block;
+    text-shadow: 0 0 8px var(--lime-soft);
 }
 
 .timeline-meta small {
@@ -677,11 +702,12 @@ h2 em {
     text-align: right;
     font: 600 10px 'DM Mono', monospace;
     background: var(--lime);
-    color: #0c0e0b;
+    color: #000000;
     padding: 8px 12px;
     align-self: start;
     width: fit-content;
     margin-left: auto;
+    box-shadow: 0 0 10px var(--lime-glow);
 }
 
 /* Dark Projects Section */
@@ -700,7 +726,7 @@ h2 em {
 }
 
 .projects {
-    border-top: 1px solid #22281e;
+    border-top: 1px solid var(--line);
 }
 
 .projects a {
@@ -711,13 +737,13 @@ h2 em {
     color: white;
     text-decoration: none;
     padding: 34px 0;
-    border-bottom: 1px solid #22281e;
+    border-bottom: 1px solid var(--line);
     transition: all .25s ease;
 }
 
 .projects a:hover {
     padding-left: 14px;
-    background: rgba(200, 255, 55, 0.05);
+    background: rgba(0, 255, 102, 0.04);
 }
 
 .projects a > span,
@@ -749,6 +775,7 @@ h2 em {
 
 .projects a:hover > b {
     transform: translate(4px, -4px);
+    text-shadow: 0 0 10px var(--lime);
 }
 
 .all-work {
@@ -759,12 +786,13 @@ h2 em {
     font: 500 12px 'DM Mono', monospace;
     margin-top: 36px;
     padding: 16px 20px;
-    border: 1px solid #22281e;
+    border: 1px solid var(--line);
     transition: border-color 0.2s ease;
 }
 
 .all-work:hover {
     border-color: var(--lime);
+    box-shadow: 0 0 12px var(--lime-soft);
 }
 
 .all-work span {
@@ -809,7 +837,7 @@ h2 em {
     font-size: 16px;
 }
 
-/* Connect / Contact Section */
+/* Connect / Contact Section: True Pitch Black in dark mode */
 .contact {
     background: var(--dark-surface);
     border-block: 1px solid var(--line);
@@ -834,10 +862,12 @@ html[data-theme="light"] .contact {
 
 .contact h2 em {
     color: var(--lime);
+    text-shadow: 0 0 14px var(--lime-glow);
 }
 
 html[data-theme="light"] .contact h2 em {
-    color: #2e3723;
+    color: #14532d;
+    text-shadow: none;
 }
 
 .contact p:not(.eyebrow) {
@@ -848,7 +878,7 @@ html[data-theme="light"] .contact h2 em {
 }
 
 html[data-theme="light"] .contact p:not(.eyebrow) {
-    color: #1f2518;
+    color: #14532d;
 }
 
 .contact-links {
@@ -873,20 +903,22 @@ html[data-theme="light"] .contact p:not(.eyebrow) {
 
 .contact-links a:hover {
     background: var(--lime);
-    color: #0c0e0b;
+    color: #000000;
     border-color: var(--lime);
+    box-shadow: 0 0 16px var(--lime-glow);
 }
 
 .contact-links a.featured-link {
     background: var(--lime);
-    color: #0c0e0b;
+    color: #000000;
     border-color: var(--lime);
+    box-shadow: 0 0 12px var(--lime-glow);
 }
 
 .contact-links a.featured-link:hover {
     background: transparent;
     color: var(--lime);
-    box-shadow: 0 0 14px rgba(200, 255, 55, 0.3);
+    box-shadow: 0 0 18px var(--lime-glow);
 }
 
 /* Footer */
@@ -897,6 +929,7 @@ footer {
     justify-content: space-between;
     font: 500 10px 'DM Mono', monospace;
     color: var(--ink-subtle);
+    background: var(--bg-page);
 }
 
 footer a {
